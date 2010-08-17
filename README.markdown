@@ -7,6 +7,7 @@ DynamicImage helps you simplify the way you deal with images in your ASP.NET web
 ### API
 
 DynamicImage allows images to be created in two ways:
+
 1. Declaratively, using an ASP.NET server control:
 		<sitdap:DynamicImage runat="server" ImageFormat="Jpeg">
 			<Layers>
@@ -93,5 +94,4 @@ and run with good performance in a server environment.
 
 
 #### DynamicImage is made available to the community by Sound in Theory Ltd, a web design company based in Exeter, United Kingdom.  
-
 [Sound in Theory Ltd](http://www.sitdap.com)

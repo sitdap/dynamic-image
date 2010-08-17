@@ -1,0 +1,88 @@
+# DynamicImage
+
+This is the source code repository for DynamicImage, an open source image manipulation library for ASP.NET.
+DynamicImage helps you simplify the way you deal with images in your ASP.NET websites.
+
+## Layers
+
+Images in DynamicImage are composed of one or more layers, and each layer can have zero or more filters applied.
+DynamicImage includes several built-in layer types, and it is straightforward to create your own.
+* Image Layer
+* Fractal Layer (Julia and Mandelbrot)
+* Polygon Shape Layer
+* Rectangle Shape Layer
+* Text Layer
+
+## Image Sources
+
+Image Layers accept input from a variety of sources, and it is also straightforward to write your own ImageSource.
+The image sources included with DynamicImage let you load images from:
+* Raw bytes
+* Binary database field
+* File
+* System.Windows.Media.Imaging.BitmapSource object
+
+## Filters
+
+Filters are applied to layers to modify them in some way. DynamicImage provides more than 15 filters you can apply to your images, including:
+* Brightness Adjustment
+* Clipping Mask
+* Colour Key
+* Colour Tint
+* Contrast Adjustment
+* Crop
+* Distort Corners
+* Drop Shadow
+* Emboss
+* Feather
+* Gaussian Blur
+* Grayscale
+* Inversion
+* Opacity Adjustment
+* Outer Glow
+* Resize
+* Rotation
+* Sepia
+* Shiny Floor
+
+## API
+
+DynamicImage allows images to be created in two ways:
+1. Declaratively, using an ASP.NET server control:
+		<sitdap:DynamicImage runat="server" ImageFormat="Jpeg">
+			<Layers>
+				<sitdap:ImageLayer SourceFileName="~/Assets/Images/AutumnLeaves.jpg">
+					<Filters>
+						<sitdap:ResizeFilter Mode="Uniform" Height="200" />
+					</Filters>
+				</sitdap:ImageLayer>
+			</Layers>
+		</sitdap:DynamicImage>
+
+2. Programmatically, using a fluent interface:
+		string imageUrl = new DynamicImageBuilder()
+			.WithLayer(LayerBuilder.Image.SourceFile("myimage.png")
+				.WithFilter(FilterBuilder.Resize.ToWidth(800))
+			)
+			.WithLayer(LayerBuilder.Text.Text("Hello World")
+				.WithFilter(FilterBuilder.OuterGlow)
+			).Url;
+
+## Caching
+
+Output images can be cached, based on settings in web.config. You can write your own cache provider,
+and the built-in cache providers are:
+* In-memory
+* Sqlite file-based database
+
+## Underpinnings
+
+DynamicImage uses Windows Presentation Foundation (WPF) internally for bitmap manipulation.
+Most of the filters are written as WPF shader effects, which are compiled into fast SSE instructions,
+and run very fast in a server environment.
+
+
+***
+
+DynamicImage is made available to the community by Sound in Theory Ltd, a web design company based in Exeter, United Kingdom.
+[Sound in Theory Ltd](http://www.sitdap.com)

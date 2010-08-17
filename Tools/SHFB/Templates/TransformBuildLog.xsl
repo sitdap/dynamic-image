@@ -7,13 +7,16 @@
 // System  : Sandcastle Help File Builder
 // File    : BuildLog.xsl
 // Author  : Eric Woodruff
-// Updated : 12/18/2008
-// Note    : Copyright 2008, Eric Woodruff, All rights reserved
+// Updated : 12/30/2009
+// Note    : Copyright 2008-2009, Eric Woodruff, All rights reserved
 //
 // This is used to convert a SHFB build log into a viewable HTML page.
 -->
 
+  <xsl:param name="filterOn" select="'false'" />
+
   <msxsl:script language="C#" implements-prefix="shfb">
+  <msxsl:using namespace="System.Text" />
   <msxsl:using namespace="System.Text.RegularExpressions" />
     <![CDATA[
     private static Regex reScriptName = new Regex(@"^\[.*?\\.*?\]|" +
@@ -32,21 +35,41 @@
 
     // Encode a few special characters, add a style to script names, warnings,
     // and errors, and return a non-breaking space if empty.
-    public static string StyleLogText(string logText)
+    public static string StyleLogText(string logText, string filterOn)
     {
         // System.Web isn't always available so do some simple encoding
         logText = logText.Trim().Replace("&", "&amp;");
         logText = logText.Replace("<", "&lt;");
         logText = logText.Replace(">", "&gt;");
 
-        logText = reScriptName.Replace(logText,
-            "<span class=\"ScriptName\">$0</span>");
+        // Include all text or just filter for warnings and errors?
+        if(filterOn == "false")
+        {
+            logText = reScriptName.Replace(logText, "<span class=\"ScriptName\">$0</span>");
+            logText = reWarning.Replace(logText, "<span class=\"Warning\">$0</span>");
+            logText = reErrors.Replace(logText, "<span class=\"Error\">$0</span>");
+        }
+        else
+        {
+            StringBuilder sb = new StringBuilder(2048);
 
-        logText = reWarning.Replace(logText,
-            "<span class=\"Warning\">$0</span>");
+            foreach(string s in logText.Split('\n'))
+            {
+                if(reWarning.IsMatch(s))
+                {
+                    sb.Append(reWarning.Replace(s, "<span class=\"Warning\">$0</span>"));
+                    sb.Append('\n');
+                }
+                else
+                    if(reErrors.IsMatch(s))
+                    {
+                        sb.Append(reErrors.Replace(s, "<span class=\"Error\">$0</span>"));
+                        sb.Append('\n');
+                    }
+            }
 
-        logText = reErrors.Replace(logText,
-            "<span class=\"Error\">$0</span>");
+            logText = sb.ToString();
+        }
 
         return (logText.Length == 0) ? "&#160;" : logText;
     }
@@ -62,10 +85,10 @@
 <title><xsl:value-of select="product"/></title>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" />
 <style>
-  body { font-size: 10pt; font-family: Arial, Verdana, sans-serif; color: black; background-color: white; }
+  body { font-size: 8pt; font-family: Arial, Verdana, sans-serif; color: black; background-color: white; }
   h3 { margin: 0px; }
   h4 { margin: 0px; }
-  pre { font-family: Consolas, "Courier New", Courier, monospace; font-size: 10pt; margin-top: 0px; margin-left: 20px; margin-bottom: 20px; padding: 0px; }
+  pre { font-family: Consolas, "Courier New", Courier, monospace; font-size: 8pt; margin-top: 0px; margin-left: 20px; margin-bottom: 20px; padding: 0px; }
   .SectionHeader { background-color: #0066cc; color: white; padding: 5px; width: 95%; margin-left: 0px; margin-right: 2px; margin-top: 0px; padding: 2px; }
   .CollapsedHeader { background-color: #dcdcdc; color: black; padding: 5px; width: 95%; margin-left: 0px; margin-right: 2px; margin-top: 0px; padding: 2px; }
   .Warning { font-weight: bold; background-color: #ffd700; padding: 2px; }
@@ -81,6 +104,11 @@
 <h3><xsl:value-of select="@product"/>&#160;<xsl:value-of select="@version"/> Build Log</h3>
 <h4>Project File: <xsl:value-of select="@projectFile"/></h4>
 <h4>Build Started: <xsl:value-of select="@started"/></h4>
+
+<xsl:if test="$filterOn = 'true'">
+(Filtered for warnings and errors only)
+</xsl:if>
+
 <br/><hr/>
 <a href="#" onclick="javascript: ExpandCollapseAll(false);">Collapse All</a>&#160;&#160;&#160;&#160;<a href="#" onclick="javascript: ExpandCollapseAll(true);">Expand All</a>
 <hr/>
@@ -143,13 +171,13 @@ function ExpandCollapseAll(expand)
   <!-- Plug-in template -->
   <xsl:template match="plugIn">
     <div class="PlugIn"><span class="PlugInHeader"><b>Plug-In:</b>&#160;<xsl:value-of select="@name" />&#160;&#160;<b>Running:</b>&#160;<xsl:value-of select="@behavior" />&#160;&#160;<b>Priority:</b>&#160;<xsl:value-of select="@priority" /></span><br/>
-      <xsl:value-of select="shfb:StyleLogText(text())" disable-output-escaping="yes" />
+      <xsl:value-of select="shfb:StyleLogText(text(), $filterOn)" disable-output-escaping="yes" />
     </div>
   </xsl:template>
 
   <!-- Text template -->
   <xsl:template match="text()">
-    <xsl:value-of select="shfb:StyleLogText(.)" disable-output-escaping="yes" />
+    <xsl:value-of select="shfb:StyleLogText(., $filterOn)" disable-output-escaping="yes" />
   </xsl:template>
 
 </xsl:stylesheet>

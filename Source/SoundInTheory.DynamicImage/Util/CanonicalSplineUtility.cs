@@ -5,8 +5,9 @@ using System.Windows.Media;
 namespace SoundInTheory.DynamicImage.Util
 {
 	/// <summary>
-	/// From http://www.charlespetzold.com/blog/2009/01/Canonical-Splines-in-WPF-and-Silverlight.html.
+	/// Reproduces the missing canonical spline functionality from WinForms in WPF.
 	/// </summary>
+	/// <see cref="http://www.charlespetzold.com/blog/2009/01/Canonical-Splines-in-WPF-and-Silverlight.html."/>
 	internal static class CanonicalSplineHelper
 	{
 		internal static PathGeometry CreateSpline(PointCollection pts, double tension, DoubleCollection tensions,

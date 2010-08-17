@@ -1,5 +1,5 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <!-- Sandcastle Help File Builder Tasks.  http://www.codeplex.com/SHFB -->
+  <!-- Sandcastle Help File Builder Tasks.  http://SHFB.CodePlex.com -->
   <UsingTask TaskName="SandcastleBuilder.Utils.MSBuild.BuildHelp"
     AssemblyFile="$(SHFBROOT)\SandcastleBuilder.Utils.dll" />
   <UsingTask TaskName="SandcastleBuilder.Utils.MSBuild.CleanHelp"
@@ -20,7 +20,7 @@
 
   <!-- The Core Build Help target -->
   <Target Name="CoreBuildHelp">
-    <BuildHelp
+    <SandcastleBuilder.Utils.MSBuild.BuildHelp
         ProjectFile="$(MSBuildProjectFullPath)"
         Configuration="$(Configuration)"
         Platform="$(Platform)"
@@ -30,9 +30,10 @@
         AlwaysLoadProject="$(AlwaysLoadProject)">
       <Output TaskParameter="Help1Files" ItemName="Help1Files" />
       <Output TaskParameter="Help2Files" ItemName="Help2Files" />
+      <Output TaskParameter="HelpViewerFiles" ItemName="HelpViewerFiles" />
       <Output TaskParameter="WebsiteFiles" ItemName="WebsiteFiles" />
       <Output TaskParameter="AllHelpFiles" ItemName="AllHelpFiles" />
-    </BuildHelp>
+    </SandcastleBuilder.Utils.MSBuild.BuildHelp>
   </Target>
 
   <!-- The following targets may be overridden in project files to perform
@@ -53,7 +54,7 @@
 
   <!-- The Core Clean Help target -->
   <Target Name="CoreCleanHelp">
-    <CleanHelp
+    <SandcastleBuilder.Utils.MSBuild.CleanHelp
         ProjectFile="$(MSBuildProjectFullPath)"
         OutputPath="$(OutputPath)"
         WorkingPath="$(WorkingPath)"

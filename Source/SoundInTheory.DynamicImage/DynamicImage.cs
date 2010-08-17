@@ -6,6 +6,9 @@ using System.Web;
 
 namespace SoundInTheory.DynamicImage
 {
+	/// <summary>
+	/// An ASP.NET server control that generates images from a collection of layers.
+	/// </summary>
 	[Designer("SoundInTheory.DynamicImage.Design.DynamicImageDesigner, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067")]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public class DynamicImage : System.Web.UI.WebControls.Image, IDynamicImageControl

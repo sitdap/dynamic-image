@@ -17,11 +17,11 @@
     <OutputPath>.\Help\</OutputPath>
     <HtmlHelpName>SoundInTheory.DynamicImage</HtmlHelpName>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\Source\DynamicImage\SoundInTheory.DynamicImage.csproj" xmlns="" />
+      <DocumentationSource sourceFile="..\Source\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj" xmlns="" />
     </DocumentationSources>
     <PresentationStyle>vs2005</PresentationStyle>
     <HelpTitle>DynamicImage</HelpTitle>
-    <Preliminary>True</Preliminary>
+    <Preliminary>False</Preliminary>
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <RootNamespaceTitle>Class Reference</RootNamespaceTitle>
   </PropertyGroup>

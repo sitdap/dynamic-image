@@ -1,5 +1,5 @@
 ﻿<Project DefaultTargets="Transform" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
-  <!-- Sandcastle Help File Builder Tasks.  http://www.codeplex.com/SHFB -->
+  <!-- Sandcastle Help File Builder Tasks.  http://SHFB.CodePlex.com -->
   <UsingTask TaskName="SandcastleBuilder.Utils.MSBuild.XslTransform"
     AssemblyFile="$(SHFBROOT)\SandcastleBuilder.Utils.dll" />
 
@@ -25,7 +25,7 @@
   <!-- The Transform Manifest target -->
   <Target Name="TransformManifest">
     <!-- Transform the reflection output based on the presentation style -->
-    <XslTransform Condition="'$(PresentationStyle)' == 'vs2005'"
+    <SandcastleBuilder.Utils.MSBuild.XslTransform Condition="'$(PresentationStyle)' == 'vs2005'"
       SandcastlePath="$(SandcastlePath)"
       WorkingFolder="$(WorkingFolder)"
       Transformations="ProductionTransforms\ApplyVSDocModel.xsl;ProductionTransforms\AddGuidFilenames.xsl"
@@ -33,7 +33,7 @@
       InputFile="reflection.org"
       OutputFile="reflection.xml" />
 
-    <XslTransform Condition="'$(PresentationStyle)' == 'hana'"
+    <SandcastleBuilder.Utils.MSBuild.XslTransform Condition="'$(PresentationStyle)' == 'hana'"
       SandcastlePath="$(SandcastlePath)"
       WorkingFolder="$(WorkingFolder)"
       Transformations="ProductionTransforms\ApplyVSDocModel.xsl;ProductionTransforms\AddGuidFilenames.xsl"
@@ -41,7 +41,7 @@
       InputFile="reflection.org"
       OutputFile="reflection.xml" />
 
-    <XslTransform Condition="'$(PresentationStyle)' == 'prototype'"
+    <SandcastleBuilder.Utils.MSBuild.XslTransform Condition="'$(PresentationStyle)' == 'prototype'"
       SandcastlePath="$(SandcastlePath)"
       WorkingFolder="$(WorkingFolder)"
       Transformations="ProductionTransforms\ApplyPrototypeDocModel.xsl;ProductionTransforms\AddGuidFilenames.xsl"
@@ -49,7 +49,7 @@
       OutputFile="reflection.xml" />
 
     <!-- Generate the topic manifest -->
-    <XslTransform
+    <SandcastleBuilder.Utils.MSBuild.XslTransform
       SandcastlePath="$(SandcastlePath)"
       WorkingFolder="$(WorkingFolder)"
       Transformations="ProductionTransforms\ReflectionToManifest.xsl"

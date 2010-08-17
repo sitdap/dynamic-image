@@ -217,10 +217,8 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 		/// Checks the current version of the Sqlite database, and upgrades it
 		/// if necessary. We don't use a proper migration tool, because it would bloat
 		/// the DynamicImage deployment size.
-		/// 
-		/// Used http://www.csharphacker.com/technicalblog/index.php/2009/06/28/sqlite-for-c-%E2%80%93-part-3-%E2%80%93-my-first-c-app-using-sqlite-aka-hello-world/
-		/// as a reference.
 		/// </summary>
+		/// <see cref="http://www.csharphacker.com/technicalblog/index.php/2009/06/28/sqlite-for-c-%E2%80%93-part-3-%E2%80%93-my-first-c-app-using-sqlite-aka-hello-world/"/>
 		private void CheckDatabaseVersion()
 		{
 			try

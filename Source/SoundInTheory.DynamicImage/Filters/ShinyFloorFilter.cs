@@ -116,62 +116,6 @@ namespace SoundInTheory.DynamicImage.Filters
 
 			// Draw original image.
 			dc.DrawImage(source.InnerBitmap, new Rect(0, 0, source.Width, source.Height));
-
-			/*// Prepare reflected image.
-			int reflectionHeight = (int)(source.Height * (this.ReflectionPercentage / 100.0f));
-			Image reflectedImage = new Bitmap(source.Width, reflectionHeight);
-
-			// Draw just the reflection on a second graphics buffer.
-			using (Graphics gReflection = Graphics.FromImage(reflectedImage))
-			{
-				gReflection.DrawImage(source.InnerBitmap,
-															new Rectangle(0, 0, reflectedImage.Width, reflectedImage.Height),
-															0, source.Height - reflectedImage.Height, reflectedImage.Width, reflectedImage.Height,
-															GraphicsUnit.Pixel);
-			}
-			reflectedImage.RotateFlip(RotateFlipType.RotateNoneFlipY);
-			Rectangle imageRectangle = new Rectangle(0, GetReflectionOffsetY(source), reflectedImage.Width, reflectedImage.Height);
-
-			// Draw reflected image on original graphics buffer.
-			g.DrawImage(reflectedImage, imageRectangle,
-									0, 0, reflectedImage.Width, reflectedImage.Height,
-									GraphicsUnit.Pixel);
-
-			// Draw a nice alpha gradient. There is a known bug with LinearGradientBrush
-			// which means it will fill the first line with the final colour. So we make the rectangle a pixel higher
-			// to compensate: http://stackoverflow.com/questions/110081/lineargradientbrush-artifact-workaround.
-			FastBitmap gradientImage = new FastBitmap(new Bitmap(imageRectangle.Width, imageRectangle.Height, PixelFormat.Format32bppArgb));
-			using (Graphics gradientGraphics = Graphics.FromImage(gradientImage.InnerBitmap))
-			{
-				Rectangle gradientRectangle = new Rectangle(Point.Empty, gradientImage.InnerBitmap.Size);
-				int alpha = (int)(255.0f * (ReflectionOpacity / 100.0f));
-				using (LinearGradientBrush brush = new LinearGradientBrush(Rectangle.Inflate(gradientRectangle, 1, 1),
-																																	 Color.FromArgb(alpha, alpha, alpha),
-																																	 Color.Black, LinearGradientMode.Vertical))
-				{
-					gradientGraphics.FillRectangle(brush, gradientRectangle);
-				}
-			}
-
-			try
-			{
-				destination.Lock();
-				gradientImage.Lock();
-				for (int y = imageRectangle.Top; y < imageRectangle.Bottom; ++y)
-					for (int x = imageRectangle.Left; x < imageRectangle.Right; ++x)
-					{
-						int alpha = gradientImage[x - imageRectangle.Left, y - imageRectangle.Top].R;
-						destination[x, y] = Color.FromArgb(alpha, destination[x, y]);
-					}
-			}
-			finally
-			{
-				gradientImage.Unlock();
-				destination.Unlock();
-			}
-
-			// Finally, draw original image in (this is last so the original image is always on top).
-			g.DrawImage(source.InnerBitmap, 0, 0, source.Width, source.Height);*/
 		}
 
 		private int GetReflectionOffsetY(FastBitmap source)

@@ -7,8 +7,9 @@ using SoundInTheory.DynamicImage.Util;
 namespace SoundInTheory.DynamicImage
 {
 	/// <summary>
-	/// http://delivery.acm.org/10.1145/810000/808606/p253-porter.pdf?key1=808606&key2=4919031521&coll=GUIDE&dl=GUIDE&CFID=50119817&CFTOKEN=68259268
+	/// This class controls how layers and blended together. It uses a shader effect to do the actual blending.
 	/// </summary>
+	/// <see cref="http://delivery.acm.org/10.1145/810000/808606/p253-porter.pdf?key1=808606&key2=4919031521&coll=GUIDE&dl=GUIDE&CFID=50119817&CFTOKEN=68259268"/>
 	internal static class LayerBlender
 	{
 		public static FastBitmap BlendLayers(FastBitmap output, IEnumerable<Layer> layers)

@@ -5,8 +5,9 @@ using SoundInTheory.DynamicImage.Util;
 namespace SoundInTheory.DynamicImage
 {
 	/// <summary>
-	/// http://student.kuleuven.be/~m0216922/CG/juliamandelbrot.html
+	/// The base class for fractal layers.
 	/// </summary>
+	/// <see cref="http://student.kuleuven.be/~m0216922/CG/juliamandelbrot.html"/>
 	public abstract class FractalLayer : Layer
 	{
 		#region Properties

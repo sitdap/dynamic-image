@@ -1,5 +1,5 @@
 ﻿<Project DefaultTargets="Generate" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
-  <!-- Sandcastle Help File Builder Tasks.  http://www.codeplex.com/SHFB -->
+  <!-- Sandcastle Help File Builder Tasks.  http://SHFB.CodePlex.com -->
   <UsingTask TaskName="SandcastleBuilder.Utils.MSBuild.MRefBuilder"
     AssemblyFile="$(SHFBROOT)\SandcastleBuilder.Utils.dll" />
   <UsingTask TaskName="SandcastleBuilder.Utils.MSBuild.XslTransform"
@@ -40,7 +40,7 @@
          resolve them to absolute paths that can be passed to MRefBuilder
          using the /dep command line option.  Assembly build items are added
          by the build process to define the assemblies to reflect. -->
-    <MRefBuilder
+    <SandcastleBuilder.Utils.MSBuild.MRefBuilder
       DocumentInternals="$(DocInternals)"
       SandcastlePath="$(SandcastlePath)"
       WorkingFolder="$(WorkingFolder)"
@@ -50,7 +50,7 @@
     <!-- Merge duplicate topics (if any) -->
     <Copy SourceFiles="reflection.org" DestinationFiles="reflection.all" />
 
-    <XslTransform
+    <SandcastleBuilder.Utils.MSBuild.XslTransform
       SandcastlePath="$(SandcastlePath)"
       WorkingFolder="$(WorkingFolder)"
       Transformations="ProductionTransforms\MergeDuplicates.xsl"

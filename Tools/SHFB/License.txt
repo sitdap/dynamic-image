@@ -63,19 +63,21 @@ purpose and non-infringement.
 
 Copyright Notices
 -----------------
-The ICSharpCode.TextEditor is Copyright (c) 2000-2009 IC#Code, All Rights
+The ICSharpCode.TextEditor is Copyright (c) 2000-2010 IC#Code, All Rights
 Reserved.
 
-The Weifen Luo DockPanel Suite is Copyright (c) 2007-2009 Weifen Luo, All
+The Weifen Luo DockPanel Suite is Copyright (c) 2007-2010 Weifen Luo, All
 Rights Reserved.
 
-AjaxDoc is Copyright (c) 2006-2009 Bertrand Le Roy, All Rights Reserved.
+The Ionic.Zip Library is Copyright (c) 2009-2010 Dino Chiesa, All Rights Reserved.
 
-Script# is Copyright (c) 2007-2009 Nikhil Kothari, All Rights Reserved.
+AjaxDoc is Copyright (c) 2006-2010 Bertrand Le Roy, All Rights Reserved.
 
-SBAppLocale is Copyright 2005-2009 Steel Bytes, All Rights Reserved.
+Script# is Copyright (c) 2007-2010 Nikhil Kothari, All Rights Reserved.
 
-The code colorizer library is Copyright (c) 2003-2009, Jonathan de Halleux,
+SBAppLocale is Copyright 2005-2010 Steel Bytes, All Rights Reserved.
+
+The code colorizer library is Copyright (c) 2003-2010, Jonathan de Halleux,
 All Rights Reserved.
 
-All other code is Copyright (c) 2006-2009, Eric Woodruff, All Rights Reserved.
+All other code is Copyright (c) 2006-2010, Eric Woodruff, All Rights Reserved.

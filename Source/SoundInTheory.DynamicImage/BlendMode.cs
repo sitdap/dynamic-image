@@ -1,8 +1,7 @@
 namespace SoundInTheory.DynamicImage
 {
 	/// <summary>
-	/// http://www.adobe.com/devnet/pdf/pdfs/blend_modes.pdf
-	/// http://oglop.spaces.live.com/blog/cns!FFF33B1F18C7ACFF!596.entry?wa=wsignin1.0&sa=273714298
+	/// Used to affect how layers are blended together.
 	/// </summary>
 	public enum BlendMode
 	{

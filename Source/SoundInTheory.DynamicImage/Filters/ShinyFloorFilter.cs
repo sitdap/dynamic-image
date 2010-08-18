@@ -23,7 +23,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		[Browsable(true), Category("Appearance"), DefaultValue(50), Description("Gets or sets the percentage of the image height that will be reflected.")]
 		public byte ReflectionPercentage
 		{
-			get { return (byte)(ViewState["ReflectionPercentage"] ?? 50); }
+			get { return (byte)(ViewState["ReflectionPercentage"] ?? (byte) 50); }
 			set
 			{
 				if (value < 0 || value > 100)

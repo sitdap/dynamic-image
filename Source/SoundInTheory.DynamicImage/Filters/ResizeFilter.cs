@@ -40,7 +40,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			{
 				object value = ViewState["Mode"];
 				if (value != null)
-					return (ResizeMode) value;
+					return (ResizeMode)value;
 				return ResizeMode.Uniform;
 			}
 			set
@@ -59,7 +59,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			{
 				object value = ViewState["Width"];
 				if (value != null)
-					return (Unit) value;
+					return (Unit)value;
 				return Unit.Pixel(200);
 			}
 			set
@@ -78,7 +78,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			{
 				object value = ViewState["Height"];
 				if (value != null)
-					return (Unit) value;
+					return (Unit)value;
 				return Unit.Pixel(200);
 			}
 			set
@@ -118,7 +118,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			{
 				object value = this.ViewState["EnlargeImage"];
 				if (value != null)
-					return (bool) value;
+					return (bool)value;
 				return false;
 			}
 			set
@@ -151,7 +151,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			int? requestedWidth = null, requestedHeight = null;
 			switch (Mode)
 			{
-				case ResizeMode.UseWidth :
+				case ResizeMode.UseWidth:
 					if (EnlargeImage || calculatedWidth < source.Width)
 						requestedWidth = calculatedWidth;
 					break;
@@ -159,11 +159,11 @@ namespace SoundInTheory.DynamicImage.Filters
 					if (EnlargeImage || calculatedHeight < source.Height)
 						requestedHeight = calculatedHeight;
 					break;
-				case ResizeMode.Fill :
+				case ResizeMode.Fill:
 					requestedWidth = calculatedWidth;
 					requestedHeight = calculatedHeight;
 					break;
-				case ResizeMode.Uniform :
+				case ResizeMode.Uniform:
 					// If both requested dimensions are greater than source image, we don't need to do any resizing.
 					if (this.EnlargeImage || (calculatedWidth < source.Width || calculatedHeight < source.Height))
 					{
@@ -184,7 +184,7 @@ namespace SoundInTheory.DynamicImage.Filters
 						}
 					}
 					break;
-				case ResizeMode.UniformFill :
+				case ResizeMode.UniformFill:
 					// Resize based on width first. If this means that height is less than target height, we resize based on height.
 					if (this.EnlargeImage || (calculatedWidth < source.Width || calculatedHeight < source.Height))
 					{
@@ -202,7 +202,7 @@ namespace SoundInTheory.DynamicImage.Filters
 
 							// Then crop width and calculate offset.
 							requestedWidth = calculatedWidth;
-							_sourceWidth = (int) ((calculatedWidth / (float) tempWidth) * source.Width);
+							_sourceWidth = (int)((calculatedWidth / (float)tempWidth) * source.Width);
 							_xOffset = (source.Width - _sourceWidth) / 2;
 						}
 						else
@@ -212,7 +212,7 @@ namespace SoundInTheory.DynamicImage.Filters
 
 							// Then crop height and calculate offset.
 							requestedHeight = calculatedHeight;
-							_sourceHeight = (int) ((calculatedHeight / (float) tempHeight) * source.Height);
+							_sourceHeight = (int)((calculatedHeight / (float)tempHeight) * source.Height);
 							_yOffset = (source.Height - _sourceHeight) / 2;
 						}
 					}
@@ -221,7 +221,7 @@ namespace SoundInTheory.DynamicImage.Filters
 
 			if (requestedWidth == null && requestedHeight == null)
 				return false;
-			
+
 			CalculateOutputDimensions(source.Width, source.Height, requestedWidth, requestedHeight, out width, out height);
 			return true;
 		}
@@ -230,11 +230,11 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			switch (dimension.Type)
 			{
-				case UnitType.Pixel :
-					return (int) dimension.Value;
-				case UnitType.Percentage :
-					return (int) ((dimension.Value / 100.0) * sourceDimension);
-				default :
+				case UnitType.Pixel:
+					return (int)dimension.Value;
+				case UnitType.Percentage:
+					return (int)((dimension.Value / 100.0) * sourceDimension);
+				default:
 					throw new NotSupportedException();
 			}
 		}
@@ -253,25 +253,19 @@ namespace SoundInTheory.DynamicImage.Filters
 			else if (nRequestedWidth != null) // calculate height to keep aspect ratio
 			{
 				nOutputWidth = nRequestedWidth.Value;
-				double dAspectRatio = (double) nInputWidth / (double) nInputHeight;
-				nOutputHeight = (int) (nOutputWidth / dAspectRatio);
+				double dAspectRatio = (double)nInputWidth / (double)nInputHeight;
+				nOutputHeight = (int)(nOutputWidth / dAspectRatio);
 			}
 			else if (nRequestedHeight != null) // calculate width to keep aspect ratio
 			{
 				nOutputHeight = nRequestedHeight.Value;
-				double dAspectRatio = (double) nInputHeight / (double) nInputWidth;
-				nOutputWidth = (int) (nOutputHeight / dAspectRatio);
+				double dAspectRatio = (double)nInputHeight / (double)nInputWidth;
+				nOutputWidth = (int)(nOutputHeight / dAspectRatio);
 			}
 			else
 			{
 				throw new Exception("Width or height, or both, must be specified");
 			}
-		}
-
-		protected override void ConfigureDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
-		{
-			RenderOptions.SetBitmapScalingMode(drawingVisual, BitmapScalingMode);
-			RenderOptions.SetEdgeMode(drawingVisual, System.Windows.Media.EdgeMode.Aliased);
 		}
 
 		/// <summary>
@@ -285,7 +279,12 @@ namespace SoundInTheory.DynamicImage.Filters
 			ImageSource imageSource = source.InnerBitmap;
 			if (_xOffset != 0 || _yOffset != 0)
 				imageSource = new CroppedBitmap(source.InnerBitmap, new Int32Rect(_xOffset, _yOffset, _sourceWidth, _sourceHeight));
-			dc.DrawImage(imageSource, new Rect(0, 0, destinationWidth, destinationHeight));
+
+			DrawingGroup dg = new DrawingGroup();
+			RenderOptions.SetBitmapScalingMode(dg, BitmapScalingMode);
+			dg.Children.Add(new ImageDrawing(imageSource, new Rect(0, 0, destinationWidth, destinationHeight)));
+
+			dc.DrawDrawing(dg);
 		}
 
 		public override string ToString()

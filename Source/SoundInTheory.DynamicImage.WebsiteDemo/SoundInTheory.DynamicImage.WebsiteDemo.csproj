@@ -114,6 +114,7 @@
     <Content Include="IndexedSourceImage.aspx" />
     <Content Include="Filters\ColorKeyFilter.aspx" />
     <Content Include="Filters\EmbossFilter.aspx" />
+    <Content Include="Layers\PdfLayer.aspx" />
     <Content Include="Layers\JuliaFractalLayer.aspx" />
     <Content Include="Layers\RectangleShapeLayer.aspx" />
     <Content Include="Opacity.aspx" />
@@ -160,6 +161,10 @@
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Design\SoundInTheory.DynamicImage.Design.csproj">
       <Project>{D211365C-051D-4875-A099-BC2E09469A26}</Project>
       <Name>SoundInTheory.DynamicImage.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Pdf\SoundInTheory.DynamicImage.Pdf.csproj">
+      <Project>{BCEEAB02-6535-4F34-A091-F792F8018567}</Project>
+      <Name>SoundInTheory.DynamicImage.Pdf</Name>
     </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Video\SoundInTheory.DynamicImage.Video.csproj">
       <Project>{11CD4135-807B-448D-932C-C3CF10990B33}</Project>

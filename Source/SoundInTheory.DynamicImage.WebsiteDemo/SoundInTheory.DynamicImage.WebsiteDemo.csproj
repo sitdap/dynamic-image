@@ -110,7 +110,9 @@
     <Content Include="Assets\Images\Penguins.jpg" />
     <Content Include="Assets\Images\Tulips.jpg" />
     <Content Include="BlendModes.aspx" />
+    <Content Include="GlobalFilters.aspx" />
     <Content Include="BytesSourceImage.aspx" />
+    <Content Include="Filters\BorderFilter.aspx" />
     <Content Include="IndexedSourceImage.aspx" />
     <Content Include="Filters\ColorKeyFilter.aspx" />
     <Content Include="Filters\EmbossFilter.aspx" />

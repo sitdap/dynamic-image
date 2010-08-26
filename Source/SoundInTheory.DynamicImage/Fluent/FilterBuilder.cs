@@ -19,6 +19,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			get { return new OpacityAdjustmentFilterBuilder(); }
 		}
 
+		public static BorderFilterBuilder Border
+		{
+			get { return new BorderFilterBuilder(); }
+		}
+
 		public static ClippingMaskFilterBuilder ClippingMask
 		{
 			get { return new ClippingMaskFilterBuilder(); }

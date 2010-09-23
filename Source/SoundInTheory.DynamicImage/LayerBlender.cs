@@ -39,7 +39,7 @@ namespace SoundInTheory.DynamicImage
 				};
 
 				DrawingContext dc = dv.RenderOpen();
-				dc.PushTransform(new TranslateTransform(layer.X, layer.Y));
+				dc.PushTransform(new TranslateTransform(layer.X + layer.Padding.Left, layer.Y + layer.Padding.Top));
 				dc.DrawImage(layer.Bitmap.InnerBitmap, new System.Windows.Rect(0, 0, layer.Bitmap.Width, layer.Bitmap.Height));
 				dc.Pop();
 				dc.Close();

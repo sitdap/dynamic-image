@@ -33,7 +33,7 @@ namespace SoundInTheory.DynamicImage
 					{
 						TileMode = TileMode.None,
 						Stretch = Stretch.None,
-						ViewportUnits  = BrushMappingMode.Absolute,
+						ViewportUnits  = BrushMappingMode.RelativeToBoundingBox,
 						Viewport = new System.Windows.Rect(0, 0, 1, 1)
 					}
 				};

@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Caching;
+using SoundInTheory.DynamicImage.Filters;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
@@ -17,6 +18,7 @@ namespace SoundInTheory.DynamicImage
 	{
 		private LayerCollection _layers;
 		private Fill _fill;
+		private FilterCollection _filters;
 
 		#region Properties
 
@@ -167,6 +169,30 @@ namespace SoundInTheory.DynamicImage
 		private IEnumerable<Layer> VisibleLayers
 		{
 			get { return this.Layers.Cast<Layer>().Where(l => l.Visible); }
+		}
+
+		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor("SoundInTheory.DynamicImage.Design.FilterCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
+		public FilterCollection Filters
+		{
+			get
+			{
+				if (_filters == null)
+				{
+					_filters = new FilterCollection();
+					if (this.IsTrackingViewState)
+						((IStateManager)_filters).TrackViewState();
+				}
+				return _filters;
+			}
+			set
+			{
+				if (_filters != null)
+					throw new Exception("You can only set a new filters collection if one does not already exist");
+
+				_filters = value;
+				if (((IStateManager)this).IsTrackingViewState)
+					((IStateManager)_filters).TrackViewState();
+			}
 		}
 
 		#endregion
@@ -354,8 +380,12 @@ namespace SoundInTheory.DynamicImage
 			FastBitmap output = new FastBitmap(rtb);
 
 			// Blend layers using specified blend mode.
-			//output = LayerBlender.BlendLayers(output, VisibleLayers);
 			output = LayerBlender.BlendLayers(output, VisibleLayers);
+
+			// Apply global filters.
+			foreach (Filter filter in Filters)
+				if (filter.Enabled)
+					filter.ApplyFilter(output);
 
 			// If image format doesn't support transparency, make all transparent pixels totally opaque.
 			// Otherwise WPF wants to save them as black.
@@ -417,7 +447,13 @@ namespace SoundInTheory.DynamicImage
 				if (triplet.Second != null)
 					((IStateManager) Layers).LoadViewState(triplet.Second);
 				if (triplet.Third != null)
-					((IStateManager)Fill).LoadViewState(triplet.Third);
+				{
+					Pair pair = (Pair) triplet.Third;
+					if (pair.First != null)
+						((IStateManager) Fill).LoadViewState(pair.First);
+					if (pair.Second != null)
+						((IStateManager)Filters).LoadViewState(pair.Second);
+				}
 			}
 		}
 
@@ -433,8 +469,12 @@ namespace SoundInTheory.DynamicImage
 			triplet.First = base.SaveViewState(saveAll);
 			if (_layers != null)
 				triplet.Second = ((IStateManagedObject) _layers).SaveViewState(saveAll);
+			if (_fill != null || _filters != null)
+				triplet.Third = new Pair();
 			if (_fill != null)
-				triplet.Third = ((IStateManagedObject)_fill).SaveViewState(saveAll);
+				((Pair) triplet.Third).First = ((IStateManagedObject)_fill).SaveViewState(saveAll);
+			if (_filters != null)
+				((Pair)triplet.Third).Second = ((IStateManagedObject)_filters).SaveViewState(saveAll);
 			return (triplet.First == null && triplet.Second == null && triplet.Third == null) ? null : triplet;
 		}
 
@@ -448,6 +488,8 @@ namespace SoundInTheory.DynamicImage
 				((IStateManager) _layers).TrackViewState();
 			if (_fill != null)
 				((IStateManager)_fill).TrackViewState();
+			if (_filters != null)
+				((IStateManager)_filters).TrackViewState();
 		}
 
 		#endregion

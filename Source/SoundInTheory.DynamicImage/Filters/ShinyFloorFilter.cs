@@ -40,7 +40,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		[Browsable(true), Category("Appearance"), DefaultValue(75), Description("Gets or sets the opacity of the reflected image. The reflection will fade out to an opaque white.")]
 		public byte ReflectionOpacity
 		{
-			get { return (byte)(ViewState["ReflectionOpacity"] ?? 75); }
+			get { return (byte)(ViewState["ReflectionOpacity"] ?? (byte) 75); }
 			set
 			{
 				if (value < 0 || value > 100)

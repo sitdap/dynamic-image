@@ -152,6 +152,7 @@
     <Compile Include="DynamicImageException.cs" />
     <Compile Include="FeatherShape.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />
+    <Compile Include="Filters\BorderFilter.cs" />
     <Compile Include="Filters\CurvePointCollection.cs" />
     <Compile Include="Filters\CurvePoint.cs" />
     <Compile Include="Filters\Curve.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Filters\UnsharpMaskFilter.cs" />
     <Compile Include="Filters\VignetteFilter.cs" />
     <Compile Include="Filters\ShaderEffectFilter.cs" />
+    <Compile Include="Fluent\BorderFilterBuilder.cs" />
     <Compile Include="ShaderEffects\BrightnessAdjustmentEffect.cs" />
     <Compile Include="Filters\EmbossFilter.cs" />
     <Compile Include="Filters\EdgeAction.cs" />

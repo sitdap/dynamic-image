@@ -9,7 +9,7 @@
     <div>
 			<h1>Blend Modes</h1>
 			
-			<h2>Source Images</h2>
+			<h2>Source Images (Background / Source)</h2>
 			
 			<sitdap:DynamicImage runat="server">
 				<Layers>

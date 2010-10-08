@@ -180,17 +180,15 @@ namespace SoundInTheory.DynamicImage
 		[Browsable(true), DefaultValue(TextAlignment.Left)]
 		public TextAlignment HorizontalTextAlignment
 		{
-			get
-			{
-				object value = this.ViewState["TextAlignment"];
-				if (value != null)
-					return (TextAlignment)value;
-				return TextAlignment.Left;
-			}
-			set
-			{
-				this.ViewState["TextAlignment"] = value;
-			}
+			get { return (TextAlignment) (ViewState["HorizontalTextAlignment"] ?? TextAlignment.Left); }
+			set { ViewState["HorizontalTextAlignment"] = value; }
+		}
+
+		[Browsable(true), DefaultValue(VerticalAlignment.Top)]
+		public VerticalAlignment VerticalTextAlignment
+		{
+			get { return (VerticalAlignment) (ViewState["VerticalTextAlignment"] ?? VerticalAlignment.Top); }
+			set { ViewState["VerticalTextAlignment"] = value; }
 		}
 
 		public override bool HasFixedSize
@@ -202,14 +200,11 @@ namespace SoundInTheory.DynamicImage
 
 		protected override void CreateImage()
 		{
-			// TODO: Vertical text alignment.
-
-			// if width and height are not set, we need to measure the string
+			// If width and height are not set, we need to measure the string.
 			int calculatedWidth, calculatedHeight;
+			Size measuredSize = MeasureString();
 			if (this.Width == null || this.Height == null)
 			{
-				Size measuredSize = MeasureString();
-
 				double width = this.Width ?? measuredSize.Width;
 				double height = this.Height ?? measuredSize.Height;
 				calculatedWidth = (int) width;
@@ -227,16 +222,21 @@ namespace SoundInTheory.DynamicImage
 			DrawingContext dc = dv.RenderOpen();
 
 			//RenderOptions.SetClearTypeHint(dv, ClearTypeHint.Auto);
-			TextOptions.SetTextRenderingMode(dv, TextRenderingMode.Aliased);
+			TextOptions.SetTextRenderingMode(dv, TextRenderingMode.Auto);
 			//TextOptions.SetTextFormattingMode(dv, TextFormattingMode.Ideal)
 
-			//Rectangle bounds = new Rectangle(0, 0, this.Bitmap.Width, this.Bitmap.Height);
 			UseFormattedText(ft =>
 			{
 				Pen pen = null;
-				if (StrokeWidth > 0)
+				if (StrokeWidth > 0 && StrokeColour != null)
 					pen = new Pen(new SolidColorBrush(StrokeColour.Value), StrokeWidth);
-				dc.DrawGeometry(new SolidColorBrush(ForeColour), pen, ft.BuildGeometry(new Point()));
+
+				// Calculate position to draw text at, based on vertical text alignment.
+				int x = CalculateHorizontalPosition((int) measuredSize.Width);
+				int y = CalculateVerticalPosition((int) measuredSize.Height);
+
+				dc.DrawGeometry(new SolidColorBrush(ForeColour), pen,
+					ft.BuildGeometry(new Point(x, y)));
 			});
 
 			dc.Close();
@@ -247,6 +247,45 @@ namespace SoundInTheory.DynamicImage
 			#endregion
 
 			Bitmap = new FastBitmap(rtb);
+		}
+
+		private int CalculateHorizontalPosition(int measuredWidth)
+		{
+			switch (HorizontalTextAlignment)
+			{
+				case TextAlignment.Left:
+				case TextAlignment.Justify :
+					return 0;
+				case TextAlignment.Right:
+					if (Width != null)
+						return Width.Value - measuredWidth;
+					return 0;
+				case TextAlignment.Center :
+					if (Width != null)
+						return (Width.Value - measuredWidth) / 2;
+					return 0;
+				default:
+					throw new NotSupportedException();
+			}
+		}
+
+		private int CalculateVerticalPosition(int measuredHeight)
+		{
+			switch (VerticalTextAlignment)
+			{
+				case VerticalAlignment.Top :
+					return 0;
+				case VerticalAlignment.Bottom :
+					if (Height != null)
+						return Height.Value - measuredHeight;
+					return 0;
+				case VerticalAlignment.Center :
+					if (Height != null)
+						return (Height.Value - measuredHeight) / 2;
+					return 0;
+				default :
+					throw new NotSupportedException();
+			}
 		}
 
 		private Size MeasureString()
@@ -273,7 +312,7 @@ namespace SoundInTheory.DynamicImage
 			if (!Multiline)
 				formattedText.MaxLineCount = 1;
 			formattedText.Trimming = TextTrimming.None;
-			formattedText.TextAlignment = HorizontalTextAlignment;
+			//formattedText.TextAlignment = HorizontalTextAlignment;
 
 			renderCallback(formattedText);
 		}

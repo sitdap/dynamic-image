@@ -4,7 +4,7 @@ sampler2D source : register(s0);
 sampler2D background : register(s1);
 sampler2D random : register(s2);
 
-#define Blend(b, s, func) float4(float3(func(b.r, s.r), func(b.g, s.g), func(b.b, s.b)) + (b.rgb * (1 - s.a)), func(b.a, s.a))
+#define Blend(b, s, func) float4(float3(func(b.r, s.r), func(b.g, s.g), func(b.b, s.b)), func(b.a, s.a))
 
 // Separable blend modes
 

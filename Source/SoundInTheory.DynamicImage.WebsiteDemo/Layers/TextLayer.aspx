@@ -13,6 +13,20 @@
 				</Layers>
 			</sitdap:DynamicImage>
 			<br />
+
+			<sitdap:DynamicImage runat="server" Fill-BackgroundColour="LightGray">
+				<Layers>
+					<sitdap:TextLayer Text="Padded text" Font-Size="40" Padding-Left="15" Padding-Right="15" />
+				</Layers>
+			</sitdap:DynamicImage>
+			<br />
+
+			<sitdap:DynamicImage runat="server" Fill-BackgroundColour="LightGray">
+				<Layers>
+					<sitdap:TextLayer Text="Padded fixed width text" Font-Size="40" Padding-Left="15" Padding-Right="15" Width="600" HorizontalTextAlignment="Center" />
+				</Layers>
+			</sitdap:DynamicImage>
+			<br />
 			
 			<sitdap:DynamicImage runat="server">
 				<Layers>

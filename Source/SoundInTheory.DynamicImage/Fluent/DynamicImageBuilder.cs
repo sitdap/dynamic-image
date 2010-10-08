@@ -53,5 +53,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			_dynamicImage.Layers.Add(layerBuilder.ToLayer());
 			return this;
 		}
+
+		public DynamicImageBuilder WithGlobalFilter(FilterBuilder filterBuilder)
+		{
+			_dynamicImage.Filters.Add(filterBuilder.ToFilter());
+			return this;
+		}
 	}
 }

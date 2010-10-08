@@ -152,6 +152,13 @@
     <Compile Include="DynamicImageException.cs" />
     <Compile Include="FeatherShape.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />
+    <Compile Include="Filters\CurvePointCollection.cs" />
+    <Compile Include="Filters\CurvePoint.cs" />
+    <Compile Include="Filters\Curve.cs" />
+    <Compile Include="Filters\CurveCollection.cs" />
+    <Compile Include="Filters\CurvesFilter.cs" />
+    <Compile Include="Filters\UnsharpMaskFilter.cs" />
+    <Compile Include="Filters\VignetteFilter.cs" />
     <Compile Include="Filters\ShaderEffectFilter.cs" />
     <Compile Include="ShaderEffects\BrightnessAdjustmentEffect.cs" />
     <Compile Include="Filters\EmbossFilter.cs" />
@@ -164,6 +171,8 @@
     <Compile Include="ShaderEffects\ColorKeyEffect.cs" />
     <Compile Include="ShaderEffects\ColorTintEffect.cs" />
     <Compile Include="ShaderEffects\ClippingMaskEffect.cs" />
+    <Compile Include="ShaderEffects\CurvesEffect.cs" />
+    <Compile Include="ShaderEffects\UnsharpMaskEffect.cs" />
     <Compile Include="ShaderEffects\EmbossEffect.cs" />
     <Compile Include="ShaderEffects\FeatherEffect.cs" />
     <Compile Include="ShaderEffects\LayerBlending\LayerBlenderEffect.cs" />
@@ -262,11 +271,13 @@
     <Compile Include="UnitType.cs" />
     <Compile Include="Util\CanonicalSplineUtility.cs" />
     <Compile Include="Util\ColorExtensionMethods.cs" />
+    <Compile Include="Util\CubicSplineUtility.cs" />
     <Compile Include="Util\FastBitmap.cs" />
     <Compile Include="Util\Int32RectUtility.cs" />
     <Compile Include="Util\Int32Size.cs" />
     <Compile Include="Util\MathUtility.cs" />
     <Compile Include="Util\Object.extensions.cs" />
+    <Compile Include="Util\PhotoshopCurvesReader.cs" />
     <Compile Include="Util\ProviderUtility.cs" />
     <Compile Include="Util\RenderTargetBitmapUtility.cs" />
     <Compile Include="Util\ShaderEffectUtility.cs" />
@@ -309,6 +320,8 @@
     <Effect Include="ShaderEffects\ColorTintEffect.fx" />
     <Effect Include="ShaderEffects\ClippingMaskEffect.fx" />
     <Effect Include="ShaderEffects\EmbossEffect.fx" />
+    <Effect Include="ShaderEffects\UnsharpMaskEffect.fx" />
+    <Effect Include="ShaderEffects\CurvesEffect.fx" />
     <None Include="ShaderEffects\RgbHsvConversion.fxh" />
     <None Include="ShaderEffects\LayerBlending\LayerBlending.fxh" />
     <Effect Include="ShaderEffects\LayerBlending\LayerBlenderEffectNormal.fx" />

@@ -101,6 +101,7 @@
     <Compile Include="Filters\ResizeFilterTests.cs" />
     <Compile Include="Fluent\FluentInterfaceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\PhotoshopCurvesReaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
@@ -113,6 +114,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Filters\Images\TulipsCropped200x200.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Util\Cross_process___Photoshop__acv_by_LikeGravity.acv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

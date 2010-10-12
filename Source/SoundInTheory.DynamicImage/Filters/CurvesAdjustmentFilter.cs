@@ -11,7 +11,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
-	public class CurvesFilter : ShaderEffectFilter
+	public class CurvesAdjustmentFilter : ShaderEffectFilter
 	{
 		private CurveCollection _curves;
 

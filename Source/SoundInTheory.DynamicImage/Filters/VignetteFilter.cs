@@ -21,13 +21,13 @@ namespace SoundInTheory.DynamicImage.Filters
 			GradientStopCollection gradientStops = new GradientStopCollection();
 			gradientStops.Add(new GradientStop(Color.FromArgb(0, 0, 0, 0), 0));
 			gradientStops.Add(new GradientStop(Color.FromArgb(0, 0, 0, 0), 0.5));
-			gradientStops.Add(new GradientStop(Color.FromArgb(150, 0, 0, 0), 1.3));
-			gradientStops.Add(new GradientStop(Color.FromArgb(200, 0, 0, 0), 1.7));
+			gradientStops.Add(new GradientStop(Color.FromArgb(180, 0, 0, 0), 1.3));
+			gradientStops.Add(new GradientStop(Color.FromArgb(230, 0, 0, 0), 1.7));
 
 			RadialGradientBrush brush = new RadialGradientBrush(gradientStops)
 			{
 				GradientOrigin = new Point(0.5, 0.5),
-				Center = new Point(0.5, 0.4),
+				Center = new Point(0.5, 0.45),
 				RadiusX = 0.5,
 				RadiusY = 0.5
 			};

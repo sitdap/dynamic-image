@@ -14,6 +14,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			get { return new ContrastAdjustmentFilterBuilder(); }
 		}
 
+		public static CurvesAdjustmentFilterBuilder AdjustCurves
+		{
+			get { return new CurvesAdjustmentFilterBuilder(); }
+		}
+
 		public static OpacityAdjustmentFilterBuilder AdjustOpacity
 		{
 			get { return new OpacityAdjustmentFilterBuilder(); }
@@ -97,6 +102,21 @@ namespace SoundInTheory.DynamicImage.Fluent
 		public static ShinyFloorFilterBuilder ShinyFloor
 		{
 			get { return new ShinyFloorFilterBuilder(); }
+		}
+
+		public static SolarizeFilterBuilder Solarize
+		{
+			get { return new SolarizeFilterBuilder(); }
+		}
+
+		public static UnsharpMaskFilterBuilder UnsharpMask
+		{
+			get { return new UnsharpMaskFilterBuilder(); }
+		}
+
+		public static VignetteFilterBuilder Vignette
+		{
+			get { return new VignetteFilterBuilder(); }
 		}
 		
 		public abstract Filter ToFilter();

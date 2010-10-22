@@ -40,7 +40,17 @@ namespace SoundInTheory.DynamicImage
 				context.Response.Cache.SetExpires((DateTime) context.Items["ContentExpires"]);
 
 			if (context.Items["ContentETag"] != null)
-				context.Response.Cache.SetETag((string) context.Items["ContentETag"]);
+			{
+				// In IIS 7 Classic mode (and probably IIS6), the ETag will already have been set by this point,
+				// and setting it again throws an exception.
+				try
+				{
+					context.Response.Cache.SetETag((string) context.Items["ContentETag"]);
+				}
+				catch
+				{
+				}
+			}
 
 			// Enables in-memory caching
 			context.Response.Cache.SetCacheability(HttpCacheability.Public);

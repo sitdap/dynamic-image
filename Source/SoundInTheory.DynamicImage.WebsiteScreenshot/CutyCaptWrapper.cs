@@ -17,10 +17,10 @@ namespace SoundInTheory.DynamicImage
 		public CutyCaptWrapper()
 		{
 			CutyCaptPath = HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/CutyCapt.exe"); // must be within the web root
-			CutyCaptDefaultArguments = " --max-wait=10000 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on";
+			CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on";
 		}
 
-		public bool SaveScreenShot(string url, string destinationFile)
+		public bool SaveScreenShot(string url, string destinationFile, int timeout)
 		{
 			if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
 				return false;
@@ -41,9 +41,11 @@ namespace SoundInTheory.DynamicImage
 			};
 			using (Process scr = Process.Start(info))
 			{
-				scr.WaitForExit();
+				bool result = scr.WaitForExit(timeout);
+				if (!result)
+					scr.Kill();
+				return result;
 			}
-			return true;
 		}
 	}
 }

@@ -13,6 +13,16 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["WebsiteUrl"] = value; }
 		}
 
+		/// <summary>
+		/// Maximum time to wait for the screenshot, in milliseconds.
+		/// </summary>
+		[DefaultValue(5000), Description("Maximum time to wait for the screenshot, in milliseconds.")]
+		public int Timeout
+		{
+			get { return (int) (ViewState["Timeout"] ?? 5000); }
+			set { ViewState["Timeout"] = value; }
+		}
+
 		public override bool HasFixedSize
 		{
 			get { return true; }
@@ -24,7 +34,7 @@ namespace SoundInTheory.DynamicImage
 
 			try
 			{
-				if (!new CutyCaptWrapper().SaveScreenShot(WebsiteUrl, outputFileName))
+				if (!new CutyCaptWrapper().SaveScreenShot(WebsiteUrl, outputFileName, Timeout))
 					return;
 				Bitmap = new Util.FastBitmap(File.ReadAllBytes(outputFileName));
 			}

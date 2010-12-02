@@ -22,11 +22,9 @@ namespace SoundInTheory.DynamicImage.Util
 		public bool ProcessImage(string sourceFile, string destinationFile, int timeout, int width, int height,
 			ContentAwareResizeFilterConvolutionType convolutionType)
 		{
-			string runArguments = " -I \"" + sourceFile + "\" -O \"" + destinationFile + "\" -C " + convolutionType;
-			if (width > 0)
-				runArguments += " -X " + width;
-			if (height > 0)
-				runArguments += " -Y " + height;
+			string runArguments = " -I \"" + sourceFile + "\" -O \"" + destinationFile + "\" -T 1 -C " + convolutionType;
+			runArguments += " -X " + width;
+			runArguments += " -Y " + height;
 
 			if (!File.Exists(CairPath))
 				throw new DynamicImageException("Could not find CAIR.exe. This file needs to be in ~/App_Data/DynamicImage.");

@@ -108,7 +108,12 @@
     <Content Include="Assets\Images\bmw.jpg" />
     <Content Include="Assets\Images\BoardExample.png" />
     <Content Include="Assets\Images\Desert.jpg" />
+    <Content Include="Assets\Images\Horse.jpg" />
+    <Content Include="Assets\Images\oryxantelope-small.jpg" />
     <Content Include="Assets\Images\Penguins.jpg" />
+    <Content Include="Assets\Images\stonehenge_sunset1.gif" />
+    <Content Include="Assets\Images\sunset.jpg" />
+    <Content Include="Assets\Images\Tower.jpg" />
     <Content Include="Assets\Images\Tulips.jpg" />
     <Content Include="BlendModes.aspx" />
     <Content Include="Filters\ContentAwareResizeFilter.aspx" />

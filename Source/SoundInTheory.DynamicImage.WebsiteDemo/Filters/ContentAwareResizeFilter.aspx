@@ -9,9 +9,33 @@
     <div>
 			<sitdap:DynamicImage runat="server">
 				<Layers>
-					<sitdap:ImageLayer SourceFileName="~/Assets/Images/Desert.jpg">
+					<sitdap:ImageLayer SourceFileName="~/Assets/Images/sunset.jpg">
 						<Filters>
-							<sitdap:ContentAwareResizeFilter Width="401" ConvolutionType="V1" />
+							<sitdap:ResizeFilter Width="550" Mode="UseWidth" />
+						</Filters>
+					</sitdap:ImageLayer>
+				</Layers>
+			</sitdap:DynamicImage>
+			<br />
+
+			<sitdap:DynamicImage runat="server">
+				<Layers>
+					<sitdap:ImageLayer SourceFileName="~/Assets/Images/sunset.jpg">
+						<Filters>
+							<sitdap:ResizeFilter Width="550" Mode="UseWidth" />
+							<sitdap:ResizeFilter Width="350" Height="412" Mode="Fill" />
+						</Filters>
+					</sitdap:ImageLayer>
+				</Layers>
+			</sitdap:DynamicImage>
+			<br />
+
+			<sitdap:DynamicImage runat="server">
+				<Layers>
+					<sitdap:ImageLayer SourceFileName="~/Assets/Images/sunset.jpg">
+						<Filters>
+							<sitdap:ResizeFilter Width="550" Mode="UseWidth" />
+							<sitdap:ContentAwareResizeFilter Width="350" ConvolutionType="V1" />
 						</Filters>
 					</sitdap:ImageLayer>
 				</Layers>

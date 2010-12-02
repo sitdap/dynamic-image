@@ -111,6 +111,7 @@
     <Content Include="Assets\Images\Penguins.jpg" />
     <Content Include="Assets\Images\Tulips.jpg" />
     <Content Include="BlendModes.aspx" />
+    <Content Include="Filters\ContentAwareResizeFilter.aspx" />
     <Content Include="Filters\SolarizeFilter.aspx" />
     <Content Include="GlobalFilters.aspx" />
     <Content Include="BytesSourceImage.aspx" />

@@ -39,6 +39,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			get { return new ColorKeyFilterBuilder(); }
 		}
 
+		public static ContentAwareResizeFilterBuilder ContentAwareResizeFilter
+		{
+			get { return new ContentAwareResizeFilterBuilder(); }
+		}
+
 		public static CropFilterBuilder Crop
 		{
 			get { return new CropFilterBuilder(); }

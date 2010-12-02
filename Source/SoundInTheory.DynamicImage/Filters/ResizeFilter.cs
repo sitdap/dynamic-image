@@ -55,17 +55,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue("200"), Description("Gets or sets the desired image width.")]
 		public Unit Width
 		{
-			get
-			{
-				object value = ViewState["Width"];
-				if (value != null)
-					return (Unit)value;
-				return Unit.Pixel(200);
-			}
-			set
-			{
-				ViewState["Width"] = value;
-			}
+			get { return (Unit) (ViewState["Width"] ?? Unit.Pixel(200)); }
+			set { ViewState["Width"] = value; }
 		}
 
 		/// <summary>
@@ -74,17 +65,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue("200"), Description("Gets or sets the desired image height.")]
 		public Unit Height
 		{
-			get
-			{
-				object value = ViewState["Height"];
-				if (value != null)
-					return (Unit)value;
-				return Unit.Pixel(200);
-			}
-			set
-			{
-				ViewState["Height"] = value;
-			}
+			get { return (Unit)(ViewState["Height"] ?? Unit.Pixel(200)); }
+			set { ViewState["Height"] = value; }
 		}
 
 		/// <summary>
@@ -146,8 +128,8 @@ namespace SoundInTheory.DynamicImage.Filters
 			_sourceWidth = source.Width;
 			_sourceHeight = source.Height;
 
-			int calculatedWidth = CalculateDimension(Width, source.Width);
-			int calculatedHeight = CalculateDimension(Height, source.Height);
+			int calculatedWidth = Unit.GetCalculatedValue(Width, source.Width);
+			int calculatedHeight = Unit.GetCalculatedValue(Height, source.Height);
 			int? requestedWidth = null, requestedHeight = null;
 			switch (Mode)
 			{
@@ -224,19 +206,6 @@ namespace SoundInTheory.DynamicImage.Filters
 
 			CalculateOutputDimensions(source.Width, source.Height, requestedWidth, requestedHeight, out width, out height);
 			return true;
-		}
-
-		private static int CalculateDimension(Unit dimension, int sourceDimension)
-		{
-			switch (dimension.Type)
-			{
-				case UnitType.Pixel:
-					return (int)dimension.Value;
-				case UnitType.Percentage:
-					return (int)((dimension.Value / 100.0) * sourceDimension);
-				default:
-					throw new NotSupportedException();
-			}
 		}
 
 		private static void CalculateOutputDimensions(

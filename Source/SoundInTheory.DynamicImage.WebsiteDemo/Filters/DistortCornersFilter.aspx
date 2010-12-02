@@ -29,6 +29,29 @@
 					</sitdap:ImageLayer>
 				</Layers>
 			</sitdap:DynamicImage>
+
+			<sitdap:DynamicImage runat="server">
+				<Layers>
+					<sitdap:WebsiteScreenshotLayer WebsiteUrl="http://www.microsoft.com">
+						<Filters>
+							<sitdap:ShinyFloorFilter ReflectionOpacity="75" ReflectionPercentage="30" />
+							<sitdap:DistortCornersFilter X1="0" Y1="-50" X2="550" Y2="0" X3="550" Y3="500" X4="0" Y4="600" />
+						</Filters>
+					</sitdap:WebsiteScreenshotLayer>
+					<sitdap:WebsiteScreenshotLayer WebsiteUrl="http://www.apple.com" X="100">
+						<Filters>
+							<sitdap:ShinyFloorFilter ReflectionOpacity="75" ReflectionPercentage="30" />
+							<sitdap:DistortCornersFilter X1="0" Y1="-50" X2="550" Y2="0" X3="550" Y3="500" X4="0" Y4="600" />
+						</Filters>
+					</sitdap:WebsiteScreenshotLayer>
+					<sitdap:WebsiteScreenshotLayer WebsiteUrl="http://www.adobe.com" X="200">
+						<Filters>
+							<sitdap:ShinyFloorFilter ReflectionOpacity="75" ReflectionPercentage="30" />
+							<sitdap:DistortCornersFilter X1="0" Y1="-50" X2="550" Y2="0" X3="550" Y3="500" X4="0" Y4="600" />
+						</Filters>
+					</sitdap:WebsiteScreenshotLayer>
+				</Layers>
+			</sitdap:DynamicImage>
     </div>
     </form>
 </body>

@@ -173,7 +173,7 @@ namespace SoundInTheory.DynamicImage.Util
 		{
 			using (FileStream stream = File.OpenWrite(filename))
 			{
-				JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+				BitmapEncoder encoder = new BmpBitmapEncoder();
 				encoder.Frames.Add(BitmapFrame.Create(_bitmap));
 				encoder.Save(stream);
 			}

@@ -161,6 +161,33 @@ namespace SoundInTheory.DynamicImage
 			return (str + GetStringFromType(_type));
 		}
 
+		public static int GetCalculatedValue(Unit dimension, int sourceDimension)
+		{
+			switch (dimension.Type)
+			{
+				case UnitType.Pixel:
+					return (int)dimension.Value;
+				case UnitType.Percentage:
+					return (int)((dimension.Value / 100.0) * sourceDimension);
+				default:
+					throw new NotSupportedException();
+			}
+		}
+
+		#endregion
+
+		#region Operators
+
+		public static bool operator==(Unit left, Unit right)
+		{
+			return left._type == right._type && left._value == right._value;
+		}
+
+		public static bool operator !=(Unit left, Unit right)
+		{
+			return !(left == right);
+		}
+
 		#endregion
 	}
 }

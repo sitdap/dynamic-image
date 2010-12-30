@@ -9,7 +9,7 @@
     <div>
 			<sitdap:DynamicImage runat="server">
 				<Layers>
-					<sitdap:ImageLayer SourceFileName="~/Assets/Images/sunset.jpg">
+					<sitdap:ImageLayer SourceFileName="~/Assets/Images/tower.jpg">
 						<Filters>
 							<sitdap:ResizeFilter Width="550" Mode="UseWidth" />
 						</Filters>
@@ -20,7 +20,7 @@
 
 			<sitdap:DynamicImage runat="server">
 				<Layers>
-					<sitdap:ImageLayer SourceFileName="~/Assets/Images/sunset.jpg">
+					<sitdap:ImageLayer SourceFileName="~/Assets/Images/tower.jpg">
 						<Filters>
 							<sitdap:ResizeFilter Width="550" Mode="UseWidth" />
 							<sitdap:ResizeFilter Width="350" Height="412" Mode="Fill" />
@@ -32,7 +32,7 @@
 
 			<sitdap:DynamicImage runat="server">
 				<Layers>
-					<sitdap:ImageLayer SourceFileName="~/Assets/Images/sunset.jpg">
+					<sitdap:ImageLayer SourceFileName="~/Assets/Images/tower.jpg">
 						<Filters>
 							<sitdap:ResizeFilter Width="550" Mode="UseWidth" />
 							<sitdap:ContentAwareResizeFilter Width="350" ConvolutionType="V1" />

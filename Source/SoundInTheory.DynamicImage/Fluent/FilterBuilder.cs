@@ -99,6 +99,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			get { return new RotationFilterBuilder(); }
 		}
 
+		public static RoundCornersFilterBuilder RoundCorners
+		{
+			get { return new RoundCornersFilterBuilder(); }
+		}
+
 		public static SepiaFilterBuilder Sepia
 		{
 			get { return new SepiaFilterBuilder(); }

@@ -155,6 +155,7 @@
     <Compile Include="Filters\BorderFilter.cs" />
     <Compile Include="Filters\ContentAwareResizeFilter.cs" />
     <Compile Include="Filters\ContentAwareResizeFilterConvolutionType.cs" />
+    <Compile Include="Filters\RoundCornersFilter.cs" />
     <Compile Include="Fluent\ContentAwareResizeFilterBuilder.cs" />
     <Compile Include="Util\CairWrapper.cs" />
     <Compile Include="Filters\TransferFilter.cs" />

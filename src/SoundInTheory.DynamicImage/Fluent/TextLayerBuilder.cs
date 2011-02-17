@@ -5,7 +5,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 {
 	public class TextLayerBuilder : BaseLayerBuilder<TextLayer, TextLayerBuilder>
 	{
-		public TextLayerBuilder Text(string text)
+		public new TextLayerBuilder Text(string text)
 		{
 			Layer.Text = text;
 			return this;
@@ -43,8 +43,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public TextLayerBuilder VerticalTextAlignment(VerticalAlignment alignment)
 		{
-			throw new System.NotImplementedException();
-			//Layer.VerticalTextAlignment = alignment;
+			Layer.VerticalTextAlignment = alignment;
 			return this;
 		}
 

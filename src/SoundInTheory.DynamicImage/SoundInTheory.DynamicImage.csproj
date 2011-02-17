@@ -103,6 +103,10 @@
     <Compile Include="Configuration\DynamicImageSection.cs" />
     <Compile Include="Configuration\TemplateSettings.cs" />
     <Compile Include="DashStyle.cs" />
+    <Compile Include="Design\DynamicImageDesigner.cs" />
+    <Compile Include="Design\FilterCollectionEditor.cs" />
+    <Compile Include="Design\ImageSourceCollectionEditor.cs" />
+    <Compile Include="Design\LayerCollectionEditor.cs" />
     <Compile Include="DynamicImageException.cs" />
     <Compile Include="FeatherShape.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />

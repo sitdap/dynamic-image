@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing.Design;
 using System.Web.UI;
 using System.Web;
+using SoundInTheory.DynamicImage.Design;
 using SoundInTheory.DynamicImage.Filters;
 
 namespace SoundInTheory.DynamicImage
@@ -10,7 +11,7 @@ namespace SoundInTheory.DynamicImage
 	/// <summary>
 	/// An ASP.NET server control that generates images from a collection of layers.
 	/// </summary>
-	[Designer("SoundInTheory.DynamicImage.Design.DynamicImageDesigner, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067")]
+	[Designer(typeof(DynamicImageDesigner))]
 	[TypeConverter(typeof(ExpandableObjectConverter))]
 	public class DynamicImage : System.Web.UI.WebControls.Image, IDynamicImageControl
 	{
@@ -110,14 +111,14 @@ namespace SoundInTheory.DynamicImage
 			set { Composition.Fill = value; }
 		}
 
-		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor("SoundInTheory.DynamicImage.Design.LayerCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), NotifyParentProperty(true)]
+		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor(typeof(LayerCollectionEditor), typeof(UITypeEditor)), NotifyParentProperty(true)]
 		public LayerCollection Layers
 		{
 			get { return Composition.Layers; }
 			set { Composition.Layers = value; }
 		}
 
-		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor("SoundInTheory.DynamicImage.Design.FilterCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
+		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor(typeof(FilterCollectionEditor), typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public FilterCollection Filters
 		{
 			get { return Composition.Filters; }

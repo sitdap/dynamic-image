@@ -128,10 +128,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Design\SoundInTheory.DynamicImage.Design.csproj">
-      <Project>{D211365C-051D-4875-A099-BC2E09469A26}</Project>
-      <Name>SoundInTheory.DynamicImage.Design</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
       <Project>{15F7FF82-B018-42E0-A94D-2CAAE491C248}</Project>
       <Name>SoundInTheory.DynamicImage</Name>

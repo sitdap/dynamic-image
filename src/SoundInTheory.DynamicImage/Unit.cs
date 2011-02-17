@@ -174,6 +174,26 @@ namespace SoundInTheory.DynamicImage
 			}
 		}
 
+		public bool Equals(Unit other)
+		{
+			return other == this;
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj)) return false;
+			if (obj.GetType() != typeof(Unit)) return false;
+			return Equals((Unit)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				return (_value.GetHashCode() * 397) ^ _type.GetHashCode();
+			}
+		}
+
 		#endregion
 
 		#region Operators

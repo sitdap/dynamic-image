@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Drawing;
 using System.Collections.Generic;
-using SoundInTheory.DynamicImage.Caching;
 using System.ComponentModel;
-using System.Web.UI;
-using System.Web.UI.Design;
-using System.Web;
-using SoundInTheory.DynamicImage.Sources;
 using System.Drawing.Design;
+using System.Web.UI;
+using SoundInTheory.DynamicImage.Caching;
+using SoundInTheory.DynamicImage.Design;
+using SoundInTheory.DynamicImage.Sources;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
@@ -20,7 +16,7 @@ namespace SoundInTheory.DynamicImage
 
 		#region Properties
 
-		[Category("Source"), Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor("SoundInTheory.DynamicImage.Design.ImageSourceCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
+		[Category("Source"), Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor(typeof(ImageSourceCollectionEditor), typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public ImageSourceCollection Source
 		{
 			get

@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Caching;
+using SoundInTheory.DynamicImage.Design;
 using SoundInTheory.DynamicImage.Filters;
 using SoundInTheory.DynamicImage.Util;
 
@@ -142,7 +143,7 @@ namespace SoundInTheory.DynamicImage
 			}
 		}
 
-		[Browsable(true), Editor("SoundInTheory.DynamicImage.Design.LayerCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+		[Browsable(true), Editor(typeof(LayerCollectionEditor), typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public LayerCollection Layers
 		{
 			get
@@ -171,7 +172,7 @@ namespace SoundInTheory.DynamicImage
 			get { return this.Layers.Cast<Layer>().Where(l => l.Visible); }
 		}
 
-		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor("SoundInTheory.DynamicImage.Design.FilterCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
+		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor(typeof(FilterCollectionEditor), typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public FilterCollection Filters
 		{
 			get

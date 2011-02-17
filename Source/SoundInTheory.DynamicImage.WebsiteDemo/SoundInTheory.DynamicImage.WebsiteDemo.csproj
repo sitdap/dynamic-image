@@ -98,7 +98,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DynamicImage\CutyCapt.exe" />
+    <Content Include="App_Data\DynamicImage\CAIR.exe" />
     <Content Include="Assets\Images\AlphaAutumnLeaves.png" />
     <Content Include="Assets\Images\ArrowLeftDark.png" />
     <Content Include="Assets\Images\ArrowLeftLight.png" />
@@ -129,8 +129,6 @@
     <Content Include="IndexedSourceImage.aspx" />
     <Content Include="Filters\ColorKeyFilter.aspx" />
     <Content Include="Filters\EmbossFilter.aspx" />
-    <Content Include="Layers\WebsiteScreenshotLayer.aspx" />
-    <Content Include="Layers\PdfLayer.aspx" />
     <Content Include="Layers\JuliaFractalLayer.aspx" />
     <Content Include="Layers\RectangleShapeLayer.aspx" />
     <Content Include="Opacity.aspx" />
@@ -177,18 +175,6 @@
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Design\SoundInTheory.DynamicImage.Design.csproj">
       <Project>{D211365C-051D-4875-A099-BC2E09469A26}</Project>
       <Name>SoundInTheory.DynamicImage.Design</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Pdf\SoundInTheory.DynamicImage.Pdf.csproj">
-      <Project>{BCEEAB02-6535-4F34-A091-F792F8018567}</Project>
-      <Name>SoundInTheory.DynamicImage.Pdf</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Video\SoundInTheory.DynamicImage.Video.csproj">
-      <Project>{11CD4135-807B-448D-932C-C3CF10990B33}</Project>
-      <Name>SoundInTheory.DynamicImage.Video</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.WebsiteScreenshot\SoundInTheory.DynamicImage.WebsiteScreenshot.csproj">
-      <Project>{E4F8086A-783E-45ED-B021-8B0C494989A6}</Project>
-      <Name>SoundInTheory.DynamicImage.WebsiteScreenshot</Name>
     </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
       <Project>{15F7FF82-B018-42E0-A94D-2CAAE491C248}</Project>

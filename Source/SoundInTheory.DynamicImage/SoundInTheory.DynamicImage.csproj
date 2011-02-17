@@ -297,6 +297,7 @@
     <Compile Include="Util\RenderTargetBitmapUtility.cs" />
     <Compile Include="Util\ShaderEffectUtility.cs" />
     <Compile Include="Util\Util.cs" />
+    <Compile Include="VideoLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

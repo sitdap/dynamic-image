@@ -153,12 +153,8 @@
     <Compile Include="FeatherShape.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />
     <Compile Include="Filters\BorderFilter.cs" />
-    <Compile Include="Filters\ContentAwareResizeFilter.cs" />
-    <Compile Include="Filters\ContentAwareResizeFilterConvolutionType.cs" />
     <Compile Include="Filters\RoundCornersFilter.cs" />
-    <Compile Include="Fluent\ContentAwareResizeFilterBuilder.cs" />
     <Compile Include="Fluent\RoundCornersFilterBuilder.cs" />
-    <Compile Include="Util\CairWrapper.cs" />
     <Compile Include="Filters\TransferFilter.cs" />
     <Compile Include="Filters\SolarizeFilter.cs" />
     <Compile Include="Filters\CurvePointCollection.cs" />

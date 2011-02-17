@@ -98,7 +98,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DynamicImage\CAIR.exe" />
     <Content Include="Assets\Images\AlphaAutumnLeaves.png" />
     <Content Include="Assets\Images\ArrowLeftDark.png" />
     <Content Include="Assets\Images\ArrowLeftLight.png" />
@@ -116,7 +115,6 @@
     <Content Include="Assets\Images\Tower.jpg" />
     <Content Include="Assets\Images\Tulips.jpg" />
     <Content Include="BlendModes.aspx" />
-    <Content Include="Filters\ContentAwareResizeFilter.aspx" />
     <Content Include="Filters\RoundCornersFilter.aspx" />
     <Content Include="Filters\SolarizeFilter.aspx" />
     <Content Include="GlobalFilters.aspx" />

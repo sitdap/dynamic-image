@@ -63,7 +63,7 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 			{
 				using (DbCommand comm = conn.CreateCommand())
 				{
-					comm.CommandText = "SELECT * FROM Cache WHERE UniqueKey = @UniqueKey";
+					comm.CommandText = "SELECT * FROM Cache WHERE UniqueKey LIKE @UniqueKey";
 					AddCommandParameter(comm, "UniqueKey", DbType.String, cacheKey);
 					result = (comm.ExecuteScalar() != null);
 				}
@@ -120,7 +120,7 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 			{
 				using (DbCommand comm = conn.CreateCommand())
 				{
-					comm.CommandText = "SELECT * FROM Cache WHERE UniqueKey = @UniqueKey";
+					comm.CommandText = "SELECT * FROM Cache WHERE UniqueKey LIKE @UniqueKey";
 					AddCommandParameter(comm, "UniqueKey", DbType.String, cacheKey);
 					DbDataReader reader = comm.ExecuteReader();
 					if (reader.Read())
@@ -229,10 +229,6 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 					{
 						using (DbCommand comm = conn.CreateCommand())
 						{
-							// Create the Version table if it doesn't already exist.
-							comm.CommandText = "CREATE TABLE IF NOT EXISTS Version (VersionNumber INT);";
-							comm.ExecuteNonQuery();
-
 							// Add a row to the Version table, if no row exists.
 							comm.CommandText = "SELECT VersionNumber FROM Version;";
 							object versionNumberObject = comm.ExecuteScalar();
@@ -251,11 +247,11 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 								if (versionNumber < 1)
 								{
 									comm.CommandText =
-										"CREATE TABLE Cache (ID VARCHAR(200) NOT NULL PRIMARY KEY, UniqueKey TEXT NOT NULL, IsImagePresent BIT NOT NULL, Width INT NULL, Height INT NULL, Format VARCHAR(100) NOT NULL, ColorDepth INT NOT NULL, JpegCompressionLevel INT NULL);";
+										"CREATE TABLE Cache (ID NVARCHAR(200) NOT NULL PRIMARY KEY, UniqueKey NTEXT NOT NULL, IsImagePresent BIT NOT NULL, Width INT NULL, Height INT NULL, Format NVARCHAR(100) NOT NULL, ColorDepth INT NOT NULL, JpegCompressionLevel INT NULL);";
 									comm.ExecuteNonQuery();
 
 									comm.CommandText =
-										"CREATE TABLE CacheDependencies (CacheID VARCHAR(200) NOT NULL CONSTRAINT FK_CacheID REFERENCES Cache(ID) ON DELETE CASCADE, Text1 VARCHAR(300) NULL, Text2 VARCHAR(300) NULL, Text3 VARCHAR(300) NULL, Text4 VARCHAR(300) NULL);";
+										"CREATE TABLE CacheDependencies (CacheID NVARCHAR(200) NOT NULL CONSTRAINT FK_CacheID REFERENCES Cache(ID) ON DELETE CASCADE, Text1 NVARCHAR(300) NULL, Text2 NVARCHAR(300) NULL, Text3 NVARCHAR(300) NULL, Text4 NVARCHAR(300) NULL);";
 									comm.ExecuteNonQuery();
 								}
 							}
@@ -277,7 +273,7 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 		private static string GetDiskCacheFilePath(HttpContext httpContext, string cacheProviderKey, string fileExtension)
 		{
 			if (httpContext == null)
-				throw new InvalidOperationException("HttpContext.Current is null; SqliteCacheProvider only supports being run within the context of a web request.");
+				throw new InvalidOperationException("HttpContext.Current is null; SqlCacheProviderBase only supports being run within the context of a web request.");
 
 			string imageCacheFolder = httpContext.Server.MapPath("~/App_Data/DynamicImage");
 			if (!Directory.Exists(imageCacheFolder))

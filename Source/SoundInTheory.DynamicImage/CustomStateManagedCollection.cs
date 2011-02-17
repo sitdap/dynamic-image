@@ -11,7 +11,7 @@ namespace SoundInTheory.DynamicImage
 	/// <typeparamref name="T"/>-derived objects.
 	/// </summary>
 	/// <typeparam name="T">The type of elements in the collection.</typeparam>
-	public abstract class CustomStateManagedCollection<T> : StateManagedCollection, IStateManagedObject
+	public abstract class CustomStateManagedCollection<T> : StateManagedCollection, IStateManagedObject, IEnumerable<T>
 		where T : DataBoundObject
 	{
 		protected static Type[] _knownTypes;
@@ -26,6 +26,21 @@ namespace SoundInTheory.DynamicImage
 		public T this[int index]
 		{
 			get { return (T) ((IList) this)[index]; }
+		}
+
+		#endregion
+
+		#region Constructors
+
+		protected CustomStateManagedCollection()
+		{
+			
+		}
+
+		protected CustomStateManagedCollection(IEnumerable<T> items)
+		{
+			foreach (T item in items)
+				((IList)this).Add(item);
 		}
 
 		#endregion
@@ -156,5 +171,11 @@ namespace SoundInTheory.DynamicImage
 		}*/
 
 		#endregion
+
+		IEnumerator<T> IEnumerable<T>.GetEnumerator()
+		{
+			for (int i = 0; i < Count; ++i)
+				yield return this[i];
+		}
 	}
 }

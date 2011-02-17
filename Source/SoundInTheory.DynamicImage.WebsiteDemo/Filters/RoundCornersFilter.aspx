@@ -6,8 +6,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-			<sitdap:DynamicImage runat="server" ImageFormat="Png">
+     <div style="background-color:Blue" style="width:600px">
+			<sitdap:DynamicImage runat="server" ImageFormat="Png" Fill-BackgroundColour="Transparent">
 				<Layers>
 					<sitdap:ImageLayer SourceFileName="~/Assets/Images/AutumnLeaves.jpg">
 						<Filters>

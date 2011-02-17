@@ -14,9 +14,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("Retail")]
 [assembly: AssemblyCompany("Sound in Theory Ltd")]
 [assembly: AssemblyProduct("DynamicImage: Image manipulation library for ASP.NET")]
-[assembly: AssemblyCopyright("Copyright ©2010 Sound in Theory Ltd")]
+[assembly: AssemblyCopyright("Copyright ©2011 Sound in Theory Ltd")]
 [assembly: AssemblyTrademark("sitdap.com")]
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyFileVersion("0.9.1.0")]
-[assembly: AssemblyVersion("0.9.1.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]

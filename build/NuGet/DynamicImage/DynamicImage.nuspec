@@ -6,7 +6,7 @@
     <title>DynamicImage</title>
     <authors>Sound in Theory Ltd</authors>
     <owners>Tim Jones</owners>
-    <description>DynamicImage is a high-performance image manipulation library for ASP.NET.</description>
+    <description>DynamicImage is a high-performance image manipulation library for ASP.NET. This package combines the DynamicImage.Core and DynamicImage.Caching.Sql packages, and is the one to use if you're getting started.</description>
     <summary>DynamicImage is a high-performance image manipulation library for ASP.NET.</summary>
     <language>en-US</language>
     <projectUrl>https://github.com/sitdap/dynamic-image</projectUrl>

@@ -6,8 +6,8 @@
     <title>DynamicImage.Caching.Sql</title>
     <authors>Sound in Theory Ltd</authors>
     <owners>Tim Jones</owners>
-    <description>DynamicImage is a high-performance image manipulation library for ASP.NET.</description>
-    <summary>DynamicImage is a high-performance image manipulation library for ASP.NET.</summary>
+    <description>Caching plugin for DynamicImage which enables images to be cached to the file system, using SQL CE 4 as a cache index.</description>
+    <summary>Caching plugin for DynamicImage which enables images to be cached to the file system, using SQL CE 4 as a cache index.</summary>
     <language>en-US</language>
     <projectUrl>https://github.com/sitdap/dynamic-image</projectUrl>
     <!--iconUrl></iconUrl-->

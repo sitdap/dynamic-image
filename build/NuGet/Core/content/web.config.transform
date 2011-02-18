@@ -1,9 +1,4 @@
 <configuration>
-	<configSections>
-		<sectionGroup name="soundInTheory">
-			<section name="dynamicImage" type="SoundInTheory.DynamicImage.Configuration.DynamicImageSection" />
-		</sectionGroup>
-	</configSections>
 	<system.web>
 		<compilation targetFramework="4.0">
 			<assemblies>
@@ -26,13 +21,4 @@
 			<add name="DynamicImageModule" type="SoundInTheory.DynamicImage.DynamicImageModule, SoundInTheory.DynamicImage" />
 		</modules>
 	</system.webServer>
-	<soundInTheory>
-		<dynamicImage>
-			<caching mode="Custom" customProvider="SqlCeCachingProvider" storeMissingImagesInCache="false">
-				<providers>
-					<add name="SqlCeCachingProvider" type="SoundInTheory.DynamicImage.Caching.Sql.SqlCeCacheProvider, SoundInTheory.DynamicImage.Caching.Sql" />
-				</providers>
-			</caching>
-		</dynamicImage>
-	</soundInTheory>
 </configuration>

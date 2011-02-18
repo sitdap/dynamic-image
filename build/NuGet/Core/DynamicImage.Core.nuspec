@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0"?>
 <package>
   <metadata>
-    <id>DynamicImage</id>
+    <id>DynamicImage.Core</id>
     <version>1.0.0</version>
-    <title>DynamicImage</title>
+    <title>DynamicImage.Core</title>
     <authors>Sound in Theory Ltd</authors>
     <owners>Tim Jones</owners>
     <description>DynamicImage is a high-performance image manipulation library for ASP.NET.</description>
@@ -14,9 +14,5 @@
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>.net40 ASP.NET image manipulation filters resize crop</tags>
-    <dependencies>
-      <dependency id="DynamicImage.Core" version="1.0.0" />
-      <dependency id="DynamicImage.Caching.Sql" version="1.0.0" />
-    </dependencies> 
   </metadata>
 </package>

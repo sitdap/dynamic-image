@@ -16,7 +16,6 @@ namespace SoundInTheory.DynamicImage.Caching.Xml
 		public XmlCacheProvider()
 		{
 			_docPath = HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/DynamicImageCache.xml");
-
 			EnsureDocument();
 
 			_watcher = new FileSystemWatcher(Path.GetDirectoryName(_docPath), "DynamicImageCache.xml");
@@ -33,6 +32,10 @@ namespace SoundInTheory.DynamicImage.Caching.Xml
 		{
 			lock (this)
 			{
+				string imageCacheFolder = HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage");
+				if (!Directory.Exists(imageCacheFolder))
+					Directory.CreateDirectory(imageCacheFolder);
+
 				if (!File.Exists(_docPath))
 				{
 					string xml = new XElement("cache").ToString();

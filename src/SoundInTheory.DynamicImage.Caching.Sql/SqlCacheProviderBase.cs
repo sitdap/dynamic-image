@@ -5,16 +5,15 @@ using System.Data;
 using System.Data.Common;
 using System.IO;
 using System.Web;
-using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Caching.Sql
 {
-	public abstract class SqlCacheProviderBase : DynamicImageCacheProvider
+	public abstract class SqlCacheProviderBase : DiskCacheProviderBase
 	{
 		#region Fields
 
-		private const int CURRENT_VERSION = 1;
+		private const int CurrentVersion = 1;
 		private string _dependentSite;
 
 		#endregion
@@ -194,23 +193,6 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 			return name + " = @" + name;
 		}
 
-		public override DateTime GetImageLastModifiedDate(HttpContext context, string cacheProviderKey, string fileExtension)
-		{
-			string filePath = GetDiskCacheFilePath(context, cacheProviderKey, fileExtension);
-			return File.GetLastWriteTime(context.Server.MapPath(filePath));
-		}
-
-		public override void SendImageToHttpResponse(HttpContext context, string cacheProviderKey, string fileExtension)
-		{
-			// Instead of sending image directly to the response, just call RewritePath and let IIS
-			// handle the actual serving of the image.
-			string filePath = GetDiskCacheFilePath(context, cacheProviderKey, fileExtension);
-
-			context.Items["FinalCachedFile"] = context.Server.MapPath(filePath);
-
-			context.RewritePath(filePath, false);
-		}
-
 		#region Helper methods
 
 		/// <summary>
@@ -242,7 +224,7 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 
 							// Check the version number.
 							int versionNumber = (int) versionNumberObject;
-							if (versionNumber < CURRENT_VERSION)
+							if (versionNumber < CurrentVersion)
 							{
 								if (versionNumber < 1)
 								{
@@ -256,7 +238,7 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 								}
 							}
 
-							comm.CommandText = "UPDATE Version SET VersionNumber = " + CURRENT_VERSION;
+							comm.CommandText = "UPDATE Version SET VersionNumber = " + CurrentVersion;
 							comm.ExecuteNonQuery();
 						}
 
@@ -268,20 +250,6 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 			{
 				throw new ConfigurationErrorsException("Could not update cache database to latest database version.", ex);
 			}
-		}
-
-		private static string GetDiskCacheFilePath(HttpContext httpContext, string cacheProviderKey, string fileExtension)
-		{
-			if (httpContext == null)
-				throw new InvalidOperationException("HttpContext.Current is null; SqlCacheProviderBase only supports being run within the context of a web request.");
-
-			string imageCacheFolder = httpContext.Server.MapPath("~/App_Data/DynamicImage");
-			if (!Directory.Exists(imageCacheFolder))
-				Directory.CreateDirectory(imageCacheFolder);
-
-			string fileName = cacheProviderKey + "." + fileExtension;
-			string filePath = string.Format("~/App_Data/DynamicImage/{0}", fileName);
-			return filePath;
 		}
 
 		private static ImageProperties GetImageProperties(DbDataReader reader)
@@ -297,37 +265,6 @@ namespace SoundInTheory.DynamicImage.Caching.Sql
 				JpegCompressionLevel = reader["JpegCompressionLevel"] != DBNull.Value ? (int?) reader["JpegCompressionLevel"] : null,
 				CacheProviderKey = (string) reader["ID"]
 			};
-		}
-
-		private static void SaveImageToDiskCache(CompositionImage compositionImage)
-		{
-			if (!compositionImage.Properties.IsImagePresent)
-				return;
-
-			HttpContext httpContext = HttpContext.Current;
-			string filePath = httpContext.Server.MapPath(GetDiskCacheFilePath(httpContext, compositionImage.Properties.CacheProviderKey, compositionImage.Properties.FileExtension));
-
-			using (FileStream fileStream = File.OpenWrite(filePath))
-			{
-				BitmapEncoder encoder = compositionImage.Properties.GetEncoder();
-				encoder.Frames.Add(BitmapFrame.Create(compositionImage.Image));
-				encoder.Save(fileStream);
-			}
-		}
-
-		private static void DeleteImageFromDiskCache(ImageProperties imageProperties, HttpContext httpContext)
-		{
-			string filePath = httpContext.Server.MapPath(GetDiskCacheFilePath(httpContext, imageProperties.CacheProviderKey, imageProperties.FileExtension));
-			DeleteImageFromDiskCache(imageProperties, filePath);
-		}
-
-		private static void DeleteImageFromDiskCache(ImageProperties imageProperties, string filePath)
-		{
-			if (!imageProperties.IsImagePresent)
-				return;
-
-			if (File.Exists(filePath))
-				File.Delete(filePath);
 		}
 
 		private static void AddCommandParameter(DbCommand comm, string name, DbType type, object value)

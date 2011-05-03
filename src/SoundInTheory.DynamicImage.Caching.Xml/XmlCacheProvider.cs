@@ -51,9 +51,7 @@ namespace SoundInTheory.DynamicImage.Caching.Xml
 		public override bool ExistsInCache(string cacheKey)
 		{
 			EnsureDocument();
-
-			lock (_doc)
-				return _doc.Root.Elements().Any(e => e.Attribute("uniqueKey").Value == cacheKey);
+			return _doc.Root.Elements().Any(e => e.Attribute("uniqueKey").Value == cacheKey);
 		}
 
 		public override void AddToCache(string cacheKey, CompositionImage compositionImage, Dependency[] dependencies)
@@ -65,6 +63,10 @@ namespace SoundInTheory.DynamicImage.Caching.Xml
 
 			lock (_doc)
 			{
+				// Double-check that item hasn't been added to cache since we checked.
+				if (ExistsInCache(cacheKey))
+					return;
+
 				var itemElement = new XElement("item",
 					new XAttribute("id", compositionImage.Properties.CacheProviderKey),
 					new XAttribute("uniqueKey", cacheKey),

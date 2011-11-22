@@ -88,6 +88,7 @@
     <Compile Include="Caching\InProcDynamicImageCacheProvider.cs" />
     <Compile Include="Caching\DiskCacheProviderBase.cs" />
     <Compile Include="Caching\TransientCacheProvider.cs" />
+    <Compile Include="Caching\XmlCacheProvider.cs" />
     <Compile Include="Layers\ClosedShapeLayer.cs" />
     <Compile Include="ColorHsv.cs" />
     <Compile Include="Composition.cs" />

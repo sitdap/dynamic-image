@@ -129,10 +129,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Caching.Xml\SoundInTheory.DynamicImage.Caching.Xml.csproj">
-      <Project>{3E5C1F9D-41D3-4682-92FC-D95B2F90735C}</Project>
-      <Name>SoundInTheory.DynamicImage.Caching.Xml</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
       <Project>{15F7FF82-B018-42E0-A94D-2CAAE491C248}</Project>
       <Name>SoundInTheory.DynamicImage</Name>

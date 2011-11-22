@@ -69,10 +69,5 @@ namespace SoundInTheory.DynamicImage.Filters
 
 			return Curves;
 		}
-
-		public override string ToString()
-		{
-			return "Curves";
-		}
 	}
 }

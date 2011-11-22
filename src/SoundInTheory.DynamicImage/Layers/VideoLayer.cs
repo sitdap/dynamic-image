@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Sources;
 using SoundInTheory.DynamicImage.Util;
 
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	public class VideoLayer : Layer
 	{

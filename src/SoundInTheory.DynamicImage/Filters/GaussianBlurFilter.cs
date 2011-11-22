@@ -48,10 +48,5 @@ namespace SoundInTheory.DynamicImage.Filters
 				RenderingBias = RenderingBias.Quality
 			};
 		}
-
-		public override string ToString()
-		{
-			return "Gaussian Blur";
-		}
 	}
 }

@@ -99,10 +99,5 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.DrawImage(source.InnerBitmap, new Rect(0, 0, source.Width, source.Height));
 			dc.Pop();
 		}
-
-		public override string ToString()
-		{
-			return "Rotation";
-		}
 	}
 }

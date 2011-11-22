@@ -68,10 +68,5 @@ namespace SoundInTheory.DynamicImage.Filters
 				TransparentColor = transparentColor
 			};
 		}
-
-		public override string ToString()
-		{
-			return "Color Key";
-		}
 	}
 }

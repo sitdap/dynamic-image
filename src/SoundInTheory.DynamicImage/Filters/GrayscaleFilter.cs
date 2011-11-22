@@ -15,10 +15,5 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			return new GrayscaleEffect();
 		}
-
-		public override string ToString()
-		{
-			return "Grayscale";
-		}
 	}
 }

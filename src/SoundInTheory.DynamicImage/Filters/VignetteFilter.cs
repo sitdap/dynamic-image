@@ -38,10 +38,5 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.DrawRectangle(new SolidColorBrush(Colors.Black), null, new Rect(0, 0, width, height));
 			dc.Pop();
 		}
-
-		public override string ToString()
-		{
-			return "Vignette";
-		}
 	}
 }

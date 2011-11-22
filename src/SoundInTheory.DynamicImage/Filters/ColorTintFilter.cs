@@ -53,11 +53,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			};
 		}
 
-		public override string ToString()
-		{
-			return "Color Tint";
-		}
-
 		#endregion
 	}
 }

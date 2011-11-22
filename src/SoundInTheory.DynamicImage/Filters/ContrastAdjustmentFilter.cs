@@ -49,11 +49,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			};
 		}
 
-		public override string ToString()
-		{
-			return "Contrast Adjustment";
-		}
-
 		#endregion
 	}
 }

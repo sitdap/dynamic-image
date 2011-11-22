@@ -123,11 +123,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			return (ReflectionPositionY ?? source.Height);
 		}
 
-		public override string ToString()
-		{
-			return "Shiny Floor";
-		}
-
 		#endregion
 	}
 }

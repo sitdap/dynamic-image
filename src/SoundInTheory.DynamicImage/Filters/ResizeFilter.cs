@@ -256,11 +256,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.DrawDrawing(dg);
 		}
 
-		public override string ToString()
-		{
-			return "Resize";
-		}
-
 		#endregion
 	}
 

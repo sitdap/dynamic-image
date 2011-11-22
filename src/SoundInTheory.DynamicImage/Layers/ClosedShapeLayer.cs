@@ -1,5 +1,5 @@
 ﻿
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	/// <summary>
 	/// An abstract base class that provides basic functionality for derived close shape classes.

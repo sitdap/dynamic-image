@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
 
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	/// <summary>
 	/// The base class for fractal layers.
@@ -78,10 +78,5 @@ namespace SoundInTheory.DynamicImage
 		}
 
 		internal abstract ColorHsv CalculateFractalColour(int x, int y);
-
-		public override string ToString()
-		{
-			return string.Format("Fractal Layer");
-		}
 	}
 }

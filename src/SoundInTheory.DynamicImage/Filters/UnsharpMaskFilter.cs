@@ -102,11 +102,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			};
 		}
 
-		public override string ToString()
-		{
-			return "Unsharp Mask";
-		}
-
 		#endregion
 	}
 }

@@ -60,11 +60,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.Pop();
 		}
 
-		public override string ToString()
-		{
-			return "Border";
-		}
-
 		#endregion
 	}
 }

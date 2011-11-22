@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	public class MandelbrotFractalLayer : FractalLayer
 	{

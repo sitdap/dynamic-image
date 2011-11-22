@@ -181,11 +181,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			}
 		}*/
 
-		public override string ToString()
-		{
-			return "Emboss";
-		}
-
 		#endregion
 	}
 }

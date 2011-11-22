@@ -71,11 +71,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.DrawImage(source.InnerBitmap, new Rect(MaskPositionX, MaskPositionY, _maskImageWidth, _maskImageHeight));
 		}
 
-		public override string ToString()
-		{
-			return "Clipping Mask";
-		}
-
 		#endregion
 	}
 }

@@ -3,7 +3,7 @@ using SoundInTheory.DynamicImage.Caching;
 using SoundInTheory.DynamicImage.Sources;
 using SoundInTheory.DynamicImage.Util;
 
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	public class ImageLayer : Layer
 	{
@@ -57,11 +57,6 @@ namespace SoundInTheory.DynamicImage
 			this.Source.PopulateDependencies(dependencies);
 			if (this.AlternateSource != null)
 				this.AlternateSource.PopulateDependencies(dependencies);
-		}
-
-		public override string ToString()
-		{
-			return "Image Layer";
 		}
 	}
 }

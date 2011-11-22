@@ -1,3 +1,4 @@
+using SoundInTheory.DynamicImage.Layers;
 using SoundInTheory.DynamicImage.Sources;
 
 namespace SoundInTheory.DynamicImage.Fluent

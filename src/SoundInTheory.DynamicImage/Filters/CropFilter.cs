@@ -120,11 +120,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.DrawImage(bitmapSource, new System.Windows.Rect(0, 0, width, height));
 		}
 
-		public override string ToString()
-		{
-			return "Crop";
-		}
-
 		#endregion
 	}
 }

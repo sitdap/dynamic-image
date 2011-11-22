@@ -14,10 +14,5 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			return new SepiaEffect();
 		}
-
-		public override string ToString()
-		{
-			return "Sepia";
-		}
 	}
 }

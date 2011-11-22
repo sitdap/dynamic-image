@@ -6,10 +6,5 @@
 		{
 			return (value > 0.5f) ? 2 * (value - 0.5f) : 2 * (0.5f - value);
 		}
-
-		public override string ToString()
-		{
-			return "Solarize";
-		}
 	}
 }

@@ -13,10 +13,5 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			return new InversionEffect();
 		}
-
-		public override string ToString()
-		{
-			return "Inversion";
-		}
 	}
 }

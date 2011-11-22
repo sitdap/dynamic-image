@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Web.UI;
 using System.Windows.Media;
 
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	public abstract class ShapeLayer : Layer
 	{

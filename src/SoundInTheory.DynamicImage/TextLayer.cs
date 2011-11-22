@@ -298,11 +298,6 @@ namespace SoundInTheory.DynamicImage
 			renderCallback(formattedText);
 		}
 
-		public override string ToString()
-		{
-			return string.Format("Text Layer: {0}", this.Text);
-		}
-
 		private delegate void RenderCallback(FormattedText formattedText);
 	}
 }

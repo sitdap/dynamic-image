@@ -3,7 +3,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
 
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	/// <summary>
 	/// Represents a rectangle shape layer.

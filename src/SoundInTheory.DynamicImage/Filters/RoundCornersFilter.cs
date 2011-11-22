@@ -79,11 +79,6 @@ namespace SoundInTheory.DynamicImage.Filters
 				Roundness, Roundness);
 		}
 
-		public override string ToString()
-		{
-			return "Round Corners";
-		}
-
 		#endregion
 	}
 }

@@ -46,10 +46,5 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.DrawImage(source.InnerBitmap, new Rect(0, 0, width, height));
 			dc.Pop();
 		}
-
-		public override string ToString()
-		{
-			return "Opacity Adjustment";
-		}
 	}
 }

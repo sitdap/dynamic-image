@@ -107,7 +107,6 @@
     <Compile Include="Configuration\TemplateSettings.cs" />
     <Compile Include="DashStyle.cs" />
     <Compile Include="DynamicImageException.cs" />
-    <Compile Include="FeatherShape.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />
     <Compile Include="Filters\BorderFilter.cs" />
     <Compile Include="Filters\RoundCornersFilter.cs" />

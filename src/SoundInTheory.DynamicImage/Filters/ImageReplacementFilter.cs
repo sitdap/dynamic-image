@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
@@ -18,7 +16,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// Applies the filter to the specified <paramref name="bitmap"/>. This method
 		/// first calls <see cref="ImageReplacementFilter.GetDestinationDimensions(FastBitmap, out Int32, out Int32)" />
 		/// to calculate the size of the destination image. Then it calls
-		/// <see cref="ImageReplacementFilter.ApplyFilter(FastBitmap, FastBitmap, Graphics)" /> 
+		/// <see cref="ImageReplacementFilter.ApplyFilter(FastBitmap, DrawingContext, int, int)" /> 
 		/// which is where the overridden class implements its filter algorithm.
 		/// </summary>
 		/// <param name="bitmap">

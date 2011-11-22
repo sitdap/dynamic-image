@@ -123,16 +123,6 @@ namespace SoundInTheory.DynamicImage
 			return new CompositionImage(properties, image);
 		}
 
-		/// <summary>
-		/// Used by the visual designer. In the future this could be exposed for
-		/// non-web uses.
-		/// </summary>
-		/// <returns></returns>
-		public CompositionImage GetCompositionImage()
-		{
-			return GetCompositionImage(GetDirtyProperties());
-		}
-
 		private BitmapSource CreateImage()
 		{
 			ValidateParameters();

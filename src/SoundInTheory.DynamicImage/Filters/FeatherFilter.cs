@@ -90,4 +90,10 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		#endregion
 	}
+
+	public enum FeatherShape
+	{
+		Rectangle,
+		Oval
+	}
 }

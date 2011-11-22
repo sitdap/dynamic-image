@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.WebsiteDemo", "SoundInTheory.DynamicImage.WebsiteDemo\SoundInTheory.DynamicImage.WebsiteDemo.csproj", "{222C85DF-0D06-41D9-A097-2D5D48891C96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Website", "SoundInTheory.DynamicImage.Website\SoundInTheory.DynamicImage.Website.csproj", "{24999D8E-A887-48E2-B30F-0A97FBB2EBFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Mvc", "SoundInTheory.DynamicImage.Mvc\SoundInTheory.DynamicImage.Mvc.csproj", "{B7A0D43C-DF4A-4070-840F-156C92E9F54F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{222C85DF-0D06-41D9-A097-2D5D48891C96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{222C85DF-0D06-41D9-A097-2D5D48891C96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{222C85DF-0D06-41D9-A097-2D5D48891C96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24999D8E-A887-48E2-B30F-0A97FBB2EBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24999D8E-A887-48E2-B30F-0A97FBB2EBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24999D8E-A887-48E2-B30F-0A97FBB2EBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24999D8E-A887-48E2-B30F-0A97FBB2EBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A0D43C-DF4A-4070-840F-156C92E9F54F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A0D43C-DF4A-4070-840F-156C92E9F54F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A0D43C-DF4A-4070-840F-156C92E9F54F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A0D43C-DF4A-4070-840F-156C92E9F54F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

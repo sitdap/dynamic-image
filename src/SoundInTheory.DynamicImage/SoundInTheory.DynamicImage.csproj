@@ -178,9 +178,7 @@
     <Compile Include="Fluent\ResizeFilterBuilder.cs" />
     <Compile Include="Fluent\TextLayerBuilder.cs" />
     <Compile Include="Font.cs" />
-    <Compile Include="DataBoundCollection.cs" />
     <Compile Include="CustomStateManagedCollection.cs" />
-    <Compile Include="DataBoundObject.cs" />
     <Compile Include="Filters\ColorTintFilter.cs" />
     <Compile Include="Filters\ClippingMaskFilter.cs" />
     <Compile Include="Filters\FeatherFilter.cs" />

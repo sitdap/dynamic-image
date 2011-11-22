@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI;
 using System.Collections;
+using System.Collections.Generic;
+using System.Web.UI;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -12,10 +11,8 @@ namespace SoundInTheory.DynamicImage
 	/// </summary>
 	/// <typeparam name="T">The type of elements in the collection.</typeparam>
 	public abstract class CustomStateManagedCollection<T> : StateManagedCollection, IStateManagedObject, IEnumerable<T>
-		where T : DataBoundObject
+		where T : StateManagedObject
 	{
-		protected static Type[] _knownTypes;
-
 		#region Properties
 
 		/// <summary>
@@ -55,19 +52,6 @@ namespace SoundInTheory.DynamicImage
 		public virtual int Add(T value)
 		{
 			return ((IList) this).Add(value);
-		}
-
-		/// <summary>
-		/// Gets an array of types that the <see cref="CustomStateManagedCollection{T}" /> 
-		/// collection can contain.
-		/// </summary>
-		/// <returns>
-		/// An ordered array of <see cref="System.Type" /> objects that identify the types of 
-		/// objects that the collection can contain.
-		/// </returns>
-		protected override Type[] GetKnownTypes()
-		{
-			return _knownTypes;
 		}
 
 		/// <summary>
@@ -146,29 +130,6 @@ namespace SoundInTheory.DynamicImage
 				return ((IStateManager) this).SaveViewState();
 			}
 		}
-
-		/*internal string GetCacheKey()
-		{
-			string cacheKey = string.Format("C:{0};", this.Count);
-			for (int i = 0, length = this.Count; i < length; ++i)
-				cacheKey += string.Format("L{0}:{{{1}}};", i, this[i].GetCacheKey());
-			return cacheKey;
-		}*/
-
-		/*internal Control BindingContainer
-		{
-			set
-			{
-				foreach (Layer layer in this)
-					layer.BindingContainer = value;
-			}
-		}*/
-
-		/*internal void DataBind()
-		{
-			foreach (Layer layer in this)
-				layer.DataBind();
-		}*/
 
 		#endregion
 

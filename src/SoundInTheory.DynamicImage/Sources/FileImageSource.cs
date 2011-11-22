@@ -1,9 +1,6 @@
-﻿using System;
-using System.ComponentModel;
-using System.Web.UI;
-using System.Web.UI.Design;
-using System.Web;
+﻿using System.ComponentModel;
 using System.IO;
+using System.Web.UI;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Sources
@@ -26,9 +23,9 @@ namespace SoundInTheory.DynamicImage.Sources
 			}
 		}
 
-		public override FastBitmap GetBitmap(ISite site, bool designMode)
+		public override FastBitmap GetBitmap()
 		{
-			string resolvedFileName = FileSourceHelper.ResolveFileName(this.FileName, site, designMode);
+			string resolvedFileName = FileSourceHelper.ResolveFileName(this.FileName);
 			if (File.Exists(resolvedFileName))
 				return new FastBitmap(resolvedFileName);
 			else

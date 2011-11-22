@@ -63,19 +63,6 @@ namespace SoundInTheory.DynamicImage
 			}
 		}
 
-		public override Control BindingContainer
-		{
-			get
-			{
-				return base.BindingContainer;
-			}
-			internal set
-			{
-				this.Source.SingleSource.BindingContainer = value;
-				base.BindingContainer = value;
-			}
-		}
-
 		public override bool HasFixedSize
 		{
 			get { return true; }
@@ -85,14 +72,14 @@ namespace SoundInTheory.DynamicImage
 
 		protected override void CreateImage()
 		{
-			FastBitmap sourceValue = this.Source.SingleSource.GetBitmap(this.Site, this.DesignMode);
+			FastBitmap sourceValue = this.Source.SingleSource.GetBitmap();
 			if (sourceValue != null && sourceValue.InnerBitmap != null)
 			{
 				this.Bitmap = sourceValue;
 			}
 			else if (this.AlternateSource.Count > 0)
 			{
-				sourceValue = this.AlternateSource.SingleSource.GetBitmap(this.Site, this.DesignMode);
+				sourceValue = this.AlternateSource.SingleSource.GetBitmap();
 				if (sourceValue != null && sourceValue.InnerBitmap != null)
 					this.Bitmap = sourceValue;
 			}
@@ -104,12 +91,6 @@ namespace SoundInTheory.DynamicImage
 			this.Source.SingleSource.PopulateDependencies(dependencies);
 			if (this.AlternateSource.Count > 0)
 				this.AlternateSource.SingleSource.PopulateDependencies(dependencies);
-		}
-
-		public override void DataBind()
-		{
-			base.DataBind();
-			this.Source.SingleSource.DataBind();
 		}
 
 		public override string ToString()

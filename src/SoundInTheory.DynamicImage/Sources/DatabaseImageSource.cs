@@ -111,7 +111,7 @@ namespace SoundInTheory.DynamicImage.Sources
 
 		#endregion
 
-		public override FastBitmap GetBitmap(ISite site, bool designMode)
+		public override FastBitmap GetBitmap()
 		{
 			SqlConnection conn = null; SqlDataAdapter adapter = null; DataTable dt = null;
 			try

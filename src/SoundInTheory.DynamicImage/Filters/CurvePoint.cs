@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
-	public class CurvePoint : DataBoundObject
+	public class CurvePoint : StateManagedObject
 	{
 		/// <summary>
 		/// Gets or sets the input value (between 0 and 255).

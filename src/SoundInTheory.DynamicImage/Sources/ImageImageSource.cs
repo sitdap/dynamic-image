@@ -22,7 +22,7 @@ namespace SoundInTheory.DynamicImage.Sources
 			}
 		}
 
-		public override FastBitmap GetBitmap(ISite site, bool designMode)
+		public override FastBitmap GetBitmap()
 		{
 			return new FastBitmap(Image);
 		}

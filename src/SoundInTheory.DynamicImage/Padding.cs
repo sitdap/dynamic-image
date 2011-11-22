@@ -1,10 +1,6 @@
-﻿using System;
-using System.Web.UI;
-using System.ComponentModel;
-
-namespace SoundInTheory.DynamicImage
+﻿namespace SoundInTheory.DynamicImage
 {
-	public class Padding : DataBoundObject
+	public class Padding : StateManagedObject
 	{
 		#region Properties
 

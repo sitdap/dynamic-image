@@ -62,38 +62,13 @@ namespace SoundInTheory.DynamicImage.Filters
 			set { ViewState["MaskPositionY"] = value; }
 		}
 
-		public override Control BindingContainer
-		{
-			get
-			{
-				return base.BindingContainer;
-			}
-			internal set
-			{
-				this.MaskImage.SingleSource.BindingContainer = value;
-				base.BindingContainer = value;
-			}
-		}
-
 		#endregion
 
 		#region Methods
 
-		public override void DataBind()
-		{
-			base.DataBind();
-			MaskImage.SingleSource.DataBind();
-		}
-
-		protected override void ConfigureDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
-		{
-			base.ConfigureDrawingVisual(source, drawingVisual);
-			
-		}
-
 		protected override Effect GetEffect(FastBitmap source)
 		{
-			FastBitmap maskBitmap = MaskImage.SingleSource.GetBitmap(Site, DesignMode);
+			FastBitmap maskBitmap = MaskImage.SingleSource.GetBitmap();
 			_maskImageWidth = maskBitmap.Width;
 			_maskImageHeight = maskBitmap.Height;
 			return new ClippingMaskEffect

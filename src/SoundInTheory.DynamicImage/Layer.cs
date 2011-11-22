@@ -10,28 +10,12 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
 {
-	public abstract class Layer : DataBoundObject
+	public abstract class Layer : StateManagedObject
 	{
 		private Padding _padding;
 		private FilterCollection _filters;
 
 		#region Properties
-
-		[Browsable(true), DefaultValue(""), NotifyParentProperty(true)]
-		public string Name
-		{
-			get
-			{
-				object value = this.ViewState["Name"];
-				if (value != null)
-					return (string) value;
-				return string.Empty;
-			}
-			set
-			{
-				this.ViewState["Name"] = value;
-			}
-		}
 
 		[Browsable(true), DefaultValue(true), NotifyParentProperty(true)]
 		public bool Visible
@@ -211,39 +195,6 @@ namespace SoundInTheory.DynamicImage
 			set;
 		}
 
-		public override Control BindingContainer
-		{
-			get
-			{
-				return base.BindingContainer;
-			}
-			internal set
-			{
-				base.BindingContainer = value;
-				this.Filters.BindingContainer = value;
-			}
-		}
-
-		protected internal override ISite Site
-		{
-			set
-			{
-				base.Site = value;
-				foreach (Filter filter in this.Filters)
-					filter.Site = value;
-			}
-		}
-
-		protected internal override bool DesignMode
-		{
-			set
-			{
-				base.DesignMode = value;
-				foreach (Filter filter in this.Filters)
-					filter.DesignMode = value;
-			}
-		}
-
 		#endregion
 
 		public void Process()
@@ -309,12 +260,6 @@ namespace SoundInTheory.DynamicImage
 				((IStateManager) _padding).TrackViewState();
 			if (_filters != null)
 				((IStateManager) _filters).TrackViewState();
-		}
-
-		public override void DataBind()
-		{
-			base.DataBind();
-			this.Filters.DataBind();
 		}
 
 		#endregion

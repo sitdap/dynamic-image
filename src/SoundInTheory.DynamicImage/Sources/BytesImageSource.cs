@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Sources
@@ -22,7 +21,7 @@ namespace SoundInTheory.DynamicImage.Sources
 			}
 		}
 
-		public override FastBitmap GetBitmap(ISite site, bool designMode)
+		public override FastBitmap GetBitmap()
 		{
 			byte[] bytes = this.Bytes;
 			if (bytes != null && bytes.Length > 0)

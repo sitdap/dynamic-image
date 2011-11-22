@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace SoundInTheory.DynamicImage
 {
-	public class Font : DataBoundObject
+	public class Font : StateManagedObject
 	{
 		#region Properties
 
@@ -120,12 +120,12 @@ namespace SoundInTheory.DynamicImage
 
 		#endregion
 
-		public FontDescription GetFontDescription(bool designMode)
+		public FontDescription GetFontDescription()
 		{
 			FontFamily fontFamily;
 			if (!string.IsNullOrEmpty(CustomFontFile))
 			{
-				string fontFileName = Sources.FileSourceHelper.ResolveFileName(CustomFontFile, Site, designMode);
+				string fontFileName = Sources.FileSourceHelper.ResolveFileName(CustomFontFile);
 				fontFamily = new FontFamily(fontFileName + "#" + Name);
 			}
 			else

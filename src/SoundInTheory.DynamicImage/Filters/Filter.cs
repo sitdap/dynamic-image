@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Web.UI;
+﻿using System.ComponentModel;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Filters
@@ -8,7 +6,7 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// Provides the abstract base class for filters.
 	/// </summary>
-	public abstract class Filter : DataBoundObject
+	public abstract class Filter : StateManagedObject
 	{
 		#region Properties
 

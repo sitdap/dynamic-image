@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing.Design;
 using System.IO;
 using System.Linq;
 using System.Web.UI;
@@ -14,7 +13,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
 {
-	public class Composition : DataBoundObject
+	public class Composition : StateManagedObject
 	{
 		private LayerCollection _layers;
 		private Fill _fill;
@@ -257,13 +256,6 @@ namespace SoundInTheory.DynamicImage
 		private BitmapSource CreateImage()
 		{
 			ValidateParameters();
-
-			// Set design-mode properties.
-			foreach (Layer layer in this.VisibleLayers)
-				{
-					layer.Site = this.Site;
-					layer.DesignMode = this.DesignMode;
-				}
 
 			// First, we process layers which have a specific size.
 			foreach (Layer layer in this.VisibleLayers)

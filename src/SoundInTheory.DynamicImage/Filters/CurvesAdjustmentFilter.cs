@@ -89,7 +89,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		private CurveCollection GetCurves()
 		{
 			if (!string.IsNullOrEmpty(PhotoshopCurvesFileName))
-				return PhotoshopCurvesReader.ReadPhotoshopCurvesFile(FileSourceHelper.ResolveFileName(PhotoshopCurvesFileName, Site, DesignMode));
+				return PhotoshopCurvesReader.ReadPhotoshopCurvesFile(FileSourceHelper.ResolveFileName(PhotoshopCurvesFileName));
 
 			return Curves;
 		}

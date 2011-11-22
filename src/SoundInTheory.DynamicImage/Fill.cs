@@ -2,11 +2,10 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace SoundInTheory.DynamicImage
 {
-	public class Fill : DataBoundObject
+	public class Fill : StateManagedObject
 	{
 		#region Properties
 

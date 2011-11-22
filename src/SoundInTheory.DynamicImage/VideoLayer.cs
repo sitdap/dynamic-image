@@ -31,7 +31,7 @@ namespace SoundInTheory.DynamicImage
 
 		protected override void CreateImage()
 		{
-			string filename = FileSourceHelper.ResolveFileName(SourceFileName, Site, DesignMode);
+			string filename = FileSourceHelper.ResolveFileName(SourceFileName);
 
 			MediaPlayer mediaPlayer = new MediaPlayer
 			{

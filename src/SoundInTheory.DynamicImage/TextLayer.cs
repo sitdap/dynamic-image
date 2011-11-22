@@ -301,7 +301,7 @@ namespace SoundInTheory.DynamicImage
 		private void UseFormattedText(RenderCallback renderCallback)
 		{
 			Brush textBrush = new SolidColorBrush(ForeColour);
-			FontDescription fontDescription = Font.GetFontDescription(DesignMode);
+			FontDescription fontDescription = Font.GetFontDescription();
 			FormattedText formattedText = new FormattedText(Text, CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
 			                                                fontDescription.Typeface, fontDescription.Size, textBrush);
 			formattedText.SetTextDecorations(fontDescription.TextDecorations);

@@ -1,4 +1,5 @@
 using System;
+using System.Web;
 using System.Windows.Media.Imaging;
 
 namespace SoundInTheory.DynamicImage
@@ -62,6 +63,16 @@ namespace SoundInTheory.DynamicImage
 		{
 			// TODO: Check that plural MimeTypes is okay.
 			get { return GetEncoder().CodecInfo.MimeTypes; }
+		}
+
+		public string Url
+		{
+			get
+			{
+				const string path = "~/Assets/Images/DynamicImages/";
+				string fileName = string.Format("{0}.{1}", CacheProviderKey, FileExtension);
+				return VirtualPathUtility.ToAbsolute(path) + fileName;
+			}
 		}
 	}
 }

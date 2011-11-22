@@ -104,11 +104,8 @@
     <Compile Include="Configuration\DynamicImageSection.cs" />
     <Compile Include="Configuration\TemplateSettings.cs" />
     <Compile Include="DashStyle.cs" />
-    <Compile Include="Design\DynamicImageDesigner.cs" />
-    <Compile Include="Design\FilterCollectionEditor.cs" />
-    <Compile Include="Design\ImageSourceCollectionEditor.cs" />
-    <Compile Include="Design\LayerCollectionEditor.cs" />
     <Compile Include="DynamicImageException.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FeatherShape.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />
     <Compile Include="Filters\BorderFilter.cs" />
@@ -176,7 +173,7 @@
     <Compile Include="Fluent\RectangleShapeLayerBuilder.cs" />
     <Compile Include="Fluent\FilterBuilder.cs" />
     <Compile Include="Fluent\ImageLayerBuilder.cs" />
-    <Compile Include="Fluent\DynamicImageBuilder.cs" />
+    <Compile Include="Fluent\CompositionBuilder.cs" />
     <Compile Include="Fluent\LayerBuilder.cs" />
     <Compile Include="Fluent\ResizeFilterBuilder.cs" />
     <Compile Include="Fluent\TextLayerBuilder.cs" />
@@ -208,14 +205,10 @@
     <Compile Include="Sources\ImageSource.cs" />
     <Compile Include="MandelbrotFractalLayer.cs" />
     <Compile Include="FractalLayer.cs" />
-    <Compile Include="DynamicImageButton.cs" />
-    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Filters\ShinyFloorFilter.cs" />
-    <Compile Include="IDynamicImageControl.cs" />
     <Compile Include="JuliaFractalLayer.cs" />
     <Compile Include="RectangleShapeLayer.cs" />
     <Compile Include="ShapeLayer.cs" />
-    <Compile Include="DynamicImage.cs" />
     <Compile Include="Filters\BrightnessAdjustmentFilter.cs" />
     <Compile Include="Filters\ContrastAdjustmentFilter.cs" />
     <Compile Include="Filters\CropFilter.cs" />

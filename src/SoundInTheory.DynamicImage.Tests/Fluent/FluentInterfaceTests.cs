@@ -9,7 +9,7 @@ namespace SoundInTheory.DynamicImage.Tests.Fluent
 		//[Test]
 		public void CanCreateImageLayer()
 		{
-			string imageUrl = new DynamicImageBuilder()
+			string imageUrl = new CompositionBuilder()
 				.WithLayer(LayerBuilder.Image.SourceFile("myimage.png")
 					.WithFilter(FilterBuilder.Resize.ToWidth(800))
 				)

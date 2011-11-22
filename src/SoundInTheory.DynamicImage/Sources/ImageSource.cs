@@ -4,7 +4,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Sources
 {
-	public abstract class ImageSource : StateManagedObject
+	public abstract class ImageSource : DirtyTrackingObject
 	{
 		public abstract FastBitmap GetBitmap();
 

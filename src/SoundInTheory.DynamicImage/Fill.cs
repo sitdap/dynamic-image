@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace SoundInTheory.DynamicImage
 {
-	public class Fill : StateManagedObject
+	public class Fill : DirtyTrackingObject
 	{
 		#region Properties
 

@@ -11,7 +11,7 @@ namespace SoundInTheory.DynamicImage
 	/// <summary>
 	/// Provides a base class for objects which require view state management.
 	/// </summary>
-	public abstract class StateManagedObject : IDirtyTrackingObject
+	public abstract class DirtyTrackingObject : IDirtyTrackingObject
 	{
 		#region Fields
 

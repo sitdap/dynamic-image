@@ -4,7 +4,7 @@ using System.Web.UI;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
-	public class Curve : StateManagedObject
+	public class Curve : DirtyTrackingObject
 	{
 		private CurvePointCollection _points;
 

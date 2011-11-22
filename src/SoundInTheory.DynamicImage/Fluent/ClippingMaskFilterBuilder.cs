@@ -7,7 +7,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 	{
 		public ClippingMaskFilterBuilder MaskImage(ImageSource imageSource)
 		{
-			Filter.MaskImage.SingleSource = imageSource;
+			Filter.MaskImage = imageSource;
 			return this;
 		}
 

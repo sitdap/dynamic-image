@@ -13,10 +13,8 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
 {
-	public class Composition : StateManagedObject
+	public class Composition : DirtyTrackingObject
 	{
-		private LayerCollection _layers;
-
 		#region Properties
 
 		[Browsable(true), Category("Layout"), DefaultValue(true)]

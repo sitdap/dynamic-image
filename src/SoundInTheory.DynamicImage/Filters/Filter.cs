@@ -6,7 +6,7 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// Provides the abstract base class for filters.
 	/// </summary>
-	public abstract class Filter : StateManagedObject
+	public abstract class Filter : DirtyTrackingObject
 	{
 		#region Properties
 

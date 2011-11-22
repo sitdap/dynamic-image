@@ -6,8 +6,8 @@ namespace SoundInTheory.DynamicImage.Fluent
 	{
 		public ImageSource Source
 		{
-			get { return Layer.Source.SingleSource; }
-			set { Layer.Source.SingleSource = value; }
+			get { return Layer.Source; }
+			set { Layer.Source = value; }
 		}
 
 		public ImageLayerBuilder SourceFile(string filename)
@@ -18,7 +18,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public ImageLayerBuilder SourceBytes(byte[] bytes)
 		{
-			Layer.Source.SingleSource = new BytesImageSource { Bytes = bytes };
+			Layer.Source = new BytesImageSource { Bytes = bytes };
 			return this;
 		}
 	}

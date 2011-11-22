@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace SoundInTheory.DynamicImage
 {
-	public class Font : StateManagedObject
+	public class Font : DirtyTrackingObject
 	{
 		#region Properties
 

@@ -1,13 +1,10 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
-using SoundInTheory.DynamicImage.Sources;
-using System.Web.UI;
-using System.Drawing.Design;
 using SoundInTheory.DynamicImage.Util;
+using ImageSource = SoundInTheory.DynamicImage.Sources.ImageSource;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -20,26 +17,16 @@ namespace SoundInTheory.DynamicImage.Filters
 	{
 		#region Fields
 
-		private ImageSourceCollection _maskImage;
 		private int _maskImageWidth, _maskImageHeight;
 
 		#endregion
 
 		#region Properties
 
-		[PersistenceMode(PersistenceMode.InnerProperty), Editor("SoundInTheory.DynamicImage.Design.ImageSourceCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
-		public ImageSourceCollection MaskImage
+		public ImageSource MaskImage
 		{
-			get
-			{
-				if (_maskImage == null)
-				{
-					_maskImage = new ImageSourceCollection();
-					if (((IStateManager) this).IsTrackingViewState)
-						((IStateManager) _maskImage).TrackViewState();
-				}
-				return _maskImage;
-			}
+			get { return (ImageSource)ViewState["MaskImage"]; }
+			set { ViewState["MaskImage"] = value; }
 		}
 
 		/// <summary>
@@ -68,7 +55,7 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		protected override Effect GetEffect(FastBitmap source)
 		{
-			FastBitmap maskBitmap = MaskImage.SingleSource.GetBitmap();
+			FastBitmap maskBitmap = MaskImage.GetBitmap();
 			_maskImageWidth = maskBitmap.Width;
 			_maskImageHeight = maskBitmap.Height;
 			return new ClippingMaskEffect

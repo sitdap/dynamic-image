@@ -1,6 +1,6 @@
 ﻿namespace SoundInTheory.DynamicImage
 {
-	public class Padding : StateManagedObject
+	public class Padding : DirtyTrackingObject
 	{
 		#region Properties
 

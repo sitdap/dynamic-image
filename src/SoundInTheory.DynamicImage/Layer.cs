@@ -10,7 +10,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
 {
-	public abstract class Layer : StateManagedObject
+	public abstract class Layer : DirtyTrackingObject
 	{
 		#region Properties
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SoundInTheory.DynamicImage.Caching
+﻿namespace SoundInTheory.DynamicImage.Caching
 {
 	public struct Dependency
 	{

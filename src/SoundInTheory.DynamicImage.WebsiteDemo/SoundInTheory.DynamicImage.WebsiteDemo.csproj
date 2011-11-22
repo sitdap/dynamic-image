@@ -137,10 +137,6 @@
       <Project>{15F7FF82-B018-42E0-A94D-2CAAE491C248}</Project>
       <Name>SoundInTheory.DynamicImage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Caching.Sql\SoundInTheory.DynamicImage.Caching.Sql.csproj">
-      <Project>{E9D3755A-7853-436D-80E9-BD7123B5CF82}</Project>
-      <Name>SoundInTheory.DynamicImage.Caching.Sql</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\ADamnMess.ttf" />

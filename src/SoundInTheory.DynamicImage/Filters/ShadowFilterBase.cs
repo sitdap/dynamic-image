@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
@@ -11,65 +10,39 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the color of shadow or glow.
+		/// Gets or sets the color of shadow or glow. Defaults to Black.
 		/// </summary>
-		[DefaultValue(typeof(Colors), "Black")]
 		public Color Color
 		{
-			get
-			{
-				object value = this.PropertyStore["Color"];
-				if (value != null)
-					return (Color) value;
-				return Colors.Black;
-			}
-			set
-			{
-				this.PropertyStore["Color"] = value;
-			}
+			get { return (Color)(this["Color"] ?? Colors.Black); }
+			set { this["Color"] = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the opacity of the shadow. Values range from 0 to 100.
+		/// Gets or sets the opacity of the shadow. Values range from 0 to 100. Defaults to 75.
 		/// </summary>
-		[DefaultValue(75), Description("Gets or sets the opacity. Values range from 0 to 100.")]
 		public int Opacity
 		{
-			get
-			{
-				object value = this.PropertyStore["Opacity"];
-				if (value != null)
-					return (int) value;
-				return 75;
-			}
+			get { return (int) (this["Opacity"] ?? 75); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Opacity values must range from 0 to 100.");
-
-				this.PropertyStore["Opacity"] = value;
+				this["Opacity"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the size of the shadow or glow.
+		/// Gets or sets the size of the shadow or glow. Defaults to 5.
 		/// </summary>
-		[DefaultValue(5)]
 		public int Size
 		{
-			get
-			{
-				object value = this.PropertyStore["Size"];
-				if (value != null)
-					return (int) value;
-				return 5;
-			}
+			get { return (int)(this["Size"] ?? 5); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentOutOfRangeException("value", "The size of the shadow or glow must be greater than or equal to zero.");
-
-				this.PropertyStore["Size"] = value;
+				this["Size"] = value;
 			}
 		}
 

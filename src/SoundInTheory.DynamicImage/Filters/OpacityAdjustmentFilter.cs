@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
@@ -16,18 +15,16 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the opacity. Valid values range from 0 to 100.
+		/// Gets or sets the opacity. Valid values range from 0 to 100. Defaults to 50.
 		/// </summary>
-		[DefaultValue(50), Description("Gets or sets the opacity. Values range from 0 to 100.")]
 		public byte Opacity
 		{
-			get { return (byte)(PropertyStore["Opacity"] ?? 50); }
+			get { return (byte)(this["Opacity"] ?? 50); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Opacity values must range from 0 to 100.");
-
-				PropertyStore["Opacity"] = value;
+				this["Opacity"] = value;
 			}
 		}
 

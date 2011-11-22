@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 
@@ -9,84 +8,34 @@ namespace SoundInTheory.DynamicImage
 	{
 		#region Properties
 
-		[Browsable(true), DefaultValue(FillType.Solid)]
 		public FillType Type
 		{
-			get
-			{
-				object value = this.PropertyStore["Type"];
-				if (value != null)
-					return (FillType) value;
-				return FillType.Solid;
-			}
-			set
-			{
-				this.PropertyStore["Type"] = value;
-			}
+			get { return (FillType)(this["Type"] ?? FillType.Solid); }
+			set { this["Type"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(typeof(Colors), "White"), TypeConverter(typeof(ColorConverter))]
 		public Color BackgroundColour
 		{
-			get
-			{
-				object value = this.PropertyStore["BackgroundColour"];
-				if (value != null)
-					return (Color) value;
-				return Colors.White;
-			}
-			set
-			{
-				this.PropertyStore["BackgroundColour"] = value;
-			}
+			get { return (Color)(this["BackgroundColour"] ?? Colors.White); }
+			set { this["BackgroundColour"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(typeof(Colors), "White")]
 		public Color GradientColourStart
 		{
-			get
-			{
-				object value = this.PropertyStore["GradientColourStart"];
-				if (value != null)
-					return (Color) value;
-				return Colors.White;
-			}
-			set
-			{
-				this.PropertyStore["GradientColourStart"] = value;
-			}
+			get { return (Color)(this["GradientColourStart"] ?? Colors.White); }
+			set { this["GradientColourStart"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(typeof(Colors), "Black")]
 		public Color GradientColourEnd
 		{
-			get
-			{
-				object value = this.PropertyStore["GradientColourEnd"];
-				if (value != null)
-					return (Color) value;
-				return Colors.Black;
-			}
-			set
-			{
-				this.PropertyStore["GradientColourEnd"] = value;
-			}
+			get { return (Color)(this["GradientColourEnd"] ?? Colors.Black); }
+			set { this["GradientColourEnd"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(0)]
 		public int GradientAngle
 		{
-			get
-			{
-				object value = this.PropertyStore["GradientAngle"];
-				if (value != null)
-					return (int) value;
-				return 0;
-			}
-			set
-			{
-				this.PropertyStore["GradientAngle"] = value;
-			}
+			get { return (int)(this["GradientAngle"] ?? 0); }
+			set { this["GradientAngle"] = value; }
 		}
 
 		#endregion

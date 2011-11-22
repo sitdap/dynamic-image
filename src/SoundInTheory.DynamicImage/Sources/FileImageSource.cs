@@ -10,26 +10,16 @@ namespace SoundInTheory.DynamicImage.Sources
 		[Category("Source"), Browsable(true), UrlProperty]
 		public string FileName
 		{
-			get
-			{
-				object value = this.PropertyStore["FileName"];
-				if (value != null)
-					return (string) value;
-				return string.Empty;
-			}
-			set
-			{
-				this.PropertyStore["FileName"] = value;
-			}
+			get { return (string)(this["FileName"] ?? string.Empty); }
+			set { this["FileName"] = value; }
 		}
 
 		public override FastBitmap GetBitmap()
 		{
-			string resolvedFileName = FileSourceHelper.ResolveFileName(this.FileName);
+			string resolvedFileName = FileSourceHelper.ResolveFileName(FileName);
 			if (File.Exists(resolvedFileName))
 				return new FastBitmap(resolvedFileName);
-			else
-				return null;
+			return null;
 		}
 	}
 }

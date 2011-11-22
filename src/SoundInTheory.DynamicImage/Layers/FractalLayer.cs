@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Layers
@@ -12,46 +11,46 @@ namespace SoundInTheory.DynamicImage.Layers
 	{
 		#region Properties
 
-		[Browsable(true), DefaultValue(400), Category("Layout"), Description("Width of the layer")]
+		/// <summary>
+		/// Width of the layer.
+		/// </summary>
 		public int Width
 		{
-			get { return (int)(PropertyStore["Width"] ?? 400); }
-			set { PropertyStore["Width"] = value; }
+			get { return (int)(this["Width"] ?? 400); }
+			set { this["Width"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(300), Category("Layout"), Description("Height of the layer")]
+		/// <summary>
+		/// Height of the layer.
+		/// </summary>
 		public int Height
 		{
-			get { return (int)(PropertyStore["Height"] ?? 300); }
-			set { PropertyStore["Height"] = value; }
+			get { return (int)(this["Height"] ?? 300); }
+			set { this["Height"] = value; }
 		}
 
-		[DefaultValue(300)]
 		public int MaxIterations
 		{
-			get { return (int)(PropertyStore["MaxIterations"] ?? 300); }
-			set { PropertyStore["MaxIterations"] = value; }
+			get { return (int)(this["MaxIterations"] ?? 300); }
+			set { this["MaxIterations"] = value; }
 		}
 
-		[DefaultValue(1.0f)]
 		public float Zoom
 		{
-			get { return (int)(PropertyStore["Zoom"] ?? 1.0f); }
-			set { PropertyStore["Zoom"] = value; }
+			get { return (int)(this["Zoom"] ?? 1.0f); }
+			set { this["Zoom"] = value; }
 		}
 
-		[DefaultValue(0.0f)]
 		public virtual float OffsetX
 		{
-			get { return (int)(PropertyStore["OffsetX"] ?? 0.0f); }
-			set { PropertyStore["OffsetX"] = value; }
+			get { return (int)(this["OffsetX"] ?? 0.0f); }
+			set { this["OffsetX"] = value; }
 		}
 
-		[DefaultValue(0.0f)]
 		public virtual float OffsetY
 		{
-			get { return (int)(PropertyStore["OffsetY"] ?? 0.0f); }
-			set { PropertyStore["OffsetY"] = value; }
+			get { return (int)(this["OffsetY"] ?? 0.0f); }
+			set { this["OffsetY"] = value; }
 		}
 
 		public override bool HasFixedSize

@@ -1,7 +1,5 @@
-﻿using System.ComponentModel;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using System.Windows.Media.Effects;
-using System.Windows.Media.Media3D;
 using SoundInTheory.DynamicImage.ShaderEffects;
 using SoundInTheory.DynamicImage.Util;
 
@@ -17,33 +15,30 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the transparent color.
+		/// Gets or sets the transparent color. Defaults to White.
 		/// </summary>
-		[DefaultValue(typeof(Colors), "White"), Description("Gets or sets the transparent color.")]
 		public Color Color
 		{
-			get { return (Color)(PropertyStore["Color"] ?? Colors.White); }
-			set { PropertyStore["Color"] = value; }
+			get { return (Color)(this["Color"] ?? Colors.White); }
+			set { this["Color"] = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the color tolerance for transparency. This value is used to create a range around the Color parameter, within which colors will be considered transparent. Ranges from 0 to 255.
+		/// Gets or sets the color tolerance for transparency. This value is used to create a range around the Color parameter, within which colors will be considered transparent. Ranges from 0 to 255. Defaults to 0.
 		/// </summary>
-		[DefaultValue(0), Description("Gets or sets the color tolerance for transparency. This value is used to create a range around the Color parameter, within which colors will be considered transparent. Ranges from 0 to 255.")]
 		public byte ColorTolerance
 		{
-			get { return (byte)(PropertyStore["ColorTolerance"] ?? 0); }
-			set { PropertyStore["ColorTolerance"] = value; }
+			get { return (byte)(this["ColorTolerance"] ?? 0); }
+			set { this["ColorTolerance"] = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets whether the first (top left) pixel of an image will be used as the transparent color.
+		/// Gets or sets whether the first (top left) pixel of an image will be used as the transparent color. Defaults to false.
 		/// </summary>
-		[DefaultValue(false), Description("Gets or sets whether the first (top left) pixel of an image will be used as the transparent color.")]
 		public bool UseFirstPixel
 		{
-			get { return (bool)(PropertyStore["UseFirstPixel"] ?? false); }
-			set { PropertyStore["UseFirstPixel"] = value; }
+			get { return (bool)(this["UseFirstPixel"] ?? false); }
+			set { this["UseFirstPixel"] = value; }
 		}
 
 		#endregion

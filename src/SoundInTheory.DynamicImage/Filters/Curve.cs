@@ -4,8 +4,8 @@ namespace SoundInTheory.DynamicImage.Filters
 	{
 		public CurvePointCollection Points
 		{
-			get { return (CurvePointCollection)(PropertyStore["Points"] ?? (PropertyStore["Points"] = new CurvePointCollection())); }
-			set { PropertyStore["Points"] = value; }
+			get { return (CurvePointCollection)(this["Points"] ?? (this["Points"] = new CurvePointCollection())); }
+			set { this["Points"] = value; }
 		}
 	}
 }

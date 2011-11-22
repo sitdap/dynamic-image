@@ -22,13 +22,12 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the rotation angle. The angle is measured counter-clockwise from the x-axis.")]
 		public int Angle
 		{
-			get { return (int) (PropertyStore["Angle"] ?? 0); }
+			get { return (int) (this["Angle"] ?? 0); }
 			set
 			{
 				if (value < 0 || value > 360)
 					throw new ArgumentException("The angle must be between 0 and 360 degrees.", "value");
-
-				PropertyStore["Angle"] = value;
+				this["Angle"] = value;
 			}
 		}
 

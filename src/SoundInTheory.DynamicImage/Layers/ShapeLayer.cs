@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Media;
 
 namespace SoundInTheory.DynamicImage.Layers
@@ -8,45 +7,45 @@ namespace SoundInTheory.DynamicImage.Layers
 	{
 		#region Properties
 
-		[Browsable(true), DefaultValue(null), Category("Layout"), Description("Width of the shape layer")]
+		/// <summary>
+		/// Width of the shape layer.
+		/// </summary>
 		public int? Width
 		{
-			get { return PropertyStore["Width"] as int?; }
-			set { PropertyStore["Width"] = value; }
+			get { return this["Width"] as int?; }
+			set { this["Width"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(null), Category("Layout"), Description("Height of the shape layer")]
+		/// <summary>
+		/// Height of the shape layer.
+		/// </summary>
 		public int? Height
 		{
-			get { return PropertyStore["Height"] as int?; }
-			set { PropertyStore["Height"] = value; }
+			get { return this["Height"] as int?; }
+			set { this["Height"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(DashStyle.Solid), NotifyParentProperty(true)]
 		public DashStyle StrokeDashStyle
 		{
-			get { return (DashStyle)(PropertyStore["StrokeDashStyle"] ?? DashStyle.Solid); }
-			set { PropertyStore["StrokeDashStyle"] = value; }
+			get { return (DashStyle)(this["StrokeDashStyle"] ?? DashStyle.Solid); }
+			set { this["StrokeDashStyle"] = value; }
 		}
 
-		[Category("Appearance"), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public Fill StrokeFill
 		{
-			get { return (Fill)(PropertyStore["StrokeFill"] ?? (PropertyStore["StrokeFill"] = new Fill())); }
+			get { return (Fill)(this["StrokeFill"] ?? (this["StrokeFill"] = new Fill())); }
 		}
 
-		[Browsable(true), DefaultValue(0.0f), NotifyParentProperty(true)]
 		public float StrokeWidth
 		{
-			get { return (float) (PropertyStore["StrokeWidth"] ?? 0.0f); }
-			set { PropertyStore["StrokeWidth"] = value; }
+			get { return (float)(this["StrokeWidth"] ?? 0.0f); }
+			set { this["StrokeWidth"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(0)]
 		public int Roundness
 		{
-			get { return (int) (PropertyStore["Roundness"] ?? 0); }
-			set { PropertyStore["Roundness"] = value; }
+			get { return (int)(this["Roundness"] ?? 0); }
+			set { this["Roundness"] = value; }
 		}
 
 		public override bool HasFixedSize

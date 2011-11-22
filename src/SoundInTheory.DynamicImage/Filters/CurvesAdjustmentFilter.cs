@@ -17,8 +17,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// </summary>
 		public string PhotoshopCurvesFileName
 		{
-			get { return (string)(PropertyStore["PhotoshopCurvesFileName"] ?? string.Empty); }
-			set { PropertyStore["PhotoshopCurvesFileName"] = value; }
+			get { return (string)(this["PhotoshopCurvesFileName"] ?? string.Empty); }
+			set { this["PhotoshopCurvesFileName"] = value; }
 		}
 
 		/// <summary>
@@ -26,8 +26,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// </summary>
 		public CurveCollection Curves
 		{
-			get { return (CurveCollection)(PropertyStore["Curves"] ?? (PropertyStore["Curves"] = new CurveCollection())); }
-			set { PropertyStore["Curves"] = value; }
+			get { return (CurveCollection)(this["Curves"] ?? (this["Curves"] = new CurveCollection())); }
+			set { this["Curves"] = value; }
 		}
 
 		#endregion

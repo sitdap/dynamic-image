@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Drawing;
-using System.ComponentModel;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
@@ -16,90 +14,58 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the X-coordinate of the rectangular section to crop.
+		/// Gets or sets the X-coordinate of the rectangular section to crop. Defaults to 0.
 		/// </summary>
-		[DefaultValue(0), Description("Gets or sets the X-coordinate of the rectangular section to crop.")]
 		public int X
 		{
-			get
-			{
-				object value = this.PropertyStore["X"];
-				if (value != null)
-					return (int) value;
-				return 0;
-			}
+			get { return (int) (this["X"] ?? 0); }
 			set
 			{
 				if (value < 0)
-					throw new ArgumentException("value", "The X-coordinate of the rectangular section must be greater than or equal to zero.");
-
-				this.PropertyStore["X"] = value;
+					throw new ArgumentException("The X-coordinate of the rectangular section must be greater than or equal to zero.", "value");
+				this["X"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the Y-coordinate of the rectangular section to crop.
+		/// Gets or sets the Y-coordinate of the rectangular section to crop. Defaults to 0.
 		/// </summary>
-		[DefaultValue(0), Description("Gets or sets the Y-coordinate of the rectangular section to crop.")]
 		public int Y
 		{
-			get
-			{
-				object value = this.PropertyStore["Y"];
-				if (value != null)
-					return (int) value;
-				return 0;
-			}
+			get { return (int)(this["Y"] ?? 0); }
 			set
 			{
 				if (value < 0)
-					throw new ArgumentException("value", "The Y-coordinate of the rectangular section must be greater than or equal to zero.");
-
-				this.PropertyStore["Y"] = value;
+					throw new ArgumentException("The Y-coordinate of the rectangular section must be greater than or equal to zero.", "value");
+				this["Y"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the width of the rectangular section to crop.
+		/// Gets or sets the width of the rectangular section to crop. Defaults to 200.
 		/// </summary>
-		[DefaultValue(200), Description("Gets or sets the width of the rectangular section to crop.")]
 		public int Width
 		{
-			get
-			{
-				object value = this.PropertyStore["Width"];
-				if (value != null)
-					return (int) value;
-				return 200;
-			}
+			get { return (int)(this["Width"] ?? 200); }
 			set
 			{
 				if (value < 1)
-					throw new ArgumentException("value", "The width of the rectangular section must be greater than one.");
-
-				this.PropertyStore["Width"] = value;
+					throw new ArgumentException("The width of the rectangular section must be greater than one.", "value");
+				this["Width"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the height of the rectangular section to crop.
+		/// Gets or sets the height of the rectangular section to crop. Defaults to 200.
 		/// </summary>
-		[DefaultValue(200), Description("Gets or sets the height of the rectangular section to crop.")]
 		public int Height
 		{
-			get
-			{
-				object value = this.PropertyStore["Height"];
-				if (value != null)
-					return (int) value;
-				return 200;
-			}
+			get { return (int)(this["Height"] ?? 200); }
 			set
 			{
 				if (value < 1)
-					throw new ArgumentException("value", "The height of the rectangular section must be greater than one.");
-
-				this.PropertyStore["Height"] = value;
+					throw new ArgumentException("The height of the rectangular section must be greater than one.", "value");
+				this["Height"] = value;
 			}
 		}
 
@@ -109,8 +75,8 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		protected override bool GetDestinationDimensions(FastBitmap source, out int width, out int height)
 		{
-			width = this.Width;
-			height = this.Height;
+			width = Width;
+			height = Height;
 			return true;
 		}
 

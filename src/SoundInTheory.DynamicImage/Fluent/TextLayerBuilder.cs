@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Media;
+using SoundInTheory.DynamicImage.Layers;
 
 namespace SoundInTheory.DynamicImage.Fluent
 {

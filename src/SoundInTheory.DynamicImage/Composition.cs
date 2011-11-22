@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Web.UI;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -17,123 +15,63 @@ namespace SoundInTheory.DynamicImage
 	{
 		#region Properties
 
-		[Browsable(true), Category("Layout"), DefaultValue(true)]
 		public bool AutoSize
 		{
-			get
-			{
-				object value = this.PropertyStore["AutoSize"];
-				if (value != null)
-					return (bool) value;
-				return true;
-			}
-			set
-			{
-				this.PropertyStore["AutoSize"] = value;
-			}
+			get { return (bool)(this["AutoSize"] ?? true); }
+			set { this["AutoSize"] = value; }
 		}
 
-		[Browsable(true), Category("Layout")]
 		public int? Width
 		{
-			get
-			{
-				object value = this.PropertyStore["Width"];
-				if (value != null)
-					return (int?) value;
-				return null;
-			}
-			set
-			{
-				this.PropertyStore["Width"] = value;
-			}
+			get { return (int?) this["Width"]; }
+			set { this["Width"] = value; }
 		}
 
-		[Browsable(true), Category("Layout")]
 		public int? Height
 		{
-			get
-			{
-				object value = this.PropertyStore["Height"];
-				if (value != null)
-					return (int?) value;
-				return null;
-			}
-			set
-			{
-				this.PropertyStore["Height"] = value;
-			}
+			get { return (int?)this["Height"]; }
+			set { this["Height"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(DynamicImageFormat.Jpeg)]
 		public DynamicImageFormat ImageFormat
 		{
-			get
-			{
-				object value = this.PropertyStore["ImageFormat"];
-				if (value != null)
-					return (DynamicImageFormat) value;
-				return DynamicImageFormat.Jpeg;
-			}
-			set
-			{
-				this.PropertyStore["ImageFormat"] = value;
-			}
+			get { return (DynamicImageFormat)(this["ImageFormat"] ?? DynamicImageFormat.Jpeg); }
+			set { this["ImageFormat"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(90)]
 		public int? JpegCompressionLevel
 		{
-			get
-			{
-				object value = this.PropertyStore["JpegCompressionLevel"];
-				if (value != null)
-					return (int?) value;
-				return 90;
-			}
-			set
-			{
-				this.PropertyStore["JpegCompressionLevel"] = value;
-			}
+			get { return (int?)(this["JpegCompressionLevel"] ?? 90); }
+			set { this["JpegCompressionLevel"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(32)]
 		public int ColourDepth
 		{
-			get
-			{
-				object value = this.PropertyStore["ColourDepth"];
-				if (value != null)
-					return (int) value;
-				return 32;
-			}
-			set
-			{
-				this.PropertyStore["ColourDepth"] = value;
-			}
+			get { return (int)(this["ColourDepth"] ?? 32); }
+			set { this["ColourDepth"] = value; }
 		}
 
 		public Fill Fill
 		{
-			get { return (Fill)(PropertyStore["Fill"] ?? (PropertyStore["Fill"] = new Fill())); }
-			set { PropertyStore["Fill"] = value; }
+			get { return (Fill)(this["Fill"] ?? (this["Fill"] = new Fill())); }
+			set { this["Fill"] = value; }
 		}
 
 		public LayerCollection Layers
 		{
-			get { return (LayerCollection)(PropertyStore["Layers"] ?? (PropertyStore["Layers"] = new LayerCollection())); }
-			set { PropertyStore["Layers"] = value; }
+			get { return (LayerCollection)(this["Layers"] ?? (this["Layers"] = new LayerCollection())); }
+			set { this["Layers"] = value; }
 		}
 
 		private IEnumerable<Layer> VisibleLayers
 		{
-			get { return this.Layers.Where(l => l.Visible); }
+			get { return Layers.Where(l => l.Visible); }
 		}
 
 		public FilterCollection Filters
 		{
-			get { return (FilterCollection)(PropertyStore["Filters"] ?? (PropertyStore["Filters"] = new FilterCollection())); }
-			set { PropertyStore["Filters"] = value; }
+			get { return (FilterCollection)(this["Filters"] ?? (this["Filters"] = new FilterCollection())); }
+			set { this["Filters"] = value; }
 		}
 
 		#endregion

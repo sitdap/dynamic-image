@@ -1,7 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Threading;
-using System.Web.UI;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Sources;
@@ -11,17 +9,16 @@ namespace SoundInTheory.DynamicImage.Layers
 {
 	public class VideoLayer : Layer
 	{
-		[Category("Source"), UrlProperty]
 		public string SourceFileName
 		{
-			get { return PropertyStore["SourceFileName"] as string ?? string.Empty; }
-			set { PropertyStore["SourceFileName"] = value; }
+			get { return this["SourceFileName"] as string ?? string.Empty; }
+			set { this["SourceFileName"] = value; }
 		}
 
 		public TimeSpan SnapshotTime
 		{
-			get { return (TimeSpan) (PropertyStore["SnapshotTime"] ?? TimeSpan.Zero); }
-			set { PropertyStore["SnapshotTime"] = value; }
+			get { return (TimeSpan)(this["SnapshotTime"] ?? TimeSpan.Zero); }
+			set { this["SnapshotTime"] = value; }
 		}
 
 		public override bool HasFixedSize

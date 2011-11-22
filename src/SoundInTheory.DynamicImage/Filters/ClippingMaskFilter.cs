@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
@@ -25,28 +24,26 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		public ImageSource MaskImage
 		{
-			get { return (ImageSource)PropertyStore["MaskImage"]; }
-			set { PropertyStore["MaskImage"] = value; }
+			get { return (ImageSource) this["MaskImage"]; }
+			set { this["MaskImage"] = value; }
 		}
 
 		/// <summary>
 		/// Gets or sets the x-position of the left side of the mask image.
 		/// </summary>
-		[DefaultValue(0), Description("Gets or sets the x-position of the left side of the mask image.")]
 		public int MaskPositionX
 		{
-			get { return (int) (PropertyStore["MaskPositionX"] ?? 0); }
-			set { PropertyStore["MaskPositionX"] = value; }
+			get { return (int)(this["MaskPositionX"] ?? 0); }
+			set { this["MaskPositionX"] = value; }
 		}
 
 		/// <summary>
 		/// Gets or sets the y-position of the top side of the mask image.
 		/// </summary>
-		[DefaultValue(0), Description("Gets or sets the y-position of the top side of the mask image.")]
 		public int MaskPositionY
 		{
-			get { return (int)(PropertyStore["MaskPositionY"] ?? 0); }
-			set { PropertyStore["MaskPositionY"] = value; }
+			get { return (int)(this["MaskPositionY"] ?? 0); }
+			set { this["MaskPositionY"] = value; }
 		}
 
 		#endregion

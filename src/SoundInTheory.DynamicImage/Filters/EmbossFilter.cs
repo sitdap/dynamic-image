@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.ComponentModel;
-using System.Windows.Media.Effects;
+﻿using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
 using SoundInTheory.DynamicImage.Util;
 
@@ -21,34 +18,30 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the bump height for embossing.
+		/// Gets or sets the bump height for embossing. Defaults to 3.
 		/// </summary>
-		[DefaultValue(3.0f), Description("Gets or sets the bump height for embossing.")]
 		public float Amount
 		{
-			get { return (float)(PropertyStore["Amount"] ?? 3.0f); }
+			get { return (float)(this["Amount"] ?? 3.0f); }
 			set
 			{
 				//if (value < 2 || value > 50)
-//					throw new ArgumentException("The bump height must be between 2 and 50.", "value");
-
-				PropertyStore["Amount"] = value;
+				//    throw new ArgumentException("The bump height must be between 2 and 50.", "value");
+				this["Amount"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the bump height for embossing.
+		/// Gets or sets the bump height for embossing. Defaults to 3.
 		/// </summary>
-		[DefaultValue(3.0f), Description("Gets or sets the bump height for embossing.")]
 		public float Width
 		{
-			get { return (float)(PropertyStore["Width"] ?? 3.0f); }
+			get { return (float)(this["Width"] ?? 3.0f); }
 			set
 			{
 				//if (value < 2 || value > 50)
-//					throw new ArgumentException("The bump height must be between 2 and 50.", "value");
-
-				PropertyStore["Width"] = value;
+				//	throw new ArgumentException("The bump height must be between 2 and 50.", "value");
+				this["Width"] = value;
 			}
 		}
 

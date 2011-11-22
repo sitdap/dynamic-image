@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
@@ -12,46 +11,30 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the angle of the light source. The angle is measured counter-clockwise from the x-axis.
+		/// Gets or sets the angle of the light source. The angle is measured counter-clockwise from the x-axis. Defaulst to 315.
 		/// </summary>
-		[DefaultValue(315)]
 		public int Angle
 		{
-			get
-			{
-				object value = this.PropertyStore["Angle"];
-				if (value != null)
-					return (int) value;
-				return 315;
-			}
+			get { return (int)(this["Angle"] ?? 315); }
 			set
 			{
 				if (value < 0 || value > 360)
-					throw new ArgumentException("value", "The angle must be between 0 and 360 degrees.");
-
-				this.PropertyStore["Angle"] = value;
+					throw new ArgumentException("The angle must be between 0 and 360 degrees.", "value");
+				this["Angle"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the offset for the shadow.
+		/// Gets or sets the offset for the shadow. Defaults to 5.
 		/// </summary>
-		[DefaultValue(5)]
 		public int Distance
 		{
-			get
-			{
-				object value = this.PropertyStore["Distance"];
-				if (value != null)
-					return (int) value;
-				return 5;
-			}
+			get { return (int)(this["Distance"] ?? 5); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentOutOfRangeException("value", "The offset of the shadow must be greater than or equal to zero.");
-
-				this.PropertyStore["Distance"] = value;
+				this["Distance"] = value;
 			}
 		}
 

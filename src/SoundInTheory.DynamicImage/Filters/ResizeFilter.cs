@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Drawing.Imaging;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -31,82 +27,50 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		/// <summary>
 		/// Gets or sets a value that describes how the image should be stretched 
-		/// to fill the specified width and height.
+		/// to fill the specified width and height. Defaults to Uniform.
 		/// </summary>
-		[DefaultValue(ResizeMode.Uniform), Description("Gets or sets a value that describes how the image should be stretched to fill the specified width and height.")]
 		public ResizeMode Mode
 		{
-			get
-			{
-				object value = PropertyStore["Mode"];
-				if (value != null)
-					return (ResizeMode)value;
-				return ResizeMode.Uniform;
-			}
-			set
-			{
-				PropertyStore["Mode"] = value;
-			}
+			get { return (ResizeMode)(this["Mode"] ?? ResizeMode.Uniform); }
+			set { this["Mode"] = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the desired image width.
+		/// Gets or sets the desired image width. Defaults to 200.
 		/// </summary>
-		[DefaultValue("200"), Description("Gets or sets the desired image width.")]
 		public Unit Width
 		{
-			get { return (Unit) (PropertyStore["Width"] ?? Unit.Pixel(200)); }
-			set { PropertyStore["Width"] = value; }
+			get { return (Unit)(this["Width"] ?? Unit.Pixel(200)); }
+			set { this["Width"] = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the desired image height.
+		/// Gets or sets the desired image height. Defaults to 200.
 		/// </summary>
-		[DefaultValue("200"), Description("Gets or sets the desired image height.")]
 		public Unit Height
 		{
-			get { return (Unit)(PropertyStore["Height"] ?? Unit.Pixel(200)); }
-			set { PropertyStore["Height"] = value; }
+			get { return (Unit)(this["Height"] ?? Unit.Pixel(200)); }
+			set { this["Height"] = value; }
 		}
 
 		/// <summary>
 		/// Gets or sets how the image is interpolated when it is resized. Usually this can
-		/// be left as the default value.
+		/// be left as the default value. Defaults to HighQuality.
 		/// </summary>
-		[DefaultValue(BitmapScalingMode.HighQuality), Description("Gets or sets how the image is interpolated when it is resized.")]
 		public BitmapScalingMode BitmapScalingMode
 		{
-			get
-			{
-				object value = PropertyStore["BitmapScalingMode"];
-				if (value != null)
-					return (BitmapScalingMode)value;
-				return BitmapScalingMode.HighQuality;
-			}
-			set
-			{
-				PropertyStore["BitmapScalingMode"] = value;
-			}
+			get { return (BitmapScalingMode)(this["BitmapScalingMode"] ?? BitmapScalingMode.HighQuality); }
+			set { this["BitmapScalingMode"] = value; }
 		}
 
 		/// <summary>
 		/// Gets or sets a value that indicates whether the image will be enlarged 
-		/// if it is smaller than the requested dimensions.
+		/// if it is smaller than the requested dimensions. Defaults to false.
 		/// </summary>
-		[Browsable(true), DefaultValue(false), Description("Gets or sets a value that indicates whether the image will be enlarged if it is smaller than the requested dimensions.")]
 		public bool EnlargeImage
 		{
-			get
-			{
-				object value = this.PropertyStore["EnlargeImage"];
-				if (value != null)
-					return (bool)value;
-				return false;
-			}
-			set
-			{
-				this.PropertyStore["EnlargeImage"] = value;
-			}
+			get { return (bool)(this["EnlargeImage"] ?? false); }
+			set { this["EnlargeImage"] = value; }
 		}
 
 		#endregion

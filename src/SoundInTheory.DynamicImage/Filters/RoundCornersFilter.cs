@@ -1,11 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Web.UI;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
-using Size = System.Drawing.Size;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -14,28 +11,25 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the border colour.
+		/// Gets or sets the border colour. Defaults to White.
 		/// </summary>
-		[DefaultValue(typeof(Colors), "White"), Description("Gets or sets the border colour.")]
 		public Color BorderColor
 		{
-			get { return (Color)(PropertyStore["BorderColor"] ?? Colors.White); }
-			set { PropertyStore["BorderColor"] = value; }
+			get { return (Color)(this["BorderColor"] ?? Colors.White); }
+			set { this["BorderColor"] = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the border width.
+		/// Gets or sets the border width. Defaults to 0.
 		/// </summary>
-		[DefaultValue(0), Description("Gets or sets the border width.")]
 		public int BorderWidth
 		{
-			get { return (int)(PropertyStore["BorderWidth"] ?? 0); }
+			get { return (int)(this["BorderWidth"] ?? 0); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentException("The border width must be greater than or equal to zero.", "value");
-
-				PropertyStore["BorderWidth"] = value;
+				this["BorderWidth"] = value;
 			}
 		}
 
@@ -45,13 +39,12 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(5), Description("Gets or sets the roundness of the corners.")]
 		public int Roundness
 		{
-			get { return (int)(PropertyStore["Roundness"] ?? 5); }
+			get { return (int)(this["Roundness"] ?? 5); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentException("The roundness must be greater than or equal to zero.", "value");
-
-				PropertyStore["Roundness"] = value;
+				this["Roundness"] = value;
 			}
 		}
 

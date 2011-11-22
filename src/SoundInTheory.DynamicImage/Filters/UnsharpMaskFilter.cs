@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
@@ -17,48 +16,45 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the amount. Values range from 0 to 100.
+		/// Gets or sets the amount. Values range from 0 to 100. Defaults to 50.
 		/// </summary>
-		[DefaultValue(50), Description("Gets or sets the amount. Values range from 0 to 100.")]
 		public int Amount
 		{
-			get { return (int)(PropertyStore["Amount"] ?? 50); }
+			get { return (int)(this["Amount"] ?? 50); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Unsharp amounts must range from 0 to 100.");
 
-				PropertyStore["Amount"] = value;
+				this["Amount"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the feather radius. Values range from 0 to 100.
+		/// Gets or sets the feather radius. Values range from 0 to 100. Defaults to 5.
 		/// </summary>
-		[DefaultValue(5), Description("Gets or sets the blur radius. Values range from 0 to 100.")]
 		public int Radius
 		{
-			get { return (int)(PropertyStore["Radius"] ?? 5); }
+			get { return (int)(this["Radius"] ?? 5); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Blur radius values must range from 0 to 100.");
-				PropertyStore["Radius"] = value;
+				this["Radius"] = value;
 			}
 		}
 
 		/// <summary>
-		/// The threshold beyond which different pixel values will be subtracted.
+		/// The threshold beyond which different pixel values will be subtracted. Defaults to 1.
 		/// </summary>
-		[DefaultValue(1), Description("The threshold beyond which different pixel values will be subtracted.")]
 		public int Threshold
 		{
-			get { return (int)(PropertyStore["Threshold"] ?? 1); }
+			get { return (int)(this["Threshold"] ?? 1); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentOutOfRangeException("value", "Unsharp mask threshold must be greater than 0.");
-				PropertyStore["Threshold"] = value;
+				this["Threshold"] = value;
 			}
 		}
 

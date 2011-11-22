@@ -2,68 +2,28 @@
 {
 	public class Padding : DirtyTrackingObject
 	{
-		#region Properties
-
 		public int Top
 		{
-			get
-			{
-				object value = this.PropertyStore["Top"];
-				if (value != null)
-					return (int) value;
-				return 0;
-			}
-			set
-			{
-				this.PropertyStore["Top"] = value;
-			}
+			get { return (int) (this["Top"] ?? 0); }
+			set { this["Top"] = value; }
 		}
 
 		public int Left
 		{
-			get
-			{
-				object value = this.PropertyStore["Left"];
-				if (value != null)
-					return (int) value;
-				return 0;
-			}
-			set
-			{
-				this.PropertyStore["Left"] = value;
-			}
+			get { return (int)(this["Left"] ?? 0); }
+			set { this["Left"] = value; }
 		}
 
 		public int Bottom
 		{
-			get
-			{
-				object value = this.PropertyStore["Bottom"];
-				if (value != null)
-					return (int) value;
-				return 0;
-			}
-			set
-			{
-				this.PropertyStore["Bottom"] = value;
-			}
+			get { return (int)(this["Bottom"] ?? 0); }
+			set { this["Bottom"] = value; }
 		}
 
 		public int Right
 		{
-			get
-			{
-				object value = this.PropertyStore["Right"];
-				if (value != null)
-					return (int) value;
-				return 0;
-			}
-			set
-			{
-				this.PropertyStore["Right"] = value;
-			}
+			get { return (int)(this["Right"] ?? 0); }
+			set { this["Right"] = value; }
 		}
-
-		#endregion
 	}
 }

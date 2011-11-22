@@ -1,13 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Globalization;
-using System.Web.UI;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
 
-namespace SoundInTheory.DynamicImage
+namespace SoundInTheory.DynamicImage.Layers
 {
 	public class TextLayer : Layer
 	{
@@ -17,20 +15,10 @@ namespace SoundInTheory.DynamicImage
 		/// Width of the text layer; if omitted, size will be calculated automatically 
 		/// and all text will be rendered on a single line.
 		/// </summary>
-		[Browsable(true), DefaultValue(null), Category("Layout"), Description("Width of the text layer; if omitted, size will be calculated automatically and all text will be rendered on a single line")]
 		public int? Width
 		{
-			get
-			{
-				object value = this.PropertyStore["Width"];
-				if (value != null)
-					return (int?) value;
-				return null;
-			}
-			set
-			{
-				this.PropertyStore["Width"] = value;
-			}
+			get { return (int?) this["Width"]; }
+			set { this["Width"] = value; }
 		}
 
 		/// <summary>
@@ -39,137 +27,58 @@ namespace SoundInTheory.DynamicImage
 		/// on a single line; if just Height is omitted then text will be 
 		/// wrapped based on the Width.
 		/// </summary>
-		[Browsable(true), DefaultValue(null), Category("Layout"), Description("Height of the text layer; if both Width and Height are omitted, size will be calculated automatically and all text will be rendered on a single line; if just Height is omitted then text will be wrapped based on the Width.")]
 		public int? Height
 		{
-			get
-			{
-				object value = this.PropertyStore["Height"];
-				if (value != null)
-					return (int?) value;
-				return null;
-			}
-			set
-			{
-				this.PropertyStore["Height"] = value;
-			}
+			get { return (int?) this["Height"]; }
+			set { this["Height"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(false), Category("Layout")]
 		public bool Multiline
 		{
-			get
-			{
-				object value = this.PropertyStore["Multiline"];
-				if (value != null)
-					return (bool) value;
-				return false;
-			}
-			set
-			{
-				this.PropertyStore["Multiline"] = value;
-			}
+			get { return (bool)(this["Multiline"] ?? false); }
+			set { this["Multiline"] = value; }
 		}
 
-		[Browsable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public Font Font
 		{
-			get { return (Font)(PropertyStore["Font"] ?? (PropertyStore["Font"] = new Font())); }
-			set { PropertyStore["Font"] = value; }
+			get { return (Font)(this["Font"] ?? (this["Font"] = new Font())); }
+			set { this["Font"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(typeof(Colors), "Black")]
 		public Color ForeColour
 		{
-			get
-			{
-				object value = this.PropertyStore["ForeColour"];
-				if (value != null)
-					return (Color) value;
-				return Colors.Black;
-			}
-			set
-			{
-				this.PropertyStore["ForeColour"] = value;
-			}
+			get { return (Color)(this["ForeColour"] ?? Colors.Black); }
+			set { this["ForeColour"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(null)]
-		public Color? ClearTypeBackColour
-		{
-			get
-			{
-				object value = this.PropertyStore["ClearTypeBackColour"];
-				if (value != null)
-					return (Color?) value;
-				return null;
-			}
-			set
-			{
-				this.PropertyStore["ClearTypeBackColour"] = value;
-			}
-		}
-
-		[Browsable(true), DefaultValue(null)]
 		public Color? StrokeColour
 		{
-			get
-			{
-				object value = this.PropertyStore["StrokeColour"];
-				if (value != null)
-					return (Color) value;
-				return null;
-			}
-			set
-			{
-				this.PropertyStore["StrokeColour"] = value;
-			}
+			get { return (Color?) this["StrokeColour"]; }
+			set { this["StrokeColour"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(0)]
 		public double StrokeWidth
 		{
-			get
-			{
-				object value = this.PropertyStore["StrokeWidth"];
-				if (value != null)
-					return (double)value;
-				return 0;
-			}
-			set
-			{
-				this.PropertyStore["StrokeWidth"] = value;
-			}
+			get { return (double)(this["StrokeWidth"] ?? 0.0); }
+			set { this["StrokeWidth"] = value; }
 		}
 
-		[Browsable(true), DefaultValue("")]
 		public string Text
 		{
-			get
-			{
-				object value = this.PropertyStore["Text"];
-				if (value != null)
-					return (string) value;
-				return string.Empty;
-			}
-			set
-			{
-				this.PropertyStore["Text"] = value;
-			}
+			get { return (string)(this["Text"] ?? string.Empty); }
+			set { this["Text"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(TextAlignment.Left)]
 		public TextAlignment HorizontalTextAlignment
 		{
-			get { return (TextAlignment) (PropertyStore["HorizontalTextAlignment"] ?? TextAlignment.Left); }
-			set { PropertyStore["HorizontalTextAlignment"] = value; }
+			get { return (TextAlignment)(this["HorizontalTextAlignment"] ?? TextAlignment.Left); }
+			set { this["HorizontalTextAlignment"] = value; }
 		}
 
-		[Browsable(true), DefaultValue(VerticalAlignment.Top)]
 		public VerticalAlignment VerticalTextAlignment
 		{
-			get { return (VerticalAlignment) (PropertyStore["VerticalTextAlignment"] ?? VerticalAlignment.Top); }
-			set { PropertyStore["VerticalTextAlignment"] = value; }
+			get { return (VerticalAlignment)(this["VerticalTextAlignment"] ?? VerticalAlignment.Top); }
+			set { this["VerticalTextAlignment"] = value; }
 		}
 
 		public override bool HasFixedSize

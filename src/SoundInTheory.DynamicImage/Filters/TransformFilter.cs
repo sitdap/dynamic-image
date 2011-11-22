@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
@@ -15,18 +14,17 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// </summary>
 		public EdgeAction EdgeAction
 		{
-			get { return (EdgeAction)(PropertyStore["EdgeAction"] ?? EdgeAction.Zero); }
-			set { PropertyStore["EdgeAction"] = value; }
+			get { return (EdgeAction)(this["EdgeAction"] ?? EdgeAction.Zero); }
+			set { this["EdgeAction"] = value; }
 		}
 
 		/// <summary>
 		/// Gets or sets the type of interpolation to perform.
 		/// </summary>
-		[DefaultValue(0), Description("Gets or sets the type of interpolation to perform.")]
 		public InterpolationMode InterpolationMode
 		{
-			get { return (InterpolationMode)(PropertyStore["InterpolationMode"] ?? InterpolationMode.Bilinear); }
-			set { PropertyStore["InterpolationMode"] = value; }
+			get { return (InterpolationMode)(this["InterpolationMode"] ?? InterpolationMode.Bilinear); }
+			set { this["InterpolationMode"] = value; }
 		}
 
 		protected Int32Rect OriginalSpace { get; set; }

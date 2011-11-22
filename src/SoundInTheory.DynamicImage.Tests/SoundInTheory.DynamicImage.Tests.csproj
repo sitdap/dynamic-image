@@ -89,10 +89,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Filters\Images\Tulips.png">
+    <None Include="Resources\Tulips.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Filters\Images\TulipsCropped200x200.png">
+    <None Include="Resources\TulipsCropped200x200.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Util\Cross_process___Photoshop__acv_by_LikeGravity.acv">

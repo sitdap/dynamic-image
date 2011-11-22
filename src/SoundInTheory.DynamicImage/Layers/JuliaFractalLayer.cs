@@ -1,21 +1,17 @@
-﻿using System.ComponentModel;
-
-namespace SoundInTheory.DynamicImage.Layers
+﻿namespace SoundInTheory.DynamicImage.Layers
 {
 	public class JuliaFractalLayer : FractalLayer
 	{
-		[DefaultValue(-0.7f)]
 		public float ConstantReal
 		{
-			get { return (int)(PropertyStore["ConstantReal"] ?? -0.7f); }
-			set { PropertyStore["ConstantReal"] = value; }
+			get { return (int)(this["ConstantReal"] ?? -0.7f); }
+			set { this["ConstantReal"] = value; }
 		}
 
-		[DefaultValue(0.27015f)]
 		public float ConstantImaginary
 		{
-			get { return (int)(PropertyStore["ConstantImaginary"] ?? 0.27015f); }
-			set { PropertyStore["ConstantImaginary"] = value; }
+			get { return (int)(this["ConstantImaginary"] ?? 0.27015f); }
+			set { this["ConstantImaginary"] = value; }
 		}
 
 		internal override ColorHsv CalculateFractalColour(int x, int y)

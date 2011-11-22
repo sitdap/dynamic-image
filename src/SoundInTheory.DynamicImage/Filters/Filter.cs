@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using SoundInTheory.DynamicImage.Util;
+﻿using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -8,41 +7,11 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// </summary>
 	public abstract class Filter : DirtyTrackingObject
 	{
-		#region Properties
-
-		[Browsable(true), DefaultValue("")]
-		public string Name
-		{
-			get
-			{
-				object value = this.PropertyStore["Name"];
-				if (value != null)
-					return (string) value;
-				return string.Empty;
-			}
-			set
-			{
-				this.PropertyStore["Name"] = value;
-			}
-		}
-
-		[Browsable(true), DefaultValue(true), NotifyParentProperty(true)]
 		public bool Enabled
 		{
-			get
-			{
-				object value = this.PropertyStore["Enabled"];
-				if (value != null)
-					return (bool) value;
-				return true;
-			}
-			set
-			{
-				this.PropertyStore["Enabled"] = value;
-			}
+			get { return (bool)(this["Enabled"] ?? true); }
+			set { this["Enabled"] = value; }
 		}
-
-		#endregion
 
 		/// <summary>
 		/// When overridden in a derived class, applies the filter algorithm to

@@ -1,14 +1,11 @@
-﻿using System.ComponentModel;
-
-namespace SoundInTheory.DynamicImage.Layers
+﻿namespace SoundInTheory.DynamicImage.Layers
 {
 	public class MandelbrotFractalLayer : FractalLayer
 	{
-		[DefaultValue(-0.5f)]
 		public override float OffsetX
 		{
-			get { return (int)(PropertyStore["OffsetX"] ?? -0.5f); }
-			set { PropertyStore["OffsetX"] = value; }
+			get { return (int)(this["OffsetX"] ?? -0.5f); }
+			set { this["OffsetX"] = value; }
 		}
 
 		internal override ColorHsv CalculateFractalColour(int x, int y)

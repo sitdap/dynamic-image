@@ -11,8 +11,8 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		public ImageSource Source
 		{
-			get { return (ImageSource) PropertyStore["Source"]; }
-			set { PropertyStore["Source"] = value; }
+			get { return (ImageSource) this["Source"]; }
+			set { this["Source"] = value; }
 		}
 
 		/// <summary>
@@ -25,8 +25,8 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		public ImageSource AlternateSource
 		{
-			get { return (ImageSource)PropertyStore["AlternateSource"]; }
-			set { PropertyStore["AlternateSource"] = value; }
+			get { return (ImageSource)this["AlternateSource"]; }
+			set { this["AlternateSource"] = value; }
 		}
 
 		public override bool HasFixedSize
@@ -54,9 +54,9 @@ namespace SoundInTheory.DynamicImage.Layers
 		public override void PopulateDependencies(List<Dependency> dependencies)
 		{
 			base.PopulateDependencies(dependencies);
-			this.Source.PopulateDependencies(dependencies);
-			if (this.AlternateSource != null)
-				this.AlternateSource.PopulateDependencies(dependencies);
+			Source.PopulateDependencies(dependencies);
+			if (AlternateSource != null)
+				AlternateSource.PopulateDependencies(dependencies);
 		}
 	}
 }

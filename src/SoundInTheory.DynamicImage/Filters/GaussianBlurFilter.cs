@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.Util;
 
@@ -16,24 +15,16 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		/// <summary>
 		/// Gets or sets the radius used in the blur kernel. A larger radius implies more blurring.
-		/// Valid values are between 0 and 20 (inclusive).
+		/// Valid values are between 0 and 20 (inclusive). Defaults to 0.
 		/// </summary>
-		[DefaultValue(0.0f), Description("Gets or sets the radius used in the blur kernel. A larger radius implies more blurring. Valid values are between 0 and 20 (inclusive).")]
 		public float Radius
 		{
-			get
-			{
-				object value = this.PropertyStore["Radius"];
-				if (value != null)
-					return (float) value;
-				return 0.0f;
-			}
+			get { return (float) (this["Radius"] ?? 0.0f); }
 			set
 			{
 				if (value <= 0 || value > 20)
 					throw new ArgumentOutOfRangeException("value", "Gaussian blur radius must range from 0 to less than 20.");
-
-				this.PropertyStore["Radius"] = value;
+				this["Radius"] = value;
 			}
 		}
 

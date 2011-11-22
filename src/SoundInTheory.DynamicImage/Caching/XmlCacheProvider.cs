@@ -2,10 +2,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Web;
-using System.Xml;
 using System.Xml.Linq;
 
-namespace SoundInTheory.DynamicImage.Caching.Xml
+namespace SoundInTheory.DynamicImage.Caching
 {
 	public class XmlCacheProvider : DiskCacheProviderBase, IDisposable
 	{

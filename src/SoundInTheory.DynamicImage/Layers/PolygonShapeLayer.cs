@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -9,11 +8,10 @@ namespace SoundInTheory.DynamicImage.Layers
 {
 	public class PolygonShapeLayer : ClosedShapeLayer
 	{
-		[Browsable(true), DefaultValue(3), NotifyParentProperty(true)]
 		public int Sides
 		{
-			get { return (int) (PropertyStore["Sides"] ?? 3); }
-			set { PropertyStore["Sides"] = value; }
+			get { return (int) (this["Sides"] ?? 3); }
+			set { this["Sides"] = value; }
 		}
 
 		protected sealed override void CreateImage()

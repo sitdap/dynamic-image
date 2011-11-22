@@ -9,95 +9,119 @@ namespace SoundInTheory.DynamicImage.Tests.Filters
 	public class ResizeFilterTests
 	{
 		[Test]
-		public void ResizeFilter_UseWidthResizeMode_CalculatedCorrectly()
+		public void ResizeFilterInUseWidthModeCalculatesDimensionsCorrectly()
 		{
-			FastBitmap bitmap = new FastBitmap("Filters\\Images\\Tulips.png", UriKind.Relative);
+			// Arrange.
+			var bitmap = new FastBitmap(@"Resources\Tulips.png", UriKind.Relative);
+			var resizeFilter = new ResizeFilter
+			{
+				Mode = ResizeMode.UseWidth,
+				Width = Unit.Pixel(200)
+			};
 
-			ResizeFilter resizeFilter = new ResizeFilter();
-			resizeFilter.Mode = ResizeMode.UseWidth;
-			resizeFilter.Width = Unit.Pixel(200);
-
+			// Act.
 			resizeFilter.ApplyFilter(bitmap);
 
+			// Assert.
 			Assert.AreEqual(200, bitmap.Width);
 			Assert.AreEqual(133, bitmap.Height);
 		}
 
 		[Test]
-		public void ResizeFilter_UseHeightResizeMode_CalculatedCorrectly()
+		public void ResizeFilterInUseHeightModeCalculatesDimensionsCorrectly()
 		{
-			FastBitmap bitmap = new FastBitmap("Filters\\Images\\Tulips.png", UriKind.Relative);
+			// Arrange.
+			var bitmap = new FastBitmap(@"Resources\Tulips.png", UriKind.Relative);
+			var resizeFilter = new ResizeFilter
+			{
+				Mode = ResizeMode.UseHeight,
+				Height = Unit.Pixel(200)
+			};
 
-			ResizeFilter resizeFilter = new ResizeFilter();
-			resizeFilter.Mode = ResizeMode.UseHeight;
-			resizeFilter.Height = Unit.Pixel(200);
-
+			// Act.
 			resizeFilter.ApplyFilter(bitmap);
 
+			// Assert.
 			Assert.AreEqual(300, bitmap.Width);
 			Assert.AreEqual(200, bitmap.Height);
 		}
 
 		[Test]
-		public void ResizeFilter_FillResizeMode_CalculatedCorrectly()
+		public void ResizeFilterInFillModeCalculatesDimensionsCorrectly()
 		{
-			FastBitmap bitmap = new FastBitmap("Filters\\Images\\Tulips.png", UriKind.Relative);
+			// Arrange.
+			var bitmap = new FastBitmap(@"Resources\Tulips.png", UriKind.Relative);
+			var resizeFilter = new ResizeFilter
+			{
+				Mode = ResizeMode.Fill,
+				Width = Unit.Pixel(250),
+				Height = Unit.Pixel(249)
+			};
 
-			ResizeFilter resizeFilter = new ResizeFilter();
-			resizeFilter.Mode = ResizeMode.Fill;
-			resizeFilter.Width = Unit.Pixel(250);
-			resizeFilter.Height = Unit.Pixel(249);
-
+			// Act.
 			resizeFilter.ApplyFilter(bitmap);
 
+			// Assert.
 			Assert.AreEqual(250, bitmap.Width);
 			Assert.AreEqual(249, bitmap.Height);
 		}
 
 		[Test]
-		public void ResizeFilter_UniformResizeModeWithDominantWidth_CalculatedCorrectly()
+		public void ResizeFilterInUniformModeWithDominantWidthCalculatesDimensionsCorrectly()
 		{
-			FastBitmap bitmap = new FastBitmap("Filters\\Images\\Tulips.png", UriKind.Relative);
+			// Arrange.
+			var bitmap = new FastBitmap(@"Resources\Tulips.png", UriKind.Relative);
+			var resizeFilter = new ResizeFilter
+			{
+				Mode = ResizeMode.Uniform,
+				Width = Unit.Pixel(200),
+				Height = Unit.Pixel(200)
+			};
 
-			ResizeFilter resizeFilter = new ResizeFilter();
-			resizeFilter.Mode = ResizeMode.Uniform;
-			resizeFilter.Width = Unit.Pixel(200);
-			resizeFilter.Height = Unit.Pixel(200);
-
+			// Act.
 			resizeFilter.ApplyFilter(bitmap);
 
+			// Assert.
 			Assert.AreEqual(200, bitmap.Width);
 			Assert.AreEqual(133, bitmap.Height);
 		}
 
 		[Test]
-		public void ResizeFilter_UniformResizeModeWithDominantHeight_CalculatedCorrectly()
+		public void ResizeFilterInUseWidthModeWithDominantHeightCalculatesDimensionsCorrectly()
 		{
-			FastBitmap bitmap = new FastBitmap("Filters\\Images\\Tulips.png", UriKind.Relative);
+			// Arrange.
+			var bitmap = new FastBitmap(@"Resources\Tulips.png", UriKind.Relative);
+			var resizeFilter = new ResizeFilter
+			{
+				Mode = ResizeMode.Uniform,
+				Width = Unit.Pixel(200),
+				Height = Unit.Pixel(100)
+			};
 
-			ResizeFilter resizeFilter = new ResizeFilter();
-			resizeFilter.Mode = ResizeMode.Uniform;
-			resizeFilter.Width = Unit.Pixel(200);
-			resizeFilter.Height = Unit.Pixel(100);
-
+			// Act.
 			resizeFilter.ApplyFilter(bitmap);
 
+			// Assert.
 			Assert.AreEqual(150, bitmap.Width);
 			Assert.AreEqual(100, bitmap.Height);
 		}
 
 		[Test]
-		public void ResizeFilter_UniformFillResizeMode_CalculatedCorrectly()
+		public void ResizeFilterInUniformFillModeCalculatesDimensionsCorrectly()
 		{
-			FastBitmap bitmap = new FastBitmap("Filters\\Images\\Tulips.png", UriKind.Relative);
+			// Arrange.
+			var bitmap = new FastBitmap(@"Resources\Tulips.png", UriKind.Relative);
+			var resizeFilter = new ResizeFilter
+			{
+				Mode = ResizeMode.UniformFill,
+				Width = Unit.Pixel(250),
+				Height = Unit.Pixel(250)
+			};
 
-			ResizeFilter resizeFilter = new ResizeFilter();
-			resizeFilter.Mode = ResizeMode.Fill;
-			resizeFilter.Width = Unit.Pixel(250);
-			resizeFilter.Height = Unit.Pixel(250);
-
+			// Act.
 			resizeFilter.ApplyFilter(bitmap);
 
+			// Assert.
 			Assert.AreEqual(250, bitmap.Width);
 			Assert.AreEqual(250, bitmap.Height);
 		}

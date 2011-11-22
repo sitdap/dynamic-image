@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
@@ -18,28 +17,26 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the feather radius. Values range from 0 to 100.
+		/// Gets or sets the feather radius. Values range from 0 to 100. Defaults to 5.
 		/// </summary>
-		[DefaultValue(5), Description("Gets or sets the feather radius. Values range from 0 to 100.")]
 		public int Radius
 		{
-			get { return (int) (PropertyStore["Radius"] ?? 5); }
+			get { return (int) (this["Radius"] ?? 5); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Feather radius values must range from 0 to 100.");
-				PropertyStore["Radius"] = value;
+				this["Radius"] = value;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the shape to use for feathering.
+		/// Gets or sets the shape to use for feathering. Defaults to Rectangle.
 		/// </summary>
-		[DefaultValue(FeatherShape.Rectangle), Description("Gets or sets the shape to use for feathering.")]
 		public FeatherShape Shape
 		{
-			get { return (FeatherShape)(PropertyStore["Shape"] ?? FeatherShape.Rectangle); }
-			set { PropertyStore["Shape"] = value; }
+			get { return (FeatherShape)(this["Shape"] ?? FeatherShape.Rectangle); }
+			set { this["Shape"] = value; }
 		}
 
 		#endregion

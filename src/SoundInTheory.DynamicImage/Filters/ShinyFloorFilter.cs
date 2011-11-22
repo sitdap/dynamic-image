@@ -18,35 +18,31 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the percentage of the image height that will be reflected
+		/// Gets or sets the percentage of the image height that will be reflected. Defaults to 50.
 		/// </summary>
-		[Browsable(true), Category("Appearance"), DefaultValue(50), Description("Gets or sets the percentage of the image height that will be reflected.")]
 		public byte ReflectionPercentage
 		{
-			get { return (byte)(PropertyStore["ReflectionPercentage"] ?? (byte) 50); }
+			get { return (byte)(this["ReflectionPercentage"] ?? 50); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "The percentage of reflection must range from 0 to 100");
-
-				PropertyStore["ReflectionPercentage"] = value;
+				this["ReflectionPercentage"] = value;
 			}
 		}
 
 		/// <summary>
 		/// Gets or sets the opacity of the start of the reflected image.
-		/// The reflection will fade out to transparent.
+		/// The reflection will fade out to transparent. Defaults to 75.
 		/// </summary>
-		[Browsable(true), Category("Appearance"), DefaultValue(75), Description("Gets or sets the opacity of the reflected image. The reflection will fade out to an opaque white.")]
 		public byte ReflectionOpacity
 		{
-			get { return (byte)(PropertyStore["ReflectionOpacity"] ?? (byte) 75); }
+			get { return (byte)(this["ReflectionOpacity"] ?? 75); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "The reflection opacity must range from 0 to 100.");
-
-				PropertyStore["ReflectionOpacity"] = value;
+				this["ReflectionOpacity"] = value;
 			}
 		}
 
@@ -56,8 +52,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[Browsable(true), DefaultValue(null), Description("Gets or sets the y-position of the reflected image.")]
 		public int? ReflectionPositionY
 		{
-			get { return PropertyStore["ReflectionPositionY"] as int?; }
-			set { PropertyStore["ReflectionPositionY"] = value; }
+			get { return this["ReflectionPositionY"] as int?; }
+			set { this["ReflectionPositionY"] = value; }
 		}
 
 		#endregion

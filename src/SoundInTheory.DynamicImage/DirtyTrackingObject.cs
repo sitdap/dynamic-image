@@ -15,20 +15,25 @@ namespace SoundInTheory.DynamicImage
 	{
 		#region Fields
 
-		private Dictionary<string, object> _propertyStore;
+		private readonly Dictionary<string, object> _propertyStore;
 
 		#endregion
 
 		#region Properties
 
-		protected Dictionary<string, object> PropertyStore
+		protected object this[string key]
 		{
-			get
-			{
-				if (_propertyStore == null)
-					_propertyStore = new Dictionary<string, object>();
-				return _propertyStore;
-			}
+			get { return _propertyStore.ContainsKey(key) ? _propertyStore[key] : null; }
+			set { _propertyStore[key] = value; }
+		}
+
+		#endregion
+
+		#region Constructor
+
+		protected DirtyTrackingObject()
+		{
+			_propertyStore = new Dictionary<string, object>();
 		}
 
 		#endregion
@@ -44,9 +49,9 @@ namespace SoundInTheory.DynamicImage
 		public string GetDirtyProperties()
 		{
 			// Loop through properties.
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			sb.Append("{");
-			foreach (var kvp in PropertyStore)
+			foreach (var kvp in _propertyStore)
 			{
 				if (kvp.Value is IDirtyTrackingObject)
 					sb.AppendFormat("{0}: {1};", kvp.Key, ((IDirtyTrackingObject)kvp.Value).GetDirtyProperties());

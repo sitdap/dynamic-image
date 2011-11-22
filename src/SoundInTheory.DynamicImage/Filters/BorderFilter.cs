@@ -1,11 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Web.UI;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
-using Size = System.Drawing.Size;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -17,25 +13,23 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the width of the border.
+		/// Gets or sets the width of the border. Defaults to 10.
 		/// </summary>
-		[DefaultValue(10), Description("Gets or sets the width of the border.")]
 		public int Width
 		{
-			get { return (int)(PropertyStore["Width"] ?? 10); }
+			get { return (int)(this["Width"] ?? 10); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentException("The border width must be greater than or equal to zero.", "value");
-
-				PropertyStore["Width"] = value;
+				this["Width"] = value;
 			}
 		}
 
 		public Fill Fill
 		{
-			get { return (Fill)(PropertyStore["Fill"] ?? (PropertyStore["Fill"] = new Fill())); }
-			set { PropertyStore["Fill"] = value; }
+			get { return (Fill)(this["Fill"] ?? (this["Fill"] = new Fill())); }
+			set { this["Fill"] = value; }
 		}
 
 		#endregion

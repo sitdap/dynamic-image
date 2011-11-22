@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
@@ -15,28 +14,25 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the colour used to tint the layer.
+		/// Gets or sets the colour used to tint the layer. Defaults to Red.
 		/// </summary>
-		[DefaultValue(typeof(Colors), "Red"), Description("Gets or sets the colour used to tint the layer.")]
 		public Color Color
 		{
-			get { return (Color) (PropertyStore["Color"] ?? Colors.Red); }
-			set { PropertyStore["Color"] = value; }
+			get { return (Color) (this["Color"] ?? Colors.Red); }
+			set { this["Color"] = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the color tint amount. Values range from 0 (image will be grayscale) to 100.
+		/// Gets or sets the color tint amount. Values range from 0 (image will be grayscale) to 100. Defaults to 25.
 		/// </summary>
-		[DefaultValue(25), Description("Gets or sets the color tint amount. Values range from 0 (image will be grayscale) to 100.")]
 		public int Amount
 		{
-			get { return (int) (PropertyStore["Amount"] ?? 25); }
+			get { return (int)(this["Amount"] ?? 25); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Color tint amounts must range from 0 to 100.");
-
-				PropertyStore["Amount"] = value;
+				this["Amount"] = value;
 			}
 		}
 

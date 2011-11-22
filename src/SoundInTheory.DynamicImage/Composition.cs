@@ -22,14 +22,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["AutoSize"];
+				object value = this.PropertyStore["AutoSize"];
 				if (value != null)
 					return (bool) value;
 				return true;
 			}
 			set
 			{
-				this.ViewState["AutoSize"] = value;
+				this.PropertyStore["AutoSize"] = value;
 			}
 		}
 
@@ -38,14 +38,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Width"];
+				object value = this.PropertyStore["Width"];
 				if (value != null)
 					return (int?) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["Width"] = value;
+				this.PropertyStore["Width"] = value;
 			}
 		}
 
@@ -54,14 +54,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Height"];
+				object value = this.PropertyStore["Height"];
 				if (value != null)
 					return (int?) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["Height"] = value;
+				this.PropertyStore["Height"] = value;
 			}
 		}
 
@@ -70,14 +70,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["ImageFormat"];
+				object value = this.PropertyStore["ImageFormat"];
 				if (value != null)
 					return (DynamicImageFormat) value;
 				return DynamicImageFormat.Jpeg;
 			}
 			set
 			{
-				this.ViewState["ImageFormat"] = value;
+				this.PropertyStore["ImageFormat"] = value;
 			}
 		}
 
@@ -86,14 +86,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["JpegCompressionLevel"];
+				object value = this.PropertyStore["JpegCompressionLevel"];
 				if (value != null)
 					return (int?) value;
 				return 90;
 			}
 			set
 			{
-				this.ViewState["JpegCompressionLevel"] = value;
+				this.PropertyStore["JpegCompressionLevel"] = value;
 			}
 		}
 
@@ -102,27 +102,27 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["ColourDepth"];
+				object value = this.PropertyStore["ColourDepth"];
 				if (value != null)
 					return (int) value;
 				return 32;
 			}
 			set
 			{
-				this.ViewState["ColourDepth"] = value;
+				this.PropertyStore["ColourDepth"] = value;
 			}
 		}
 
 		public Fill Fill
 		{
-			get { return (Fill)(ViewState["Fill"] ?? (ViewState["Fill"] = new Fill())); }
-			set { ViewState["Fill"] = value; }
+			get { return (Fill)(PropertyStore["Fill"] ?? (PropertyStore["Fill"] = new Fill())); }
+			set { PropertyStore["Fill"] = value; }
 		}
 
 		public LayerCollection Layers
 		{
-			get { return (LayerCollection)(ViewState["Layers"] ?? (ViewState["Layers"] = new LayerCollection())); }
-			set { ViewState["Layers"] = value; }
+			get { return (LayerCollection)(PropertyStore["Layers"] ?? (PropertyStore["Layers"] = new LayerCollection())); }
+			set { PropertyStore["Layers"] = value; }
 		}
 
 		private IEnumerable<Layer> VisibleLayers
@@ -132,8 +132,8 @@ namespace SoundInTheory.DynamicImage
 
 		public FilterCollection Filters
 		{
-			get { return (FilterCollection)(ViewState["Filters"] ?? (ViewState["Filters"] = new FilterCollection())); }
-			set { ViewState["Filters"] = value; }
+			get { return (FilterCollection)(PropertyStore["Filters"] ?? (PropertyStore["Filters"] = new FilterCollection())); }
+			set { PropertyStore["Filters"] = value; }
 		}
 
 		#endregion

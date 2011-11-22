@@ -19,14 +19,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Visible"];
+				object value = this.PropertyStore["Visible"];
 				if (value != null)
 					return (bool) value;
 				return true;
 			}
 			set
 			{
-				this.ViewState["Visible"] = value;
+				this.PropertyStore["Visible"] = value;
 			}
 		}
 
@@ -35,14 +35,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Anchor"];
+				object value = this.PropertyStore["Anchor"];
 				if (value != null)
 					return (AnchorStyles) value;
 				return AnchorStyles.None;
 			}
 			set
 			{
-				this.ViewState["Anchor"] = value;
+				this.PropertyStore["Anchor"] = value;
 			}
 		}
 
@@ -51,14 +51,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["X"];
+				object value = this.PropertyStore["X"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["X"] = value;
+				this.PropertyStore["X"] = value;
 			}
 		}
 
@@ -67,14 +67,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Y"];
+				object value = this.PropertyStore["Y"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["Y"] = value;
+				this.PropertyStore["Y"] = value;
 			}
 		}
 
@@ -83,33 +83,33 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["AnchorPadding"];
+				object value = this.PropertyStore["AnchorPadding"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["AnchorPadding"] = value;
+				this.PropertyStore["AnchorPadding"] = value;
 			}
 		}
 
 		public Padding Padding
 		{
-			get { return (Padding)(ViewState["Padding"] ?? (ViewState["Padding"] = new Padding())); }
+			get { return (Padding)(PropertyStore["Padding"] ?? (PropertyStore["Padding"] = new Padding())); }
 		}
 
 		public FilterCollection Filters
 		{
-			get { return (FilterCollection)(ViewState["Filters"] ?? (ViewState["Filters"] = new FilterCollection())); }
-			set { ViewState["Filters"] = value; }
+			get { return (FilterCollection)(PropertyStore["Filters"] ?? (PropertyStore["Filters"] = new FilterCollection())); }
+			set { PropertyStore["Filters"] = value; }
 		}
 
 		[Category("Appearance"), DefaultValue(BlendMode.Normal), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public BlendMode BlendMode
 		{
-			get { return (BlendMode) (ViewState["BlendMode"] ?? BlendMode.Normal); }
-			set { this.ViewState["BlendMode"] = value; }
+			get { return (BlendMode) (PropertyStore["BlendMode"] ?? BlendMode.Normal); }
+			set { this.PropertyStore["BlendMode"] = value; }
 		}
 
 		[Browsable(false)]

@@ -23,7 +23,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["X"];
+				object value = this.PropertyStore["X"];
 				if (value != null)
 					return (int) value;
 				return 0;
@@ -33,7 +33,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 0)
 					throw new ArgumentException("value", "The X-coordinate of the rectangular section must be greater than or equal to zero.");
 
-				this.ViewState["X"] = value;
+				this.PropertyStore["X"] = value;
 			}
 		}
 
@@ -45,7 +45,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Y"];
+				object value = this.PropertyStore["Y"];
 				if (value != null)
 					return (int) value;
 				return 0;
@@ -55,7 +55,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 0)
 					throw new ArgumentException("value", "The Y-coordinate of the rectangular section must be greater than or equal to zero.");
 
-				this.ViewState["Y"] = value;
+				this.PropertyStore["Y"] = value;
 			}
 		}
 
@@ -67,7 +67,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Width"];
+				object value = this.PropertyStore["Width"];
 				if (value != null)
 					return (int) value;
 				return 200;
@@ -77,7 +77,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 1)
 					throw new ArgumentException("value", "The width of the rectangular section must be greater than one.");
 
-				this.ViewState["Width"] = value;
+				this.PropertyStore["Width"] = value;
 			}
 		}
 
@@ -89,7 +89,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Height"];
+				object value = this.PropertyStore["Height"];
 				if (value != null)
 					return (int) value;
 				return 200;
@@ -99,7 +99,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 1)
 					throw new ArgumentException("value", "The height of the rectangular section must be greater than one.");
 
-				this.ViewState["Height"] = value;
+				this.PropertyStore["Height"] = value;
 			}
 		}
 

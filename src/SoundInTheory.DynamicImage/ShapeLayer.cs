@@ -12,42 +12,42 @@ namespace SoundInTheory.DynamicImage
 		[Browsable(true), DefaultValue(null), Category("Layout"), Description("Width of the shape layer")]
 		public int? Width
 		{
-			get { return ViewState["Width"] as int?; }
-			set { ViewState["Width"] = value; }
+			get { return PropertyStore["Width"] as int?; }
+			set { PropertyStore["Width"] = value; }
 		}
 
 		[Browsable(true), DefaultValue(null), Category("Layout"), Description("Height of the shape layer")]
 		public int? Height
 		{
-			get { return ViewState["Height"] as int?; }
-			set { ViewState["Height"] = value; }
+			get { return PropertyStore["Height"] as int?; }
+			set { PropertyStore["Height"] = value; }
 		}
 
 		[Browsable(true), DefaultValue(DashStyle.Solid), NotifyParentProperty(true)]
 		public DashStyle StrokeDashStyle
 		{
-			get { return (DashStyle)(ViewState["StrokeDashStyle"] ?? DashStyle.Solid); }
-			set { ViewState["StrokeDashStyle"] = value; }
+			get { return (DashStyle)(PropertyStore["StrokeDashStyle"] ?? DashStyle.Solid); }
+			set { PropertyStore["StrokeDashStyle"] = value; }
 		}
 
 		[Category("Appearance"), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public Fill StrokeFill
 		{
-			get { return (Fill)(ViewState["StrokeFill"] ?? (ViewState["StrokeFill"] = new Fill())); }
+			get { return (Fill)(PropertyStore["StrokeFill"] ?? (PropertyStore["StrokeFill"] = new Fill())); }
 		}
 
 		[Browsable(true), DefaultValue(0.0f), NotifyParentProperty(true)]
 		public float StrokeWidth
 		{
-			get { return (float) (ViewState["StrokeWidth"] ?? 0.0f); }
-			set { ViewState["StrokeWidth"] = value; }
+			get { return (float) (PropertyStore["StrokeWidth"] ?? 0.0f); }
+			set { PropertyStore["StrokeWidth"] = value; }
 		}
 
 		[Browsable(true), DefaultValue(0)]
 		public int Roundness
 		{
-			get { return (int) (ViewState["Roundness"] ?? 0); }
-			set { ViewState["Roundness"] = value; }
+			get { return (int) (PropertyStore["Roundness"] ?? 0); }
+			set { PropertyStore["Roundness"] = value; }
 		}
 
 		public override bool HasFixedSize

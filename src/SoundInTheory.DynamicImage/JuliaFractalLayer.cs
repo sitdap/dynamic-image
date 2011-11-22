@@ -7,15 +7,15 @@ namespace SoundInTheory.DynamicImage
 		[DefaultValue(-0.7f)]
 		public float ConstantReal
 		{
-			get { return (int)(ViewState["ConstantReal"] ?? -0.7f); }
-			set { ViewState["ConstantReal"] = value; }
+			get { return (int)(PropertyStore["ConstantReal"] ?? -0.7f); }
+			set { PropertyStore["ConstantReal"] = value; }
 		}
 
 		[DefaultValue(0.27015f)]
 		public float ConstantImaginary
 		{
-			get { return (int)(ViewState["ConstantImaginary"] ?? 0.27015f); }
-			set { ViewState["ConstantImaginary"] = value; }
+			get { return (int)(PropertyStore["ConstantImaginary"] ?? 0.27015f); }
+			set { PropertyStore["ConstantImaginary"] = value; }
 		}
 
 		internal override ColorHsv CalculateFractalColour(int x, int y)

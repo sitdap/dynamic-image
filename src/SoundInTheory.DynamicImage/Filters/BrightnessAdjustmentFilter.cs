@@ -23,7 +23,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Level"];
+				object value = this.PropertyStore["Level"];
 				if (value != null)
 					return (int) value;
 				return 0;
@@ -33,7 +33,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < -100 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Brightness level values must range from -100 to 100.");
 
-				this.ViewState["Level"] = value;
+				this.PropertyStore["Level"] = value;
 			}
 		}
 

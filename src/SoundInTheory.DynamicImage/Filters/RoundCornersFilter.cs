@@ -19,8 +19,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(typeof(Colors), "White"), Description("Gets or sets the border colour.")]
 		public Color BorderColor
 		{
-			get { return (Color)(ViewState["BorderColor"] ?? Colors.White); }
-			set { ViewState["BorderColor"] = value; }
+			get { return (Color)(PropertyStore["BorderColor"] ?? Colors.White); }
+			set { PropertyStore["BorderColor"] = value; }
 		}
 
 		/// <summary>
@@ -29,13 +29,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the border width.")]
 		public int BorderWidth
 		{
-			get { return (int)(ViewState["BorderWidth"] ?? 0); }
+			get { return (int)(PropertyStore["BorderWidth"] ?? 0); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentException("The border width must be greater than or equal to zero.", "value");
 
-				ViewState["BorderWidth"] = value;
+				PropertyStore["BorderWidth"] = value;
 			}
 		}
 
@@ -45,13 +45,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(5), Description("Gets or sets the roundness of the corners.")]
 		public int Roundness
 		{
-			get { return (int)(ViewState["Roundness"] ?? 5); }
+			get { return (int)(PropertyStore["Roundness"] ?? 5); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentException("The roundness must be greater than or equal to zero.", "value");
 
-				ViewState["Roundness"] = value;
+				PropertyStore["Roundness"] = value;
 			}
 		}
 

@@ -14,14 +14,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Type"];
+				object value = this.PropertyStore["Type"];
 				if (value != null)
 					return (FillType) value;
 				return FillType.Solid;
 			}
 			set
 			{
-				this.ViewState["Type"] = value;
+				this.PropertyStore["Type"] = value;
 			}
 		}
 
@@ -30,14 +30,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["BackgroundColour"];
+				object value = this.PropertyStore["BackgroundColour"];
 				if (value != null)
 					return (Color) value;
 				return Colors.White;
 			}
 			set
 			{
-				this.ViewState["BackgroundColour"] = value;
+				this.PropertyStore["BackgroundColour"] = value;
 			}
 		}
 
@@ -46,14 +46,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["GradientColourStart"];
+				object value = this.PropertyStore["GradientColourStart"];
 				if (value != null)
 					return (Color) value;
 				return Colors.White;
 			}
 			set
 			{
-				this.ViewState["GradientColourStart"] = value;
+				this.PropertyStore["GradientColourStart"] = value;
 			}
 		}
 
@@ -62,14 +62,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["GradientColourEnd"];
+				object value = this.PropertyStore["GradientColourEnd"];
 				if (value != null)
 					return (Color) value;
 				return Colors.Black;
 			}
 			set
 			{
-				this.ViewState["GradientColourEnd"] = value;
+				this.PropertyStore["GradientColourEnd"] = value;
 			}
 		}
 
@@ -78,14 +78,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["GradientAngle"];
+				object value = this.PropertyStore["GradientAngle"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["GradientAngle"] = value;
+				this.PropertyStore["GradientAngle"] = value;
 			}
 		}
 

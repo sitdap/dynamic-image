@@ -19,7 +19,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Angle"];
+				object value = this.PropertyStore["Angle"];
 				if (value != null)
 					return (int) value;
 				return 315;
@@ -29,7 +29,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 0 || value > 360)
 					throw new ArgumentException("value", "The angle must be between 0 and 360 degrees.");
 
-				this.ViewState["Angle"] = value;
+				this.PropertyStore["Angle"] = value;
 			}
 		}
 
@@ -41,7 +41,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Distance"];
+				object value = this.PropertyStore["Distance"];
 				if (value != null)
 					return (int) value;
 				return 5;
@@ -51,7 +51,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 0)
 					throw new ArgumentOutOfRangeException("value", "The offset of the shadow must be greater than or equal to zero.");
 
-				this.ViewState["Distance"] = value;
+				this.PropertyStore["Distance"] = value;
 			}
 		}
 

@@ -8,14 +8,14 @@
 		{
 			get
 			{
-				object value = this.ViewState["Top"];
+				object value = this.PropertyStore["Top"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["Top"] = value;
+				this.PropertyStore["Top"] = value;
 			}
 		}
 
@@ -23,14 +23,14 @@
 		{
 			get
 			{
-				object value = this.ViewState["Left"];
+				object value = this.PropertyStore["Left"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["Left"] = value;
+				this.PropertyStore["Left"] = value;
 			}
 		}
 
@@ -38,14 +38,14 @@
 		{
 			get
 			{
-				object value = this.ViewState["Bottom"];
+				object value = this.PropertyStore["Bottom"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["Bottom"] = value;
+				this.PropertyStore["Bottom"] = value;
 			}
 		}
 
@@ -53,14 +53,14 @@
 		{
 			get
 			{
-				object value = this.ViewState["Right"];
+				object value = this.PropertyStore["Right"];
 				if (value != null)
 					return (int) value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["Right"] = value;
+				this.PropertyStore["Right"] = value;
 			}
 		}
 

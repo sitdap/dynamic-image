@@ -8,17 +8,17 @@ namespace SoundInTheory.DynamicImage
 	/// <typeparamref name="T"/>-derived objects.
 	/// </summary>
 	/// <typeparam name="T">The type of elements in the collection.</typeparam>
-	public abstract class CustomStateManagedCollection<T> : List<T>, IDirtyTrackingObject
+	public abstract class DirtyTrackingCollection<T> : List<T>, IDirtyTrackingObject
 		where T : IDirtyTrackingObject
 	{
 		#region Constructors
 
-		protected CustomStateManagedCollection()
+		protected DirtyTrackingCollection()
 		{
 			
 		}
 
-		protected CustomStateManagedCollection(IEnumerable<T> items)
+		protected DirtyTrackingCollection(IEnumerable<T> items)
 			: base(items)
 		{
 			

@@ -105,7 +105,6 @@
     <Compile Include="Configuration\TemplateSettings.cs" />
     <Compile Include="DashStyle.cs" />
     <Compile Include="DynamicImageException.cs" />
-    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FeatherShape.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />
     <Compile Include="Filters\BorderFilter.cs" />
@@ -178,7 +177,7 @@
     <Compile Include="Fluent\ResizeFilterBuilder.cs" />
     <Compile Include="Fluent\TextLayerBuilder.cs" />
     <Compile Include="Font.cs" />
-    <Compile Include="CustomStateManagedCollection.cs" />
+    <Compile Include="DirtyTrackingCollection.cs" />
     <Compile Include="Filters\ColorTintFilter.cs" />
     <Compile Include="Filters\ClippingMaskFilter.cs" />
     <Compile Include="Filters\FeatherFilter.cs" />

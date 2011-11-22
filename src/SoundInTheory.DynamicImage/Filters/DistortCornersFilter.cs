@@ -27,8 +27,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the top-left corner X-coordinate.")]
 		public int X1
 		{
-			get { return (int)(ViewState["X1"] ?? 0); }
-			set { ViewState["X1"] = value; }
+			get { return (int)(PropertyStore["X1"] ?? 0); }
+			set { PropertyStore["X1"] = value; }
 		}
 
 		/// <summary>
@@ -37,8 +37,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the top-left corner Y-coordinate.")]
 		public int Y1
 		{
-			get { return (int)(ViewState["Y1"] ?? 0); }
-			set { ViewState["Y1"] = value; }
+			get { return (int)(PropertyStore["Y1"] ?? 0); }
+			set { PropertyStore["Y1"] = value; }
 		}
 
 		/// <summary>
@@ -47,8 +47,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the top-right corner X-coordinate.")]
 		public int X2
 		{
-			get { return (int)(ViewState["X2"] ?? 0); }
-			set { ViewState["X2"] = value; }
+			get { return (int)(PropertyStore["X2"] ?? 0); }
+			set { PropertyStore["X2"] = value; }
 		}
 
 		/// <summary>
@@ -57,8 +57,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the top-right corner Y-coordinate.")]
 		public int Y2
 		{
-			get { return (int)(ViewState["Y2"] ?? 0); }
-			set { ViewState["Y2"] = value; }
+			get { return (int)(PropertyStore["Y2"] ?? 0); }
+			set { PropertyStore["Y2"] = value; }
 		}
 
 		/// <summary>
@@ -67,8 +67,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the bottom-right corner X-coordinate.")]
 		public int X3
 		{
-			get { return (int)(ViewState["X3"] ?? 0); }
-			set { ViewState["X3"] = value; }
+			get { return (int)(PropertyStore["X3"] ?? 0); }
+			set { PropertyStore["X3"] = value; }
 		}
 
 		/// <summary>
@@ -77,8 +77,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the bottom-right corner Y-coordinate.")]
 		public int Y3
 		{
-			get { return (int)(ViewState["Y3"] ?? 0); }
-			set { ViewState["Y3"] = value; }
+			get { return (int)(PropertyStore["Y3"] ?? 0); }
+			set { PropertyStore["Y3"] = value; }
 		}
 
 		/// <summary>
@@ -87,8 +87,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the bottom-left corner X-coordinate.")]
 		public int X4
 		{
-			get { return (int)(ViewState["X4"] ?? 0); }
-			set { ViewState["X4"] = value; }
+			get { return (int)(PropertyStore["X4"] ?? 0); }
+			set { PropertyStore["X4"] = value; }
 		}
 
 		/// <summary>
@@ -97,8 +97,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the bottom-left corner Y-coordinate.")]
 		public int Y4
 		{
-			get { return (int)(ViewState["Y4"] ?? 0); }
-			set { ViewState["Y4"] = value; }
+			get { return (int)(PropertyStore["Y4"] ?? 0); }
+			set { PropertyStore["Y4"] = value; }
 		}
 
 		#endregion

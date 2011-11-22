@@ -26,13 +26,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(3.0f), Description("Gets or sets the bump height for embossing.")]
 		public float Amount
 		{
-			get { return (float)(ViewState["Amount"] ?? 3.0f); }
+			get { return (float)(PropertyStore["Amount"] ?? 3.0f); }
 			set
 			{
 				//if (value < 2 || value > 50)
 //					throw new ArgumentException("The bump height must be between 2 and 50.", "value");
 
-				ViewState["Amount"] = value;
+				PropertyStore["Amount"] = value;
 			}
 		}
 
@@ -42,13 +42,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(3.0f), Description("Gets or sets the bump height for embossing.")]
 		public float Width
 		{
-			get { return (float)(ViewState["Width"] ?? 3.0f); }
+			get { return (float)(PropertyStore["Width"] ?? 3.0f); }
 			set
 			{
 				//if (value < 2 || value > 50)
 //					throw new ArgumentException("The bump height must be between 2 and 50.", "value");
 
-				ViewState["Width"] = value;
+				PropertyStore["Width"] = value;
 			}
 		}
 
@@ -58,13 +58,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(3.0f), Description("Gets or sets the bump height for embossing.")]
 		public float BumpHeight
 		{
-			get { return (float) (ViewState["BumpHeight"] ?? 3.0f); }
+			get { return (float) (PropertyStore["BumpHeight"] ?? 3.0f); }
 			set
 			{
 				if (value < 2 || value > 50)
 					throw new ArgumentException("The bump height must be between 2 and 50.", "value");
 
-				ViewState["BumpHeight"] = value;
+				PropertyStore["BumpHeight"] = value;
 			}
 		}
 
@@ -74,13 +74,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(30), Description("Gets or sets the light elevation in degrees.")]
 		public int LightElevation
 		{
-			get { return (int)(ViewState["LightElevation"] ?? 30); }
+			get { return (int)(PropertyStore["LightElevation"] ?? 30); }
 			set
 			{
 				if (value < 0 || value > 90)
 					throw new ArgumentException("The light elevation must be between 0 and 90 degrees.", "value");
 
-				ViewState["LightElevation"] = value;
+				PropertyStore["LightElevation"] = value;
 			}
 		}
 
@@ -90,13 +90,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the light angle in degrees.")]
 		public int LightAngle
 		{
-			get { return (int)(ViewState["LightAngle"] ?? 0); }
+			get { return (int)(PropertyStore["LightAngle"] ?? 0); }
 			set
 			{
 				if (value < 0 || value > 360)
 					throw new ArgumentException("The light angle must be between 0 and 360 degrees.", "value");
 
-				ViewState["LightAngle"] = value;
+				PropertyStore["LightAngle"] = value;
 			}
 		}*/
 

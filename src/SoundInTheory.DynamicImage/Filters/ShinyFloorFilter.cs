@@ -23,13 +23,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[Browsable(true), Category("Appearance"), DefaultValue(50), Description("Gets or sets the percentage of the image height that will be reflected.")]
 		public byte ReflectionPercentage
 		{
-			get { return (byte)(ViewState["ReflectionPercentage"] ?? (byte) 50); }
+			get { return (byte)(PropertyStore["ReflectionPercentage"] ?? (byte) 50); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "The percentage of reflection must range from 0 to 100");
 
-				ViewState["ReflectionPercentage"] = value;
+				PropertyStore["ReflectionPercentage"] = value;
 			}
 		}
 
@@ -40,13 +40,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[Browsable(true), Category("Appearance"), DefaultValue(75), Description("Gets or sets the opacity of the reflected image. The reflection will fade out to an opaque white.")]
 		public byte ReflectionOpacity
 		{
-			get { return (byte)(ViewState["ReflectionOpacity"] ?? (byte) 75); }
+			get { return (byte)(PropertyStore["ReflectionOpacity"] ?? (byte) 75); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "The reflection opacity must range from 0 to 100.");
 
-				ViewState["ReflectionOpacity"] = value;
+				PropertyStore["ReflectionOpacity"] = value;
 			}
 		}
 
@@ -56,8 +56,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[Browsable(true), DefaultValue(null), Description("Gets or sets the y-position of the reflected image.")]
 		public int? ReflectionPositionY
 		{
-			get { return ViewState["ReflectionPositionY"] as int?; }
-			set { ViewState["ReflectionPositionY"] = value; }
+			get { return PropertyStore["ReflectionPositionY"] as int?; }
+			set { PropertyStore["ReflectionPositionY"] = value; }
 		}
 
 		#endregion

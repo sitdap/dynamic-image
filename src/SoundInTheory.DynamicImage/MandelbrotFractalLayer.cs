@@ -7,8 +7,8 @@ namespace SoundInTheory.DynamicImage
 		[DefaultValue(-0.5f)]
 		public override float OffsetX
 		{
-			get { return (int)(ViewState["OffsetX"] ?? -0.5f); }
-			set { ViewState["OffsetX"] = value; }
+			get { return (int)(PropertyStore["OffsetX"] ?? -0.5f); }
+			set { PropertyStore["OffsetX"] = value; }
 		}
 
 		internal override ColorHsv CalculateFractalColour(int x, int y)

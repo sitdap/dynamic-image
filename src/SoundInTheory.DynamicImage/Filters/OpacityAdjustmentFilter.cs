@@ -21,13 +21,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(50), Description("Gets or sets the opacity. Values range from 0 to 100.")]
 		public byte Opacity
 		{
-			get { return (byte)(ViewState["Opacity"] ?? 50); }
+			get { return (byte)(PropertyStore["Opacity"] ?? 50); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Opacity values must range from 0 to 100.");
 
-				ViewState["Opacity"] = value;
+				PropertyStore["Opacity"] = value;
 			}
 		}
 

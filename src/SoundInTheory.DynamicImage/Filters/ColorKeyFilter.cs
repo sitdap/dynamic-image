@@ -22,8 +22,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(typeof(Colors), "White"), Description("Gets or sets the transparent color.")]
 		public Color Color
 		{
-			get { return (Color)(ViewState["Color"] ?? Colors.White); }
-			set { ViewState["Color"] = value; }
+			get { return (Color)(PropertyStore["Color"] ?? Colors.White); }
+			set { PropertyStore["Color"] = value; }
 		}
 
 		/// <summary>
@@ -32,8 +32,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the color tolerance for transparency. This value is used to create a range around the Color parameter, within which colors will be considered transparent. Ranges from 0 to 255.")]
 		public byte ColorTolerance
 		{
-			get { return (byte)(ViewState["ColorTolerance"] ?? 0); }
-			set { ViewState["ColorTolerance"] = value; }
+			get { return (byte)(PropertyStore["ColorTolerance"] ?? 0); }
+			set { PropertyStore["ColorTolerance"] = value; }
 		}
 
 		/// <summary>
@@ -42,8 +42,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(false), Description("Gets or sets whether the first (top left) pixel of an image will be used as the transparent color.")]
 		public bool UseFirstPixel
 		{
-			get { return (bool)(ViewState["UseFirstPixel"] ?? false); }
-			set { ViewState["UseFirstPixel"] = value; }
+			get { return (bool)(PropertyStore["UseFirstPixel"] ?? false); }
+			set { PropertyStore["UseFirstPixel"] = value; }
 		}
 
 		#endregion

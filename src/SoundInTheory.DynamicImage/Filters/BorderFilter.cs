@@ -22,20 +22,20 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(10), Description("Gets or sets the width of the border.")]
 		public int Width
 		{
-			get { return (int)(ViewState["Width"] ?? 10); }
+			get { return (int)(PropertyStore["Width"] ?? 10); }
 			set
 			{
 				if (value < 0)
 					throw new ArgumentException("The border width must be greater than or equal to zero.", "value");
 
-				ViewState["Width"] = value;
+				PropertyStore["Width"] = value;
 			}
 		}
 
 		public Fill Fill
 		{
-			get { return (Fill)(ViewState["Fill"] ?? (ViewState["Fill"] = new Fill())); }
-			set { ViewState["Fill"] = value; }
+			get { return (Fill)(PropertyStore["Fill"] ?? (PropertyStore["Fill"] = new Fill())); }
+			set { PropertyStore["Fill"] = value; }
 		}
 
 		#endregion

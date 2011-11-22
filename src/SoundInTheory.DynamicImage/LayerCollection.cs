@@ -1,6 +1,6 @@
 ﻿namespace SoundInTheory.DynamicImage
 {
-	public class LayerCollection : CustomStateManagedCollection<Layer>
+	public class LayerCollection : DirtyTrackingCollection<Layer>
 	{
 		
 	}

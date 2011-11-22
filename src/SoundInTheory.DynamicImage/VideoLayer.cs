@@ -14,14 +14,14 @@ namespace SoundInTheory.DynamicImage
 		[Category("Source"), UrlProperty]
 		public string SourceFileName
 		{
-			get { return ViewState["SourceFileName"] as string ?? string.Empty; }
-			set { ViewState["SourceFileName"] = value; }
+			get { return PropertyStore["SourceFileName"] as string ?? string.Empty; }
+			set { PropertyStore["SourceFileName"] = value; }
 		}
 
 		public TimeSpan SnapshotTime
 		{
-			get { return (TimeSpan) (ViewState["SnapshotTime"] ?? TimeSpan.Zero); }
-			set { ViewState["SnapshotTime"] = value; }
+			get { return (TimeSpan) (PropertyStore["SnapshotTime"] ?? TimeSpan.Zero); }
+			set { PropertyStore["SnapshotTime"] = value; }
 		}
 
 		public override bool HasFixedSize

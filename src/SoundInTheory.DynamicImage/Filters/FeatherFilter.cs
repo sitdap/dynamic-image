@@ -23,12 +23,12 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(5), Description("Gets or sets the feather radius. Values range from 0 to 100.")]
 		public int Radius
 		{
-			get { return (int) (ViewState["Radius"] ?? 5); }
+			get { return (int) (PropertyStore["Radius"] ?? 5); }
 			set
 			{
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Feather radius values must range from 0 to 100.");
-				ViewState["Radius"] = value;
+				PropertyStore["Radius"] = value;
 			}
 		}
 
@@ -38,8 +38,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(FeatherShape.Rectangle), Description("Gets or sets the shape to use for feathering.")]
 		public FeatherShape Shape
 		{
-			get { return (FeatherShape)(ViewState["Shape"] ?? FeatherShape.Rectangle); }
-			set { ViewState["Shape"] = value; }
+			get { return (FeatherShape)(PropertyStore["Shape"] ?? FeatherShape.Rectangle); }
+			set { PropertyStore["Shape"] = value; }
 		}
 
 		#endregion

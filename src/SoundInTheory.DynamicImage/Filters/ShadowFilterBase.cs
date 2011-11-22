@@ -18,14 +18,14 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Color"];
+				object value = this.PropertyStore["Color"];
 				if (value != null)
 					return (Color) value;
 				return Colors.Black;
 			}
 			set
 			{
-				this.ViewState["Color"] = value;
+				this.PropertyStore["Color"] = value;
 			}
 		}
 
@@ -37,7 +37,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Opacity"];
+				object value = this.PropertyStore["Opacity"];
 				if (value != null)
 					return (int) value;
 				return 75;
@@ -47,7 +47,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 0 || value > 100)
 					throw new ArgumentOutOfRangeException("value", "Opacity values must range from 0 to 100.");
 
-				this.ViewState["Opacity"] = value;
+				this.PropertyStore["Opacity"] = value;
 			}
 		}
 
@@ -59,7 +59,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Size"];
+				object value = this.PropertyStore["Size"];
 				if (value != null)
 					return (int) value;
 				return 5;
@@ -69,7 +69,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value < 0)
 					throw new ArgumentOutOfRangeException("value", "The size of the shadow or glow must be greater than or equal to zero.");
 
-				this.ViewState["Size"] = value;
+				this.PropertyStore["Size"] = value;
 			}
 		}
 

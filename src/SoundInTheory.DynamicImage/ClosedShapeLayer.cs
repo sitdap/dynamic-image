@@ -8,8 +8,8 @@ namespace SoundInTheory.DynamicImage
 	{
 		public Fill Fill
 		{
-			get { return (Fill) (ViewState["Fill"] ?? (ViewState["Fill"] = new Fill())); }
-			set { ViewState["Fill"] = value; }
+			get { return (Fill) (PropertyStore["Fill"] ?? (PropertyStore["Fill"] = new Fill())); }
+			set { PropertyStore["Fill"] = value; }
 		}
 	}
 }

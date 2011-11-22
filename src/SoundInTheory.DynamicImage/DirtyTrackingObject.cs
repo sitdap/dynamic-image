@@ -15,19 +15,19 @@ namespace SoundInTheory.DynamicImage
 	{
 		#region Fields
 
-		private Dictionary<string, object> _viewState;
+		private Dictionary<string, object> _propertyStore;
 
 		#endregion
 
 		#region Properties
 
-		protected Dictionary<string, object> ViewState
+		protected Dictionary<string, object> PropertyStore
 		{
 			get
 			{
-				if (_viewState == null)
-					_viewState = new Dictionary<string, object>();
-				return _viewState;
+				if (_propertyStore == null)
+					_propertyStore = new Dictionary<string, object>();
+				return _propertyStore;
 			}
 		}
 
@@ -46,7 +46,7 @@ namespace SoundInTheory.DynamicImage
 			// Loop through properties.
 			StringBuilder sb = new StringBuilder();
 			sb.Append("{");
-			foreach (var kvp in ViewState)
+			foreach (var kvp in PropertyStore)
 			{
 				if (kvp.Value is IDirtyTrackingObject)
 					sb.AppendFormat("{0}: {1};", kvp.Key, ((IDirtyTrackingObject)kvp.Value).GetDirtyProperties());

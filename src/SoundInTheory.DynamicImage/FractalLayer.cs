@@ -15,43 +15,43 @@ namespace SoundInTheory.DynamicImage
 		[Browsable(true), DefaultValue(400), Category("Layout"), Description("Width of the layer")]
 		public int Width
 		{
-			get { return (int)(ViewState["Width"] ?? 400); }
-			set { ViewState["Width"] = value; }
+			get { return (int)(PropertyStore["Width"] ?? 400); }
+			set { PropertyStore["Width"] = value; }
 		}
 
 		[Browsable(true), DefaultValue(300), Category("Layout"), Description("Height of the layer")]
 		public int Height
 		{
-			get { return (int)(ViewState["Height"] ?? 300); }
-			set { ViewState["Height"] = value; }
+			get { return (int)(PropertyStore["Height"] ?? 300); }
+			set { PropertyStore["Height"] = value; }
 		}
 
 		[DefaultValue(300)]
 		public int MaxIterations
 		{
-			get { return (int)(ViewState["MaxIterations"] ?? 300); }
-			set { ViewState["MaxIterations"] = value; }
+			get { return (int)(PropertyStore["MaxIterations"] ?? 300); }
+			set { PropertyStore["MaxIterations"] = value; }
 		}
 
 		[DefaultValue(1.0f)]
 		public float Zoom
 		{
-			get { return (int)(ViewState["Zoom"] ?? 1.0f); }
-			set { ViewState["Zoom"] = value; }
+			get { return (int)(PropertyStore["Zoom"] ?? 1.0f); }
+			set { PropertyStore["Zoom"] = value; }
 		}
 
 		[DefaultValue(0.0f)]
 		public virtual float OffsetX
 		{
-			get { return (int)(ViewState["OffsetX"] ?? 0.0f); }
-			set { ViewState["OffsetX"] = value; }
+			get { return (int)(PropertyStore["OffsetX"] ?? 0.0f); }
+			set { PropertyStore["OffsetX"] = value; }
 		}
 
 		[DefaultValue(0.0f)]
 		public virtual float OffsetY
 		{
-			get { return (int)(ViewState["OffsetY"] ?? 0.0f); }
-			set { ViewState["OffsetY"] = value; }
+			get { return (int)(PropertyStore["OffsetY"] ?? 0.0f); }
+			set { PropertyStore["OffsetY"] = value; }
 		}
 
 		public override bool HasFixedSize

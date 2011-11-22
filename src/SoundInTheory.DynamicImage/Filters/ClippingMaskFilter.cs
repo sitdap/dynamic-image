@@ -25,8 +25,8 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		public ImageSource MaskImage
 		{
-			get { return (ImageSource)ViewState["MaskImage"]; }
-			set { ViewState["MaskImage"] = value; }
+			get { return (ImageSource)PropertyStore["MaskImage"]; }
+			set { PropertyStore["MaskImage"] = value; }
 		}
 
 		/// <summary>
@@ -35,8 +35,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the x-position of the left side of the mask image.")]
 		public int MaskPositionX
 		{
-			get { return (int) (ViewState["MaskPositionX"] ?? 0); }
-			set { ViewState["MaskPositionX"] = value; }
+			get { return (int) (PropertyStore["MaskPositionX"] ?? 0); }
+			set { PropertyStore["MaskPositionX"] = value; }
 		}
 
 		/// <summary>
@@ -45,8 +45,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue(0), Description("Gets or sets the y-position of the top side of the mask image.")]
 		public int MaskPositionY
 		{
-			get { return (int)(ViewState["MaskPositionY"] ?? 0); }
-			set { ViewState["MaskPositionY"] = value; }
+			get { return (int)(PropertyStore["MaskPositionY"] ?? 0); }
+			set { PropertyStore["MaskPositionY"] = value; }
 		}
 
 		#endregion

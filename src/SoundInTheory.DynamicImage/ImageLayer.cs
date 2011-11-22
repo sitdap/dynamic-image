@@ -11,8 +11,8 @@ namespace SoundInTheory.DynamicImage
 
 		public ImageSource Source
 		{
-			get { return (ImageSource) ViewState["Source"]; }
-			set { ViewState["Source"] = value; }
+			get { return (ImageSource) PropertyStore["Source"]; }
+			set { PropertyStore["Source"] = value; }
 		}
 
 		/// <summary>
@@ -25,8 +25,8 @@ namespace SoundInTheory.DynamicImage
 
 		public ImageSource AlternateSource
 		{
-			get { return (ImageSource)ViewState["AlternateSource"]; }
-			set { ViewState["AlternateSource"] = value; }
+			get { return (ImageSource)PropertyStore["AlternateSource"]; }
+			set { PropertyStore["AlternateSource"] = value; }
 		}
 
 		public override bool HasFixedSize

@@ -20,14 +20,14 @@ namespace SoundInTheory.DynamicImage.Sources
 		{
 			get
 			{
-				object value = this.ViewState["ConnectionStringName"];
+				object value = this.PropertyStore["ConnectionStringName"];
 				if (value != null)
 					return (string) value;
 				return string.Empty;
 			}
 			set
 			{
-				this.ViewState["ConnectionStringName"] = value;
+				this.PropertyStore["ConnectionStringName"] = value;
 			}
 		}
 
@@ -36,14 +36,14 @@ namespace SoundInTheory.DynamicImage.Sources
 		{
 			get
 			{
-				object value = this.ViewState["TableName"];
+				object value = this.PropertyStore["TableName"];
 				if (value != null)
 					return (string) value;
 				return string.Empty;
 			}
 			set
 			{
-				this.ViewState["TableName"] = value;
+				this.PropertyStore["TableName"] = value;
 			}
 		}
 
@@ -52,14 +52,14 @@ namespace SoundInTheory.DynamicImage.Sources
 		{
 			get
 			{
-				object value = this.ViewState["ColumnName"];
+				object value = this.PropertyStore["ColumnName"];
 				if (value != null)
 					return (string) value;
 				return string.Empty;
 			}
 			set
 			{
-				this.ViewState["ColumnName"] = value;
+				this.PropertyStore["ColumnName"] = value;
 			}
 		}
 
@@ -68,14 +68,14 @@ namespace SoundInTheory.DynamicImage.Sources
 		{
 			get
 			{
-				object value = this.ViewState["PrimaryKeyNames"];
+				object value = this.PropertyStore["PrimaryKeyNames"];
 				if (value != null)
 					return (string[]) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["PrimaryKeyNames"] = value;
+				this.PropertyStore["PrimaryKeyNames"] = value;
 			}
 		}
 
@@ -91,14 +91,14 @@ namespace SoundInTheory.DynamicImage.Sources
 		{
 			get
 			{
-				object value = this.ViewState["PrimaryKeyValues"];
+				object value = this.PropertyStore["PrimaryKeyValues"];
 				if (value != null)
 					return (string[]) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["PrimaryKeyValues"] = value;
+				this.PropertyStore["PrimaryKeyValues"] = value;
 			}
 		}
 

@@ -38,14 +38,14 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = ViewState["Mode"];
+				object value = PropertyStore["Mode"];
 				if (value != null)
 					return (ResizeMode)value;
 				return ResizeMode.Uniform;
 			}
 			set
 			{
-				ViewState["Mode"] = value;
+				PropertyStore["Mode"] = value;
 			}
 		}
 
@@ -55,8 +55,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue("200"), Description("Gets or sets the desired image width.")]
 		public Unit Width
 		{
-			get { return (Unit) (ViewState["Width"] ?? Unit.Pixel(200)); }
-			set { ViewState["Width"] = value; }
+			get { return (Unit) (PropertyStore["Width"] ?? Unit.Pixel(200)); }
+			set { PropertyStore["Width"] = value; }
 		}
 
 		/// <summary>
@@ -65,8 +65,8 @@ namespace SoundInTheory.DynamicImage.Filters
 		[DefaultValue("200"), Description("Gets or sets the desired image height.")]
 		public Unit Height
 		{
-			get { return (Unit)(ViewState["Height"] ?? Unit.Pixel(200)); }
-			set { ViewState["Height"] = value; }
+			get { return (Unit)(PropertyStore["Height"] ?? Unit.Pixel(200)); }
+			set { PropertyStore["Height"] = value; }
 		}
 
 		/// <summary>
@@ -78,14 +78,14 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = ViewState["BitmapScalingMode"];
+				object value = PropertyStore["BitmapScalingMode"];
 				if (value != null)
 					return (BitmapScalingMode)value;
 				return BitmapScalingMode.HighQuality;
 			}
 			set
 			{
-				ViewState["BitmapScalingMode"] = value;
+				PropertyStore["BitmapScalingMode"] = value;
 			}
 		}
 
@@ -98,14 +98,14 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["EnlargeImage"];
+				object value = this.PropertyStore["EnlargeImage"];
 				if (value != null)
 					return (bool)value;
 				return false;
 			}
 			set
 			{
-				this.ViewState["EnlargeImage"] = value;
+				this.PropertyStore["EnlargeImage"] = value;
 			}
 		}
 

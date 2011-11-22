@@ -10,14 +10,14 @@ namespace SoundInTheory.DynamicImage.Sources
 		{
 			get
 			{
-				object value = this.ViewState["Bytes"];
+				object value = this.PropertyStore["Bytes"];
 				if (value != null)
 					return (byte[]) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["Bytes"] = value;
+				this.PropertyStore["Bytes"] = value;
 			}
 		}
 

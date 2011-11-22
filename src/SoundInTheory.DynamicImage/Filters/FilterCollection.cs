@@ -1,6 +1,6 @@
 ﻿namespace SoundInTheory.DynamicImage.Filters
 {
-	public class FilterCollection : CustomStateManagedCollection<Filter>
+	public class FilterCollection : DirtyTrackingCollection<Filter>
 	{
 		
 	}

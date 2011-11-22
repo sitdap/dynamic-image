@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
@@ -13,45 +10,24 @@ namespace SoundInTheory.DynamicImage.Filters
 {
 	public class CurvesAdjustmentFilter : ShaderEffectFilter
 	{
-		private CurveCollection _curves;
-
 		#region Properties
 
 		/// <summary>
 		/// Specifies which ACV file (exported from Photoshop) contains the curves to be used. May not be used in combination with the Curves collection.
 		/// </summary>
-		[DefaultValue(""), Description("Specifies which ACV file (exported from Photoshop) contains the curves to be used. May not be used in combination with the Curves collection.")]
 		public string PhotoshopCurvesFileName
 		{
-			get { return (string)(ViewState["PhotoshopCurvesFileName"] ?? string.Empty); }
-			set { ViewState["PhotoshopCurvesFileName"] = value; }
+			get { return (string)(PropertyStore["PhotoshopCurvesFileName"] ?? string.Empty); }
+			set { PropertyStore["PhotoshopCurvesFileName"] = value; }
 		}
 
 		/// <summary>
 		/// Specifies curves declaratively. May not be used in combination with PhotoshopCurvesFileName.
 		/// </summary>
-		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), NotifyParentProperty(true)]
 		public CurveCollection Curves
 		{
-			get
-			{
-				if (_curves == null)
-				{
-					_curves = new CurveCollection();
-					if (((IStateManager)this).IsTrackingViewState)
-						((IStateManager)_curves).TrackViewState();
-				}
-				return _curves;
-			}
-			set
-			{
-				if (_curves != null)
-					throw new Exception("You can only set a new curves collection if one does not already exist");
-
-				_curves = value;
-				if (((IStateManager)this).IsTrackingViewState)
-					((IStateManager)_curves).TrackViewState();
-			}
+			get { return (CurveCollection)(PropertyStore["Curves"] ?? (PropertyStore["Curves"] = new CurveCollection())); }
+			set { PropertyStore["Curves"] = value; }
 		}
 
 		#endregion

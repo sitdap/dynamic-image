@@ -22,14 +22,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Width"];
+				object value = this.PropertyStore["Width"];
 				if (value != null)
 					return (int?) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["Width"] = value;
+				this.PropertyStore["Width"] = value;
 			}
 		}
 
@@ -44,14 +44,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Height"];
+				object value = this.PropertyStore["Height"];
 				if (value != null)
 					return (int?) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["Height"] = value;
+				this.PropertyStore["Height"] = value;
 			}
 		}
 
@@ -60,22 +60,22 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Multiline"];
+				object value = this.PropertyStore["Multiline"];
 				if (value != null)
 					return (bool) value;
 				return false;
 			}
 			set
 			{
-				this.ViewState["Multiline"] = value;
+				this.PropertyStore["Multiline"] = value;
 			}
 		}
 
 		[Browsable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public Font Font
 		{
-			get { return (Font)(ViewState["Font"] ?? (ViewState["Font"] = new Font())); }
-			set { ViewState["Font"] = value; }
+			get { return (Font)(PropertyStore["Font"] ?? (PropertyStore["Font"] = new Font())); }
+			set { PropertyStore["Font"] = value; }
 		}
 
 		[Browsable(true), DefaultValue(typeof(Colors), "Black")]
@@ -83,14 +83,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["ForeColour"];
+				object value = this.PropertyStore["ForeColour"];
 				if (value != null)
 					return (Color) value;
 				return Colors.Black;
 			}
 			set
 			{
-				this.ViewState["ForeColour"] = value;
+				this.PropertyStore["ForeColour"] = value;
 			}
 		}
 
@@ -99,14 +99,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["ClearTypeBackColour"];
+				object value = this.PropertyStore["ClearTypeBackColour"];
 				if (value != null)
 					return (Color?) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["ClearTypeBackColour"] = value;
+				this.PropertyStore["ClearTypeBackColour"] = value;
 			}
 		}
 
@@ -115,14 +115,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["StrokeColour"];
+				object value = this.PropertyStore["StrokeColour"];
 				if (value != null)
 					return (Color) value;
 				return null;
 			}
 			set
 			{
-				this.ViewState["StrokeColour"] = value;
+				this.PropertyStore["StrokeColour"] = value;
 			}
 		}
 
@@ -131,14 +131,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["StrokeWidth"];
+				object value = this.PropertyStore["StrokeWidth"];
 				if (value != null)
 					return (double)value;
 				return 0;
 			}
 			set
 			{
-				this.ViewState["StrokeWidth"] = value;
+				this.PropertyStore["StrokeWidth"] = value;
 			}
 		}
 
@@ -147,29 +147,29 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Text"];
+				object value = this.PropertyStore["Text"];
 				if (value != null)
 					return (string) value;
 				return string.Empty;
 			}
 			set
 			{
-				this.ViewState["Text"] = value;
+				this.PropertyStore["Text"] = value;
 			}
 		}
 
 		[Browsable(true), DefaultValue(TextAlignment.Left)]
 		public TextAlignment HorizontalTextAlignment
 		{
-			get { return (TextAlignment) (ViewState["HorizontalTextAlignment"] ?? TextAlignment.Left); }
-			set { ViewState["HorizontalTextAlignment"] = value; }
+			get { return (TextAlignment) (PropertyStore["HorizontalTextAlignment"] ?? TextAlignment.Left); }
+			set { PropertyStore["HorizontalTextAlignment"] = value; }
 		}
 
 		[Browsable(true), DefaultValue(VerticalAlignment.Top)]
 		public VerticalAlignment VerticalTextAlignment
 		{
-			get { return (VerticalAlignment) (ViewState["VerticalTextAlignment"] ?? VerticalAlignment.Top); }
-			set { ViewState["VerticalTextAlignment"] = value; }
+			get { return (VerticalAlignment) (PropertyStore["VerticalTextAlignment"] ?? VerticalAlignment.Top); }
+			set { PropertyStore["VerticalTextAlignment"] = value; }
 		}
 
 		public override bool HasFixedSize

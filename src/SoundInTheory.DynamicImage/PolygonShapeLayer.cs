@@ -12,8 +12,8 @@ namespace SoundInTheory.DynamicImage
 		[Browsable(true), DefaultValue(3), NotifyParentProperty(true)]
 		public int Sides
 		{
-			get { return (int) (ViewState["Sides"] ?? 3); }
-			set { ViewState["Sides"] = value; }
+			get { return (int) (PropertyStore["Sides"] ?? 3); }
+			set { PropertyStore["Sides"] = value; }
 		}
 
 		protected sealed override void CreateImage()

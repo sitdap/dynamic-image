@@ -23,7 +23,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Radius"];
+				object value = this.PropertyStore["Radius"];
 				if (value != null)
 					return (float) value;
 				return 0.0f;
@@ -33,7 +33,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				if (value <= 0 || value > 20)
 					throw new ArgumentOutOfRangeException("value", "Gaussian blur radius must range from 0 to less than 20.");
 
-				this.ViewState["Radius"] = value;
+				this.PropertyStore["Radius"] = value;
 			}
 		}
 

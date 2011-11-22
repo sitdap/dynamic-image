@@ -16,14 +16,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Bold"];
+				object value = this.PropertyStore["Bold"];
 				if (value != null)
 					return (bool) value;
 				return false;
 			}
 			set
 			{
-				this.ViewState["Bold"] = value;
+				this.PropertyStore["Bold"] = value;
 			}
 		}
 
@@ -32,14 +32,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Italic"];
+				object value = this.PropertyStore["Italic"];
 				if (value != null)
 					return (bool) value;
 				return false;
 			}
 			set
 			{
-				this.ViewState["Italic"] = value;
+				this.PropertyStore["Italic"] = value;
 			}
 		}
 
@@ -48,14 +48,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Name"];
+				object value = this.PropertyStore["Name"];
 				if (value != null)
 					return (string) value;
 				return "Verdana";
 			}
 			set
 			{
-				this.ViewState["Name"] = value;
+				this.PropertyStore["Name"] = value;
 			}
 		}
 
@@ -66,8 +66,8 @@ namespace SoundInTheory.DynamicImage
 		[DefaultValue("")]
 		public string CustomFontFile
 		{
-			get { return ViewState["CustomFontFile"] as string ?? string.Empty; }
-			set { ViewState["CustomFontFile"] = value; }
+			get { return PropertyStore["CustomFontFile"] as string ?? string.Empty; }
+			set { PropertyStore["CustomFontFile"] = value; }
 		}
 
 		[DefaultValue(18)]
@@ -75,14 +75,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Size"];
+				object value = this.PropertyStore["Size"];
 				if (value != null)
 					return (float) value;
 				return 18;
 			}
 			set
 			{
-				this.ViewState["Size"] = value;
+				this.PropertyStore["Size"] = value;
 			}
 		}
 
@@ -91,14 +91,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Strikeout"];
+				object value = this.PropertyStore["Strikeout"];
 				if (value != null)
 					return (bool) value;
 				return false;
 			}
 			set
 			{
-				this.ViewState["Strikeout"] = value;
+				this.PropertyStore["Strikeout"] = value;
 			}
 		}
 
@@ -107,14 +107,14 @@ namespace SoundInTheory.DynamicImage
 		{
 			get
 			{
-				object value = this.ViewState["Underline"];
+				object value = this.PropertyStore["Underline"];
 				if (value != null)
 					return (bool) value;
 				return false;
 			}
 			set
 			{
-				this.ViewState["Underline"] = value;
+				this.PropertyStore["Underline"] = value;
 			}
 		}
 

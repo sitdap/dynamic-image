@@ -15,14 +15,14 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Name"];
+				object value = this.PropertyStore["Name"];
 				if (value != null)
 					return (string) value;
 				return string.Empty;
 			}
 			set
 			{
-				this.ViewState["Name"] = value;
+				this.PropertyStore["Name"] = value;
 			}
 		}
 
@@ -31,14 +31,14 @@ namespace SoundInTheory.DynamicImage.Filters
 		{
 			get
 			{
-				object value = this.ViewState["Enabled"];
+				object value = this.PropertyStore["Enabled"];
 				if (value != null)
 					return (bool) value;
 				return true;
 			}
 			set
 			{
-				this.ViewState["Enabled"] = value;
+				this.PropertyStore["Enabled"] = value;
 			}
 		}
 

@@ -11,8 +11,6 @@ namespace SoundInTheory.DynamicImage
 {
 	public class TextLayer : Layer
 	{
-		private Font _font;
-
 		#region Properties
 
 		/// <summary>
@@ -76,25 +74,8 @@ namespace SoundInTheory.DynamicImage
 		[Browsable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public Font Font
 		{
-			get
-			{
-				if (_font == null)
-				{
-					_font = new Font();
-					if (this.IsTrackingViewState)
-						((IStateManager) _font).TrackViewState();
-				}
-				return _font;
-			}
-			set
-			{
-				if (_font != null)
-					throw new Exception("You can only set a new Font if one does not already exist");
-
-				_font = value;
-				if (this.IsTrackingViewState)
-					((IStateManager) _font).TrackViewState();
-			}
+			get { return (Font)(ViewState["Font"] ?? (ViewState["Font"] = new Font())); }
+			set { ViewState["Font"] = value; }
 		}
 
 		[Browsable(true), DefaultValue(typeof(Colors), "Black")]
@@ -323,52 +304,5 @@ namespace SoundInTheory.DynamicImage
 		}
 
 		private delegate void RenderCallback(FormattedText formattedText);
-
-		#region View state implementation
-
-		/// <summary>
-		/// Loads the previously saved state of the <see cref="TextLayer" /> object.
-		/// </summary>
-		/// <param name="savedState">
-		/// An object containing the saved view state values for the <see cref="TextLayer" /> object.
-		/// </param>
-		protected override void LoadViewState(object savedState)
-		{
-			if (savedState != null)
-			{
-				Pair pair = (Pair) savedState;
-				if (pair.First != null)
-					base.LoadViewState(pair.First);
-				if (pair.Second != null)
-					((IStateManager) this.Font).LoadViewState(pair.Second);
-			}
-		}
-
-		/// <summary>
-		/// Saves the current view state of the <see cref="TextLayer" /> object.
-		/// </summary>
-		/// <param name="saveAll"><c>true</c> if all values should be saved regardless
-		/// of whether they are dirty; otherwise <c>false</c>.</param>
-		/// <returns>An object that represents the saved state. The default is <c>null</c>.</returns>
-		protected override object SaveViewState(bool saveAll)
-		{
-			Pair pair = new Pair();
-			pair.First = base.SaveViewState(saveAll);
-			if (_font != null)
-				pair.Second = ((IStateManager) _font).SaveViewState();
-			return (pair.First == null && pair.Second == null) ? null : pair;
-		}
-
-		/// <summary>
-		/// Tracks view state changes to the <see cref="TextLayer" /> object.
-		/// </summary>
-		protected override void TrackViewState()
-		{
-			base.TrackViewState();
-			if (_font != null)
-				((IStateManager) _font).TrackViewState();
-		}
-
-		#endregion
 	}
 }

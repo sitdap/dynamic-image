@@ -89,56 +89,6 @@ namespace SoundInTheory.DynamicImage.Filters
 			return "Clipping Mask";
 		}
 
-		#region View state implementation
-
-		/// <summary>
-		/// /// <summary>
-		/// Loads the previously saved state of the <see cref="ClippingMaskFilter" /> object.
-		/// </summary>
-		/// <param name="savedState">
-		/// An object containing the saved view state values for the <see cref="ClippingMaskFilter" /> object.
-		/// </param>
-		/// </summary>
-		/// <param name="savedState"></param>
-		protected override void LoadViewState(object savedState)
-		{
-			if (savedState != null)
-			{
-				Pair pair = (Pair) savedState;
-				if (pair.First != null)
-					base.LoadViewState(pair.First);
-				if (pair.Second != null)
-					((IStateManager) this.MaskImage).LoadViewState(pair.Second);
-			}
-		}
-
-		/// <summary>
-		/// Saves the current view state of the <see cref="ClippingMaskFilter" /> object.
-		/// </summary>
-		/// <param name="saveAll"><c>true</c> if all values should be saved regardless
-		/// of whether they are dirty; otherwise <c>false</c>.</param>
-		/// <returns>An object that represents the saved state. The default is <c>null</c>.</returns>
-		protected override object SaveViewState(bool saveAll)
-		{
-			Pair pair = new Pair();
-			pair.First = base.SaveViewState(saveAll);
-			if (_maskImage != null)
-				pair.Second = ((IStateManagedObject) _maskImage).SaveViewState(saveAll);
-			return (pair.First == null && pair.Second == null) ? null : pair;
-		}
-
-		/// <summary>
-		/// Tracks view state changes to the <see cref="ClippingMaskFilter" /> object.
-		/// </summary>
-		protected override void TrackViewState()
-		{
-			base.TrackViewState();
-			if (_maskImage != null)
-				((IStateManager) _maskImage).TrackViewState();
-		}
-
-		#endregion
-
 		#endregion
 	}
 }

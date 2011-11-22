@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using SoundInTheory.DynamicImage.Caching;
 
 namespace SoundInTheory.DynamicImage
@@ -17,7 +19,7 @@ namespace SoundInTheory.DynamicImage
 		/// <returns></returns>
 		public static ImageProperties GetImageProperties(Composition composition)
 		{
-			string cacheKey = composition.GetCacheKey();
+			string cacheKey = composition.GetDirtyProperties();
 
 			ImageProperties imageProperties;
 			if (!DynamicImageCacheManager.Exists(cacheKey))

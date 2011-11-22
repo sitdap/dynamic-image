@@ -16,8 +16,6 @@ namespace SoundInTheory.DynamicImage
 	public class Composition : StateManagedObject
 	{
 		private LayerCollection _layers;
-		private Fill _fill;
-		private FilterCollection _filters;
 
 		#region Properties
 
@@ -117,81 +115,27 @@ namespace SoundInTheory.DynamicImage
 			}
 		}
 
-		[Category("Appearance"), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public Fill Fill
 		{
-			get
-			{
-				if (_fill == null)
-				{
-					_fill = new Fill();
-					if (this.IsTrackingViewState)
-						((IStateManager) _fill).TrackViewState();
-				}
-				return _fill;
-			}
-			set
-			{
-				if (_fill != null)
-					throw new Exception("You can only set a new fill if one does not already exist");
-
-				_fill = value;
-				if (this.IsTrackingViewState)
-					((IStateManager) _fill).TrackViewState();
-			}
+			get { return (Fill)(ViewState["Fill"] ?? (ViewState["Fill"] = new Fill())); }
+			set { ViewState["Fill"] = value; }
 		}
 
-		[Browsable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public LayerCollection Layers
 		{
-			get
-			{
-				if (_layers == null)
-				{
-					_layers = new LayerCollection();
-					if (((IStateManager) this).IsTrackingViewState)
-						((IStateManager) _layers).TrackViewState();
-				}
-				return _layers;
-			}
-			set
-			{
-				if (_layers != null)
-					throw new Exception("You can only set a new layers collection if one does not already exist");
-
-				_layers = value;
-				if (((IStateManager) this).IsTrackingViewState)
-					((IStateManager) _layers).TrackViewState();
-			}
+			get { return (LayerCollection)(ViewState["Layers"] ?? (ViewState["Layers"] = new LayerCollection())); }
+			set { ViewState["Layers"] = value; }
 		}
 
 		private IEnumerable<Layer> VisibleLayers
 		{
-			get { return this.Layers.Cast<Layer>().Where(l => l.Visible); }
+			get { return this.Layers.Where(l => l.Visible); }
 		}
 
-		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public FilterCollection Filters
 		{
-			get
-			{
-				if (_filters == null)
-				{
-					_filters = new FilterCollection();
-					if (this.IsTrackingViewState)
-						((IStateManager)_filters).TrackViewState();
-				}
-				return _filters;
-			}
-			set
-			{
-				if (_filters != null)
-					throw new Exception("You can only set a new filters collection if one does not already exist");
-
-				_filters = value;
-				if (((IStateManager)this).IsTrackingViewState)
-					((IStateManager)_filters).TrackViewState();
-			}
+			get { return (FilterCollection)(ViewState["Filters"] ?? (ViewState["Filters"] = new FilterCollection())); }
+			set { ViewState["Filters"] = value; }
 		}
 
 		#endregion
@@ -250,7 +194,7 @@ namespace SoundInTheory.DynamicImage
 		/// <returns></returns>
 		public CompositionImage GetCompositionImage()
 		{
-			return GetCompositionImage(GetCacheKey());
+			return GetCompositionImage(GetDirtyProperties());
 		}
 
 		private BitmapSource CreateImage()
@@ -421,69 +365,5 @@ namespace SoundInTheory.DynamicImage
 				layer.PopulateDependencies(dependencies);
 			return dependencies.ToArray();
 		}
-
-		#region View state implementation
-
-		/// <summary>
-		/// Loads the previously saved state of the <see cref="Composition" /> object.
-		/// </summary>
-		/// <param name="savedState">
-		/// An object containing the saved view state values for the <see cref="Composition" /> object.
-		/// </param>
-		protected override void LoadViewState(object savedState)
-		{
-			if (savedState != null)
-			{
-				Triplet triplet = (Triplet)savedState;
-				base.LoadViewState(triplet.First);
-				if (triplet.Second != null)
-					((IStateManager) Layers).LoadViewState(triplet.Second);
-				if (triplet.Third != null)
-				{
-					Pair pair = (Pair) triplet.Third;
-					if (pair.First != null)
-						((IStateManager) Fill).LoadViewState(pair.First);
-					if (pair.Second != null)
-						((IStateManager)Filters).LoadViewState(pair.Second);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Saves the current view state of the <see cref="Composition" /> object.
-		/// </summary>
-		/// <param name="saveAll"><c>true</c> if all values should be saved regardless
-		/// of whether they are dirty; otherwise <c>false</c>.</param>
-		/// <returns>An object that represents the saved state. The default is <c>null</c>.</returns>
-		protected override object SaveViewState(bool saveAll)
-		{
-			Triplet triplet = new Triplet();
-			triplet.First = base.SaveViewState(saveAll);
-			if (_layers != null)
-				triplet.Second = ((IStateManagedObject) _layers).SaveViewState(saveAll);
-			if (_fill != null || _filters != null)
-				triplet.Third = new Pair();
-			if (_fill != null)
-				((Pair) triplet.Third).First = ((IStateManagedObject)_fill).SaveViewState(saveAll);
-			if (_filters != null)
-				((Pair)triplet.Third).Second = ((IStateManagedObject)_filters).SaveViewState(saveAll);
-			return (triplet.First == null && triplet.Second == null && triplet.Third == null) ? null : triplet;
-		}
-
-		/// <summary>
-		/// Tracks view state changes to the <see cref="Composition" /> object.
-		/// </summary>
-		protected override void TrackViewState()
-		{
-			base.TrackViewState();
-			if (_layers != null)
-				((IStateManager) _layers).TrackViewState();
-			if (_fill != null)
-				((IStateManager)_fill).TrackViewState();
-			if (_filters != null)
-				((IStateManager)_filters).TrackViewState();
-		}
-
-		#endregion
 	}
 }

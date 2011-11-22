@@ -7,8 +7,6 @@ namespace SoundInTheory.DynamicImage
 {
 	public abstract class ShapeLayer : Layer
 	{
-		private Fill _strokeFill;
-
 		#region Properties
 
 		[Browsable(true), DefaultValue(null), Category("Layout"), Description("Width of the shape layer")]
@@ -35,16 +33,7 @@ namespace SoundInTheory.DynamicImage
 		[Category("Appearance"), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public Fill StrokeFill
 		{
-			get
-			{
-				if (_strokeFill == null)
-				{
-					_strokeFill = new Fill();
-					if (this.IsTrackingViewState)
-						((IStateManager) _strokeFill).TrackViewState();
-				}
-				return _strokeFill;
-			}
+			get { return (Fill)(ViewState["StrokeFill"] ?? (ViewState["StrokeFill"] = new Fill())); }
 		}
 
 		[Browsable(true), DefaultValue(0.0f), NotifyParentProperty(true)]
@@ -106,52 +95,5 @@ namespace SoundInTheory.DynamicImage
 					throw new NotSupportedException();
 			}
 		}
-
-		#region View state implementation
-
-		/// <summary>
-		/// Loads the previously saved state of the <see cref="ShapeLayer" /> object.
-		/// </summary>
-		/// <param name="savedState">
-		/// An object containing the saved view state values for the <see cref="ShapeLayer" /> object.
-		/// </param>
-		protected override void LoadViewState(object savedState)
-		{
-			if (savedState != null)
-			{
-				Pair pair = (Pair) savedState;
-				if (pair.First != null)
-					base.LoadViewState(pair.First);
-				if (pair.Second != null)
-					((IStateManager) this.StrokeFill).LoadViewState(pair.Second);
-			}
-		}
-
-		/// <summary>
-		/// Saves the current view state of the <see cref="ShapeLayer" /> object.
-		/// </summary>
-		/// <param name="saveAll"><c>true</c> if all values should be saved regardless
-		/// of whether they are dirty; otherwise <c>false</c>.</param>
-		/// <returns>An object that represents the saved state. The default is <c>null</c>.</returns>
-		protected override object SaveViewState(bool saveAll)
-		{
-			Pair pair = new Pair();
-			pair.First = base.SaveViewState(saveAll);
-			if (_strokeFill != null)
-				pair.Second = ((IStateManager) _strokeFill).SaveViewState();
-			return (pair.First == null && pair.Second == null) ? null : pair;
-		}
-
-		/// <summary>
-		/// Tracks view state changes to the <see cref="ShapeLayer" /> object.
-		/// </summary>
-		protected override void TrackViewState()
-		{
-			base.TrackViewState();
-			if (_strokeFill != null)
-				((IStateManager) _strokeFill).TrackViewState();
-		}
-
-		#endregion
 	}
 }

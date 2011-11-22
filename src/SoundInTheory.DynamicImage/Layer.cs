@@ -12,9 +12,6 @@ namespace SoundInTheory.DynamicImage
 {
 	public abstract class Layer : StateManagedObject
 	{
-		private Padding _padding;
-		private FilterCollection _filters;
-
 		#region Properties
 
 		[Browsable(true), DefaultValue(true), NotifyParentProperty(true)]
@@ -97,43 +94,15 @@ namespace SoundInTheory.DynamicImage
 			}
 		}
 
-		[Category("Appearance"), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public Padding Padding
 		{
-			get
-			{
-				if (_padding == null)
-				{
-					_padding = new Padding();
-					if (this.IsTrackingViewState)
-						((IStateManager) _padding).TrackViewState();
-				}
-				return _padding;
-			}
+			get { return (Padding)(ViewState["Padding"] ?? (ViewState["Padding"] = new Padding())); }
 		}
 
-		[Browsable(true), PersistenceMode(PersistenceMode.InnerProperty), Editor("SoundInTheory.DynamicImage.Design.FilterCollectionEditor, SoundInTheory.DynamicImage.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067", typeof(UITypeEditor)), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
 		public FilterCollection Filters
 		{
-			get
-			{
-				if (_filters == null)
-				{
-					_filters = new FilterCollection();
-					if (this.IsTrackingViewState)
-						((IStateManager) _filters).TrackViewState();
-				}
-				return _filters;
-			}
-			set
-			{
-				if (_filters != null)
-					throw new Exception("You can only set a new filters collection if one does not already exist");
-
-				_filters = value;
-				if (((IStateManager) this).IsTrackingViewState)
-					((IStateManager) _filters).TrackViewState();
-			}
+			get { return (FilterCollection)(ViewState["Filters"] ?? (ViewState["Filters"] = new FilterCollection())); }
+			set { ViewState["Filters"] = value; }
 		}
 
 		[Category("Appearance"), DefaultValue(BlendMode.Normal), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), NotifyParentProperty(true)]
@@ -210,58 +179,5 @@ namespace SoundInTheory.DynamicImage
 		protected abstract void CreateImage();
 
 		public virtual void PopulateDependencies(List<Dependency> dependencies) { }
-
-		#region View state implementation
-
-		/// <summary>
-		/// Loads the previously saved state of the <see cref="Layer" /> object.
-		/// </summary>
-		/// <param name="savedState">
-		/// An object containing the saved view state values for the <see cref="Layer" /> object.
-		/// </param>
-		protected override void LoadViewState(object savedState)
-		{
-			if (savedState != null)
-			{
-				Triplet triplet = (Triplet) savedState;
-				if (triplet.First != null)
-					base.LoadViewState(triplet.First);
-				if (triplet.Second != null)
-					((IStateManager) Padding).LoadViewState(triplet.Second);
-				if (triplet.Third != null)
-					((IStateManager) Filters).LoadViewState(triplet.Third);
-			}
-		}
-
-		/// <summary>
-		/// Saves the current view state of the <see cref="Layer" /> object.
-		/// </summary>
-		/// <param name="saveAll"><c>true</c> if all values should be saved regardless
-		/// of whether they are dirty; otherwise <c>false</c>.</param>
-		/// <returns>An object that represents the saved state. The default is <c>null</c>.</returns>
-		protected override object SaveViewState(bool saveAll)
-		{
-			Triplet triplet = new Triplet();
-			triplet.First = base.SaveViewState(saveAll);
-			if (_padding != null)
-				triplet.Second = ((IStateManagedObject) _padding).SaveViewState(saveAll);
-			if (_filters != null)
-				triplet.Third = ((IStateManagedObject) _filters).SaveViewState(saveAll);
-			return (triplet.First == null && triplet.Second == null && triplet.Third == null) ? null : triplet;
-		}
-
-		/// <summary>
-		/// Tracks view state changes to the <see cref="Layer" /> object.
-		/// </summary>
-		protected override void TrackViewState()
-		{
-			base.TrackViewState();
-			if (_padding != null)
-				((IStateManager) _padding).TrackViewState();
-			if (_filters != null)
-				((IStateManager) _filters).TrackViewState();
-		}
-
-		#endregion
 	}
 }

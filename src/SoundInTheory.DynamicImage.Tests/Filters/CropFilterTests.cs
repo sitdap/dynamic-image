@@ -11,7 +11,7 @@ namespace SoundInTheory.DynamicImage.Tests.Filters
 		[Test]
 		public void CropFilter_UseXYWidthHeight_CalculatedCorrectly()
 		{
-			FastBitmap bitmap = new FastBitmap("Filters\\Images\\Tulips.png", UriKind.Relative);
+			FastBitmap bitmap = new FastBitmap("Resources/Tulips.png", UriKind.Relative);
 
 			CropFilter cropFilter = new CropFilter();
 			cropFilter.X = 30;
@@ -26,7 +26,7 @@ namespace SoundInTheory.DynamicImage.Tests.Filters
 
 			bitmap.Save("TulipsCropped200x200.png");
 
-			FastBitmap expectedBitmap = new FastBitmap("Filters\\Images\\TulipsCropped200x200.png", UriKind.Relative);
+			FastBitmap expectedBitmap = new FastBitmap("Resources/TulipsCropped200x200.png", UriKind.Relative);
 			FastBitmapTestUtility.AssertEqual(expectedBitmap, bitmap);
 		}
 	}

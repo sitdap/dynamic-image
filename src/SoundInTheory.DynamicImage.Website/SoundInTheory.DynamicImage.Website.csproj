@@ -116,8 +116,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Fonts\ADamnMess.ttf" />
-    <None Include="Assets\Misc\CrossProcess-Curves.acv" />
+    <Content Include="Assets\Fonts\ADamnMess.ttf" />
+    <Content Include="Assets\Misc\CrossProcess-Curves.acv" />
     <Content Include="Views\Layers\Video.cshtml" />
     <Content Include="Views\Layers\JuliaFractal.cshtml" />
     <Content Include="Views\Layers\MandelbrotFractal.cshtml" />

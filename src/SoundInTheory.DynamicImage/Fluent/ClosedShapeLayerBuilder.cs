@@ -12,5 +12,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			Layer.Fill.BackgroundColour = (Color) ColorConverter.ConvertFromString(backgroundColorHexRef);
 			return (TLayerBuilder) this;
 		}
+
+		public TLayerBuilder Fill(Color color)
+		{
+			Layer.Fill.BackgroundColour = color;
+			return (TLayerBuilder)this;
+		}
 	}
 }

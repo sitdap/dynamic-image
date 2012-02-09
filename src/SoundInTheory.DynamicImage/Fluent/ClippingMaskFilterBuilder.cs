@@ -11,6 +11,12 @@ namespace SoundInTheory.DynamicImage.Fluent
 			return this;
 		}
 
+		public ClippingMaskFilterBuilder MaskImageFile(string file)
+		{
+			Filter.MaskImage = new FileImageSource { FileName = file };
+			return this;
+		}
+
 		public ClippingMaskFilterBuilder MaskPositionX(int x)
 		{
 			Filter.MaskPositionX = x;
@@ -19,7 +25,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public ClippingMaskFilterBuilder MaskPositionY(int y)
 		{
-			Filter.MaskPositionX = y;
+			Filter.MaskPositionY = y;
 			return this;
 		}
 	}

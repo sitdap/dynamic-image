@@ -1,0 +1,19 @@
+﻿@section PageTitle { Sepia Corners Filter }
+
+@section SubTitle {  }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.Sepia)
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.Sepia)
+		))
+</p>

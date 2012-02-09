@@ -90,6 +90,12 @@
     <Compile Include="Caching\DiskCacheProviderBase.cs" />
     <Compile Include="Caching\TransientCacheProvider.cs" />
     <Compile Include="Caching\XmlCacheProvider.cs" />
+    <Compile Include="Fluent\ColorTintFilterBuilder.cs" />
+    <Compile Include="Fluent\FractalLayerBuilder.cs" />
+    <Compile Include="Fluent\JuliaFractalLayerBuilder.cs" />
+    <Compile Include="Fluent\MandelbrotFractalLayerBuilder.cs" />
+    <Compile Include="Fluent\PolygonShapeLayerBuilder.cs" />
+    <Compile Include="Fluent\VideoLayerBuilder.cs" />
     <Compile Include="Layers\ClosedShapeLayer.cs" />
     <Compile Include="ColorHsv.cs" />
     <Compile Include="Composition.cs" />
@@ -97,14 +103,8 @@
     <Compile Include="Configuration\BrowserCachingSettings.cs" />
     <Compile Include="Configuration\DependentSiteCollection.cs" />
     <Compile Include="Configuration\DependentSiteElement.cs" />
-    <Compile Include="Configuration\FilterSettings.cs" />
-    <Compile Include="Configuration\FilterSettingsCollection.cs" />
-    <Compile Include="Configuration\LayerSettings.cs" />
-    <Compile Include="Configuration\LayerSettingsCollection.cs" />
-    <Compile Include="Configuration\TemplateSettingsCollection.cs" />
     <Compile Include="Configuration\CachingSettings.cs" />
     <Compile Include="Configuration\DynamicImageSection.cs" />
-    <Compile Include="Configuration\TemplateSettings.cs" />
     <Compile Include="DashStyle.cs" />
     <Compile Include="DynamicImageException.cs" />
     <Compile Include="Filters\ColorKeyFilter.cs" />
@@ -184,7 +184,6 @@
     <Compile Include="Filters\FeatherFilter.cs" />
     <Compile Include="Filters\SepiaFilter.cs" />
     <Compile Include="FontDescription.cs" />
-    <Compile Include="ImageManager.cs" />
     <Compile Include="ImageProperties.cs" />
     <Compile Include="DynamicImageModule.cs" />
     <Compile Include="LayerBlender.cs" />
@@ -242,6 +241,7 @@
     <Compile Include="Util\ShaderEffectUtility.cs" />
     <Compile Include="Util\Util.cs" />
     <Compile Include="Layers\VideoLayer.cs" />
+    <Compile Include="Web\ImageUrlGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

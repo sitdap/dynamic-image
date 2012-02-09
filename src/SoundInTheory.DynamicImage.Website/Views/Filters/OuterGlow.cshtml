@@ -1,0 +1,18 @@
+﻿@using System.Windows.Media
+@section PageTitle { Outer Glow Filter }
+
+@section SubTitle {  }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Text.Text("This is a test").FontSize(90).ForeColor(Colors.Red)
+		.WithFilter(FilterBuilder.OuterGlow.Size(10).Color(Colors.Black).Opacity(100))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Text.Text("This is a test").FontSize(90).ForeColor(Colors.Red)
+			.WithFilter(FilterBuilder.OuterGlow.Size(10).Color(Colors.Black).Opacity(100))
+	))
+</p>

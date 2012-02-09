@@ -1,0 +1,19 @@
+﻿@using System.Windows.Media
+
+@section PageTitle { Border Filter }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.Border.Width(20).Fill(Colors.Green))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.Border.Width(20).Fill(Colors.Green))
+	))
+</p>

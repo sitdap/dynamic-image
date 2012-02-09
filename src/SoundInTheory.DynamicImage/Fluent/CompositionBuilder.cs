@@ -1,6 +1,7 @@
 using System.Configuration;
 using System.Windows.Media;
 using SoundInTheory.DynamicImage.Configuration;
+using SoundInTheory.DynamicImage.Web;
 
 namespace SoundInTheory.DynamicImage.Fluent
 {
@@ -19,7 +20,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public string Url
 		{
-			get { return ImageManager.GetImageProperties(_composition).Url; }
+			get { return ImageUrlGenerator.GetImageUrl(_composition); }
 		}
 
 		public CompositionBuilder Width(int width)
@@ -45,6 +46,24 @@ namespace SoundInTheory.DynamicImage.Fluent
 		public CompositionBuilder FillBackgroundColor(Color backgroundColor)
 		{
 			_composition.Fill.BackgroundColour = backgroundColor;
+			return this;
+		}
+
+		public CompositionBuilder FillType(FillType type)
+		{
+			_composition.Fill.Type = type;
+			return this;
+		}
+
+		public CompositionBuilder FillGradientColorStart(Color color)
+		{
+			_composition.Fill.GradientColourStart = color;
+			return this;
+		}
+
+		public CompositionBuilder FillGradientColorEnd(Color color)
+		{
+			_composition.Fill.GradientColourEnd = color;
 			return this;
 		}
 

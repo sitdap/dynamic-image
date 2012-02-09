@@ -6,16 +6,26 @@ namespace SoundInTheory.DynamicImage.Fluent
 	{
 		public ResizeFilterBuilder To(int width, int height)
 		{
-			Filter.Width = Unit.Pixel(width);
-			Filter.Height = Unit.Pixel(height);
-			Filter.Mode = ResizeMode.Uniform;
-			return this;
+			return To(width, height, false);
 		}
 
 		public ResizeFilterBuilder To(int width, int height, bool fill)
 		{
 			Filter.Width = Unit.Pixel(width);
 			Filter.Height = Unit.Pixel(height);
+			Filter.Mode = (fill) ? ResizeMode.UniformFill : ResizeMode.Uniform;
+			return this;
+		}
+
+		public ResizeFilterBuilder To(Unit width, Unit height)
+		{
+			return To(width, height, false);
+		}
+
+		public ResizeFilterBuilder To(Unit width, Unit height, bool fill)
+		{
+			Filter.Width = width;
+			Filter.Height = height;
 			Filter.Mode = (fill) ? ResizeMode.UniformFill : ResizeMode.Uniform;
 			return this;
 		}

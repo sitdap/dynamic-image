@@ -8,7 +8,7 @@ namespace SoundInTheory.DynamicImage.Website.Html
 		public static MvcHtmlString ResizedImageTag(this HtmlHelper htmlHelper, string imageHref, int width)
 		{
 			var tagBuilder = new TagBuilder("img");
-			tagBuilder.Attributes["href"] = new CompositionBuilder()
+			tagBuilder.Attributes["src"] = new CompositionBuilder()
 				.WithLayer(
 					LayerBuilder.Image.SourceFile(imageHref).WithFilter(
 						FilterBuilder.Resize.ToWidth(width)

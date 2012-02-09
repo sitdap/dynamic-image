@@ -1,0 +1,8 @@
+﻿<div class="page-header">
+	<h1>Video Layer</h1>
+</div>
+
+@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Video.SourceFile(@"C:\Users\Public\Videos\Sample Videos\Wildlife.wmv").SnapshotTime(TimeSpan.Parse("00:00:20"))
+		.WithFilter(FilterBuilder.Feather)
+	))

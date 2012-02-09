@@ -1,0 +1,17 @@
+﻿@section PageTitle { Grayscale Source Image }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/GrayscaleAutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(800, 800))
+		.WithFilter(FilterBuilder.Feather.Radius(10))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/GrayscaleAutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(800, 800))
+			.WithFilter(FilterBuilder.Feather.Radius(10))
+	))
+</p>

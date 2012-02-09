@@ -1,0 +1,37 @@
+﻿@using System.Windows.Media
+
+@section PageTitle { Opacity }
+
+<pre>
+@@Html.DynamicImageTag(b => b
+	.WithLayer(
+		LayerBuilder.RectangleShape.X(100).Y(200).Width(500).Height(500).Fill(Colors.Red)
+			.WithFilter(FilterBuilder.AdjustOpacity.Opacity(50))
+	)
+	.WithLayer(
+		LayerBuilder.RectangleShape.X(200).Y(250).Width(200).Height(200).Fill(Colors.Blue)
+			.WithFilter(FilterBuilder.AdjustOpacity.Opacity(50))
+	)
+	.WithLayer(
+		LayerBuilder.RectangleShape.X(50).Y(0).Width(200).Height(400).Fill(Colors.Green)
+			.WithFilter(FilterBuilder.AdjustOpacity.Opacity(75))
+	)
+)
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b
+		.WithLayer(
+			LayerBuilder.RectangleShape.X(100).Y(200).Width(500).Height(500).Fill(Colors.Red)
+				.WithFilter(FilterBuilder.AdjustOpacity.Opacity(50))
+		)
+		.WithLayer(
+			LayerBuilder.RectangleShape.X(200).Y(250).Width(200).Height(200).Fill(Colors.Blue)
+				.WithFilter(FilterBuilder.AdjustOpacity.Opacity(50))
+		)
+		.WithLayer(
+			LayerBuilder.RectangleShape.X(50).Y(0).Width(200).Height(400).Fill(Colors.Green)
+				.WithFilter(FilterBuilder.AdjustOpacity.Opacity(75))
+		)
+	)
+</p>

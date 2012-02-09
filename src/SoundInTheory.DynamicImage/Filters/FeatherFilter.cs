@@ -9,7 +9,7 @@ using SoundInTheory.DynamicImage.Util;
 namespace SoundInTheory.DynamicImage.Filters
 {
 	/// <summary>
-	/// Adjusts the brightness of the layer.
+	/// 
 	/// </summary>
 	/// <include file="../documentation.xml" path="docs/types/type[@name = 'FeatherFilter']/*" />
 	public class FeatherFilter : ShaderEffectFilter

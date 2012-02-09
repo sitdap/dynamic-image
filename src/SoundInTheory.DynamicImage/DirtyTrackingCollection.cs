@@ -31,11 +31,10 @@ namespace SoundInTheory.DynamicImage
 		public string GetDirtyProperties()
 		{
 			var sb = new StringBuilder();
-			sb.Append("{");
-			sb.AppendFormat("Count: {0};", Count);
+			sb.Append("[");
 			foreach (var item in this)
 				sb.Append(item.GetDirtyProperties());
-			sb.Append("}");
+			sb.Append("]");
 			return sb.ToString();
 		}
 

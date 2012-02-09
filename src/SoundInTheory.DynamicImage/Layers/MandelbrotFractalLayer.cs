@@ -4,7 +4,7 @@
 	{
 		public override float OffsetX
 		{
-			get { return (int)(this["OffsetX"] ?? -0.5f); }
+			get { return (float)(this["OffsetX"] ?? -0.5f); }
 			set { this["OffsetX"] = value; }
 		}
 

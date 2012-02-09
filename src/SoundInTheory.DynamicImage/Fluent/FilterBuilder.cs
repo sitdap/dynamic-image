@@ -39,6 +39,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			get { return new ColorKeyFilterBuilder(); }
 		}
 
+		public static ColorTintFilterBuilder ColorTint
+		{
+			get { return new ColorTintFilterBuilder(); }
+		}
+
 		public static CropFilterBuilder Crop
 		{
 			get { return new CropFilterBuilder(); }

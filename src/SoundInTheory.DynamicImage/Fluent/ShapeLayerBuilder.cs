@@ -25,6 +25,12 @@ namespace SoundInTheory.DynamicImage.Fluent
 			return (TLayerBuilder)this;
 		}
 
+		public TLayerBuilder StrokeDashStyle(DashStyle dashStyle)
+		{
+			Layer.StrokeDashStyle = dashStyle;
+			return (TLayerBuilder)this;
+		}
+
 		public TLayerBuilder StrokeWidth(float width)
 		{
 			Layer.StrokeWidth = width;

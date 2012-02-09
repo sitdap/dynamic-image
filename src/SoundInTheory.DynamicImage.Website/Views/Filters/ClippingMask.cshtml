@@ -1,0 +1,35 @@
+﻿@section PageTitle { Clipping Mask Filter }
+
+<pre>
+@@Html.DynamicImageTag(b => b
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/Forest.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+	)
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(20)
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(
+				FilterBuilder.ClippingMask.MaskPositionX(50).MaskPositionY(100)
+					.MaskImageFile("~/Assets/Images/Mask.png")
+			)
+	)
+)
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/Forest.jpg")
+				.WithFilter(FilterBuilder.Resize.To(500, 500))
+		)
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(20)
+				.WithFilter(FilterBuilder.Resize.To(500, 500))
+				.WithFilter(
+					FilterBuilder.ClippingMask.MaskPositionX(50).MaskPositionY(100)
+						.MaskImageFile("~/Assets/Images/Mask.png")
+				)
+		)
+	)
+</p>

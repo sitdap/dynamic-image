@@ -1,0 +1,34 @@
+﻿@using System.Windows.Media
+@section PageTitle { Drop Shadow Filter }
+
+@section SubTitle {  }
+
+<pre>
+@@Html.DynamicImageTag(b => b
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(100).Y(100)
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.DropShadow.Size(10).Angle(315).Distance(10).Color(Colors.Red))
+	)
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.DropShadow.Size(10).Angle(315).Distance(10).Color(Colors.Blue))
+	)
+)
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(100).Y(100)
+				.WithFilter(FilterBuilder.Resize.To(500, 500))
+				.WithFilter(FilterBuilder.DropShadow.Size(10).Angle(315).Distance(10).Color(Colors.Red))
+		)
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				.WithFilter(FilterBuilder.Resize.To(500, 500))
+				.WithFilter(FilterBuilder.DropShadow.Size(10).Angle(315).Distance(10).Color(Colors.Blue))
+		)
+	)
+</p>

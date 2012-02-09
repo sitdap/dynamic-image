@@ -51,11 +51,12 @@ namespace SoundInTheory.DynamicImage
 			// Loop through properties.
 			var sb = new StringBuilder();
 			sb.Append("{");
+			sb.AppendFormat("Type: {0};", GetType().Name);
 			foreach (var kvp in _propertyStore)
 			{
 				if (kvp.Value is IDirtyTrackingObject)
 					sb.AppendFormat("{0}: {1};", kvp.Key, ((IDirtyTrackingObject)kvp.Value).GetDirtyProperties());
-				if (kvp.Value is string)
+				else
 					sb.AppendFormat("{0}: {1};", kvp.Key, kvp.Value);
 			}
 			sb.Append("}");

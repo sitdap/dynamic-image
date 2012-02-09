@@ -1,0 +1,34 @@
+﻿@using System.Windows.Media
+@using SoundInTheory.DynamicImage.Filters
+
+@section PageTitle { Feather Filter }
+
+@section SubTitle {  }
+
+<pre>
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.Red)
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(300).Y(100)
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+	)
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.Feather.Radius(50).Shape(FeatherShape.Oval))
+	)
+)
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.Red)
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(300).Y(100)
+				.WithFilter(FilterBuilder.Resize.To(500, 500))
+		)
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg")
+				.WithFilter(FilterBuilder.Resize.To(500, 500))
+				.WithFilter(FilterBuilder.Feather.Radius(50).Shape(FeatherShape.Oval))
+		)
+	)
+</p>

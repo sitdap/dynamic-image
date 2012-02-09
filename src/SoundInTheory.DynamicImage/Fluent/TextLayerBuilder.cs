@@ -24,6 +24,18 @@ namespace SoundInTheory.DynamicImage.Fluent
 			return this;
 		}
 
+		public TextLayerBuilder FontBold()
+		{
+			Layer.Font.Bold = true;
+			return this;
+		}
+
+		public TextLayerBuilder FontCustomFontFile(string file)
+		{
+			Layer.Font.CustomFontFile = file;
+			return this;
+		}
+
 		public TextLayerBuilder FontName(string name)
 		{
 			Layer.Font.Name = name;
@@ -33,6 +45,12 @@ namespace SoundInTheory.DynamicImage.Fluent
 		public TextLayerBuilder FontSize(float size)
 		{
 			Layer.Font.Size = size;
+			return this;
+		}
+
+		public TextLayerBuilder ForeColor(Color color)
+		{
+			Layer.ForeColour = color;
 			return this;
 		}
 

@@ -9,5 +9,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			Filter.Radius = radius;
 			return this;
 		}
+
+		public FeatherFilterBuilder Shape(FeatherShape shape)
+		{
+			Filter.Shape = shape;
+			return this;
+		}
 	}
 }

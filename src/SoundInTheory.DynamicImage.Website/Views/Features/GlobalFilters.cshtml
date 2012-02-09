@@ -1,0 +1,31 @@
+﻿@using System.Windows.Media
+
+@section PageTitle { Global Filters }
+
+<pre>
+@@Html.DynamicImageTag(b => b
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(800, 800))
+			.WithFilter(FilterBuilder.Border.Width(30).Fill(Colors.NavajoWhite))
+	)
+	.WithLayer(
+		LayerBuilder.Text.Text("Happy Birthday").Anchor(AnchorStyles.BottomCenter).AnchorPadding(5)
+	)
+	.WithGlobalFilter(FilterBuilder.Resize.To(500, 500))
+)
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				.WithFilter(FilterBuilder.Resize.To(800, 800))
+				.WithFilter(FilterBuilder.Border.Width(30).Fill(Colors.NavajoWhite))
+		)
+		.WithLayer(
+			LayerBuilder.Text.Text("Happy Birthday").Anchor(AnchorStyles.BottomCenter).AnchorPadding(5)
+		)
+		.WithGlobalFilter(FilterBuilder.Resize.To(500, 500))
+	)
+</p>

@@ -144,6 +144,11 @@ namespace SoundInTheory.DynamicImage
 			return new Unit(n);
 		}
 
+		public static Unit Percentage(int n)
+		{
+			return new Unit(n.ToString(), null, UnitType.Percentage);
+		}
+
 		public string ToString(CultureInfo culture)
 		{
 			return ToString((IFormatProvider) culture);

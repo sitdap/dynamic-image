@@ -37,19 +37,19 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		public float Zoom
 		{
-			get { return (int)(this["Zoom"] ?? 1.0f); }
+			get { return (float)(this["Zoom"] ?? 1.0f); }
 			set { this["Zoom"] = value; }
 		}
 
 		public virtual float OffsetX
 		{
-			get { return (int)(this["OffsetX"] ?? 0.0f); }
+			get { return (float)(this["OffsetX"] ?? 0.0f); }
 			set { this["OffsetX"] = value; }
 		}
 
 		public virtual float OffsetY
 		{
-			get { return (int)(this["OffsetY"] ?? 0.0f); }
+			get { return (float)(this["OffsetY"] ?? 0.0f); }
 			set { this["OffsetY"] = value; }
 		}
 

@@ -1,0 +1,18 @@
+﻿@using System.Windows.Media
+@section PageTitle { Color Tint Filter }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.ColorTint.Color(Colors.Brown).Amount(75))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.ColorTint.Color(Colors.Brown).Amount(75))
+	))
+</p>

@@ -1,0 +1,21 @@
+﻿@section PageTitle { Lomo Effect }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/Penguins.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.Vignette)
+		.WithFilter(FilterBuilder.UnsharpMask.Amount(50).Radius(5).Threshold(0))
+		.WithFilter(FilterBuilder.AdjustCurves.UsingFile("~/Assets/Misc/CrossProcess-Curves.acv"))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/Penguins.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.Vignette)
+			.WithFilter(FilterBuilder.UnsharpMask.Amount(50).Radius(5).Threshold(0))
+			.WithFilter(FilterBuilder.AdjustCurves.UsingFile("~/Assets/Misc/CrossProcess-Curves.acv"))
+	))
+</p>

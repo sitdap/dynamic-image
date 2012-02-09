@@ -1,0 +1,19 @@
+﻿@section PageTitle { Rotation Filter }
+
+@section SubTitle { Rotates an image based on a specified angle. The image rotates around its centre point. }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.Rotate.To(25))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.Rotate.To(25))
+		))
+</p>

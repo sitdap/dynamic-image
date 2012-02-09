@@ -4,13 +4,13 @@
 	{
 		public float ConstantReal
 		{
-			get { return (int)(this["ConstantReal"] ?? -0.7f); }
+			get { return (float)(this["ConstantReal"] ?? -0.7f); }
 			set { this["ConstantReal"] = value; }
 		}
 
 		public float ConstantImaginary
 		{
-			get { return (int)(this["ConstantImaginary"] ?? 0.27015f); }
+			get { return (float)(this["ConstantImaginary"] ?? 0.27015f); }
 			set { this["ConstantImaginary"] = value; }
 		}
 

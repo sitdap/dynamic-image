@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CombosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FeaturesController.cs" />
     <Compile Include="Controllers\FiltersController.cs" />
     <Compile Include="Controllers\LayersController.cs" />
@@ -158,12 +159,10 @@
     <Content Include="Views\Features\TransparentSourceImage.cshtml" />
     <Content Include="Views\Features\Opacity.cshtml" />
     <Content Include="Views\Features\Positioning.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Layers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Mvc\SoundInTheory.DynamicImage.Mvc.csproj">

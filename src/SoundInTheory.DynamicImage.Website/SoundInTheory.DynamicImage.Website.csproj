@@ -103,7 +103,9 @@
     <Content Include="Assets\Js\jquery.js" />
     <Content Include="Assets\Videos\example_10fps.wmv" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

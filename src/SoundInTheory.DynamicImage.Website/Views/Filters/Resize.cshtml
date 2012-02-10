@@ -42,14 +42,14 @@ property to true to allow enlargement.</p>
 <pre>
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
-		.WithFilter(FilterBuilder.Resize.To(200, 200, true))
+		.WithFilter(FilterBuilder.Resize.To(200, 200, ResizeMode.UniformFill))
 ))
 </pre>
 
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(
 		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
-			.WithFilter(FilterBuilder.Resize.To(200, 200, true))
+			.WithFilter(FilterBuilder.Resize.To(200, 200, ResizeMode.UniformFill))
 	))
 </p>
 

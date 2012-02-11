@@ -53,7 +53,7 @@ task PackageMain -depends Test {
     exec { & $nuget_dir\NuGet.exe pack -Symbols -Version "$version" -OutputDirectory "$package_dir_main" "$package_dir_main\$product_name.nuspec" }
 
     # Push NuGet package to nuget.org
-    #exec { & $nuget_dir\NuGet.exe push "$package_dir_main\$product_name.$version.nupkg" }
+    exec { & $nuget_dir\NuGet.exe push "$package_dir_main\$product_name.$version.nupkg" }
 }
 
 task PackageMvc -depends Test {
@@ -84,7 +84,7 @@ task PackageMvc -depends Test {
     exec { & $nuget_dir\NuGet.exe pack -Symbols -Version "$version" -OutputDirectory "$package_dir_mvc" "$package_dir_mvc\$product_name.Mvc.nuspec" }
 
     # Push NuGet package to nuget.org
-    #exec { & $nuget_dir\NuGet.exe push "$package_dir_mvc\$product_name.Mvc.$version.nupkg" }
+    exec { & $nuget_dir\NuGet.exe push "$package_dir_mvc\$product_name.Mvc.$version.nupkg" }
 }
 
 # Helper functions

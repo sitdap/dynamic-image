@@ -1,0 +1,35 @@
+﻿@using System.Windows.Media
+
+@section PageTitle { Positioning }
+
+<pre>
+@@Html.DynamicImageTag(b => b
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(300, 200))
+	)
+	.WithLayer(
+		LayerBuilder.RectangleShape.Anchor(AnchorStyles.BottomLeft).Fill(Colors.Red).PaddingLeft(150).Width(300).Height(30)
+	)
+	.WithLayer(
+		LayerBuilder.Text.Text("Hello world").ForeColor(Colors.Blue).FontBold()
+			.Height(30).Anchor(AnchorStyles.BottomRight).PaddingRight(5)
+	)
+)
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				.WithFilter(FilterBuilder.Resize.To(300, 200))
+		)
+		.WithLayer(
+			LayerBuilder.RectangleShape.Anchor(AnchorStyles.BottomLeft).Fill(Colors.Red).PaddingLeft(150).Width(300).Height(30)
+		)
+		.WithLayer(
+			LayerBuilder.Text.Text("Hello world").ForeColor(Colors.Blue).FontBold()
+				.Height(30).Anchor(AnchorStyles.BottomRight).PaddingRight(5)
+		)
+	)
+</p>

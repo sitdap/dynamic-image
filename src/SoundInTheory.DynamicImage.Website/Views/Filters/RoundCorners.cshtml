@@ -1,0 +1,20 @@
+﻿@using System.Windows.Media
+@section PageTitle { Round Corners Filter }
+
+@section SubTitle {  }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.RoundCorners.BorderColor(Colors.Red).BorderWidth(20).Roundness(40))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.RoundCorners.BorderColor(Colors.Red).BorderWidth(20).Roundness(40))
+		))
+</p>

@@ -1,0 +1,19 @@
+﻿@section PageTitle { Crop Filter }
+
+@section SubTitle { Crops an image. The rectangular section to crop is defined by X/Y coordinates and a size. }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(300, 300))
+		.WithFilter(FilterBuilder.Crop.X(10).To(190, 100))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(300, 300))
+			.WithFilter(FilterBuilder.Crop.X(10).To(190, 100))
+	))
+</p>

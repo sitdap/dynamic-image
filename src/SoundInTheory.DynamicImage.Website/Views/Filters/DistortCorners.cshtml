@@ -1,0 +1,17 @@
+﻿@section PageTitle { Distort Corners Filter }
+
+@section SubTitle { Performs a perspective distortion on an image }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.DistortCorners.TopLeft(0, -50).TopRight(550, 0).BottomRight(550, 500).BottomLeft(0, 600))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.DistortCorners.TopLeft(0, -50).TopRight(550, 0).BottomRight(550, 500).BottomLeft(0, 600))
+		))
+</p>

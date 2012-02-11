@@ -1,0 +1,19 @@
+﻿@section PageTitle { Unsharp Mask Filter }
+
+@section SubTitle { Sharpens an image by unsharp masking }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.UnsharpMask.Threshold(0))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.UnsharpMask.Threshold(0))
+		))
+</p>

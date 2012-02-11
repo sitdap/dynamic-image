@@ -1,0 +1,64 @@
+﻿@using System.Windows.Media
+@section PageTitle { Shiny Floor Filter }
+
+@section SubTitle { Creates the effect of an image placed on a shiny floor }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+		.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(50).ReflectionOpacity(100))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+			.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(50).ReflectionOpacity(100))
+		))
+</p>
+
+<pre>
+@@Html.DynamicImageTag(b => 
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+			.WithFilter(FilterBuilder.Resize.To(300, 300))
+			.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(100).ReflectionOpacity(25))
+	)
+	.WithLayer(
+		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(100)
+			.WithFilter(FilterBuilder.Resize.To(300, 300))
+			.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(100).ReflectionOpacity(25))
+	)
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				.WithFilter(FilterBuilder.Resize.To(300, 300))
+				.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(100).ReflectionOpacity(25))
+		)
+		.WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg").X(100)
+				.WithFilter(FilterBuilder.Resize.To(300, 300))
+				.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(100).ReflectionOpacity(25))
+		)
+	)
+</p>
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Text.Text("Hello world.").FontSize(40).FontBold().StrokeWidth(2).StrokeColor(Colors.Red)
+		.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(100).ReflectionOpacity(50).ReflectionPositionY(40))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Text.Text("Hello world.").FontSize(40).FontBold().StrokeWidth(2).StrokeColor(Colors.Red)
+			.WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(100).ReflectionOpacity(50).ReflectionPositionY(40))
+	))
+</p>

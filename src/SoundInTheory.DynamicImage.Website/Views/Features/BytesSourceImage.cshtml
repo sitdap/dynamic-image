@@ -1,0 +1,15 @@
+﻿@section PageTitle { Bytes Source Image }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceBytes(File.ReadAllBytes(Server.MapPath("~/Assets/Images/AutumnLeaves.jpg")))
+		.WithFilter(FilterBuilder.Resize.To(500, 500))
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceBytes(File.ReadAllBytes(Server.MapPath("~/Assets/Images/AutumnLeaves.jpg")))
+			.WithFilter(FilterBuilder.Resize.To(500, 500))
+	))
+</p>

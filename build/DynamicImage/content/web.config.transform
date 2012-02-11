@@ -1,0 +1,32 @@
+<configuration>
+	<configSections>
+		<sectionGroup name="soundInTheory">
+			<section name="dynamicImage" type="SoundInTheory.DynamicImage.Configuration.DynamicImageSection" />
+		</sectionGroup>
+	</configSections>
+	<system.web>
+		<compilation targetFramework="4.0">
+			<assemblies>
+				<add assembly="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+				<add assembly="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+			</assemblies>
+		</compilation>
+		<httpModules>
+			<add name="DynamicImageModule" type="SoundInTheory.DynamicImage.DynamicImageModule, SoundInTheory.DynamicImage" />
+		</httpModules>
+	</system.web>
+	<system.webServer>
+		<modules>
+			<add name="DynamicImageModule" type="SoundInTheory.DynamicImage.DynamicImageModule, SoundInTheory.DynamicImage" />
+		</modules>
+	</system.webServer>
+	<soundInTheory>
+		<dynamicImage>
+			<caching mode="Custom" customProvider="XmlCachingProvider" storeMissingImagesInCache="false">
+				<providers>
+					<add name="XmlCachingProvider" type="SoundInTheory.DynamicImage.Caching.XmlCacheProvider, SoundInTheory.DynamicImage" />
+				</providers>
+			</caching>
+		</dynamicImage>
+	</soundInTheory>
+</configuration>

@@ -1,0 +1,22 @@
+﻿@using System.Windows.Media
+@section PageTitle { Color Key Filter }
+
+<pre>
+&lt;div style="background-color:Red;width:130px;height:130px;padding-left:30px;padding-top:30px"&gt;
+	&lt;p&gt;
+		@@Html.DynamicImageTag(b => b.ImageFormat(DynamicImageFormat.Png).FillBackgroundColor(Colors.Transparent).WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/bmw.jpg")
+				.WithFilter(FilterBuilder.ColorKey.Color(Colors.White).ColorTolerance(5))
+		))
+	&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+<div style="background-color:Red;width:130px;height:130px;padding-left:30px;padding-top:30px">
+	<p>
+		@Html.DynamicImageTag(b => b.ImageFormat(DynamicImageFormat.Png).FillBackgroundColor(Colors.Transparent).WithLayer(
+			LayerBuilder.Image.SourceFile("~/Assets/Images/bmw.jpg")
+				.WithFilter(FilterBuilder.ColorKey.Color(Colors.White).ColorTolerance(5))
+		))
+	</p>
+</div>

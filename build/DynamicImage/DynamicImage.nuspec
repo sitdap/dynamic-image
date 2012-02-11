@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>DynamicImage</id>
+    <version>1.0.0</version>
+    <title>DynamicImage</title>
+    <authors>Sound in Theory Ltd</authors>
+    <owners>Tim Jones</owners>
+    <description>DynamicImage is a high-performance image manipulation library for ASP.NET.</description>
+    <summary>DynamicImage is a high-performance image manipulation library for ASP.NET.</summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/sitdap/dynamic-image</projectUrl>
+    <!--iconUrl></iconUrl-->
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>.net40 ASP.NET image manipulation filters resize crop</tags>
+  </metadata>
+</package>

@@ -1,0 +1,19 @@
+﻿@using System.Windows.Media
+
+@section PageTitle { Gradient Fill }
+
+<pre>
+@@Html.DynamicImageTag(b => b
+	.Width(400).Height(300)
+	.FillType(FillType.Gradient)
+	.FillGradientColorStart(Colors.Red)
+	.FillGradientColorEnd(Colors.Green))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b
+		.Width(400).Height(300)
+		.FillType(FillType.Gradient)
+		.FillGradientColorStart(Colors.Red)
+		.FillGradientColorEnd(Colors.Green))
+</p>

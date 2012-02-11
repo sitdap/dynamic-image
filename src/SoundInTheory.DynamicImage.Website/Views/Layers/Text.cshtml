@@ -1,0 +1,47 @@
+﻿@using System.Windows.Media
+
+@section PageTitle { Text Layer }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Text.Text("Generic message.").FontSize(40).FontBold().StrokeWidth(2).StrokeColor(Colors.Red)
+))
+</pre>
+
+<p>@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Text.Text("Generic message.").FontSize(40).FontBold().StrokeWidth(2).StrokeColor(Colors.Red)
+))</p>
+	
+<pre>
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
+	LayerBuilder.Text.Text("Padded text").FontSize(40).PaddingLeft(15).PaddingRight(15)
+))
+</pre>
+
+<p>@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
+LayerBuilder.Text.Text("Padded text").FontSize(40).PaddingLeft(15).PaddingRight(15)
+))</p>
+
+<pre>
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
+	LayerBuilder.Text.Text("Padded fixed width text").FontSize(40).PaddingLeft(15).PaddingRight(15)
+		.Width(600).HorizontalTextAlignment(System.Windows.TextAlignment.Center)
+))
+</pre>
+
+<p>@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
+LayerBuilder.Text.Text("Padded fixed width text").FontSize(40).PaddingLeft(15).PaddingRight(15)
+	.Width(600).HorizontalTextAlignment(System.Windows.TextAlignment.Center)
+))</p>
+	
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Text.Text("Message using a custom font.").FontSize(50).StrokeColor(Colors.Blue)
+		.FontCustomFontFile("~/Assets/Fonts/ADamnMess.ttf").FontName("A Damn Mess")
+))
+</pre>
+
+<p>@Html.DynamicImageTag(b => b.WithLayer(
+LayerBuilder.Text.Text("Message using a custom font.").FontSize(50).StrokeColor(Colors.Blue)
+	.FontCustomFontFile("~/Assets/Fonts/ADamnMess.ttf").FontName("A Damn Mess")
+))</p>

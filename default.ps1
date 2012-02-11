@@ -36,6 +36,7 @@ task PackageMain -depends Test {
      
     # Copy NuSpec template files to package dir
     cp "$build_dir\$product_name\$product_name.nuspec" "$package_dir_main"
+    copy_files "$build_dir\$product_name\content" "$package_dir_main\content" "*.*"
     cp "$build_dir\LICENSE.txt" "$package_dir_main"
 
     # Copy binary files to package dir
@@ -52,7 +53,7 @@ task PackageMain -depends Test {
     exec { & $nuget_dir\NuGet.exe pack -Symbols -Version "$version" -OutputDirectory "$package_dir_main" "$package_dir_main\$product_name.nuspec" }
 
     # Push NuGet package to nuget.org
-    exec { & $nuget_dir\NuGet.exe push "$package_dir_main\$product_name.$version.nupkg" }
+    #exec { & $nuget_dir\NuGet.exe push "$package_dir_main\$product_name.$version.nupkg" }
 }
 
 task PackageMvc -depends Test {
@@ -83,7 +84,7 @@ task PackageMvc -depends Test {
     exec { & $nuget_dir\NuGet.exe pack -Symbols -Version "$version" -OutputDirectory "$package_dir_mvc" "$package_dir_mvc\$product_name.Mvc.nuspec" }
 
     # Push NuGet package to nuget.org
-    exec { & $nuget_dir\NuGet.exe push "$package_dir_mvc\$product_name.Mvc.$version.nupkg" }
+    #exec { & $nuget_dir\NuGet.exe push "$package_dir_mvc\$product_name.Mvc.$version.nupkg" }
 }
 
 # Helper functions

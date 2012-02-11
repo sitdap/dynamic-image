@@ -6,13 +6,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{578645F9-418C-47AA-A633-E0D9BFA5D0A4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{07553EEC-BC07-4124-8758-733C51CEF62B}"
-	ProjectSection(SolutionItems) = preProject
-		..\Build\DynamicImageTeamCityBuild.msbuild = ..\Build\DynamicImageTeamCityBuild.msbuild
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage", "SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj", "{15F7FF82-B018-42E0-A94D-2CAAE491C248}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Tests", "SoundInTheory.DynamicImage.Tests\SoundInTheory.DynamicImage.Tests.csproj", "{B3BE395E-372A-4EAF-9376-FED924662E8C}"
@@ -46,9 +39,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{578645F9-418C-47AA-A633-E0D9BFA5D0A4} = {03D5B727-F636-422F-8F0B-D08EFC32E029}
-		{07553EEC-BC07-4124-8758-733C51CEF62B} = {03D5B727-F636-422F-8F0B-D08EFC32E029}
 	EndGlobalSection
 EndGlobal

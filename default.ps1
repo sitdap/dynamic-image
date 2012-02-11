@@ -71,6 +71,13 @@ task PackageMvc -depends Test {
     # Get the version number of main DLL
     $full_version = [Reflection.Assembly]::LoadFile("$source_dir\$fully_qualified_product_name.Mvc\bin\$config\$fully_qualified_product_name.Mvc.dll").GetName().Version
     $version = $full_version.Major.ToString() + "." + $full_version.Minor.ToString() + "." + $full_version.Build.ToString()
+    
+    # Update DynamicImage dependency in NuSpec file with version number
+    $doc = New-Object System.Xml.XmlDocument
+    $doc.Load("$package_dir_mvc\$product_name.Mvc.nuspec")
+    $dependency = $doc.SelectSingleNode("//dependency[@id = 'DynamicImage']")
+    $dependency.SetAttribute("version", $version)
+    $doc.Save("$package_dir_mvc\$product_name.Mvc.nuspec")
 
     # Build the NuGet package
     exec { & $nuget_dir\NuGet.exe pack -Symbols -Version "$version" -OutputDirectory "$package_dir_mvc" "$package_dir_mvc\$product_name.Mvc.nuspec" }

@@ -15,7 +15,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>.net40 ASP.NET image manipulation filters resize crop MVC</tags>
     <dependencies>
-      <dependency id="DynamicImage" version="1.0.0" />
+      <dependency id="DynamicImage" version="2.0.0" />
     </dependencies> 
   </metadata>
 </package>

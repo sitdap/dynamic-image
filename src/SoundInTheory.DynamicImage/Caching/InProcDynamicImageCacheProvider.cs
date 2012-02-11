@@ -12,12 +12,7 @@ namespace SoundInTheory.DynamicImage.Caching
 
 		public Cache Cache
 		{
-			get
-			{
-				if (_cache == null)
-					_cache = HttpRuntime.Cache;
-				return _cache;
-			}
+			get { return _cache ?? (_cache = HttpRuntime.Cache); }
 		}
 
 		public override bool ExistsInCache(string cacheKey)
@@ -25,11 +20,11 @@ namespace SoundInTheory.DynamicImage.Caching
 			return (Cache.Get(cacheKey) != null);
 		}
 
-		public override void AddToCache(string cacheKey, CompositionImage compositionImage, Dependency[] dependencies)
+		public override void AddToCache(string cacheKey, GeneratedImage generatedImage, Dependency[] dependencies)
 		{
 			InProcCacheEntry cacheEntry = new InProcCacheEntry
 			{
-				CompositionImage = compositionImage,
+				GeneratedImage = generatedImage,
 				Dependencies = dependencies
 			};
 			Cache.Insert(cacheKey, cacheEntry);
@@ -37,7 +32,7 @@ namespace SoundInTheory.DynamicImage.Caching
 
 		public override ImageProperties GetPropertiesFromCache(string cacheKey)
 		{
-			return ((InProcCacheEntry)Cache.Get(cacheKey)).CompositionImage.Properties;
+			return ((InProcCacheEntry)Cache.Get(cacheKey)).GeneratedImage.Properties;
 		}
 
 		public override void RemoveAllFromCache()
@@ -56,7 +51,7 @@ namespace SoundInTheory.DynamicImage.Caching
 			}
 		}
 
-		public override DateTime GetImageLastModifiedDate(HttpContext context, string cacheProviderKey, string fileExtension)
+		public override DateTime GetImageLastModifiedDate(HttpContext context, string cacheKey, string fileExtension)
 		{
 			return DateTime.Now;
 		}
@@ -64,20 +59,20 @@ namespace SoundInTheory.DynamicImage.Caching
 		protected InProcCacheEntry GetCacheEntry(string cacheProviderKey)
 		{
 			foreach (var dictionaryEntry in Cache.Cast<DictionaryEntry>().Where(de => de.Value is InProcCacheEntry))
-				if (((InProcCacheEntry)dictionaryEntry.Value).CompositionImage.Properties.CacheProviderKey == cacheProviderKey)
+				if (((string)dictionaryEntry.Key) == cacheProviderKey)
 					return (InProcCacheEntry)dictionaryEntry.Value;
 			throw new InvalidOperationException("Could not find image in cache");
 		}
 
-		public override void SendImageToHttpResponse(HttpContext context, string cacheProviderKey, string fileExtension)
+		public override void SendImageToHttpResponse(HttpContext context, string cacheKey, string fileExtension)
 		{
-			InProcCacheEntry cacheEntry = GetCacheEntry(cacheProviderKey);
-			Util.Util.SendImageToHttpResponse(context, cacheEntry.CompositionImage);
+			InProcCacheEntry cacheEntry = GetCacheEntry(cacheKey);
+			Util.Util.SendImageToHttpResponse(context, cacheEntry.GeneratedImage);
 		}
 
 		internal class InProcCacheEntry
 		{
-			public CompositionImage CompositionImage;
+			public GeneratedImage GeneratedImage;
 			public Dependency[] Dependencies;
 		}
 	}

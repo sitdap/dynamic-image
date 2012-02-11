@@ -12,12 +12,10 @@ namespace SoundInTheory.DynamicImage.Caching
 			return false;
 		}
 
-		public override void SendImageToHttpResponse(HttpContext context, string cacheProviderKey, string fileExtension)
+		public override void SendImageToHttpResponse(HttpContext context, string cacheKey, string fileExtension)
 		{
-			base.SendImageToHttpResponse(context, cacheProviderKey, fileExtension);
-
-			InProcCacheEntry cacheEntry = GetCacheEntry(cacheProviderKey);
-			Cache.Remove(cacheEntry.CompositionImage.Properties.UniqueKey);
+			base.SendImageToHttpResponse(context, cacheKey, fileExtension);
+			Cache.Remove(cacheKey);
 		}
 	}
 }

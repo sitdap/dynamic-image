@@ -7,10 +7,6 @@ namespace SoundInTheory.DynamicImage
 	[Serializable]
 	public class ImageProperties
 	{
-		public string CacheProviderKey;
-
-		public string UniqueKey;
-
 		/// <summary>
 		/// Image might be null due to, for example, the source column in the database containing null
 		/// </summary>
@@ -63,16 +59,6 @@ namespace SoundInTheory.DynamicImage
 		{
 			// TODO: Check that plural MimeTypes is okay.
 			get { return GetEncoder().CodecInfo.MimeTypes; }
-		}
-
-		public string Url
-		{
-			get
-			{
-				const string path = "~/Assets/Images/DynamicImages/";
-				string fileName = string.Format("{0}.{1}", CacheProviderKey, FileExtension);
-				return VirtualPathUtility.ToAbsolute(path) + fileName;
-			}
 		}
 	}
 }

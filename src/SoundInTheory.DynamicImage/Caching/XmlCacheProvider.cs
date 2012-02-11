@@ -50,15 +50,15 @@ namespace SoundInTheory.DynamicImage.Caching
 		public override bool ExistsInCache(string cacheKey)
 		{
 			EnsureDocument();
-			return _doc.Root.Elements().Any(e => e.Attribute("uniqueKey").Value == cacheKey);
+			return _doc.Root.Elements().Any(e => e.Attribute("id").Value == cacheKey);
 		}
 
-		public override void AddToCache(string cacheKey, CompositionImage compositionImage, Dependency[] dependencies)
+		public override void AddToCache(string cacheKey, GeneratedImage generatedImage, Dependency[] dependencies)
 		{
 			EnsureDocument();
 
 			// Save image to disk.
-			SaveImageToDiskCache(compositionImage);
+			SaveImageToDiskCache(cacheKey, generatedImage);
 
 			lock (_doc)
 			{
@@ -67,17 +67,16 @@ namespace SoundInTheory.DynamicImage.Caching
 					return;
 
 				var itemElement = new XElement("item",
-					new XAttribute("id", compositionImage.Properties.CacheProviderKey),
-					new XAttribute("uniqueKey", cacheKey),
-					new XAttribute("isImagePresent", compositionImage.Properties.IsImagePresent),
-					new XAttribute("format", compositionImage.Properties.Format),
-					new XAttribute("colourDepth", compositionImage.Properties.ColourDepth));
-				if (compositionImage.Properties.Width != null)
-					itemElement.Add(new XAttribute("width", compositionImage.Properties.Width.Value));
-				if (compositionImage.Properties.Height != null)
-					itemElement.Add(new XAttribute("height", compositionImage.Properties.Height.Value));
-				if (compositionImage.Properties.JpegCompressionLevel != null)
-					itemElement.Add(new XAttribute("jpegCompressionLevel", compositionImage.Properties.JpegCompressionLevel.Value));
+					new XAttribute("id", cacheKey),
+					new XAttribute("isImagePresent", generatedImage.Properties.IsImagePresent),
+					new XAttribute("format", generatedImage.Properties.Format),
+					new XAttribute("colourDepth", generatedImage.Properties.ColourDepth));
+				if (generatedImage.Properties.Width != null)
+					itemElement.Add(new XAttribute("width", generatedImage.Properties.Width.Value));
+				if (generatedImage.Properties.Height != null)
+					itemElement.Add(new XAttribute("height", generatedImage.Properties.Height.Value));
+				if (generatedImage.Properties.JpegCompressionLevel != null)
+					itemElement.Add(new XAttribute("jpegCompressionLevel", generatedImage.Properties.JpegCompressionLevel.Value));
 
 				XElement dependenciesElement = new XElement("dependencies");
 				itemElement.Add(dependenciesElement);
@@ -102,7 +101,7 @@ namespace SoundInTheory.DynamicImage.Caching
 			{
 				ImageProperties result = null;
 
-				XElement itemElement = _doc.Root.Elements().SingleOrDefault(e => e.Attribute("uniqueKey").Value == cacheKey);
+				XElement itemElement = _doc.Root.Elements().SingleOrDefault(e => e.Attribute("id").Value == cacheKey);
 				if (itemElement != null)
 					result = GetImageProperties(itemElement);
 
@@ -112,19 +111,25 @@ namespace SoundInTheory.DynamicImage.Caching
 
 		private static ImageProperties GetImageProperties(XElement itemElement)
 		{
-			var result = new ImageProperties();
-			result.UniqueKey = itemElement.Attribute("uniqueKey").Value;
-			result.IsImagePresent = Convert.ToBoolean(itemElement.Attribute("isImagePresent").Value);
-			result.Format = (DynamicImageFormat)Enum.Parse(typeof(DynamicImageFormat), itemElement.Attribute("format").Value);
-			if (itemElement.Attribute("width") != null)
-				result.Width = Convert.ToInt32(itemElement.Attribute("width").Value);
-			if (itemElement.Attribute("height") != null)
-				result.Height = Convert.ToInt32(itemElement.Attribute("height").Value);
-			result.ColourDepth = Convert.ToInt32(itemElement.Attribute("colourDepth").Value);
-			if (itemElement.Attribute("jpegCompressionLevel") != null)
-				result.JpegCompressionLevel = Convert.ToInt32(itemElement.Attribute("jpegCompressionLevel").Value);
-			result.CacheProviderKey = itemElement.Attribute("id").Value;
+			string cacheKey;
+			ImageProperties result;
+			GetImageProperties(itemElement, out cacheKey, out result);
 			return result;
+		}
+
+		private static void GetImageProperties(XElement itemElement, out string cacheKey, out ImageProperties imageProperties)
+		{
+			imageProperties = new ImageProperties();
+			imageProperties.IsImagePresent = Convert.ToBoolean(itemElement.Attribute("isImagePresent").Value);
+			imageProperties.Format = (DynamicImageFormat)Enum.Parse(typeof(DynamicImageFormat), itemElement.Attribute("format").Value);
+			if (itemElement.Attribute("width") != null)
+				imageProperties.Width = Convert.ToInt32(itemElement.Attribute("width").Value);
+			if (itemElement.Attribute("height") != null)
+				imageProperties.Height = Convert.ToInt32(itemElement.Attribute("height").Value);
+			imageProperties.ColourDepth = Convert.ToInt32(itemElement.Attribute("colourDepth").Value);
+			if (itemElement.Attribute("jpegCompressionLevel") != null)
+				imageProperties.JpegCompressionLevel = Convert.ToInt32(itemElement.Attribute("jpegCompressionLevel").Value);
+			cacheKey = itemElement.Attribute("id").Value;
 		}
 
 		public override void RemoveAllFromCache()
@@ -135,7 +140,10 @@ namespace SoundInTheory.DynamicImage.Caching
 			{
 				foreach (XElement itemElement in _doc.Root.Elements())
 				{
-					DeleteImageFromDiskCache(GetImageProperties(itemElement), HttpContext.Current);
+					string cacheKey;
+					ImageProperties imageProperties;
+					GetImageProperties(itemElement, out cacheKey, out imageProperties);
+					DeleteImageFromDiskCache(cacheKey, imageProperties , HttpContext.Current);
 					itemElement.Remove();
 				}
 				_doc.Save(_docPath);
@@ -156,7 +164,10 @@ namespace SoundInTheory.DynamicImage.Caching
 				var items = _doc.Root.Elements().Where(e => e.Element("dependencies").Elements().Any(attributeMatcher)).ToList();
 				foreach (XElement itemElement in items)
 				{
-					DeleteImageFromDiskCache(GetImageProperties(itemElement), HttpContext.Current);
+					string cacheKey;
+					ImageProperties imageProperties;
+					GetImageProperties(itemElement, out cacheKey, out imageProperties);
+					DeleteImageFromDiskCache(cacheKey, imageProperties, HttpContext.Current);
 					itemElement.Remove();
 				}
 

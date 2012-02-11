@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -45,11 +46,31 @@ namespace SoundInTheory.DynamicImage.Util
 			return value;
 		}
 
-		public static void SendImageToHttpResponse(HttpContext context, CompositionImage compositionImage)
+		public static void SendImageToHttpResponse(HttpContext context, GeneratedImage generatedImage)
 		{
-			context.Response.ContentType = compositionImage.Properties.MimeType;
-			Composition.SaveImageStream(compositionImage, context.Response.OutputStream);
+			context.Response.ContentType = generatedImage.Properties.MimeType;
+			SaveImageStream(generatedImage, context.Response.OutputStream);
 			context.Response.Flush();
+		}
+
+		private static void SaveImageStream(GeneratedImage generatedImage, Stream stream)
+		{
+			// setup parameters
+			BitmapEncoder encoder = generatedImage.Properties.GetEncoder();
+
+			//encoderParametersTemp.Add(new EncoderParameter(Encoder.ColorDepth, (long)GeneratedImage.Properties.ColourDepth));
+			// TODO: Use ColorConvertedBitmap to allow configurable colour depth in output image.
+
+			encoder.Frames.Add(BitmapFrame.Create(generatedImage.Image));
+
+			// Write to temporary stream first. this is because PNG must be written to a seekable stream.
+			using (var tempStream = new MemoryStream())
+			{
+				encoder.Save(tempStream);
+
+				// Now write temp stream to output stream.
+				tempStream.WriteTo(stream);
+			}
 		}
 
 		/// <summary>

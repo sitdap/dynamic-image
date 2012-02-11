@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Web;
 using SoundInTheory.DynamicImage.Configuration;
 using System.Web.Configuration;
@@ -24,7 +25,7 @@ namespace SoundInTheory.DynamicImage.Caching
 			}
 		}
 
-		internal static DynamicImageCacheProvider Provider
+		private static DynamicImageCacheProvider Provider
 		{
 			get
 			{
@@ -93,9 +94,14 @@ namespace SoundInTheory.DynamicImage.Caching
 			return Provider.ExistsInCache(cacheKey);
 		}
 
-		internal static void Add(string cacheKey, CompositionImage compositionImage, Dependency[] dependencies)
+		internal static void Add(string cacheKey, GeneratedImage generatedImage, Dependency[] dependencies)
 		{
-			Provider.AddToCache(cacheKey, compositionImage, dependencies);
+			Provider.AddToCache(cacheKey, generatedImage, dependencies);
+		}
+
+		internal static DateTime GetImageLastModifiedDate(HttpContext context, string cacheProviderKey, string fileExtension)
+		{
+			return Provider.GetImageLastModifiedDate(context, cacheProviderKey, fileExtension);
 		}
 
 		internal static ImageProperties GetProperties(string cacheKey)
@@ -105,9 +111,9 @@ namespace SoundInTheory.DynamicImage.Caching
 
 		public static void Remove(ImageSource source)
 		{
-			List<Dependency> dependencies = new List<Dependency>();
+			var dependencies = new List<Dependency>();
 			source.PopulateDependencies(dependencies);
-			dependencies.ForEach(d => RemoveByDependency(d));
+			dependencies.ForEach(RemoveByDependency);
 		}
 
 		public static void RemoveAll()

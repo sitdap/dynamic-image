@@ -77,7 +77,7 @@ namespace SoundInTheory.DynamicImage
 			DynamicImageSection config = (DynamicImageSection) ConfigurationManager.GetSection("soundInTheory/dynamicImage");
 			if (config != null && config.BrowserCaching != null && config.BrowserCaching.Enabled)
 			{
-				DateTime tempDate = DynamicImageCacheManager.Provider.GetImageLastModifiedDate(context, cacheProviderKey, fileExtension);
+				DateTime tempDate = DynamicImageCacheManager.GetImageLastModifiedDate(context, cacheProviderKey, fileExtension);
 				DateTime lastModifiedDate = new DateTime(tempDate.Year, tempDate.Month, tempDate.Day, tempDate.Hour, tempDate.Minute,
 					tempDate.Second, 0); // This code copied from System.Web.StaticFileHandler.ProcessRequestInternal
 				DateTime now = DateTime.Now;
@@ -111,7 +111,7 @@ namespace SoundInTheory.DynamicImage
 
 			// Save to output stream - each caching provider might have its own way of doing this.
 			// For example, LinqDynamicImageCacheProvider does a context.Rewrite to the cached file on disk.
-			DynamicImageCacheManager.Provider.SendImageToHttpResponse(context, cacheProviderKey, fileExtension);
+			DynamicImageCacheManager.SendImageToHttpResponse(context, cacheProviderKey, fileExtension);
 		}
 
 		private static string GenerateETag(DateTime lastModified, DateTime now)

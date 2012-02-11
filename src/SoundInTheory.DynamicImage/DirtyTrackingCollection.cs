@@ -28,7 +28,7 @@ namespace SoundInTheory.DynamicImage
 
 		#region Methods
 
-		public string GetDirtyProperties()
+		string IDirtyTrackingObject.GetDirtyProperties()
 		{
 			var sb = new StringBuilder();
 			sb.Append("[");

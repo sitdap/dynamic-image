@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Web.UI;
-using System.IO;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -46,7 +41,7 @@ namespace SoundInTheory.DynamicImage
 		/// to cache dynamically generated images.
 		/// </summary>
 		/// <returns>A unique key which describes the current object.</returns>
-		public string GetDirtyProperties()
+		string IDirtyTrackingObject.GetDirtyProperties()
 		{
 			// Loop through properties.
 			var sb = new StringBuilder();

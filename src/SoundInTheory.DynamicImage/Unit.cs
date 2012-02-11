@@ -4,7 +4,6 @@ using System.Globalization;
 
 namespace SoundInTheory.DynamicImage
 {
-	[TypeConverter(typeof(UnitConverter))]
 	public struct Unit
 	{
 		#region Fields

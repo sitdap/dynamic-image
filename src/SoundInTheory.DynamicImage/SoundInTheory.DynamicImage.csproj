@@ -99,7 +99,7 @@
     <Compile Include="Layers\ClosedShapeLayer.cs" />
     <Compile Include="ColorHsv.cs" />
     <Compile Include="Composition.cs" />
-    <Compile Include="CompositionImage.cs" />
+    <Compile Include="GeneratedImage.cs" />
     <Compile Include="Configuration\BrowserCachingSettings.cs" />
     <Compile Include="Configuration\DependentSiteCollection.cs" />
     <Compile Include="Configuration\DependentSiteElement.cs" />
@@ -225,7 +225,6 @@
     <Compile Include="DirtyTrackingObject.cs" />
     <Compile Include="Layers\TextLayer.cs" />
     <Compile Include="Unit.cs" />
-    <Compile Include="UnitConverter.cs" />
     <Compile Include="UnitType.cs" />
     <Compile Include="Util\CanonicalSplineUtility.cs" />
     <Compile Include="Util\ColorExtensionMethods.cs" />
@@ -241,7 +240,7 @@
     <Compile Include="Util\ShaderEffectUtility.cs" />
     <Compile Include="Util\Util.cs" />
     <Compile Include="Layers\VideoLayer.cs" />
-    <Compile Include="Web\ImageUrlGenerator.cs" />
+    <Compile Include="Caching\ImageUrlGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

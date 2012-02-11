@@ -1,28 +1,23 @@
 using System;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Data;
-using System.Data.Common;
 using System.IO;
 using System.Web;
 using System.Windows.Media.Imaging;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Caching
 {
 	public abstract class DiskCacheProviderBase : DynamicImageCacheProvider
 	{
-		public override DateTime GetImageLastModifiedDate(HttpContext context, string cacheProviderKey, string fileExtension)
+		public override DateTime GetImageLastModifiedDate(HttpContext context, string cacheKey, string fileExtension)
 		{
-			string filePath = GetDiskCacheFilePath(context, cacheProviderKey, fileExtension);
+			string filePath = GetDiskCacheFilePath(context, cacheKey, fileExtension);
 			return File.GetLastWriteTime(context.Server.MapPath(filePath));
 		}
 
-		public override void SendImageToHttpResponse(HttpContext context, string cacheProviderKey, string fileExtension)
+		public override void SendImageToHttpResponse(HttpContext context, string cacheKey, string fileExtension)
 		{
 			// Instead of sending image directly to the response, just call RewritePath and let IIS
 			// handle the actual serving of the image.
-			string filePath = GetDiskCacheFilePath(context, cacheProviderKey, fileExtension);
+			string filePath = GetDiskCacheFilePath(context, cacheKey, fileExtension);
 
 			context.Items["FinalCachedFile"] = context.Server.MapPath(filePath);
 
@@ -43,25 +38,25 @@ namespace SoundInTheory.DynamicImage.Caching
 			return filePath;
 		}
 
-		protected void SaveImageToDiskCache(CompositionImage compositionImage)
+		protected void SaveImageToDiskCache(string cacheKey, GeneratedImage generatedImage)
 		{
-			if (!compositionImage.Properties.IsImagePresent)
+			if (!generatedImage.Properties.IsImagePresent)
 				return;
 
 			HttpContext httpContext = HttpContext.Current;
-			string filePath = httpContext.Server.MapPath(GetDiskCacheFilePath(httpContext, compositionImage.Properties.CacheProviderKey, compositionImage.Properties.FileExtension));
+			string filePath = httpContext.Server.MapPath(GetDiskCacheFilePath(httpContext, cacheKey, generatedImage.Properties.FileExtension));
 
 			using (FileStream fileStream = File.OpenWrite(filePath))
 			{
-				BitmapEncoder encoder = compositionImage.Properties.GetEncoder();
-				encoder.Frames.Add(BitmapFrame.Create(compositionImage.Image));
+				BitmapEncoder encoder = generatedImage.Properties.GetEncoder();
+				encoder.Frames.Add(BitmapFrame.Create(generatedImage.Image));
 				encoder.Save(fileStream);
 			}
 		}
 
-		protected void DeleteImageFromDiskCache(ImageProperties imageProperties, HttpContext httpContext)
+		protected void DeleteImageFromDiskCache(string cacheKey, ImageProperties imageProperties, HttpContext httpContext)
 		{
-			string filePath = httpContext.Server.MapPath(GetDiskCacheFilePath(httpContext, imageProperties.CacheProviderKey, imageProperties.FileExtension));
+			string filePath = httpContext.Server.MapPath(GetDiskCacheFilePath(httpContext, cacheKey, imageProperties.FileExtension));
 			DeleteImageFromDiskCache(imageProperties, filePath);
 		}
 

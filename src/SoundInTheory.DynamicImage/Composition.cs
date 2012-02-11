@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
@@ -76,43 +75,16 @@ namespace SoundInTheory.DynamicImage
 
 		#endregion
 
-		public static void SaveImageStream(CompositionImage compositionImage, Stream stream)
+		public GeneratedImage GenerateImage()
 		{
-			// setup parameters
-			BitmapEncoder encoder = compositionImage.Properties.GetEncoder();
-
-			//encoderParametersTemp.Add(new EncoderParameter(Encoder.ColorDepth, (long)compositionImage.Properties.ColourDepth));
-			// TODO: Use ColorConvertedBitmap to allow configurable colour depth in output image.
-
-			encoder.Frames.Add(BitmapFrame.Create(compositionImage.Image));
-
-			// Write to temporary stream first. this is because PNG must be written to a seekable stream.
-			using (MemoryStream tempStream = new MemoryStream())
-			{
-				encoder.Save(tempStream);
-
-				// Now write temp stream to output stream.
-				tempStream.WriteTo(stream);
-			}
-		}
-
-		internal CompositionImage GetCompositionImage(string cacheKey)
-		{
-			// create image and add to cache
+			// create image
 			BitmapSource image = CreateImage();
 
-			// Freeze the bitmap - this means any thread can access it, as well
-			// as perhaps providing some performance benefit.
-			if (image != null)
-				image.Freeze();
-
-			ImageProperties properties = new ImageProperties
+			var properties = new ImageProperties
 			{
-				UniqueKey = cacheKey,
-				CacheProviderKey = Util.Util.CalculateShaHash(cacheKey),
-				ColourDepth = this.ColourDepth,
-				Format = this.ImageFormat,
-				JpegCompressionLevel = this.JpegCompressionLevel
+				ColourDepth = ColourDepth,
+				Format = ImageFormat,
+				JpegCompressionLevel = JpegCompressionLevel
 			};
 			if (image != null)
 			{
@@ -120,7 +92,7 @@ namespace SoundInTheory.DynamicImage
 				properties.Height = image.PixelHeight;
 			}
 			properties.IsImagePresent = (image != null);
-			return new CompositionImage(properties, image);
+			return new GeneratedImage(properties, image);
 		}
 
 		private BitmapSource CreateImage()
@@ -128,17 +100,17 @@ namespace SoundInTheory.DynamicImage
 			ValidateParameters();
 
 			// First, we process layers which have a specific size.
-			foreach (Layer layer in this.VisibleLayers)
+			foreach (Layer layer in VisibleLayers)
 				if (layer.HasFixedSize)
 					layer.Process();
 
 			// Second, for SizeMode = Auto, we calculate the output dimensions
 			// based on the union of all layers' (which have an explicit size) dimensions.
 			int outputWidth, outputHeight;
-			if (this.AutoSize)
+			if (AutoSize)
 			{
 				Int32Rect outputDimensions = Int32Rect.Empty;
-				foreach (Layer layer in this.VisibleLayers)
+				foreach (Layer layer in VisibleLayers)
 				{
 					// Calculate dimensions of layers; the dimensions of some layers may be omitted
 					// at design time and are then derived from layers which have a fixed size.
@@ -264,6 +236,9 @@ namespace SoundInTheory.DynamicImage
 				output.Unlock();
 			}
 
+			// Freeze the bitmap - this means any thread can access it, as well
+			// as perhaps providing some performance benefit.
+			output.InnerBitmap.Freeze();
 			return output.InnerBitmap;
 		}
 
@@ -290,6 +265,11 @@ namespace SoundInTheory.DynamicImage
 			foreach (Layer layer in this.Layers)
 				layer.PopulateDependencies(dependencies);
 			return dependencies.ToArray();
+		}
+
+		public string GetCacheKey()
+		{
+			return Util.Util.CalculateShaHash(((IDirtyTrackingObject) this).GetDirtyProperties());
 		}
 	}
 }

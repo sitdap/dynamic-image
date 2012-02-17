@@ -1,4 +1,4 @@
-v2.0.3 (2012-02-17)
+v2.1.0 (2012-02-17)
 - Image cache directory can now be configured in web.config (instead of being hard-coded to ~/App_Data/DynamicImage):
   <add name="XmlCacheProvider"
        type="SoundInTheory.DynamicImage.Caching.XmlCacheProvider, SoundInTheory.DynamicImage"

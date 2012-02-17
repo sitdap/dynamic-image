@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using System.IO;
 using System.Web;
 using System.Windows.Media.Imaging;
@@ -7,6 +8,20 @@ namespace SoundInTheory.DynamicImage.Caching
 {
 	public abstract class DiskCacheProviderBase : DynamicImageCacheProvider
 	{
+		private string _cachePath = "~/App_Data/DynamicImage";
+
+		protected string CachePath
+		{
+			get { return _cachePath; }
+		}
+
+		public override void Initialize(string name, NameValueCollection config)
+		{
+			if (!string.IsNullOrEmpty(config["cachePath"]))
+				_cachePath = config["cachePath"];
+			base.Initialize(name, config);
+		}
+
 		public override DateTime GetImageLastModifiedDate(HttpContext context, string cacheKey, string fileExtension)
 		{
 			string filePath = GetDiskCacheFilePath(context, cacheKey, fileExtension);
@@ -24,17 +39,17 @@ namespace SoundInTheory.DynamicImage.Caching
 			context.RewritePath(filePath, false);
 		}
 
-		private static string GetDiskCacheFilePath(HttpContext httpContext, string cacheProviderKey, string fileExtension)
+		private string GetDiskCacheFilePath(HttpContext httpContext, string cacheProviderKey, string fileExtension)
 		{
 			if (httpContext == null)
 				throw new InvalidOperationException("HttpContext.Current is null; SqlCacheProviderBase only supports being run within the context of a web request.");
 
-			string imageCacheFolder = httpContext.Server.MapPath("~/App_Data/DynamicImage");
+			string imageCacheFolder = httpContext.Server.MapPath(CachePath);
 			if (!Directory.Exists(imageCacheFolder))
 				Directory.CreateDirectory(imageCacheFolder);
 
 			string fileName = cacheProviderKey + "." + fileExtension;
-			string filePath = string.Format("~/App_Data/DynamicImage/{0}", fileName);
+			string filePath = string.Format("{0}/{1}", CachePath, fileName);
 			return filePath;
 		}
 

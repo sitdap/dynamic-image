@@ -8,13 +8,15 @@ namespace SoundInTheory.DynamicImage.Caching
 {
 	public class XmlCacheProvider : DiskCacheProviderBase, IDisposable
 	{
-		private readonly string _docPath;
-		private readonly FileSystemWatcher _watcher;
+		private string _docPath;
+		private FileSystemWatcher _watcher;
 		private XDocument _doc;
 
-		public XmlCacheProvider()
+		public override void Initialize(string name, System.Collections.Specialized.NameValueCollection config)
 		{
-			_docPath = HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/DynamicImageCache.xml");
+			base.Initialize(name, config);
+
+			_docPath = HttpContext.Current.Server.MapPath(string.Format("{0}/DynamicImageCache.xml", CachePath));
 			EnsureDocument();
 
 			_watcher = new FileSystemWatcher(Path.GetDirectoryName(_docPath), "DynamicImageCache.xml");
@@ -31,7 +33,7 @@ namespace SoundInTheory.DynamicImage.Caching
 		{
 			lock (this)
 			{
-				string imageCacheFolder = HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage");
+				string imageCacheFolder = HttpContext.Current.Server.MapPath(CachePath);
 				if (!Directory.Exists(imageCacheFolder))
 					Directory.CreateDirectory(imageCacheFolder);
 

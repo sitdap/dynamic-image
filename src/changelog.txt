@@ -1,0 +1,15 @@
+v2.0.3 (2012-02-17)
+- Image cache directory can now be configured in web.config (instead of being hard-coded to ~/App_Data/DynamicImage):
+  <add name="XmlCacheProvider"
+       type="SoundInTheory.DynamicImage.Caching.XmlCacheProvider, SoundInTheory.DynamicImage"
+       cachePath="~/MyCacheDir" />
+
+v2.0.1 and v2.0.2 (2012-02-11)
+- NuGet package fixes
+
+v2.0.0 (2012-02-11)
+- Removed all WebForms-specific controls and functionality
+- Replaced DynamicImageBuilder with CompositionBuilder
+- Added SoundInTheory.DynamicImage.Mvc with HtmlHelper extension for generating image tag
+- Added ImageUrlGenerator for generating a (cached) URL for an image. Also available through
+  the CompositionBuilder.Url property.

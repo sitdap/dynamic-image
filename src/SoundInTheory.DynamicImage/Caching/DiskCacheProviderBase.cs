@@ -44,12 +44,13 @@ namespace SoundInTheory.DynamicImage.Caching
 			if (httpContext == null)
 				throw new InvalidOperationException("HttpContext.Current is null; SqlCacheProviderBase only supports being run within the context of a web request.");
 
-			string imageCacheFolder = httpContext.Server.MapPath(CachePath);
+			string cachePathWithHash = CachePath + "/" + cacheProviderKey.Substring(0, 2);
+			string imageCacheFolder = httpContext.Server.MapPath(cachePathWithHash);
 			if (!Directory.Exists(imageCacheFolder))
 				Directory.CreateDirectory(imageCacheFolder);
 
 			string fileName = cacheProviderKey + "." + fileExtension;
-			string filePath = string.Format("{0}/{1}", CachePath, fileName);
+			string filePath = string.Format("{0}/{1}", cachePathWithHash, fileName);
 			return filePath;
 		}
 

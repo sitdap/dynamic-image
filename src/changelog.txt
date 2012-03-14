@@ -1,3 +1,5 @@
+- Cached images are now sorted into sub-directories, using the first two characters of the filename
+
 v2.1.0 (2012-02-17)
 - Image cache directory can now be configured in web.config (instead of being hard-coded to ~/App_Data/DynamicImage):
   <add name="XmlCacheProvider"

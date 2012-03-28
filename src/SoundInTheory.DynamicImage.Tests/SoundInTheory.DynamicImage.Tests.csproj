@@ -81,6 +81,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositionTests.cs" />
     <Compile Include="FastBitmapTestUtility.cs" />
     <Compile Include="Filters\CropFilterTests.cs" />
     <Compile Include="Filters\ResizeFilterTests.cs" />

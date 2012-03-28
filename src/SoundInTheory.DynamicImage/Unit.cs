@@ -148,6 +148,11 @@ namespace SoundInTheory.DynamicImage
 			return new Unit(n.ToString(), null, UnitType.Percentage);
 		}
 
+		public override string ToString()
+		{
+			return ToString(CultureInfo.CurrentCulture);
+		}
+
 		public string ToString(CultureInfo culture)
 		{
 			return ToString((IFormatProvider) culture);

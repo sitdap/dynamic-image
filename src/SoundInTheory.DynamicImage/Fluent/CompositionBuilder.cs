@@ -9,6 +9,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 	{
 		private readonly Composition _composition;
 
+		public Composition Composition
+		{
+			get { return _composition; }
+		}
+
 		public CompositionBuilder()
 		{
 			_composition = new Composition();

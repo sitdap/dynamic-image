@@ -1,4 +1,5 @@
-- Cached images are now sorted into sub-directories, using the first two characters of the filename
+- Feature: Cached images are now sorted into sub-directories, using the first two characters of the filename
+- Bug: Resize filter width and height weren't added to the cache key correctly
 
 v2.1.0 (2012-02-17)
 - Image cache directory can now be configured in web.config (instead of being hard-coded to ~/App_Data/DynamicImage):

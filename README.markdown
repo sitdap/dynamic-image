@@ -8,19 +8,28 @@ DynamicImage helps you simplify the way you deal with images in your ASP.NET web
 
 DynamicImage allows images to be created in two ways:
 
-1. Declaratively, using an ASP.NET server control:
-		<sitdap:DynamicImage runat="server" ImageFormat="Jpeg">
-			<Layers>
-				<sitdap:ImageLayer SourceFileName="~/Assets/Images/AutumnLeaves.jpg">
-					<Filters>
-						<sitdap:ResizeFilter Mode="Uniform" Height="200" />
-					</Filters>
-				</sitdap:ImageLayer>
-			</Layers>
-		</sitdap:DynamicImage>
+1. Programmatically, using the object model:
+		Composition composition = new Composition();
+		composition.Layers.Add(new ImageLayer
+		{
+			SourceFileName = "~/Assets/Images/AutumnLeaves.jpg",
+			Filters =
+			{
+				new ResizeFilter { Width = Unit.Pixel(800), Mode = ResizeMode.UseWidth }
+			}
+		});
+		composition.Layers.Add(new TextLayer
+		{
+			Text = "Hello World",
+			Filters =
+			{
+				new OuterGlowFilter()
+			}
+		});
+		string url = ImageUrlGenerator.GetImageUrl(composition);
 
 2. Programmatically, using a fluent interface:
-		string imageUrl = new DynamicImageBuilder()
+		string imageUrl = new CompositionBuilder()
 			.WithLayer(LayerBuilder.Image.SourceFile("myimage.png")
 				.WithFilter(FilterBuilder.Resize.ToWidth(800))
 			)
@@ -83,7 +92,7 @@ Output images can be cached, based on settings in web.config. You can write your
 and the built-in cache providers are:
 
 * In-memory
-* Sqlite file-based database
+* XML file
 
 
 ### Underpinnings

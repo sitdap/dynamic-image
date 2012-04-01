@@ -9,6 +9,7 @@ DynamicImage helps you simplify the way you deal with images in your ASP.NET web
 DynamicImage allows images to be created in two ways:
 
 1. Programmatically, using the object model:
+
 		Composition composition = new Composition();
 		composition.Layers.Add(new ImageLayer
 		{
@@ -29,6 +30,7 @@ DynamicImage allows images to be created in two ways:
 		string url = ImageUrlGenerator.GetImageUrl(composition);
 
 2. Programmatically, using a fluent interface:
+
 		string imageUrl = new CompositionBuilder()
 			.WithLayer(LayerBuilder.Image.SourceFile("myimage.png")
 				.WithFilter(FilterBuilder.Resize.ToWidth(800))

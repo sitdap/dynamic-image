@@ -42,7 +42,7 @@ namespace SoundInTheory.DynamicImage
 		/// </summary>
 		public string CustomFontFile
 		{
-			get { return (string)(this["CustomFontFile"] ?? "Verdana"); }
+			get { return (string)(this["CustomFontFile"]); }
 			set { this["CustomFontFile"] = value; }
 		}
 

@@ -1,3 +1,6 @@
+Trunk
+- Bug: Default value of custom font file fixed (mzywitza).
+
 v2.1.1 (2012-03-28)
 - Feature: Cached images are now sorted into sub-directories, using the first two characters of the filename
 - Bug: Resize filter width and height weren't added to the cache key correctly

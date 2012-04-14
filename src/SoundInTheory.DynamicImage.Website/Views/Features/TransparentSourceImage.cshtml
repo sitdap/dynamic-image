@@ -3,7 +3,7 @@
 @section PageTitle { Transparent Source Image }
 
 <pre>
-@@Html.DynamicImageTag(b => b.WithLayer(
+@@Html.DynamicImageTag(b => b.ImageFormat(DynamicImageFormat.Png).FillBackgroundColor(Colors.Transparent).WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/BoardExample.png")
 		.WithFilter(FilterBuilder.Resize.To(800, 800))
 		.WithFilter(FilterBuilder.DropShadow)

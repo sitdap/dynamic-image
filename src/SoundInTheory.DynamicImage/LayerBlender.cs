@@ -27,24 +27,27 @@ namespace SoundInTheory.DynamicImage
 
 			foreach (Layer layer in layers)
 			{
-				dv.Effect = new LayerBlenderEffect(layer.BlendMode, output.Width, output.Height)
+				using (var effect = new LayerBlenderEffect(layer.BlendMode, output.Width, output.Height)
 				{
 					Background = new ImageBrush(imageSource)
 					{
 						TileMode = TileMode.None,
 						Stretch = Stretch.None,
-						ViewportUnits  = BrushMappingMode.RelativeToBoundingBox,
+						ViewportUnits = BrushMappingMode.RelativeToBoundingBox,
 						Viewport = new System.Windows.Rect(0, 0, 1, 1)
 					}
-				};
+				})
+				{
+					dv.Effect = effect;
+					DrawingContext dc = dv.RenderOpen();
+					dc.PushTransform(new TranslateTransform(layer.X + layer.Padding.Left, layer.Y + layer.Padding.Top));
+					dc.DrawImage(layer.Bitmap.InnerBitmap, new System.Windows.Rect(0, 0, layer.Bitmap.Width, layer.Bitmap.Height));
+					dc.Pop();
+					dc.Close();
 
-				DrawingContext dc = dv.RenderOpen();
-				dc.PushTransform(new TranslateTransform(layer.X + layer.Padding.Left, layer.Y + layer.Padding.Top));
-				dc.DrawImage(layer.Bitmap.InnerBitmap, new System.Windows.Rect(0, 0, layer.Bitmap.Width, layer.Bitmap.Height));
-				dc.Pop();
-				dc.Close();
+					rtb.Render(dv);
+				}
 
-				rtb.Render(dv);
 				imageSource = rtb;
 			}
 

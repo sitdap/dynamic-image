@@ -1,5 +1,6 @@
 Trunk
 - Bug: Default value of custom font file fixed (mzywitza).
+- Bug: Fix memory leak in LayerBlenderEffect and other shader effects.
 
 v2.1.1 (2012-03-28)
 - Feature: Cached images are now sorted into sub-directories, using the first two characters of the filename

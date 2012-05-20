@@ -8,7 +8,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects.LayerBlending
 {
-	internal class LayerBlenderEffect : ShaderEffect
+	internal class LayerBlenderEffect : ShaderEffect, IDisposable
 	{
 		private const int RandomSize = 512;
 
@@ -90,6 +90,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects.LayerBlending
 				});
 				UpdateShaderValue(RandomBrushProperty);
 			}
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

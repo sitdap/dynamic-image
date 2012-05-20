@@ -1,4 +1,4 @@
-Trunk
+v2.1.2 (2012-05-20)
 - Bug: Default value of custom font file fixed (mzywitza).
 - Bug: Fix memory leak in LayerBlenderEffect (jaytwo).
 - Bug: Fix memory leak in other shader effects.

@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.Util;
@@ -32,6 +33,13 @@ namespace SoundInTheory.DynamicImage.Filters
 		}
 
 		protected abstract Effect GetEffect(FastBitmap source);
+
+		protected override void CleanUpDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
+		{
+			if (drawingVisual.Effect != null && drawingVisual.Effect is IDisposable)
+				((IDisposable) drawingVisual.Effect).Dispose();
+			base.CleanUpDrawingVisual(source, drawingVisual);
+		}
 
 		/// <summary>
 		/// Applies the filter to the specified source.

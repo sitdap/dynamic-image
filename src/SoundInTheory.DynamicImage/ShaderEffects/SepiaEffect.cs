@@ -6,7 +6,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class SepiaEffect : ShaderEffect
+	internal class SepiaEffect : ShaderEffect, IDisposable
 	{
 		[ThreadStatic]
 		private static PixelShader _shader;
@@ -28,6 +28,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 		{
 			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

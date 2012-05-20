@@ -6,7 +6,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class CurvesEffect : ShaderEffect
+	internal class CurvesEffect : ShaderEffect, IDisposable
 	{
 		[ThreadStatic]
 		private static PixelShader _shader;
@@ -37,6 +37,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(CurvesLookupProperty);
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

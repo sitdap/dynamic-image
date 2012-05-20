@@ -6,7 +6,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class EmbossEffect : ShaderEffect
+	internal class EmbossEffect : ShaderEffect, IDisposable
 	{
 		[ThreadStatic]
 		private static PixelShader _shader;
@@ -46,6 +46,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(AmountProperty);
 			UpdateShaderValue(WidthProperty);
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

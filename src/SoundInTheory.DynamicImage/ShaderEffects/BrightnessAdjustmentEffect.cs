@@ -6,7 +6,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class BrightnessAdjustmentEffect : ShaderEffect
+	internal class BrightnessAdjustmentEffect : ShaderEffect, IDisposable
 	{
 		[ThreadStatic]
 		private static PixelShader _shader;
@@ -37,6 +37,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(LevelProperty);
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

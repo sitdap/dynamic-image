@@ -6,7 +6,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class ColorTintEffect : ShaderEffect
+	internal class ColorTintEffect : ShaderEffect, IDisposable
 	{
 		[ThreadStatic]
 		private static PixelShader _shader;
@@ -46,6 +46,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(AmountProperty);
 			UpdateShaderValue(RequiredColorProperty);
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

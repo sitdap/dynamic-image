@@ -6,7 +6,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class UnsharpMaskEffect : ShaderEffect
+	internal class UnsharpMaskEffect : ShaderEffect, IDisposable
 	{
 		[ThreadStatic]
 		private static PixelShader _shader;
@@ -55,6 +55,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 			UpdateShaderValue(BlurMaskProperty);
 			UpdateShaderValue(AmountProperty);
 			UpdateShaderValue(ThresholdProperty);
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

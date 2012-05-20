@@ -6,7 +6,7 @@ using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class ClippingMaskEffect : ShaderEffect
+	internal class ClippingMaskEffect : ShaderEffect, IDisposable
 	{
 		[ThreadStatic]
 		private static PixelShader _shader;
@@ -55,6 +55,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 			UpdateShaderValue(MaskProperty);
 			UpdateShaderValue(InputCoordsOffsetProperty);
 			UpdateShaderValue(InputCoordsScaleProperty);
+		}
+
+		void IDisposable.Dispose()
+		{
+			PixelShader = null;
 		}
 	}
 }

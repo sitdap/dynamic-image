@@ -83,10 +83,22 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// Inherited classes can use this to configure the supplied DrawingVisual. For example,
 		/// RotationFilter sets the BitmapScalingMode render option.
 		/// </summary>
+		/// <param name="source"> </param>
 		/// <param name="drawingVisual"></param>
 		protected virtual void ConfigureDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
 		{
 			
+		}
+
+		/// <summary>
+		/// Inherited classes can use this to clean up the supplied DrawingVisual. For example,
+		/// ShaderEffectFilter disposes the shader effect.
+		/// </summary>
+		/// <param name="source"> </param>
+		/// <param name="drawingVisual"></param>
+		protected virtual void CleanUpDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
+		{
+
 		}
 
 		/// <summary>

@@ -1,6 +1,9 @@
 Trunk
 - Bug: Default value of custom font file fixed (mzywitza).
-- Bug: Fix memory leak in LayerBlenderEffect and other shader effects.
+- Bug: Fix memory leak in LayerBlenderEffect (jaytwo).
+- Bug: Fix memory leak in other shader effects.
+- Bug: XmlCacheProvider now checks for null values in cache dependencies (Mikhail-Fiadosenka).
+- Bug: DirtyTrackingObject now deals correctly with arrays (Mikhail-Fiadosenka).
 
 v2.1.1 (2012-03-28)
 - Feature: Cached images are now sorted into sub-directories, using the first two characters of the filename

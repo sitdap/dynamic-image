@@ -85,10 +85,10 @@ namespace SoundInTheory.DynamicImage.Caching
 
 				foreach (var dependency in dependencies)
 					dependenciesElement.Add(new XElement("dependency",
-						new XAttribute("text1", dependency.Text1),
-						new XAttribute("text2", dependency.Text2),
-						new XAttribute("text3", dependency.Text3),
-						new XAttribute("text4", dependency.Text4)));
+						new XAttribute("text1", dependency.Text1 ?? string.Empty),
+						new XAttribute("text2", dependency.Text2 ?? string.Empty),
+						new XAttribute("text3", dependency.Text3 ?? string.Empty),
+						new XAttribute("text4", dependency.Text4 ?? string.Empty)));
 
 				_doc.Root.Add(itemElement);
 				_doc.Save(_docPath);

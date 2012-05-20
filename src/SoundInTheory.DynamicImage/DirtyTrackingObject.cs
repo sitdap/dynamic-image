@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -50,9 +51,24 @@ namespace SoundInTheory.DynamicImage
 			foreach (var kvp in _propertyStore)
 			{
 				if (kvp.Value is IDirtyTrackingObject)
+				{
 					sb.AppendFormat("{0}: {1};", kvp.Key, ((IDirtyTrackingObject)kvp.Value).GetDirtyProperties());
+				}
 				else
-					sb.AppendFormat("{0}: {1};", kvp.Key, kvp.Value);
+				{
+					// Write each element of an array individially
+					if (kvp.Value is IEnumerable && !(kvp.Value is string))
+					{
+						sb.AppendFormat("{0}: [", kvp.Key);
+						foreach (var element in (IEnumerable)kvp.Value)
+							sb.AppendFormat("{0},", element);
+						sb.Append("]");
+					}
+					else
+					{
+						sb.AppendFormat("{0}: {1};", kvp.Key, kvp.Value);
+					}
+				}
 			}
 			sb.Append("}");
 			return sb.ToString();

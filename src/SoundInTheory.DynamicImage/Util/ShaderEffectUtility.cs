@@ -9,8 +9,12 @@ namespace SoundInTheory.DynamicImage.Util
 	{
 		static ShaderEffectUtility()
 		{
-			// Bootstrap WPF so that pack URIs work.
-			Application.ResourceAssembly = Assembly.GetExecutingAssembly();
+			//additional check to allow the library work in WPF application
+			if (Application.ResourceAssembly == null)
+			{
+				// Bootstrap WPF so that pack URIs work.
+				Application.ResourceAssembly = Assembly.GetExecutingAssembly();
+			}
 		}
 
 		public static PixelShader GetPixelShader(string name)

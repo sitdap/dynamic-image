@@ -9,7 +9,7 @@ namespace SoundInTheory.DynamicImage.Util
 	{
 		static ShaderEffectUtility()
 		{
-			//additional check to allow the library work in WPF application
+			// Additional check to allow the library to work in WPF applications.
 			if (Application.ResourceAssembly == null)
 			{
 				// Bootstrap WPF so that pack URIs work.

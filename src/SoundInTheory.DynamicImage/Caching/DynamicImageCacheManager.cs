@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Web;
 using SoundInTheory.DynamicImage.Configuration;
@@ -34,8 +35,9 @@ namespace SoundInTheory.DynamicImage.Caching
 					DynamicImageSection config = ConfigSection;
 					if (config == null)
 					{
-						// Default to InProc cache provider.
-						_provider = new InProcDynamicImageCacheProvider();
+						// Default to XML cache provider.
+						_provider = new XmlCacheProvider();
+						_provider.Initialize("XmlCacheProvider", new NameValueCollection());
 					}
 					else
 					{

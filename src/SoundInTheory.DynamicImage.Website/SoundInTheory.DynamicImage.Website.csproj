@@ -21,6 +21,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -107,7 +111,6 @@
     <Content Include="Assets\Js\bootstrap.js" />
     <Content Include="Assets\Js\bootstrap.min.js" />
     <Content Include="Assets\Js\jquery.js" />
-    <Content Include="Assets\Videos\example_10fps.wmv" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -126,7 +129,6 @@
   <ItemGroup>
     <Content Include="Assets\Fonts\ADamnMess.ttf" />
     <Content Include="Assets\Misc\CrossProcess-Curves.acv" />
-    <Content Include="Views\Layers\Video.cshtml" />
     <Content Include="Views\Layers\JuliaFractal.cshtml" />
     <Content Include="Views\Layers\MandelbrotFractal.cshtml" />
     <Content Include="Views\Layers\PolygonShape.cshtml" />

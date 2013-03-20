@@ -96,7 +96,6 @@
     <Compile Include="Fluent\JuliaFractalLayerBuilder.cs" />
     <Compile Include="Fluent\MandelbrotFractalLayerBuilder.cs" />
     <Compile Include="Fluent\PolygonShapeLayerBuilder.cs" />
-    <Compile Include="Fluent\VideoLayerBuilder.cs" />
     <Compile Include="Layers\ClosedShapeLayer.cs" />
     <Compile Include="ColorHsv.cs" />
     <Compile Include="Composition.cs" />
@@ -240,7 +239,6 @@
     <Compile Include="Util\RenderTargetBitmapUtility.cs" />
     <Compile Include="Util\ShaderEffectUtility.cs" />
     <Compile Include="Util\Util.cs" />
-    <Compile Include="Layers\VideoLayer.cs" />
     <Compile Include="Caching\ImageUrlGenerator.cs" />
   </ItemGroup>
   <ItemGroup>

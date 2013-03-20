@@ -28,10 +28,5 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 		{
 			return View();
 		}
-
-		public ActionResult Video()
-		{
-			return View();
-		}
 	}
 }

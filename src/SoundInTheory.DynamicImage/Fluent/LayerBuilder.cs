@@ -32,11 +32,6 @@ namespace SoundInTheory.DynamicImage.Fluent
 			get { return new RectangleShapeLayerBuilder(); }
 		}
 
-		public static VideoLayerBuilder Video
-		{
-			get { return new VideoLayerBuilder(); }
-		}
-
 		public abstract Layer ToLayer();
 	}
 }

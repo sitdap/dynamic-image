@@ -14,7 +14,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			return new DropShadowEffect
 			{
 				Direction = 0,
-				Color = Color,
+				Color = Color.ToWpfColor(),
 				BlurRadius = Size,
 				ShadowDepth = 0,
 				Opacity = Opacity

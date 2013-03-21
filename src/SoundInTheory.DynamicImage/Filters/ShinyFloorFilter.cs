@@ -4,6 +4,8 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
+using SWMColors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -98,8 +100,8 @@ namespace SoundInTheory.DynamicImage.Filters
 				}
 			});
 			dc.PushOpacityMask(new LinearGradientBrush(
-				Colors.Transparent,
-				Color.FromArgb((byte)(255.0f * (ReflectionOpacity / 100.0f)), 0, 0, 0),
+				SWMColors.Transparent,
+				SWMColor.FromArgb((byte)(255.0f * (ReflectionOpacity / 100.0f)), 0, 0, 0),
 				new Point(0, 0),
 				new Point(0, 1)));
 

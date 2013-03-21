@@ -1,9 +1,12 @@
-using System.Windows.Media;
-
 namespace SoundInTheory.DynamicImage.Util
 {
 	public static class ColorExtensionMethods
 	{
+		public static System.Windows.Media.Color ToWpfColor(this Color color)
+		{
+			return System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B);
+		}
+
 		public static float GetHue(this Color c)
 		{
 			if ((c.R == c.G) && (c.G == c.B))

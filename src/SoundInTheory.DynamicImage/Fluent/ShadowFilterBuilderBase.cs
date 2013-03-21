@@ -1,4 +1,3 @@
-using System.Windows.Media;
 using SoundInTheory.DynamicImage.Filters;
 
 namespace SoundInTheory.DynamicImage.Fluent

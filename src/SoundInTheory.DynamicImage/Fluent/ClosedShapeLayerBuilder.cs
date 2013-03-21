@@ -1,4 +1,3 @@
-using System.Windows.Media;
 using SoundInTheory.DynamicImage.Layers;
 
 namespace SoundInTheory.DynamicImage.Fluent
@@ -9,7 +8,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 	{
 		public TLayerBuilder Fill(string backgroundColorHexRef)
 		{
-			Layer.Fill.BackgroundColour = (Color) ColorConverter.ConvertFromString(backgroundColorHexRef);
+			Layer.Fill.BackgroundColour = Color.FromHtml(backgroundColorHexRef);
 			return (TLayerBuilder) this;
 		}
 

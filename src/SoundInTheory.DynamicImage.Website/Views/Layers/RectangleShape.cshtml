@@ -1,11 +1,9 @@
-﻿@using System.Windows.Media
-
-@section PageTitle { Rectangle Shape Layer }
+﻿@section PageTitle { Rectangle Shape Layer }
 
 <pre>
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.RectangleShape.Width(500).Height(400).Fill("#AECDEF")
-		.StrokeDashStyle(SoundInTheory.DynamicImage.DashStyle.DashDotDot)
+		.StrokeDashStyle(DashStyle.DashDotDot)
 		.StrokeWidth(3).StrokeFill("#345678")
 		.WithFilter(
 			FilterBuilder.DropShadow.Size(10).Distance(10).Color(Colors.LightGray)
@@ -16,7 +14,7 @@
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(
 		LayerBuilder.RectangleShape.Width(500).Height(400).Fill("#AECDEF")
-			.StrokeDashStyle(SoundInTheory.DynamicImage.DashStyle.DashDotDot)
+			.StrokeDashStyle(DashStyle.DashDotDot)
 			.StrokeWidth(3).StrokeFill("#345678")
 			.WithFilter(
 				FilterBuilder.DropShadow.Size(10).Distance(10).Color(Colors.LightGray)

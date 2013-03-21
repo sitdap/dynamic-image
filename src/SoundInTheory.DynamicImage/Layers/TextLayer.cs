@@ -93,10 +93,10 @@ namespace SoundInTheory.DynamicImage.Layers
 			// If width and height are not set, we need to measure the string.
 			int calculatedWidth, calculatedHeight;
 			Size measuredSize = MeasureString();
-			if (this.Width == null || this.Height == null)
+			if (Width == null || Height == null)
 			{
-				double width = this.Width ?? measuredSize.Width;
-				double height = this.Height ?? measuredSize.Height;
+				double width = Width ?? measuredSize.Width;
+				double height = Height ?? measuredSize.Height;
 				calculatedWidth = (int) width;
 				calculatedHeight = (int)height;
 			}
@@ -119,13 +119,13 @@ namespace SoundInTheory.DynamicImage.Layers
 			{
 				Pen pen = null;
 				if (StrokeWidth > 0 && StrokeColour != null)
-					pen = new Pen(new SolidColorBrush(StrokeColour.Value), StrokeWidth);
+					pen = new Pen(new SolidColorBrush(StrokeColour.Value.ToWpfColor()), StrokeWidth);
 
 				// Calculate position to draw text at, based on vertical text alignment.
 				int x = CalculateHorizontalPosition((int) measuredSize.Width);
 				int y = CalculateVerticalPosition((int) measuredSize.Height);
 
-				dc.DrawGeometry(new SolidColorBrush(ForeColour), pen,
+				dc.DrawGeometry(new SolidColorBrush(ForeColour.ToWpfColor()), pen,
 					ft.BuildGeometry(new Point(x, y)));
 			});
 
@@ -190,10 +190,11 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		private void UseFormattedText(RenderCallback renderCallback)
 		{
-			Brush textBrush = new SolidColorBrush(ForeColour);
+			Brush textBrush = new SolidColorBrush(ForeColour.ToWpfColor());
 			FontDescription fontDescription = Font.GetFontDescription();
-			FormattedText formattedText = new FormattedText(Text, CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
-			                                                fontDescription.Typeface, fontDescription.Size, textBrush);
+			var formattedText = new FormattedText(
+				Text, CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
+				fontDescription.Typeface, fontDescription.Size, textBrush);
 			formattedText.SetTextDecorations(fontDescription.TextDecorations);
 			if (Width != null)
 				formattedText.MaxTextWidth = Width.Value;

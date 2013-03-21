@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage.Util
 {
@@ -43,7 +44,7 @@ namespace SoundInTheory.DynamicImage.Util
 			get { return _height; }
 		}
 
-		unsafe public Color this[int x, int y]
+		unsafe public SWMColor this[int x, int y]
 		{
 			get
 			{
@@ -56,7 +57,7 @@ namespace SoundInTheory.DynamicImage.Util
 #endif
 
 				byte* b = (byte*) _startingPosition + (y * _strideWidth) + (x * _bitsPerPixel);
-				return Color.FromArgb(*(b + 3), *(b + 2), *(b + 1), *b);
+				return SWMColor.FromArgb(*(b + 3), *(b + 2), *(b + 1), *b);
 			}
 
 			set

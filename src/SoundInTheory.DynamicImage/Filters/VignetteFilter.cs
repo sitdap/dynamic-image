@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
+using SWMColors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -18,13 +20,13 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		protected override void ApplyFilter(FastBitmap source, DrawingContext dc, int width, int height)
 		{
-			GradientStopCollection gradientStops = new GradientStopCollection();
-			gradientStops.Add(new GradientStop(Color.FromArgb(0, 0, 0, 0), 0));
-			gradientStops.Add(new GradientStop(Color.FromArgb(0, 0, 0, 0), 0.5));
-			gradientStops.Add(new GradientStop(Color.FromArgb(180, 0, 0, 0), 1.3));
-			gradientStops.Add(new GradientStop(Color.FromArgb(230, 0, 0, 0), 1.7));
+			var gradientStops = new GradientStopCollection();
+			gradientStops.Add(new GradientStop(SWMColor.FromArgb(0, 0, 0, 0), 0));
+			gradientStops.Add(new GradientStop(SWMColor.FromArgb(0, 0, 0, 0), 0.5));
+			gradientStops.Add(new GradientStop(SWMColor.FromArgb(180, 0, 0, 0), 1.3));
+			gradientStops.Add(new GradientStop(SWMColor.FromArgb(230, 0, 0, 0), 1.7));
 
-			RadialGradientBrush brush = new RadialGradientBrush(gradientStops)
+			var brush = new RadialGradientBrush(gradientStops)
 			{
 				GradientOrigin = new Point(0.5, 0.5),
 				Center = new Point(0.5, 0.45),
@@ -35,7 +37,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.DrawImage(source.InnerBitmap, new Rect(0, 0, width, height));
 
 			dc.PushOpacityMask(brush);
-			dc.DrawRectangle(new SolidColorBrush(Colors.Black), null, new Rect(0, 0, width, height));
+			dc.DrawRectangle(new SolidColorBrush(SWMColors.Black), null, new Rect(0, 0, width, height));
 			dc.Pop();
 		}
 	}

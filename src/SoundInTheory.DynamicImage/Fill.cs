@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -42,15 +43,15 @@ namespace SoundInTheory.DynamicImage
 
 		public Brush GetBrush()
 		{
-			switch (this.Type)
+			switch (Type)
 			{
 				case FillType.Solid:
-					return new SolidColorBrush(BackgroundColour);
+					return new SolidColorBrush(BackgroundColour.ToWpfColor());
 				case FillType.Gradient:
 					return new LinearGradientBrush(
-						GradientColourStart, GradientColourEnd,
+						GradientColourStart.ToWpfColor(), GradientColourEnd.ToWpfColor(),
 						GradientAngle);
-				default :
+				default:
 					throw new NotSupportedException();
 			}
 		}

@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects.LayerBlending
 {
@@ -47,7 +48,7 @@ namespace SoundInTheory.DynamicImage.ShaderEffects.LayerBlending
 					randomImage.Lock();
 					for (int y = 0; y < RandomSize; ++y)
 						for (int x = 0; x < RandomSize; ++x)
-							randomImage[x, y] = Color.FromRgb((byte)(random.NextDouble() * 255), 0, 0);
+							randomImage[x, y] = SWMColor.FromRgb((byte)(random.NextDouble() * 255), 0, 0);
 					randomImage.Unlock();
 					_randomBitmap = randomImage.InnerBitmap;
 				}

@@ -1,7 +1,7 @@
-﻿using System.Windows.Media;
-using System.Windows.Media.Effects;
+﻿using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -45,7 +45,7 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		protected override Effect GetEffect(FastBitmap source)
 		{
-			Color transparentColor;
+			SWMColor transparentColor;
 			if (UseFirstPixel)
 			{
 				source.Lock();
@@ -54,7 +54,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			}
 			else
 			{
-				transparentColor = Color;
+				transparentColor = Color.ToWpfColor();
 			}
 
 			return new ColorKeyEffect

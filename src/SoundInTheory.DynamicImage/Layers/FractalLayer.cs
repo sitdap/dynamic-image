@@ -1,5 +1,5 @@
-﻿using System.Windows.Media;
-using SoundInTheory.DynamicImage.Util;
+﻿using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage.Layers
 {
@@ -69,8 +69,8 @@ namespace SoundInTheory.DynamicImage.Layers
 				for (int x = 0; x < Width; x++)
 				{
 					ColorHsv colourHsv = CalculateFractalColour(x, y);
-					Color colour = (Color) colourHsv;
-					Bitmap[x, y] = colour;
+					var colour = (Color) colourHsv;
+					Bitmap[x, y] = colour.ToWpfColor();
 				}
 
 			Bitmap.Unlock();

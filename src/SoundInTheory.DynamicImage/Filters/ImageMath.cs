@@ -1,6 +1,4 @@
-using System.Windows;
-using System.Windows.Media;
-using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -67,7 +65,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// <param name="sw"></param>
 		/// <param name="se"></param>
 		/// <returns>The interpolated value.</returns>
-		public static Color BilinearInterpolate(double x, double y, Color nw, Color ne, Color sw, Color se)
+		public static SWMColor BilinearInterpolate(double x, double y, SWMColor nw, SWMColor ne, SWMColor sw, SWMColor se)
 		{
 			double cx = 1.0 - x;
 			double cy = 1.0 - y;
@@ -93,7 +91,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			m1 = cx * sw.B + x * se.B;
 			byte b = (byte)(cy * m0 + y * m1);
 
-			Color result = Color.FromArgb(a, r, g, b);
+			var result = SWMColor.FromArgb(a, r, g, b);
 			//result = ColorUtility.UnPreMultiplyAlpha(result);
 			return result;
 		}

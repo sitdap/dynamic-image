@@ -5,6 +5,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.ShaderEffects;
 using SoundInTheory.DynamicImage.Util;
+using SWMColors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -62,15 +63,15 @@ namespace SoundInTheory.DynamicImage.Filters
 				}
 			};
 			DrawingContext dc = dv.RenderOpen();
-			dc.DrawRectangle(new SolidColorBrush(Colors.Transparent), null, new Rect(0, 0, source.Width, source.Height));
+			dc.DrawRectangle(new SolidColorBrush(SWMColors.Transparent), null, new Rect(0, 0, source.Width, source.Height));
 
 			switch (Shape)
 			{
 				case FeatherShape.Rectangle :
-					dc.DrawRectangle(new SolidColorBrush(Colors.White), null, new Rect(Radius, Radius, source.Width - Radius * 2, source.Height - Radius * 2));
+					dc.DrawRectangle(new SolidColorBrush(SWMColors.White), null, new Rect(Radius, Radius, source.Width - Radius * 2, source.Height - Radius * 2));
 					break;
 				case FeatherShape.Oval :
-					dc.DrawEllipse(new SolidColorBrush(Colors.White), null, new Point(source.Width / 2.0, source.Height / 2.0), source.Width / 2 - Radius * 2, source.Height / 2 - Radius * 2);
+					dc.DrawEllipse(new SolidColorBrush(SWMColors.White), null, new Point(source.Width / 2.0, source.Height / 2.0), source.Width / 2 - Radius * 2, source.Height / 2 - Radius * 2);
 					break;
 				default :
 					throw new NotSupportedException();

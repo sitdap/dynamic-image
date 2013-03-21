@@ -2,6 +2,7 @@
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -14,7 +15,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			for (int y = 0; y < 256; ++y)
 			{
 				byte colorComponent = (byte) (255 * GetTransferFunctionValue(y / 255.0f));
-				transferLookup[0, y] = Color.FromRgb(colorComponent, colorComponent, colorComponent);
+				transferLookup[0, y] = SWMColor.FromRgb(colorComponent, colorComponent, colorComponent);
 			}
 			transferLookup.Unlock();
 

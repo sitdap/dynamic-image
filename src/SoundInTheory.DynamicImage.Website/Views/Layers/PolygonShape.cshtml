@@ -1,11 +1,9 @@
-﻿@using System.Windows.Media
-
-@section PageTitle { Polygon Shape Layer }
+﻿@section PageTitle { Polygon Shape Layer }
 
 <pre>
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.PolygonShape.Width(300).Height(250).Fill("#AECDEF").Sides(5)
-		.StrokeDashStyle(SoundInTheory.DynamicImage.DashStyle.Dash)
+		.StrokeDashStyle(DashStyle.Dash)
 		.StrokeWidth(3).StrokeFill("#345678").Roundness(25)
 		.WithFilter(
 			FilterBuilder.DropShadow.Size(10).Distance(10).Color(Colors.LightGray)
@@ -16,7 +14,7 @@
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(
 		LayerBuilder.PolygonShape.Width(300).Height(250).Fill("#AECDEF").Sides(5)
-			.StrokeDashStyle(SoundInTheory.DynamicImage.DashStyle.Dash)
+			.StrokeDashStyle(DashStyle.Dash)
 			.StrokeWidth(3).StrokeFill("#345678").Roundness(25)
 			.WithFilter(
 				FilterBuilder.DropShadow.Size(10).Distance(10).Color(Colors.LightGray)

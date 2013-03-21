@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
+using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -45,7 +45,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			return new ColorTintEffect
 			{
 				Amount = Amount/100.0,
-				RequiredColor = Color
+				RequiredColor = Color.ToWpfColor()
 			};
 		}
 

@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
+using SWMColors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
@@ -32,11 +34,11 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 			set { SetValue(AmountProperty, value); }
 		}
 
-		public static readonly DependencyProperty RequiredColorProperty = DependencyProperty.Register("RequiredColor", typeof(Color), typeof(ColorTintEffect), new UIPropertyMetadata(Colors.Red, PixelShaderConstantCallback(1)));
+		public static readonly DependencyProperty RequiredColorProperty = DependencyProperty.Register("RequiredColor", typeof(SWMColor), typeof(ColorTintEffect), new UIPropertyMetadata(SWMColors.Red, PixelShaderConstantCallback(1)));
 
-		public Color RequiredColor
+		public SWMColor RequiredColor
 		{
-			get { return (Color)GetValue(RequiredColorProperty); }
+			get { return (SWMColor)GetValue(RequiredColorProperty); }
 			set { SetValue(RequiredColorProperty, value); }
 		}
 

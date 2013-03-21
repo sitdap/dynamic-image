@@ -1,4 +1,3 @@
-using System.Windows.Media;
 using SoundInTheory.DynamicImage.Layers;
 
 namespace SoundInTheory.DynamicImage.Fluent
@@ -39,7 +38,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public TLayerBuilder StrokeFill(string colorHexRef)
 		{
-			Layer.StrokeFill.BackgroundColour = (Color) ColorConverter.ConvertFromString(colorHexRef);
+			Layer.StrokeFill.BackgroundColour = Color.FromHtml(colorHexRef);
 			return (TLayerBuilder)this;
 		}
 

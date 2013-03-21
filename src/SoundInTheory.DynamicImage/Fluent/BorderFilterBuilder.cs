@@ -1,4 +1,3 @@
-using System.Windows.Media;
 using SoundInTheory.DynamicImage.Filters;
 
 namespace SoundInTheory.DynamicImage.Fluent
@@ -13,7 +12,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public BorderFilterBuilder Fill(string backgroundColorHexRef)
 		{
-			Filter.Fill.BackgroundColour = (Color)ColorConverter.ConvertFromString(backgroundColorHexRef);
+			Filter.Fill.BackgroundColour = Color.FromHtml(backgroundColorHexRef);
 			return this;
 		}
 

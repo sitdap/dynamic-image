@@ -5,6 +5,7 @@ using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
 using SoundInTheory.DynamicImage.Sources;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -47,12 +48,12 @@ namespace SoundInTheory.DynamicImage.Filters
 			curvesLookup.Lock();
 			for (int x = 0; x < 4; ++x)
 			{
-				IEnumerable<CurvePoint> points = curves[x].Points.Cast<CurvePoint>();
+				IEnumerable<CurvePoint> points = curves[x].Points;
 				float[] xValues = points.Select(p => (float) p.Input).ToArray();
 				float[] yValues = points.Select(p => (float) p.Output).ToArray();
 				float[] derivatives = CubicSplineUtility.CalculateSpline(xValues, yValues);
 				for (int y = 0; y < 256; ++y)
-					curvesLookup[x, y] = Color.FromRgb((byte) CubicSplineUtility.InterpolateSpline(xValues, yValues, derivatives, y), 0, 0);
+					curvesLookup[x, y] = SWMColor.FromRgb((byte) CubicSplineUtility.InterpolateSpline(xValues, yValues, derivatives, y), 0, 0);
 			}
 			curvesLookup.Unlock();
 

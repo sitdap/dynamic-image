@@ -1,5 +1,4 @@
 using System.Configuration;
-using System.Windows.Media;
 using SoundInTheory.DynamicImage.Caching;
 using SoundInTheory.DynamicImage.Configuration;
 

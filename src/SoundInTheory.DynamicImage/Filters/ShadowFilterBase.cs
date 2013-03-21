@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Filters

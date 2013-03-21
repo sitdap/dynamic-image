@@ -70,7 +70,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Design" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xaml" />
@@ -91,6 +90,8 @@
     <Compile Include="Caching\DiskCacheProviderBase.cs" />
     <Compile Include="Caching\TransientCacheProvider.cs" />
     <Compile Include="Caching\XmlCacheProvider.cs" />
+    <Compile Include="Color.cs" />
+    <Compile Include="Colors.cs" />
     <Compile Include="Fluent\ColorTintFilterBuilder.cs" />
     <Compile Include="Fluent\FractalLayerBuilder.cs" />
     <Compile Include="Fluent\JuliaFractalLayerBuilder.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DirtyTrackingObject.cs" />
     <Compile Include="Layers\TextLayer.cs" />
+    <Compile Include="TextAlignment.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitType.cs" />
     <Compile Include="Util\CanonicalSplineUtility.cs" />
@@ -240,6 +242,7 @@
     <Compile Include="Util\ShaderEffectUtility.cs" />
     <Compile Include="Util\Util.cs" />
     <Compile Include="Caching\ImageUrlGenerator.cs" />
+    <Compile Include="VerticalAlignment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Caching;
 using SoundInTheory.DynamicImage.Filters;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -229,9 +230,9 @@ namespace SoundInTheory.DynamicImage
 				for (int y = 0; y < output.Height; ++y)
 					for (int x = 0; x < output.Width; ++x)
 					{
-						Color c = output[x, y];
+						var c = output[x, y];
 						//if (output[x, y].A == 0 && output[x, y].R == 0 && output[x, y].G == 0 && output[x, y].B == 0)
-						output[x, y] = Color.FromArgb(255, c.R, c.G, c.B);
+						output[x, y] = SWMColor.FromArgb(255, c.R, c.G, c.B);
 					}
 				output.Unlock();
 			}

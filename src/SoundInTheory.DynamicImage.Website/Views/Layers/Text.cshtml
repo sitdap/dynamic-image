@@ -1,6 +1,4 @@
-﻿@using System.Windows.Media
-
-@section PageTitle { Text Layer }
+﻿@section PageTitle { Text Layer }
 
 <pre>
 @@Html.DynamicImageTag(b => b.WithLayer(
@@ -25,13 +23,13 @@ LayerBuilder.Text.Text("Padded text").FontSize(40).PaddingLeft(15).PaddingRight(
 <pre>
 @@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
 	LayerBuilder.Text.Text("Padded fixed width text").FontSize(40).PaddingLeft(15).PaddingRight(15)
-		.Width(600).HorizontalTextAlignment(System.Windows.TextAlignment.Center)
+		.Width(600).HorizontalTextAlignment(TextAlignment.Center)
 ))
 </pre>
 
 <p>@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
 LayerBuilder.Text.Text("Padded fixed width text").FontSize(40).PaddingLeft(15).PaddingRight(15)
-	.Width(600).HorizontalTextAlignment(System.Windows.TextAlignment.Center)
+	.Width(600).HorizontalTextAlignment(TextAlignment.Center)
 ))</p>
 	
 <pre>

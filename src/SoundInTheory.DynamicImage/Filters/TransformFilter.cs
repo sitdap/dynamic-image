@@ -1,7 +1,8 @@
 using System;
 using System.Windows;
-using System.Windows.Media;
 using SoundInTheory.DynamicImage.Util;
+using SWMColor = System.Windows.Media.Color;
+using SWMColors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -155,7 +156,7 @@ namespace SoundInTheory.DynamicImage.Filters
 					int srcY = (int)Math.Floor(output.Y);
 					double xWeight = output.X - srcX;
 					double yWeight = output.Y - srcY;
-					Color nw, ne, sw, se;
+					SWMColor nw, ne, sw, se;
 
 					if (srcX >= 0 && srcX < srcWidth1 && srcY >= 0 && srcY < srcHeight1)
 					{
@@ -178,7 +179,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			}
 		}
 
-		private Color GetPixel(FastBitmap bitmap, int x, int y, int width, int height)
+		private SWMColor GetPixel(FastBitmap bitmap, int x, int y, int width, int height)
 		{
 			if (x < 0 || x >= width || y < 0 || y >= height)
 			{
@@ -190,11 +191,11 @@ namespace SoundInTheory.DynamicImage.Filters
 						return bitmap[ImageMath.Clamp(x, 0, width - 1), ImageMath.Clamp(y, 0, height - 1)];
 					case EdgeAction.RgbClamp:
 					{
-						Color edgeColour = bitmap[ImageMath.Clamp(x, 0, width - 1), ImageMath.Clamp(y, 0, height - 1)];
-						return Color.FromArgb(0, edgeColour.R, edgeColour.G, edgeColour.B);
+						var edgeColour = bitmap[ImageMath.Clamp(x, 0, width - 1), ImageMath.Clamp(y, 0, height - 1)];
+						return SWMColor.FromArgb(0, edgeColour.R, edgeColour.G, edgeColour.B);
 					}
 					case EdgeAction.Zero:
-						return Colors.Transparent;
+						return SWMColors.Transparent;
 				}
 			}
 			return bitmap[x, y];

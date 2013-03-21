@@ -67,7 +67,7 @@ namespace SoundInTheory.DynamicImage.Filters
 			dc.Pop();
 
 			// Draw border.
-			dc.DrawRoundedRectangle(null, new Pen(new SolidColorBrush(BorderColor), BorderWidth),
+			dc.DrawRoundedRectangle(null, new Pen(new SolidColorBrush(BorderColor.ToWpfColor()), BorderWidth),
 				new Rect(BorderWidth / 2.0, BorderWidth / 2.0, width - BorderWidth, height - BorderWidth),
 				Roundness, Roundness);
 		}

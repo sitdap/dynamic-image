@@ -235,9 +235,7 @@
     <Compile Include="Util\Int32RectUtility.cs" />
     <Compile Include="Util\Int32Size.cs" />
     <Compile Include="Util\MathUtility.cs" />
-    <Compile Include="Util\Object.extensions.cs" />
     <Compile Include="Util\PhotoshopCurvesReader.cs" />
-    <Compile Include="Util\ProviderUtility.cs" />
     <Compile Include="Util\RenderTargetBitmapUtility.cs" />
     <Compile Include="Util\ShaderEffectUtility.cs" />
     <Compile Include="Util\Util.cs" />

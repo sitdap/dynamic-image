@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SoundInTheory.DynamicImage
+﻿namespace SoundInTheory.DynamicImage
 {
 	/// <summary>
 	/// Specifies the anchor position for layers.

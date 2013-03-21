@@ -26,26 +26,6 @@ namespace SoundInTheory.DynamicImage.Util
 			}
 		}
 
-		public static string MergeScript(string firstScript, string secondScript)
-		{
-			if (!string.IsNullOrEmpty(firstScript))
-				return (firstScript + secondScript);
-			if (secondScript.TrimStart(new char[0]).StartsWith("javascript:", StringComparison.Ordinal))
-				return secondScript;
-			return ("javascript:" + secondScript);
-		}
-
-		public static string EnsureEndWithSemiColon(string value)
-		{
-			if (value != null)
-			{
-				int length = value.Length;
-				if ((length > 0) && (value[length - 1] != ';'))
-					return (value + ";");
-			}
-			return value;
-		}
-
 		public static void SendImageToHttpResponse(HttpContext context, GeneratedImage generatedImage)
 		{
 			context.Response.ContentType = generatedImage.Properties.MimeType;

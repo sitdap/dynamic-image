@@ -36,7 +36,6 @@ task PackageMain -depends Test {
      
     # Copy NuSpec template files to package dir
     cp "$build_dir\$product_name\$product_name.nuspec" "$package_dir_main"
-    copy_files "$build_dir\$product_name\content" "$package_dir_main\content" "*.*"
     cp "$build_dir\LICENSE.txt" "$package_dir_main"
 
     # Copy binary files to package dir

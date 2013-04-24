@@ -284,6 +284,7 @@
     <None Include="ShaderEffects\RgbHsvConversion.fxh" />
     <None Include="ShaderEffects\LayerBlending\LayerBlending.fxh" />
     <Effect Include="ShaderEffects\LayerBlending\LayerBlenderEffectNormal.fx" />
+    <None Include="SoundInTheory.DynamicImage.nuspec" />
     <None Include="SoundInTheory.OpenSource.snk" />
   </ItemGroup>
   <ItemGroup>

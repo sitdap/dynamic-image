@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>DynamicImage.Mvc</id>
+		<version>$version$</version>
+		<title>DynamicImage.Mvc</title>
+		<authors>$author$</authors>
+		<owners>Tim Jones</owners>
+		<description>$description$</description>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<tags>.net40 ASP.NET image manipulation filters resize crop MVC</tags>
+		<projectUrl>https://github.com/sitdap/dynamic-image</projectUrl>
+		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+		<dependencies>
+			<dependency id="DynamicImage" version="$version$" />
+		</dependencies>
+	</metadata>
+</package>

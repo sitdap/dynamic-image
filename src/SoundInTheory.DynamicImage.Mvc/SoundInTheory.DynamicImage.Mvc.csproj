@@ -58,6 +58,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="SoundInTheory.DynamicImage.Mvc.nuspec" />
     <None Include="SoundInTheory.OpenSource.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,7 +7,7 @@
 	<li class="active">@Html.ActionLink("Tank", "RenderedTank", "Extensions")</li>
 </ul>
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new RenderedLayerBuilder().Width(600).Height(600).ReverseWindingOrder()
 		.SourceFileName("~/Assets/Models/Obj/Tank.obj")

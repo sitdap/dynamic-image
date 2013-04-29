@@ -1,6 +1,6 @@
 ﻿@section PageTitle { Website Screenshot Layer }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com").Timeout(3000).BrowserWidth(1024)
 		.WithFilter(FilterBuilder.Resize.ToWidth(500))

@@ -1,6 +1,6 @@
 ﻿@section PageTitle { Bytes Source Image }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceBytes(File.ReadAllBytes(Server.MapPath("~/Assets/Images/AutumnLeaves.jpg")))
 		.WithFilter(FilterBuilder.Resize.To(500, 500))

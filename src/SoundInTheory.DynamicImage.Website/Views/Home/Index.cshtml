@@ -19,7 +19,7 @@
 				internally for bitmap manipulation. Most of the filters are written as WPF shader effects, which are compiled into fast SSE instructions, and 
 				run with good performance in a server environment.</p>
 			
-			<pre>
+			<pre class="prettyprint">
 string imageUrl = new CompositionBuilder()
 	.WithLayer(LayerBuilder.Image.SourceFile("myimage.png")
 		.WithFilter(FilterBuilder.Resize.ToWidth(800))

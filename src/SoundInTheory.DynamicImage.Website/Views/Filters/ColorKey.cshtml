@@ -3,7 +3,7 @@
 
 <div class="alert alert-info">You can also use the top-left pixel in the source image as the transparent color</div>
 
-<pre>
+<pre class="prettyprint">
 &lt;div style="background-color:Red;width:130px;height:130px;padding-left:30px;padding-top:30px"&gt;
 	&lt;p&gt;
 		@@Html.DynamicImageTag(b => b.ImageFormat(DynamicImageFormat.Png).FillBackgroundColor(Colors.Transparent).WithLayer(

@@ -1,6 +1,6 @@
 ﻿@section PageTitle { Indexed Source Image }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/AstonMartin.gif")
 		.WithFilter(FilterBuilder.Resize.To(800, 800))

@@ -3,7 +3,7 @@
 
 <div class="alert alert-info">The original image is not resized; the border is added around the edge of the image.</div>
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
 		.WithFilter(FilterBuilder.Resize.To(500, 500))

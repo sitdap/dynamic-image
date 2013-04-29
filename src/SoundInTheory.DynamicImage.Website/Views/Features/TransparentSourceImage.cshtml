@@ -1,6 +1,6 @@
 ﻿@section PageTitle { Transparent Source Image }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.ImageFormat(DynamicImageFormat.Png).FillBackgroundColor(Colors.Transparent).WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/BoardExample.png")
 		.WithFilter(FilterBuilder.Resize.To(800, 800))

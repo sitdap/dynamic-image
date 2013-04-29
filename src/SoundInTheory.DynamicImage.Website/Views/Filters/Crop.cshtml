@@ -2,7 +2,7 @@
 
 @section SubTitle { Crops an image. The rectangular section to crop is defined by X/Y coordinates and a size. }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
 		.WithFilter(FilterBuilder.Resize.To(300, 300))

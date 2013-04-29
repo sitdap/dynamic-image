@@ -1,6 +1,6 @@
 ﻿@section PageTitle { PDF Layer }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new PdfLayerBuilder().SourceFileName("~/Assets/PDFs/pdf-test.pdf").PageNumber(1)
 		.WithFilter(FilterBuilder.Resize.ToWidth(500))

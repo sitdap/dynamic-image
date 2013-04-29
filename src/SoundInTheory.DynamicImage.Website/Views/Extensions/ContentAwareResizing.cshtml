@@ -1,6 +1,6 @@
 ﻿@section PageTitle { Content Aware Resize Filter }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 		.WithFilter(FilterBuilder.Resize.ToWidth(500))
@@ -14,7 +14,7 @@
 	))
 </p>
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 		.WithFilter(FilterBuilder.Resize.ToWidth(500))
@@ -30,7 +30,7 @@
 	))
 </p>
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 		.WithFilter(FilterBuilder.Resize.ToWidth(500))

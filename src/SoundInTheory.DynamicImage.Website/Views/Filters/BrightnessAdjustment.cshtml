@@ -1,7 +1,7 @@
 ﻿@section PageTitle { Brightness Adjustment Filter }
 @section SubTitle { Adjusts the brightness of an image }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
 		.WithFilter(FilterBuilder.Resize.To(500, 500))

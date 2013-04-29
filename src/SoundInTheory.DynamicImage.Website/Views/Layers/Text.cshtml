@@ -1,6 +1,6 @@
 ﻿@section PageTitle { Text Layer }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Text.Text("Generic message.").FontSize(40).FontBold().StrokeWidth(2).StrokeColor(Colors.Red)
 ))
@@ -10,7 +10,7 @@
 	LayerBuilder.Text.Text("Generic message.").FontSize(40).FontBold().StrokeWidth(2).StrokeColor(Colors.Red)
 ))</p>
 	
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
 	LayerBuilder.Text.Text("Padded text").FontSize(40).PaddingLeft(15).PaddingRight(15)
 ))
@@ -20,7 +20,7 @@
 LayerBuilder.Text.Text("Padded text").FontSize(40).PaddingLeft(15).PaddingRight(15)
 ))</p>
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightGray).WithLayer(
 	LayerBuilder.Text.Text("Padded fixed width text").FontSize(40).PaddingLeft(15).PaddingRight(15)
 		.Width(600).HorizontalTextAlignment(TextAlignment.Center)
@@ -32,7 +32,7 @@ LayerBuilder.Text.Text("Padded fixed width text").FontSize(40).PaddingLeft(15).P
 	.Width(600).HorizontalTextAlignment(TextAlignment.Center)
 ))</p>
 	
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Text.Text("Message using a custom font.").FontSize(50).StrokeColor(Colors.Blue)
 		.FontCustomFontFile("~/Assets/Fonts/ADamnMess.ttf").FontName("A Damn Mess")

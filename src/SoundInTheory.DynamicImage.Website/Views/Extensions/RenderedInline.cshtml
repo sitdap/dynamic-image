@@ -7,7 +7,7 @@
 	<li>@Html.ActionLink("Tank", "RenderedTank", "Extensions")</li>
 </ul>
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightBlue).WithLayer(
 	new RenderedLayerBuilder().Width(600).Height(300).Lighting(false)
 		.SourceScene(ViewBag.Scene)

@@ -2,7 +2,7 @@
 
 @section SubTitle { Sharpens an image by unsharp masking }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg")
 		.WithFilter(FilterBuilder.Resize.To(500, 500))

@@ -1,7 +1,7 @@
 ﻿@section PageTitle { Contrast Adjustment Filter }
 @section SubTitle { Adjusts the contrast of the layer }
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
 		.WithFilter(FilterBuilder.Resize.To(300, 300))
@@ -17,7 +17,7 @@
 		))
 </p>
 
-<pre>
+<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
 		.WithFilter(FilterBuilder.Resize.To(300, 300))

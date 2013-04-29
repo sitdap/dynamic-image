@@ -1,9 +1,19 @@
 ﻿@section PageTitle { Filters }
 
-<p class="summary">Filters can be applied to @Html.ActionLink("layers", "Index", "Layers"). You can apply as many filters as you like
-to a layer. In addition, each image
-has a set of @Html.ActionLink("global filters", "GlobalFilters", "Features") that will be applied after all 
-layers have been composited.</p>
+<p>Filters can be applied to @Html.ActionLink("layers", "Index", "Layers"):</p>
+
+<pre class="prettyprint">
+var composition = new Composition();
+var myLayer = new ImageLayer();
+composition.Layers.Add(myLayer);
+// ... Set image source
+myLayer.Filters.Add(new ColorTintFilter());
+myLayer.Filters.Add(new OuterGlowFilter());
+</pre>
+	
+<p>You can apply as many filters as you like to a layer. In addition, each image
+	has a set of @Html.ActionLink("global filters", "GlobalFilters", "Features") that will be applied after all 
+	layers have been composited.</p>
 
 <ul class="thumbnails thumbnails-index">
 	<li class="span3">
@@ -97,13 +107,297 @@ layers have been composited.</p>
 		<div class="thumbnail">
 			@Html.DynamicImageTag(b => b.WithLayer(
 				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
-					.WithFilter(FilterBuilder.Resize.To(300, 300))
-					.WithFilter(FilterBuilder.AdjustContrast.Level(-90))
-				))
+				            .WithFilter(FilterBuilder.Resize.To(300, 300))
+				            .WithFilter(FilterBuilder.AdjustContrast.Level(-90))
+				                           ))
 			<div class="caption">
 				<h5>Contrast Adjustment Filter</h5>
 				<p>Adjusts the contrast of the layer.</p>
 				<p>@Html.ActionLink("More details", "ContrastAdjustment", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(600, 600))
+				            .WithFilter(FilterBuilder.Crop.X(10).To(210, 158))))
+			<div class="caption">
+				<h5>Crop Filter</h5>
+				<p>Crops an image.</p>
+				<p>@Html.ActionLink("More details", "Crop", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(260, 180))
+				            .WithFilter(FilterBuilder.AdjustCurves.UsingFile("~/Assets/Misc/CrossProcess-Curves.acv"))
+				                           ))
+			<div class="caption">
+				<h5>Curves Filter</h5>
+				<p>Maps input tones to output tones using either specified curve points or a Photoshop ACV file.</p>
+				<p>@Html.ActionLink("More details", "Curves", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.DistortCorners.TopLeft(0, -50).TopRight(550, 0).BottomRight(550, 500).BottomLeft(0, 600))
+				                           ).WithGlobalFilter(FilterBuilder.Resize.To(210, 158, ResizeMode.Fill)))
+			<div class="caption">
+				<h5>Distort Corners Filter</h5>
+				<p>Performs a perspective distortion on an image.</p>
+				<p>@Html.ActionLink("More details", "DistortCorners", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b
+				                           .WithLayer(
+					                           LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+					                                       .WithFilter(FilterBuilder.Resize.To(500, 500))
+					                                       .WithFilter(FilterBuilder.DropShadow.Size(10).Angle(315).Distance(10).Color(Colors.LightGray))
+				                           ).WithGlobalFilter(FilterBuilder.Resize.To(210, 158, ResizeMode.Fill)))
+			<div class="caption">
+				<h5>Drop Shadow Filter</h5>
+				<p>Adds a drop shadow to an image.</p>
+				<p>@Html.ActionLink("More details", "DropShadow", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/Desert.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.Emboss.Width(0.1f).Amount(15))
+				                           ))
+			<div class="caption">
+				<h5>Emboss Filter</h5>
+				<p>Embosses an image.</p>
+				<p>@Html.ActionLink("More details", "Emboss", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b
+				.WithLayer(
+					LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+					            .WithFilter(FilterBuilder.Resize.To(300, 300))
+					            .WithFilter(FilterBuilder.Feather.Radius(10).Shape(FeatherShape.Oval))
+				).WithGlobalFilter(FilterBuilder.Resize.To(210, 158, ResizeMode.Fill)))
+			<div class="caption">
+				<h5>Feather Filter</h5>
+				<p>Feathers the edge of an image.</p>
+				<p>@Html.ActionLink("More details", "Feather", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.GaussianBlur.Radius(15))
+				                           ))
+			<div class="caption">
+				<h5>Gaussian Blur Filter</h5>
+				<p>Removes fine image detail &amp; noise leaving only larger scale changes.</p>
+				<p>@Html.ActionLink("More details", "GaussianBlur", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.Grayscale)
+				                           ))
+			<div class="caption">
+				<h5>Grayscale Filter</h5>
+				<p>Converts an image to grayscale.</p>
+				<p>@Html.ActionLink("More details", "Grayscale", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.Inversion)
+				                           ))
+			<div class="caption">
+				<h5>Inversion Filter</h5>
+				<p>Inverts the colours of the image.</p>
+				<p>@Html.ActionLink("More details", "Inversion", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.AdjustOpacity.Opacity(50))
+				                           ))
+			<div class="caption">
+				<h5>Opacity Adjustment Filter</h5>
+				<p>Adjusts the opacity of an image.</p>
+				<p>@Html.ActionLink("More details", "OpacityAdjustment", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.OuterGlow.Size(10).Color(Colors.Blue).Opacity(100))
+				                           ))
+			<div class="caption">
+				<h5>Outer Glow Filter</h5>
+				<p>Adjusts the opacity of an image.</p>
+				<p>@Html.ActionLink("More details", "OuterGlow", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				                           ))
+			<div class="caption">
+				<h5>Resize Filter</h5>
+				<p>Changes the size of an image.</p>
+				<p>@Html.ActionLink("More details", "Resize", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Rotate.To(25))
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				                           ))
+			<div class="caption">
+				<h5>Rotation Filter</h5>
+				<p>Rotates an image based on a specified angle.</p>
+				<p>@Html.ActionLink("More details", "Rotation", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.RoundCorners.BorderColor(Colors.Red).BorderWidth(20).Roundness(40))
+				                           ))
+			<div class="caption">
+				<h5>Round Corners Filter</h5>
+				<p>Makes the corners of an image rounded, innit.</p>
+				<p>@Html.ActionLink("More details", "RoundCorners", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.Sepia)
+				                           ))
+			<div class="caption">
+				<h5>Sepia Filter</h5>
+				<p>Applies an old-photograph look to an image.</p>
+				<p>@Html.ActionLink("More details", "Sepia", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(300, 300)).WithFilter(FilterBuilder.Crop.To(300, 170))
+				            .WithFilter(FilterBuilder.ShinyFloor.ReflectionPercentage(30).ReflectionOpacity(25))
+				                           ))
+			<div class="caption">
+				<h5>Shiny Floor Filter</h5>
+				<p>Creates the effect of an image placed on a shiny floor.</p>
+				<p>@Html.ActionLink("More details", "ShinyFloor", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/Penguins.jpg")
+					.WithFilter(FilterBuilder.Resize.To(210, 158))
+					.WithFilter(FilterBuilder.Solarize)
+				))
+			<div class="caption">
+				<h5>Solarize Filter</h5>
+				<p>Applies a <a href="http://en.wikipedia.org/wiki/Solarisation">solarize</a> effect to an image.</p>
+				<p>@Html.ActionLink("More details", "Solarize", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg")
+				            .WithFilter(FilterBuilder.Resize.To(210, 158))
+				            .WithFilter(FilterBuilder.UnsharpMask.Threshold(0))
+				                           ))
+			<div class="caption">
+				<h5>Unsharp Mask Filter</h5>
+				<p>Sharpens an image by unsharp masking.</p>
+				<p>@Html.ActionLink("More details", "UnsharpMask", "Filters", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+					.WithFilter(FilterBuilder.Resize.To(210, 158))
+					.WithFilter(FilterBuilder.Vignette)
+				))
+			<div class="caption">
+				<h5>Vignette Filter</h5>
+				<p>Applies a vignette to the edges of the image.</p>
+				<p>@Html.ActionLink("More details", "Vignette", "Filters", null, new { @class = "btn btn-primary" })</p>
 			</div>
 		</div>
 	</li>

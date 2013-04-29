@@ -31,4 +31,5 @@ p.summary, ul.summary {
 
 pre.prettyprint {
 	tab-size: 2;
+	padding: 5px !important;
 }

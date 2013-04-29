@@ -1,9 +1,15 @@
 ﻿@section PageTitle { Layers }
 
-<p class="summary">Images in DynamicImage are composed of one or more layers, and each layer can have zero or more
-@Html.ActionLink("filters", "Index", "Filters") applied. Layers can be offset in relation to the parent image, and each layer can have its own 
-@Html.ActionLink("blend mode", "BlendModes", "Features") applied. DynamicImage includes several built-in layer types, 
-and it is straightforward to create your own.</p>
+<p>Images in DynamicImage are composed of one or more layers, and each layer can have zero or more
+	@Html.ActionLink("filters", "Index", "Filters") applied. Layers can be offset in relation to the parent image, and each layer can have its own 
+	@Html.ActionLink("blend mode", "BlendModes", "Features") applied. DynamicImage includes several built-in layer types, 
+	and it is straightforward to create your own.</p>
+
+<pre class="prettyprint">
+var composition = new Composition();
+composition.Layers.Add(new ImageLayer { SourceFileName = "~/assets/photo.jpg" });
+composition.Layers.Add(new TextLayer { Text = "Hello World" });
+</pre>
 
 <ul class="thumbnails thumbnails-index">
 	<li class="span3">

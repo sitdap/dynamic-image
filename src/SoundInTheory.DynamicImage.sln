@@ -14,6 +14,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Mvc", "SoundInTheory.DynamicImage.Mvc\SoundInTheory.DynamicImage.Mvc.csproj", "{B7A0D43C-DF4A-4070-840F-156C92E9F54F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Extensions.ContentAwareResizing", "SoundInTheory.DynamicImage.Extensions.ContentAwareResizing\SoundInTheory.DynamicImage.Extensions.ContentAwareResizing.csproj", "{8331A331-78AB-4C35-824B-27908AB11065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Extensions.Pdf", "SoundInTheory.DynamicImage.Extensions.Pdf\SoundInTheory.DynamicImage.Extensions.Pdf.csproj", "{F2B9BCE6-12C4-4BFA-B562-67E3982EE34E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Extensions.Rendered3D", "SoundInTheory.DynamicImage.Extensions.Rendered3D\SoundInTheory.DynamicImage.Extensions.Rendered3D.csproj", "{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot", "SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot.csproj", "{FCB2559E-8CC6-40E2-882B-03C71533D859}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +44,22 @@ Global
 		{B7A0D43C-DF4A-4070-840F-156C92E9F54F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7A0D43C-DF4A-4070-840F-156C92E9F54F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7A0D43C-DF4A-4070-840F-156C92E9F54F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8331A331-78AB-4C35-824B-27908AB11065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8331A331-78AB-4C35-824B-27908AB11065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8331A331-78AB-4C35-824B-27908AB11065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8331A331-78AB-4C35-824B-27908AB11065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2B9BCE6-12C4-4BFA-B562-67E3982EE34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2B9BCE6-12C4-4BFA-B562-67E3982EE34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2B9BCE6-12C4-4BFA-B562-67E3982EE34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2B9BCE6-12C4-4BFA-B562-67E3982EE34E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB2559E-8CC6-40E2-882B-03C71533D859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB2559E-8CC6-40E2-882B-03C71533D859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB2559E-8CC6-40E2-882B-03C71533D859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB2559E-8CC6-40E2-882B-03C71533D859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

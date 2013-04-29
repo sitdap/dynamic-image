@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>DotWarp</id>
+    <version>1.2.1</version>
+    <title>DotWarp</title>
+    <authors>Tim Jones</authors>
+    <owners>Tim Jones</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/roastedamoeba/dotwarp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>DotWarp is an easy-to-use 3D software rasterization library, which produces 2D rendered images from 3D mesh files. It uses WARP, a 3D software rasterizer built-in to Windows Vista / 7 / Server 2008 R2, for the actual rasterization. It is a .NET 4.0 project.</description>
+    <summary>DotWarp is an easy-to-use 3D software rasterization library.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>.net40 3D rasterize rasterization mesh model WARP Direct3D</tags>
+    <dependencies>
+      <dependency id="Nexus" version="1.0.0.0" />
+      <dependency id="Nexus.Wpf" version="1.0.0.0" />
+      <dependency id="Meshellator" version="1.0.0.0" />
+    </dependencies>
+  </metadata>
+</package>

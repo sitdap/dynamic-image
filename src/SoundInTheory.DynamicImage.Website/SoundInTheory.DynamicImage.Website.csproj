@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="App_Start\DynamicImage.cs" />
     <Compile Include="Controllers\CombosController.cs" />
+    <Compile Include="Controllers\ExtensionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FeaturesController.cs" />
     <Compile Include="Controllers\FiltersController.cs" />
@@ -103,6 +104,7 @@
     <Content Include="Assets\Images\GrayscaleAutumnLeaves.jpg" />
     <Content Include="Assets\Images\GrayscaleAutumnLeaves.png" />
     <Content Include="Assets\Images\Horse.jpg" />
+    <Content Include="Assets\Images\Koala.jpg" />
     <Content Include="Assets\Images\Mask.png" />
     <Content Include="Assets\Images\oryxantelope-small.jpg" />
     <Content Include="Assets\Images\Penguins.jpg" />
@@ -114,6 +116,8 @@
     <Content Include="Assets\Js\bootstrap.js" />
     <Content Include="Assets\Js\bootstrap.min.js" />
     <Content Include="Assets\Js\jquery.js" />
+    <Content Include="Assets\Models\Obj\engine_diff_tex_small.png" />
+    <Content Include="Assets\Models\Obj\turret_alt_diff_tex_small.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -175,6 +179,22 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.ContentAwareResizing\SoundInTheory.DynamicImage.Extensions.ContentAwareResizing.csproj">
+      <Project>{8331a331-78ab-4c35-824b-27908ab11065}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.ContentAwareResizing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.Pdf\SoundInTheory.DynamicImage.Extensions.Pdf.csproj">
+      <Project>{f2b9bce6-12c4-4bfa-b562-67e3982ee34e}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.Pdf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.Rendered3D\SoundInTheory.DynamicImage.Extensions.Rendered3D.csproj">
+      <Project>{789be1a0-2e7d-4663-b1b4-3a3d205c4a7e}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.Rendered3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot.csproj">
+      <Project>{fcb2559e-8cc6-40e2-882b-03c71533d859}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Mvc\SoundInTheory.DynamicImage.Mvc.csproj">
       <Project>{B7A0D43C-DF4A-4070-840F-156C92E9F54F}</Project>
       <Name>SoundInTheory.DynamicImage.Mvc</Name>
@@ -186,6 +206,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Extensions\ContentAwareResizing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PDFs\pdf-test.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Models\3ds\75Cathedral-model.3DS" />
+    <Content Include="Assets\Models\3ds\85-nissan-fairlady.3DS" />
+    <Content Include="Assets\Models\Obj\Tank.mtl" />
+    <Content Include="Assets\Models\Obj\Tank.obj" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

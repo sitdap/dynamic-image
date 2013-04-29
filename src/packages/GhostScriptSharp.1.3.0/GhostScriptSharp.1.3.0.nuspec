@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>GhostScriptSharp</id>
+    <version>1.3.0</version>
+    <title>GhostScriptSharp</title>
+    <authors>https://github.com/mephraim/ghostscriptsharp/</authors>
+    <owners>https://github.com/mephraim/ghostscriptsharp/</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET wrapper for Ghostscript pdf conversion toolkit</description>
+    <releaseNotes>Placed location of dll in project. Keeping it in tools will not work for people who commit nuget packages to source control since their tools paths might be different.</releaseNotes>
+    <copyright />
+    <language />
+    <tags>.NET ghostscript pdf converson image</tags>
+  </metadata>
+</package>

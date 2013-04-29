@@ -37,6 +37,15 @@ namespace SoundInTheory.DynamicImage
 			};
 		}
 
+		internal Color(uint packedValue)
+			: this()
+		{
+			R = (byte) (packedValue);
+			G = (byte) (packedValue >> 8);
+			B = (byte) (packedValue >> 16);
+			A = (byte) (packedValue >> 24);
+		}
+
 		public byte A { get; set; }
 		public byte R { get; set; }
 		public byte G { get; set; }

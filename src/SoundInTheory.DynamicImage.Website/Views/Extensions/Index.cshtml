@@ -1,58 +1,10 @@
-﻿@using System.Windows.Media
-
-@section PageTitle { DynamicImage Extensions }
-@section SubTitle {  }
+﻿@section PageTitle { Extensions }
 
 <ul class="thumbnails">
 	<li class="span3">
 		<div class="thumbnail">
 			@Html.DynamicImageTag(b => b.WithLayer(
-				new PdfLayerBuilder().SourceFileName("~/Assets/PDFs/pdf-test.pdf").PageNumber(1)
-					.WithFilter(FilterBuilder.Resize.ToWidth(260))
-					.WithFilter(FilterBuilder.Crop.To(260, 180))
-					.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
-				))
-			<div class="caption">
-				<h5>PDF Layer</h5>
-				<p>Take a snapshot of any given page of a PDF document.</p>
-				<p>@Html.ActionLink("More details", "Pdf", "Layers", null, new { @class = "btn btn-primary" })</p>
-			</div>
-		</div>
-	</li>
-	<li class="span3">
-		<div class="thumbnail">
-			@Html.DynamicImageTag(b => b.WithLayer(
-				new RenderedLayerBuilder().Width(260).Height(180)
-					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
-					.WithAutoCamera(45, 10)
-					.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
-				))
-			<div class="caption">
-				<h5>Rendered 3D Layer</h5>
-				<p>Renders a 3D model, or dynamic mesh, with a configurable camera position.</p>
-				<p>@Html.ActionLink("More details", "RenderedCar", "Layers", null, new { @class = "btn btn-primary" })</p>
-			</div>
-		</div>
-	</li>
-	<li class="span3">
-		<div class="thumbnail">
-			@Html.DynamicImageTag(b => b.WithLayer(
-				new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com").Timeout(3000).BrowserWidth(1024)
-					.WithFilter(FilterBuilder.Resize.ToWidth(260))
-					.WithFilter(FilterBuilder.Crop.To(260, 180))
-					.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
-			))
-			<div class="caption">
-				<h5>Website Screenshot Layer</h5>
-				<p>Take a screenshot of a website with a configurable timeout and browser width.</p>
-				<p>@Html.ActionLink("More details", "WebsiteScreenshot", "Layers", null, new { @class = "btn btn-primary" })</p>
-			</div>
-		</div>
-	</li>
-	<li class="span3">
-		<div class="thumbnail">
-			@Html.DynamicImageTag(b => b.WithLayer(
-				LayerBuilder.Image.SourceFile("~/Assets/Photos/tower.jpg")
+				LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 					.WithFilter(FilterBuilder.Resize.ToWidth(500))
 					.WithFilter(new ContentAwareResizeFilterBuilder().To(260, 180).ConvolutionType(ContentAwareResizeFilterConvolutionType.V1))
 					.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
@@ -60,7 +12,52 @@
 			<div class="caption">
 				<h5>Content Aware Resize Filter</h5>
 				<p>Resizes an image uses a content-aware technique known as seam carving.</p>
-				<p>@Html.ActionLink("More details", "ContentAwareResize", "Filters", null, new { @class = "btn btn-primary" })</p>
+				<p>@Html.ActionLink("More details", "ContentAwareResizing", "Extensions", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new PdfLayerBuilder().SourceFileName("~/Assets/PDFs/pdf-test.pdf").PageNumber(1)
+				                     .WithFilter(FilterBuilder.Resize.ToWidth(260))
+				                     .WithFilter(FilterBuilder.Crop.To(260, 180))
+				                     .WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
+				                           ))
+			<div class="caption">
+				<h5>PDF Layer</h5>
+				<p>Take a snapshot of any given page of a PDF document.</p>
+				<p>@Html.ActionLink("More details", "Pdf", "Extensions", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(260).Height(180)
+				                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+				                          .WithAutoCamera(45, 10)
+				                          .WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
+				                           ))
+			<div class="caption">
+				<h5>Rendered 3D Layer</h5>
+				<p>Renders a 3D model, or dynamic mesh, with a configurable camera position.</p>
+				<p>@Html.ActionLink("More details", "RenderedCar", "Extensions", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com").Timeout(3000).BrowserWidth(1024)
+				                                   .WithFilter(FilterBuilder.Resize.ToWidth(260))
+				                                   .WithFilter(FilterBuilder.Crop.To(260, 180))
+				                                   .WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
+				                           ))
+			<div class="caption">
+				<h5>Website Screenshot Layer</h5>
+				<p>Take a screenshot of a website with a configurable timeout and browser width.</p>
+				<p>@Html.ActionLink("More details", "WebsiteScreenshot", "Extensions", null, new { @class = "btn btn-primary" })</p>
 			</div>
 		</div>
 	</li>

@@ -4,6 +4,11 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 {
 	public class FeaturesController : Controller
 	{
+		public ActionResult Index()
+		{
+			return View();
+		}
+
 		public ActionResult BlendModes()
 		{
 			return View();

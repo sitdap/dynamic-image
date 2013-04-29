@@ -1,117 +1,12 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>DynamicImage, from Sound in Theory</title>
+﻿@{ Layout = "~/Views/Shared/_LayoutBase.cshtml"; }
 
-	<link href="/assets/css/bootstrap.css" rel="stylesheet">
-	<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet" />
-	<link href="/assets/css/screen.css" rel="stylesheet" />
-</head>
+<div class="row">
+	@Html.Partial("_Nav")
 
-<body>
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand" href="/">DynamicImage</a>
-				
-				<ul class="nav">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Layers
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li>@Html.ActionLink("Julia Fractal", "JuliaFractal", "Layers")</li>
-							<li>@Html.ActionLink("Mandelbrot Fractal", "MandelbrotFractal", "Layers")</li>
-							<li>@Html.ActionLink("Polygon Shape", "PolygonShape", "Layers")</li>
-							<li>@Html.ActionLink("Rectangle Shape", "RectangleShape", "Layers")</li>
-							<li>@Html.ActionLink("Text", "Text", "Layers")</li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Filters
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li>@Html.ActionLink("Border", "Border", "Filters")</li>
-							<li>@Html.ActionLink("Brightness Adjustment", "BrightnessAdjustment", "Filters")</li>
-							<li>@Html.ActionLink("Clipping Mask", "ClippingMask", "Filters")</li>
-							<li>@Html.ActionLink("Color Key", "ColorKey", "Filters")</li>
-							<li>@Html.ActionLink("Color Tint", "ColorTint", "Filters")</li>
-							<li>@Html.ActionLink("Contrast Adjustment", "ContrastAdjustment", "Filters")</li>
-							<li>@Html.ActionLink("Crop", "Crop", "Filters")</li>
-							<li>@Html.ActionLink("Curves", "Curves", "Filters")</li>
-							<li>@Html.ActionLink("Distort Corners", "DistortCorners", "Filters")</li>
-							<li>@Html.ActionLink("Drop Shadow", "DropShadow", "Filters")</li>
-							<li>@Html.ActionLink("Emboss", "Emboss", "Filters")</li>
-							<li>@Html.ActionLink("Feather", "Feather", "Filters")</li>
-							<li>@Html.ActionLink("Gaussian Blur", "GaussianBlur", "Filters")</li>
-							<li>@Html.ActionLink("Grayscale", "Grayscale", "Filters")</li>
-							<li>@Html.ActionLink("Inversion", "Inversion", "Filters")</li>
-							<li>@Html.ActionLink("Opacity Adjustment", "OpacityAdjustment", "Filters")</li>
-							<li>@Html.ActionLink("Outer Glow", "OuterGlow", "Filters")</li>
-							<li>@Html.ActionLink("Resize", "Resize", "Filters")</li>
-							<li>@Html.ActionLink("Rotation", "Rotation", "Filters")</li>
-							<li>@Html.ActionLink("Round Corners", "RoundCorners", "Filters")</li>
-							<li>@Html.ActionLink("Sepia", "Sepia", "Filters")</li>
-							<li>@Html.ActionLink("Shiny Floor", "ShinyFloor", "Filters")</li>
-							<li>@Html.ActionLink("Solarize", "Solarize", "Filters")</li>
-							<li>@Html.ActionLink("Unsharp Mask", "UnsharpMask", "Filters")</li>
-							<li>@Html.ActionLink("Vignette", "Vignette", "Filters")</li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Combos
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li>@Html.ActionLink("Lomo", "Lomo", "Combos")</li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Other Features
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li>@Html.ActionLink("Blend Modes", "BlendModes", "Features")</li>
-							<li>@Html.ActionLink("Bytes Source Image", "BytesSourceImage", "Features")</li>
-							<li>@Html.ActionLink("Global Filters", "GlobalFilters", "Features")</li>
-							<li>@Html.ActionLink("Gradient Fill", "GradientFill", "Features")</li>
-							<li>@Html.ActionLink("Grayscale Source Image", "GrayscaleSourceImage", "Features")</li>
-							<li>@Html.ActionLink("Indexed Source Image", "IndexedSourceImage", "Features")</li>
-							<li>@Html.ActionLink("Opacity", "Opacity", "Features")</li>
-							<li>@Html.ActionLink("Positioning", "Positioning", "Features")</li>
-							<li>@Html.ActionLink("Transparent Source Image", "TransparentSourceImage", "Features")</li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Extensions
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li>@Html.ActionLink("Content Aware Resizing", "ContentAwareResizing", "Extensions")</li>
-							<li>@Html.ActionLink("PDF", "Pdf", "Extensions")</li>
-							<li>@Html.ActionLink("Rendered 3D", "Rendered3D", "Extensions")</li>
-							<li>@Html.ActionLink("Website Screenshot", "WebsiteScreenshot", "Extensions")</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
+	<div class="span9">
 		<div class="page-header">
 			<h1>@RenderSection("PageTitle") <small>@RenderSection("SubTitle", false)</small></h1>
 		</div>
 		@RenderBody()
 	</div>
-
-	<script src="/assets/js/jquery.js"></script>
-	<script src="/assets/js/bootstrap.js"></script>
-</body>
-</html>
+</div>

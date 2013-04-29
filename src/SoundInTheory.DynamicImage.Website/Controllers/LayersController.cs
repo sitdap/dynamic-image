@@ -4,6 +4,11 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 {
 	public class LayersController : Controller
 	{
+		public ActionResult Index()
+		{
+			return View();
+		}
+
 		public ActionResult JuliaFractal()
 		{
 			return View();

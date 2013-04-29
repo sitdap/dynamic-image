@@ -4,6 +4,11 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 {
 	public class FiltersController : Controller
 	{
+		public ActionResult Index()
+		{
+			return View();
+		}
+
 		public ActionResult Border()
 		{
 			return View();

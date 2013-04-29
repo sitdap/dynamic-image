@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>DynamicImage - a high performance image manipulation library for ASP.NET</title>
+	<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/css/screen.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/">DynamicImage</a>
+				
+				<ul class="nav">
+					@Html.NavListItem("Layers", "Index", "Layers")
+					@Html.NavListItem("Filters", "Index", "Filters")
+					@Html.NavListItem("Combos", "Index", "Combos")
+					@Html.NavListItem("Other Features", "Index", "Features")
+					@Html.NavListItem("Extensions", "Index", "Extensions")
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		@RenderBody()
+	</div>
+
+	<script src="/assets/js/jquery.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+</body>
+</html>

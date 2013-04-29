@@ -8,8 +8,6 @@
 	<li>@Html.ActionLink("Tank", "RenderedTank", "Extensions")</li>
 </ul>
 
-<div class="row">
-	<div class="span6">
 		<pre>
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new RenderedLayerBuilder().Width(400).Height(300)
@@ -24,9 +22,6 @@
 					.WithAutoCamera(45, 10)
 			))
 		</p>
-	</div>
-	
-	<div class="span6">
 		<pre>
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new RenderedLayerBuilder().Width(400).Height(300)
@@ -41,8 +36,6 @@
 					.WithAutoCamera(0, 0)
 			))
 		</p>
-	</div>
-</div>
 
 <div class="row">
 	<div class="span6">

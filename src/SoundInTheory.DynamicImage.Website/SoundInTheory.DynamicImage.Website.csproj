@@ -86,9 +86,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Css\bootstrap-responsive.css" />
-    <Content Include="Assets\Css\bootstrap-responsive.min.css" />
-    <Content Include="Assets\Css\bootstrap.css" />
     <Content Include="Assets\Css\bootstrap.min.css" />
     <Content Include="Assets\Css\screen.css" />
     <Content Include="Assets\Images\AlphaAutumnLeaves.png" />
@@ -234,6 +231,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Extensions\Rendered3D.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutBase.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Layers\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Layers\_Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Filters\_Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Filters\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Combos\_Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Combos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Features\_Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Features\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Extensions\_Nav.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

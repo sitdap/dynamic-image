@@ -1,0 +1,60 @@
+﻿@section PageTitle { Layers }
+
+<ul class="thumbnails">
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(LayerBuilder.JuliaFractal.Width(260).Height(180)))
+			<div class="caption">
+				<h5>Julia Fractal Layer</h5>
+				<p>Generates a fractal image using the Julia algorithm.</p>
+				<p>@Html.ActionLink("More details", "JuliaFractal", "Layers", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(LayerBuilder.MandelbrotFractal.Width(260).Height(180)))
+			<div class="caption">
+				<h5>Mandelbrot Fractal Layer</h5>
+				<p>Generates a fractal image using the Mandelbrot algorithm.</p>
+				<p>@Html.ActionLink("More details", "MandelbrotFractal", "Layers", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.PolygonShape.Width(260).Height(180).Fill(Colors.LightBlue).Sides(7)
+					.StrokeDashStyle(DashStyle.Dash).StrokeWidth(3).StrokeFill(Colors.Red)))
+			<div class="caption">
+				<h5>Polygon Shape Layer</h5>
+				<p>Creates an image with the specified polygon shape.</p>
+				<p>@Html.ActionLink("More details", "PolygonShape", "Layers", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.RectangleShape.Width(260).Height(180).Fill(Colors.LightGreen).Roundness(20)
+					.StrokeDashStyle(DashStyle.DashDot).StrokeWidth(3).StrokeFill(Colors.Blue)))
+			<div class="caption">
+				<h5>Rectangle Shape Layer</h5>
+				<p>Creates a rectangular shape.</p>
+				<p>@Html.ActionLink("More details", "RectangleShape", "Layers", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightYellow).WithLayer(
+				LayerBuilder.Text.Width(260).Height(180).Text("Hello World").FontSize(40).ForeColor(Colors.Red)
+				            .StrokeWidth(2).StrokeColor(Colors.Blue).VerticalTextAlignment(VerticalAlignment.Center).HorizontalTextAlignment(TextAlignment.Center)))
+			<div class="caption">
+				<h5>Text Layer</h5>
+				<p>Generates an image with the specified text.</p>
+				<p>@Html.ActionLink("More details", "Text", "Layers", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+</ul>

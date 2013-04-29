@@ -1,0 +1,22 @@
+﻿@section PageTitle { Image Layer }
+
+<p class="summary">Image Layers accept input from a variety of sources, and it is also straightforward to write 
+	your own <code>ImageSource</code>. The image sources included with DynamicImage let you load images from:</p>
+
+<ul class="summary">
+	<li>Raw bytes</li>
+	<li>Binary database field</li>
+	<li>File</li>
+	<li><code>BitmapSource</code> object</li>
+</ul>
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg")
+		.WithFilter(FilterBuilder.Resize.ToWidth(500))))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg").WithFilter(
+		FilterBuilder.Resize.ToWidth(500))))
+</p>

@@ -1,6 +1,22 @@
 ﻿@section PageTitle { Layers }
 
-<ul class="thumbnails">
+<p class="summary">Images in DynamicImage are composed of one or more layers, and each layer can have zero or more
+@Html.ActionLink("filters", "Index", "Filters") applied. Layers can be offset in relation to the parent image, and each layer can have its own 
+@Html.ActionLink("blend mode", "BlendModes", "Features") applied. DynamicImage includes several built-in layer types, 
+and it is straightforward to create your own.</p>
+
+<ul class="thumbnails thumbnails-index">
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg"))
+				.WithGlobalFilter(FilterBuilder.Resize.To(210, 145, ResizeMode.Fill)))
+			<div class="caption">
+				<h5>Image Layer</h5>
+				<p>Loads an image from a file or other source.</p>
+				<p>@Html.ActionLink("More details", "Image", "Layers", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
 	<li class="span3">
 		<div class="thumbnail">
 			@Html.DynamicImageTag(b => b.WithLayer(LayerBuilder.JuliaFractal.Width(260).Height(180)))
@@ -25,7 +41,7 @@
 		<div class="thumbnail">
 			@Html.DynamicImageTag(b => b.WithLayer(
 				LayerBuilder.PolygonShape.Width(260).Height(180).Fill(Colors.LightBlue).Sides(7)
-					.StrokeDashStyle(DashStyle.Dash).StrokeWidth(3).StrokeFill(Colors.Red)))
+				            .StrokeDashStyle(DashStyle.Dash).StrokeWidth(3).StrokeFill(Colors.Red)))
 			<div class="caption">
 				<h5>Polygon Shape Layer</h5>
 				<p>Creates an image with the specified polygon shape.</p>
@@ -37,7 +53,7 @@
 		<div class="thumbnail">
 			@Html.DynamicImageTag(b => b.WithLayer(
 				LayerBuilder.RectangleShape.Width(260).Height(180).Fill(Colors.LightGreen).Roundness(20)
-					.StrokeDashStyle(DashStyle.DashDot).StrokeWidth(3).StrokeFill(Colors.Blue)))
+				            .StrokeDashStyle(DashStyle.DashDot).StrokeWidth(3).StrokeFill(Colors.Blue)))
 			<div class="caption">
 				<h5>Rectangle Shape Layer</h5>
 				<p>Creates a rectangular shape.</p>

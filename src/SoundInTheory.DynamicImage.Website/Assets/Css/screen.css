@@ -10,7 +10,12 @@ h1 {
 	margin-top: 0;
 }
 
-.thumbnail {
+h1 small {
+	display: block;
+	margin-top: 15px;
+}
+
+.thumbnails-index .thumbnail {
 	position: relative;
 	min-height: 340px;
 }
@@ -18,4 +23,8 @@ h1 {
 .thumbnail .btn {
 	position: absolute;
 	bottom: 15px;
+}
+
+p.summary, ul.summary {
+	margin-bottom: 20px;
 }

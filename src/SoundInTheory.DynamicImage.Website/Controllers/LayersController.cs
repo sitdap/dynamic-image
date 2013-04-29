@@ -9,6 +9,11 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 			return View();
 		}
 
+		public ActionResult Image()
+		{
+			return View();
+		}
+
 		public ActionResult JuliaFractal()
 		{
 			return View();

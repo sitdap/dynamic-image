@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GhostscriptSharp">
-      <HintPath>..\packages\GhostScriptSharp.1.3.0\lib\net40\GhostscriptSharp.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,12 +46,11 @@
     <Compile Include="Layers\PdfLayer.cs" />
     <Compile Include="Fluent\PdfLayerBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\GhostscriptUtil.cs" />
+    <Compile Include="Util\GhostscriptWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ghostscript\gsdll32.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\gsdll32.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
@@ -62,10 +58,13 @@
       <Name>SoundInTheory.DynamicImage</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\gsdll64.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-if not exist "$(TargetDir)\gsdll32.dll" xcopy /Y "$(ProjectDir)\Ghostscript\gsdll32.dll" "$(TargetDir)"</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

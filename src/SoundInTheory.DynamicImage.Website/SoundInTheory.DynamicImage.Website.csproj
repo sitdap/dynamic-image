@@ -128,7 +128,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -183,6 +185,18 @@
       <Project>{8331a331-78ab-4c35-824b-27908ab11065}</Project>
       <Name>SoundInTheory.DynamicImage.Extensions.ContentAwareResizing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.Pdf\SoundInTheory.DynamicImage.Extensions.Pdf.csproj">
+      <Project>{f2b9bce6-12c4-4bfa-b562-67e3982ee34e}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.Pdf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.Rendered3D\SoundInTheory.DynamicImage.Extensions.Rendered3D.csproj">
+      <Project>{789be1a0-2e7d-4663-b1b4-3a3d205c4a7e}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.Rendered3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot.csproj">
+      <Project>{fcb2559e-8cc6-40e2-882b-03c71533d859}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Mvc\SoundInTheory.DynamicImage.Mvc.csproj">
       <Project>{B7A0D43C-DF4A-4070-840F-156C92E9F54F}</Project>
       <Name>SoundInTheory.DynamicImage.Mvc</Name>
@@ -206,6 +220,20 @@
     <Content Include="Assets\Models\3ds\85-nissan-fairlady.3DS" />
     <Content Include="Assets\Models\Obj\Tank.mtl" />
     <Content Include="Assets\Models\Obj\Tank.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Extensions\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Extensions\Pdf.cshtml" />
+    <Content Include="Views\Extensions\RenderedCar.cshtml" />
+    <Content Include="Views\Extensions\RenderedCathedral.cshtml" />
+    <Content Include="Views\Extensions\RenderedInline.cshtml" />
+    <Content Include="Views\Extensions\RenderedTank.cshtml" />
+    <Content Include="Views\Extensions\WebsiteScreenshot.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Extensions\Rendered3D.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

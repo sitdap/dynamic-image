@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using SoundInTheory.DynamicImage.Sources;
+using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Layers
 {
@@ -24,14 +25,15 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		protected override void CreateImage()
 		{
+			GhostscriptUtil.EnsureDll();
+
 			string outputFileName = Path.GetTempFileName();
 
 			try
 			{
 				string filename = FileSourceHelper.ResolveFileName(SourceFileName);
-				GhostscriptSharp.GhostscriptWrapper.GeneratePageThumb(filename, outputFileName, PageNumber, 96, 96);
-
-				Bitmap = new Util.FastBitmap(File.ReadAllBytes(outputFileName));
+				GhostscriptWrapper.GeneratePageThumb(filename, outputFileName, PageNumber, 96, 96);
+				Bitmap = new FastBitmap(File.ReadAllBytes(outputFileName));
 			}
 			finally
 			{

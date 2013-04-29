@@ -10,6 +10,11 @@ namespace SoundInTheory.DynamicImage.Util
 		public int Width { get; set; }
 		public int Height { get; set; }
 
+		public bool IsEmpty
+		{
+			get { return Width == 0 && Height == 0; }
+		}
+
 		public Int32Size(int width, int height)
 			: this()
 		{

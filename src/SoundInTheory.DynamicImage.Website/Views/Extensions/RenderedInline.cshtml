@@ -1,0 +1,22 @@
+﻿@section PageTitle { Rendered 3D Layer }
+
+<ul class="nav nav-tabs">
+	<li>@Html.ActionLink("Car", "RenderedCar", "Extensions")</li>
+	<li>@Html.ActionLink("Cathedral", "RenderedCathedral", "Extensions")</li>
+	<li class="active">@Html.ActionLink("Inline", "RenderedInline", "Extensions")</li>
+	<li>@Html.ActionLink("Tank", "RenderedTank", "Extensions")</li>
+</ul>
+
+<pre>
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightBlue).WithLayer(
+	new RenderedLayerBuilder().Width(600).Height(300).Lighting(false)
+		.SourceScene(ViewBag.Scene)
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightBlue).WithLayer(
+		new RenderedLayerBuilder().Width(600).Height(300).Lighting(false)
+			.SourceScene(ViewBag.Scene)
+	))
+</p>

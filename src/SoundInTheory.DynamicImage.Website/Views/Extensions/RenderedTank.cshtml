@@ -1,0 +1,24 @@
+﻿@section PageTitle { Rendered 3D Layer }
+
+<ul class="nav nav-tabs">
+	<li>@Html.ActionLink("Car", "RenderedCar", "Extensions")</li>
+	<li>@Html.ActionLink("Cathedral", "RenderedCathedral", "Extensions")</li>
+	<li>@Html.ActionLink("Inline", "RenderedInline", "Extensions")</li>
+	<li class="active">@Html.ActionLink("Tank", "RenderedTank", "Extensions")</li>
+</ul>
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(600).Height(600).ReverseWindingOrder()
+		.SourceFileName("~/Assets/Models/Obj/Tank.obj")
+		.WithAutoCamera(45, 20)
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		new RenderedLayerBuilder().Width(600).Height(600).ReverseWindingOrder()
+			.SourceFileName("~/Assets/Models/Obj/Tank.obj")
+			.WithAutoCamera(45, 20)
+	))
+</p>

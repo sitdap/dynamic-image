@@ -1,0 +1,172 @@
+﻿@section PageTitle { Rendered 3D Layer }
+@section SubTitle {  }
+
+<ul class="nav nav-tabs">
+	<li class="active">@Html.ActionLink("Car", "RenderedCar", "Extensions")</li>
+	<li>@Html.ActionLink("Cathedral", "RenderedCathedral", "Extensions")</li>
+	<li>@Html.ActionLink("Inline", "RenderedInline", "Extensions")</li>
+	<li>@Html.ActionLink("Tank", "RenderedTank", "Extensions")</li>
+</ul>
+
+<div class="row">
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(45, 10)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(45, 10)
+			))
+		</p>
+	</div>
+	
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(0, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(0, 0)
+			))
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(45, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(45, 0)
+			))
+		</p>
+	</div>
+	
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(90, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(90, 0)
+			))
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(135, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(135, 0)
+			))
+		</p>
+	</div>
+	
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(180, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(180, 0)
+			))
+		</p>
+	</div>
+</div>	
+
+<div class="row">
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(225, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(225, 0)
+			))
+		</p>
+	</div>
+	
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(270, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(270, 0)
+			))
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6">
+		<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(315, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+					.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+					.WithAutoCamera(315, 0)
+				))
+		</p>
+	</div>
+</div>

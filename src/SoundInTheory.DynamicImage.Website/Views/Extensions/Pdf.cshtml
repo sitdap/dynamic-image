@@ -1,0 +1,19 @@
+﻿@section PageTitle { PDF Layer }
+
+<pre>
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new PdfLayerBuilder().SourceFileName("~/Assets/PDFs/pdf-test.pdf").PageNumber(1)
+		.WithFilter(FilterBuilder.Resize.ToWidth(500))
+		.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.Black))
+		.WithFilter(FilterBuilder.DropShadow)
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		new PdfLayerBuilder().SourceFileName("~/Assets/PDFs/pdf-test.pdf").PageNumber(1)
+			.WithFilter(FilterBuilder.Resize.ToWidth(500))
+			.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.Black))
+			.WithFilter(FilterBuilder.DropShadow)
+	))
+</p>

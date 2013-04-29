@@ -1,5 +1,7 @@
 ﻿@section PageTitle { Content Aware Resize Filter }
 
+<p class="summary">Requires the <a href="http://nuget.org/packages/DynamicImage.Extensions.ContentAwareResizing/">DynamicImage.Extensions.ContentAwareResizing</a> package.</p>
+
 <pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")

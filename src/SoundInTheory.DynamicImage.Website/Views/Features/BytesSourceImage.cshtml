@@ -2,8 +2,9 @@
 
 <pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
-	LayerBuilder.Image.SourceBytes(File.ReadAllBytes(Server.MapPath("~/Assets/Images/AutumnLeaves.jpg")))
-		.WithFilter(FilterBuilder.Resize.To(500, 500))
+	LayerBuilder.Image.SourceBytes(
+		File.ReadAllBytes(Server.MapPath("~/Assets/Images/AutumnLeaves.jpg"))
+	).WithFilter(FilterBuilder.Resize.To(500, 500))
 ))
 </pre>
 

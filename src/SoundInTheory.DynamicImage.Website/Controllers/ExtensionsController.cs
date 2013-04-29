@@ -21,21 +21,6 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 
 		public ActionResult Rendered3D()
 		{
-			return View();
-		}
-
-		public ActionResult RenderedCar()
-		{
-			return View();
-		}
-
-		public ActionResult RenderedCathedral()
-		{
-			return View();
-		}
-
-		public ActionResult RenderedInline()
-		{
 			var scene = new InlineSceneSource();
 			scene.Meshes.Add(new Mesh
 			{
@@ -53,11 +38,6 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 			});
 			ViewBag.Scene = scene;
 
-			return View();
-		}
-
-		public ActionResult RenderedTank()
-		{
 			return View();
 		}
 

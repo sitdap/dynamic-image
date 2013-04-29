@@ -1,5 +1,7 @@
 ﻿@section PageTitle { Website Screenshot Layer }
 
+<p class="summary">Requires the <a href="http://nuget.org/packages/DynamicImage.Extensions.WebsiteScreenshot/">DynamicImage.Extensions.WebsiteScreenshot</a> package.</p>
+
 <pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com").Timeout(3000).BrowserWidth(1024)

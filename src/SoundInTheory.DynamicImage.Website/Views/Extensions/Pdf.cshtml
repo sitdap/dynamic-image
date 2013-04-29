@@ -1,5 +1,7 @@
 ﻿@section PageTitle { PDF Layer }
 
+<p class="summary">Requires the <a href="http://nuget.org/packages/DynamicImage.Extensions.Pdf/">DynamicImage.Extensions.Pdf</a> package.</p>
+
 <pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new PdfLayerBuilder().SourceFileName("~/Assets/PDFs/pdf-test.pdf").PageNumber(1)

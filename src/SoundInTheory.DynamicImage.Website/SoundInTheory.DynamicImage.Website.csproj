@@ -76,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DynamicImage.cs" />
-    <Compile Include="Controllers\CombosController.cs" />
     <Compile Include="Controllers\GettingStartedController.cs" />
     <Compile Include="Controllers\ExtensionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -204,7 +203,7 @@
     <Content Include="Views\Filters\Solarize.cshtml" />
     <Content Include="Views\Filters\UnsharpMask.cshtml" />
     <Content Include="Views\Filters\Vignette.cshtml" />
-    <Content Include="Views\Combos\Lomo.cshtml" />
+    <Content Include="Views\Features\Lomo.cshtml" />
     <Content Include="Views\Features\BlendModes.cshtml" />
     <Content Include="Views\Features\BytesSourceImage.cshtml" />
     <Content Include="Views\Features\GlobalFilters.cshtml" />
@@ -262,10 +261,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Extensions\Pdf.cshtml" />
-    <Content Include="Views\Extensions\RenderedCar.cshtml" />
-    <Content Include="Views\Extensions\RenderedCathedral.cshtml" />
-    <Content Include="Views\Extensions\RenderedInline.cshtml" />
-    <Content Include="Views\Extensions\RenderedTank.cshtml" />
     <Content Include="Views\Extensions\WebsiteScreenshot.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -285,12 +280,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Filters\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Combos\_Nav.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Combos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Features\_Nav.cshtml" />

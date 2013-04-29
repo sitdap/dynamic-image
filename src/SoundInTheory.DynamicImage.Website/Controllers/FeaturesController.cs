@@ -53,5 +53,10 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult Lomo()
+		{
+			return View();
+		}
 	}
 }

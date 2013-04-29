@@ -1,9 +1,222 @@
 ﻿@section PageTitle { Rendered 3D Layer }
-@section SubTitle {  }
+
+<p class="summary">Requires the <a href="http://nuget.org/packages/DynamicImage.Extensions.Rendered3D/">DynamicImage.Extensions.Rendered3D</a> package.</p>
 
 <ul class="nav nav-tabs">
-	<li>@Html.ActionLink("Car", "RenderedCar", "Extensions")</li>
-	<li>@Html.ActionLink("Cathedral", "RenderedCathedral", "Extensions")</li>
-	<li>@Html.ActionLink("Inline", "RenderedInline", "Extensions")</li>
-	<li>@Html.ActionLink("Tank", "RenderedTank", "Extensions")</li>
+	<li class="active"><a href="#car" data-toggle="tab">Car</a></li>
+	<li><a href="#cathedral" data-toggle="tab">Cathedral</a></li>
+	<li><a href="#inline" data-toggle="tab">Inline</a></li>
+	<li><a href="#tank" data-toggle="tab">Tank</a></li>
 </ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="car">
+		<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(45, 10)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+				                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+				                          .WithAutoCamera(45, 10)
+				                           ))
+		</p>
+		<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(0, 0)
+))</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.WithLayer(
+				new RenderedLayerBuilder().Width(400).Height(300)
+				                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+				                          .WithAutoCamera(0, 0)
+				                           ))
+		</p>
+
+		<div class="row">
+			<div class="span6">
+				<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(45, 0)
+))</pre>
+
+				<p>
+					@Html.DynamicImageTag(b => b.WithLayer(
+						new RenderedLayerBuilder().Width(400).Height(300)
+						                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+						                          .WithAutoCamera(45, 0)
+						                           ))
+				</p>
+			</div>
+	
+			<div class="span6">
+				<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(90, 0)
+))</pre>
+
+				<p>
+					@Html.DynamicImageTag(b => b.WithLayer(
+						new RenderedLayerBuilder().Width(400).Height(300)
+						                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+						                          .WithAutoCamera(90, 0)
+						                           ))
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span6">
+				<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(135, 0)
+))</pre>
+
+				<p>
+					@Html.DynamicImageTag(b => b.WithLayer(
+						new RenderedLayerBuilder().Width(400).Height(300)
+						                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+						                          .WithAutoCamera(135, 0)
+						                           ))
+				</p>
+			</div>
+	
+			<div class="span6">
+				<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(180, 0)
+))</pre>
+
+				<p>
+					@Html.DynamicImageTag(b => b.WithLayer(
+						new RenderedLayerBuilder().Width(400).Height(300)
+						                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+						                          .WithAutoCamera(180, 0)
+						                           ))
+				</p>
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="span6">
+				<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(225, 0)
+))</pre>
+
+				<p>
+					@Html.DynamicImageTag(b => b.WithLayer(
+						new RenderedLayerBuilder().Width(400).Height(300)
+						                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+						                          .WithAutoCamera(225, 0)
+						                           ))
+				</p>
+			</div>
+	
+			<div class="span6">
+				<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(270, 0)
+))</pre>
+
+				<p>
+					@Html.DynamicImageTag(b => b.WithLayer(
+						new RenderedLayerBuilder().Width(400).Height(300)
+						                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+						                          .WithAutoCamera(270, 0)
+						                           ))
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span6">
+				<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(400).Height(300)
+		.SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+		.WithAutoCamera(315, 0)
+))</pre>
+
+				<p>
+					@Html.DynamicImageTag(b => b.WithLayer(
+						new RenderedLayerBuilder().Width(400).Height(300)
+						                          .SourceFileName("~/Assets/Models/3ds/85-nissan-fairlady.3ds")
+						                          .WithAutoCamera(315, 0)
+						                           ))
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="tab-pane active" id="cathedral">
+		<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.CornflowerBlue).WithLayer(
+	new RenderedLayerBuilder().Width(800).Height(800)
+		.SourceFileName("~/Assets/Models/3ds/75Cathedral-model.3ds")
+		.WithAutoCamera(80, 20)
+))
+</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.CornflowerBlue).WithLayer(
+				new RenderedLayerBuilder().Width(800).Height(800)
+				                          .SourceFileName("~/Assets/Models/3ds/75Cathedral-model.3ds")
+				                          .WithAutoCamera(80, 20)
+				                           ))
+		</p>
+	</div>
+	
+	<div class="tab-pane active" id="inline">
+		<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightBlue).WithLayer(
+	new RenderedLayerBuilder().Width(600).Height(300).Lighting(false)
+		.SourceScene(ViewBag.Scene)
+))
+</pre>
+
+		<p>
+			@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightBlue).WithLayer(
+				new RenderedLayerBuilder().Width(600).Height(300).Lighting(false)
+				                          .SourceScene(ViewBag.Scene)
+				                           ))
+		</p>
+	</div>
+	
+	<div class="tab-pane active" id="tank">
+		<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	new RenderedLayerBuilder().Width(600).Height(600).ReverseWindingOrder()
+		.SourceFileName("~/Assets/Models/Obj/Tank.obj")
+		.WithAutoCamera(45, 20)
+))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		new RenderedLayerBuilder().Width(600).Height(600).ReverseWindingOrder()
+			.SourceFileName("~/Assets/Models/Obj/Tank.obj")
+			.WithAutoCamera(45, 20)
+	))
+</p>
+	</div>
+</div>

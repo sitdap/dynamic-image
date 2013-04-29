@@ -11,14 +11,32 @@ namespace SoundInTheory.DynamicImage.Util
 	/// </summary>
 	public class CutyCaptWrapper
 	{
-		public string CutyCaptPath { get; set; }
+		private static string GetCairFolder()
+		{
+			string folder = (HttpContext.Current == null)
+				? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CutyCapt")
+				: HttpContext.Current.Server.MapPath("~/App_Data/CutyCapt");
+			if (!Directory.Exists(folder))
+				Directory.CreateDirectory(folder);
+			return folder;
+		}
+
+		private static string CutyCaptPath
+		{
+			get { return Path.Combine(GetCairFolder(), "CutyCapt.exe"); }
+		}
+
 		public string CutyCaptDefaultArguments { get; set; }
 
 		public CutyCaptWrapper()
 		{
-			CutyCaptPath = HttpContext.Current == null
-				? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\DynamicImage\CutyCapt.exe")
-				: HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/CutyCapt.exe");
+			if (!File.Exists(CutyCaptPath))
+			{
+				using (var stream = typeof(CutyCaptWrapper).Assembly.GetManifestResourceStream("SoundInTheory.DynamicImage.Resources.CutyCapt.exe"))
+				using (var fileStream = File.OpenWrite(CutyCaptPath))
+					stream.CopyTo(fileStream);
+			}
+
 			CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on";
 		}
 
@@ -29,10 +47,7 @@ namespace SoundInTheory.DynamicImage.Util
 
 			string runArguments = " --url=" + url + " --out=" + destinationFile + CutyCaptDefaultArguments + " --min-width=" + width;
 
-			if (!File.Exists(CutyCaptPath))
-				throw new DynamicImageException("Could not find CutyCapt.exe. This file needs to be in ~/App_Data/DynamicImage.");
-
-			ProcessStartInfo info = new ProcessStartInfo(CutyCaptPath, runArguments)
+			var info = new ProcessStartInfo(CutyCaptPath, runArguments)
 			{
 				UseShellExecute = false,
 				RedirectStandardInput = true,

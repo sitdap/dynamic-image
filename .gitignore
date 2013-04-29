@@ -37,3 +37,5 @@ httpd.parse.errors
  
 # Exclude ALL DLLs? (
 # *.dll
+
+App_Data

@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LowercaseRoutesMVC">
+      <HintPath>..\packages\LowercaseRoutesMVC.1.0.3\lib\LowercaseRoutesMVC.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -74,6 +77,7 @@
   <ItemGroup>
     <Compile Include="App_Start\DynamicImage.cs" />
     <Compile Include="Controllers\CombosController.cs" />
+    <Compile Include="Controllers\GettingStartedController.cs" />
     <Compile Include="Controllers\ExtensionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FeaturesController.cs" />
@@ -299,6 +303,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Layers\Image.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\GettingStarted\_Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\GettingStarted\Installation.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,12 +3,24 @@
 <p class="summary">Image Layers accept input from a variety of sources, and it is also straightforward to write 
 	your own <code>ImageSource</code>. The image sources included with DynamicImage let you load images from:</p>
 
-<ul class="summary">
-	<li>Raw bytes</li>
-	<li>Binary database field</li>
-	<li>File</li>
-	<li><code>BitmapSource</code> object</li>
-</ul>
+<table class="table table-bordered">
+	<tr>
+		<td>Raw bytes</td>
+		<td><code>BytesImageSource</code></td>
+	</tr>
+	<tr>
+		<td>Binary database field</td>
+		<td><code>SqlDatabaseImageSource</code></td>
+	</tr>
+	<tr>
+		<td>File</td>
+		<td><code>FileImageSource</code></td>
+	</tr>
+	<tr>
+		<td>Bitmap</td>
+		<td><code>ImageImageSource</code></td>
+	</tr>
+</table>
 
 <pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(

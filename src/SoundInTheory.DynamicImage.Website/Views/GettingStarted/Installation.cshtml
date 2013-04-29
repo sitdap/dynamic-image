@@ -1,0 +1,25 @@
+﻿@section PageTitle { Installation }
+
+<p>The easiest way to get started is using NuGet. The two basic package are:</p>
+<ul>
+	<li>
+		<a href="http://nuget.org/packages/DynamicImage/">DynamicImage</a> - provides the primary DLL, <code>SoundInTheory.DynamicImage.dll</code>, and 
+		adds a <code>DynamicImage.cs</code> file to your <code>App_Start</code> folder, to register <code>DynamicImageModule</code> at application startup
+	</li>
+	<li><a href="http://nuget.org/packages/DynamicImage.Mvc/">DynamicImage.Mvc</a> - adds an HtmlHelper extension method, 
+		<code>HtmlHelper.DynamicImageTag(this HtmlHelper html, Action&lt;CompositionBuilder&gt; callback)</code></li>
+</ul>
+
+<p>Each @Html.ActionLink("extension", "Index", "Extensions") has its own NuGet package:</p>
+<ul>
+	<li><a href="http://nuget.org/packages/DynamicImage.Extensions.ContentAwareResizing/">DynamicImage.Extensions.ContentAwareResizing</a></li>
+	<li><a href="http://nuget.org/packages/DynamicImage.Extensions.Pdf/">DynamicImage.Extensions.Pdf</a> - this package is ~20Mb, because it includes the unmanaged
+		Ghostscript DLLs necessary for saving PDF pages as images
+	</li>
+	<li><a href="http://nuget.org/packages/DynamicImage.Extensions.Rendered3D/">DynamicImage.Extensions.Rendered3D</a> - depends on several other packages, including SharpDX</li>
+	<li><a href="http://nuget.org/packages/DynamicImage.Extensions.WebsiteScreenshot/">DynamicImage.Extensions.WebsiteScreenshot</a> - this package is ~20Mb, because it includes the unmanaged <code>CutyCapt.exe</code></li>
+</ul>
+
+<hr />
+
+<p>The <a href="https://github.com/sitdap/dynamic-image">source code</a> is on GitHub, so you can also download the source and build your own binaries.</p>

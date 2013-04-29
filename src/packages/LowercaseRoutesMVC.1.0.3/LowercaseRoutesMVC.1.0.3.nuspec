@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>LowercaseRoutesMVC</id>
+    <version>1.0.3</version>
+    <title>LowercaseRoutesMVC</title>
+    <authors>Lee Dumond</authors>
+    <owners>Lee Dumond</owners>
+    <licenseUrl>http://lowercaseroutesmvc.codeplex.com/license</licenseUrl>
+    <projectUrl>http://lowercaseroutesmvc.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Easily map ASP.NET MVC routes to lowercase URLs! Does not affect casing of the querystring, if one exists. Includes support for MVC Areas as well. See the Project Site for important usage notes.</description>
+    <summary>Maps MVC routes to lowercase URLs. Includes support for MVC Areas.</summary>
+    <releaseNotes />
+    <copyright>Lee Dumond</copyright>
+    <language />
+    <tags>lowercase routes routing URL MVC</tags>
+  </metadata>
+</package>

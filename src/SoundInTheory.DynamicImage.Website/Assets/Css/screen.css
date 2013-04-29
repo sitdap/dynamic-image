@@ -28,3 +28,7 @@ h1 small {
 p.summary, ul.summary {
 	margin-bottom: 20px;
 }
+
+pre.prettyprint {
+	tab-size: 2;
+}

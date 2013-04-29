@@ -1,7 +1,5 @@
 ﻿@{ Layout = "~/Views/Shared/_LayoutBase.cshtml"; }
 
-<a href="https://github.com/sitdap/dynamic-image"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:9000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-
 <header class="jumbotron subhead" id="overview">
 	<div class="row">
 		<div class="span12">
@@ -31,7 +29,7 @@ string imageUrl = new CompositionBuilder()
 		
 		<div class="span8">
 			<h3>Getting Started</h3>
-			<p>The easiest way to get started is using NuGet. The two basic package are:</p>
+			<p>The easiest way to get started is using NuGet. The two basic packages are:</p>
 			<ul>
 				<li><a href="http://nuget.org/packages/DynamicImage/">DynamicImage</a></li>
 				<li><a href="http://nuget.org/packages/DynamicImage.Mvc/">DynamicImage.Mvc</a> (adds an HtmlHelper extension method)</li>
@@ -43,6 +41,8 @@ string imageUrl = new CompositionBuilder()
 				<li><a href="http://nuget.org/packages/DynamicImage.Extensions.Rendered3D/">DynamicImage.Extensions.Rendered3D</a></li>
 				<li><a href="http://nuget.org/packages/DynamicImage.Extensions.WebsiteScreenshot/">DynamicImage.Extensions.WebsiteScreenshot</a></li>
 			</ul>
+			
+			<p>For more details, see the @Html.ActionLink("getting started", "Index", "GettingStarted") guide.</p>
 		</div>
 		
 		<div class="span4">

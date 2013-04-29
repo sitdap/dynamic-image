@@ -77,9 +77,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SharedAssemblyInfo.cs">
-      <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="BlendMode.cs" />
     <Compile Include="Caching\Dependency.cs" />
     <Compile Include="Caching\DynamicImageCacheManager.cs" />

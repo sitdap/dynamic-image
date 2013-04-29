@@ -13,5 +13,20 @@ namespace SoundInTheory.DynamicImage.Website.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult ObjectModel()
+		{
+			return View();
+		}
+
+		public ActionResult FluentApi()
+		{
+			return View();
+		}
+
+		public ActionResult Caching()
+		{
+			return View();
+		}
 	}
 }

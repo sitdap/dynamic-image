@@ -32,10 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
-    <Reference Include="SoundInTheory.DynamicImage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=fa44558110383067, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SoundInTheory.DynamicImage\bin\Debug\SoundInTheory.DynamicImage.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -60,6 +56,12 @@
   <ItemGroup>
     <None Include="Resources\GPL.txt" />
     <None Include="Resources\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
+      <Project>{15f7ff82-b018-42e0-a94d-2caae491c248}</Project>
+      <Name>SoundInTheory.DynamicImage</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

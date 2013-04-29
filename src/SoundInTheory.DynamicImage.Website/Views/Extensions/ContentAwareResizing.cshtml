@@ -9,7 +9,7 @@
 
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(
-		LayerBuilder.Image.SourceFile("~/Assets/Photos/tower.jpg")
+		LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 			.WithFilter(FilterBuilder.Resize.ToWidth(500))
 	))
 </p>
@@ -24,7 +24,7 @@
 
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(
-		LayerBuilder.Image.SourceFile("~/Assets/Photos/tower.jpg")
+		LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 			.WithFilter(FilterBuilder.Resize.ToWidth(500))
 			.WithFilter(FilterBuilder.Resize.To(350, 412, ResizeMode.Fill))
 	))
@@ -40,7 +40,7 @@
 
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(
-		LayerBuilder.Image.SourceFile("~/Assets/Photos/tower.jpg")
+		LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 			.WithFilter(FilterBuilder.Resize.ToWidth(500))
 			.WithFilter(new ContentAwareResizeFilterBuilder().ToWidth(350).ConvolutionType(ContentAwareResizeFilterConvolutionType.V1))
 	))

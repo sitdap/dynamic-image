@@ -16,6 +16,6 @@
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="..\..\nuget\content\**\*.*" target="content" />
+		<file src="nuget\DynamicImage\content\**\*.*" target="content" />
 	</files>
 </package>

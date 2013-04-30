@@ -1,13 +1,9 @@
 ﻿@section PageTitle { Installation }
 
-<p>The easiest way to get started is using NuGet. The two basic package are:</p>
+<p>The easiest way to get started is using <a href="http://nuget.org">NuGet</a>. The two basic package are:</p>
 <ul>
-	<li>
-		<a href="http://nuget.org/packages/DynamicImage/">DynamicImage</a> - provides the primary DLL, <code>SoundInTheory.DynamicImage.dll</code>, and 
-		adds a <code>DynamicImage.cs</code> file to your <code>App_Start</code> folder, to register <code>DynamicImageModule</code> at application startup
-	</li>
-	<li><a href="http://nuget.org/packages/DynamicImage.Mvc/">DynamicImage.Mvc</a> - adds an HtmlHelper extension method, 
-		<code>HtmlHelper.DynamicImageTag(this HtmlHelper html, Action&lt;CompositionBuilder&gt; callback)</code></li>
+	<li><a href="http://nuget.org/packages/DynamicImage/">DynamicImage</a></li>
+	<li><a href="http://nuget.org/packages/DynamicImage.Mvc/">DynamicImage.Mvc</a></li>
 </ul>
 
 <p>Each @Html.ActionLink("extension", "Index", "Extensions") has its own NuGet package:</p>
@@ -19,6 +15,39 @@
 	<li><a href="http://nuget.org/packages/DynamicImage.Extensions.Rendered3D/">DynamicImage.Extensions.Rendered3D</a> - depends on several other packages, including SharpDX</li>
 	<li><a href="http://nuget.org/packages/DynamicImage.Extensions.WebsiteScreenshot/">DynamicImage.Extensions.WebsiteScreenshot</a> - this package is ~20Mb, because it includes the unmanaged <code>CutyCapt.exe</code></li>
 </ul>
+
+<h2>DynamicImage</h2>
+
+<p>The <a href="http://nuget.org/packages/DynamicImage/">DynamicImage</a> package provides the primary DLL, 
+<code>SoundInTheory.DynamicImage.dll</code>, and adds a <code>DynamicImage.cs</code> file to your 
+<code>App_Start</code> folder, with the following code:</p>
+	
+<pre class="prettyprint">
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof($namespace$.DynamicImage), "PreStart")]
+
+namespace $namespace$.App_Start
+{
+	public static class DynamicImage
+	{
+		public static void PreStart()
+		{
+			DynamicModuleUtility.RegisterModule(typeof(SoundInTheory.DynamicImage.DynamicImageModule));
+		}
+	}
+}
+</pre>
+
+<h2>DynamicImage.Mvc</h2>
+
+<p>The <a href="http://nuget.org/packages/DynamicImage.Mvc/">DynamicImage.Mvc</a> package adds an HtmlHelper extension method, <code>DynamicImageTag</code>. 
+	This makes it easier to create images inline in your ASP.NET MVC views.</p>
+
+<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(LayerBuilder.Image.SourceFile("~/Assets/Images/Desert.jpg")
+	.WithFilter(new ContentAwareResizeFilterBuilder().To(940, 300))))
+</pre>
 
 <hr />
 

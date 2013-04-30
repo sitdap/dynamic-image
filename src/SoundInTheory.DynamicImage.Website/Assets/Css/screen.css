@@ -33,3 +33,15 @@ pre.prettyprint {
 	tab-size: 2;
 	padding: 5px !important;
 }
+
+#footer {
+	margin-bottom: 20px;
+}
+
+.links {
+	margin-bottom: 20px;
+}
+
+#footer .links a {
+	margin-right: 10px;
+}

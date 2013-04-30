@@ -1,3 +1,45 @@
 ﻿@section PageTitle { Object Model }
 
-<p>DynamicImage has a hierarchy of layers and filters that can be used to create an image. The class you start with is a <code>Composition</code>:</p>
+<p>There are two ways you can create an image with DynamicImage: using the object model directly,
+	or using the fluent API. In most cases the fluent API is easier to work with, but if you want
+	more control, you can drop down to the object model. This page describes the object model, and
+	the @Html.ActionLink("next one", "FluentApi", "GettingStarted") describes the fluent API.
+</p>
+
+<p>DynamicImage has a hierarchy of layers and filters that can be used to create an image.
+	The class you start with is a <code>Composition</code>:</p>
+
+<pre class="prettyprint">
+Composition composition = new Composition();
+// ...
+
+// If you want to use the image directly, bypassing caching:
+GeneratedImage generatedImage = composition.GenerateImage();
+	
+// If you want to cache the image:
+string url = ImageUrlGenerator.GetImageUrl(composition);
+</pre>
+
+<p>There are a number of configurable properties on a <code>Composition</code>:</p>
+
+<ul>
+	<li>AutoSize</li>
+	<li>Width</li>
+	<li>Height</li>
+	<li>ImageFormat</li>
+	<li>JpegCompressionLevel</li>
+	<li>Fill</li>
+</ul>
+
+<p>
+	The <code>Fill</code> class is worth mentioning in more detail, because it appears in several 
+	places in DynamicImage. It has the following properties:
+</p>
+
+<ul>
+	<li>Type (Solid or Gradient)</li>
+	<li>BackgroundColour</li>
+	<li>GradientColourStart</li>
+	<li>GradientColourEnd</li>
+	<li>GradientAngle</li>
+</ul>

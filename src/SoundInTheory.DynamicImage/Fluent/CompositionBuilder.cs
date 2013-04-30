@@ -1,4 +1,5 @@
 using System.Configuration;
+using System.Windows.Media.Imaging;
 using SoundInTheory.DynamicImage.Caching;
 using SoundInTheory.DynamicImage.Configuration;
 
@@ -25,6 +26,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 		public string Url
 		{
 			get { return ImageUrlGenerator.GetImageUrl(_composition); }
+		}
+
+		public BitmapSource GetImage()
+		{
+			return _composition.GenerateImage().Image;
 		}
 
 		public void SaveTo(string path)

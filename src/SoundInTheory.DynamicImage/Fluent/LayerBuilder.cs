@@ -17,11 +17,6 @@ namespace SoundInTheory.DynamicImage.Fluent
 			get { return new MandelbrotFractalLayerBuilder(); }
 		}
 
-		public static TextLayerBuilder Text
-		{
-			get { return new TextLayerBuilder(); }
-		}
-
 		public static PolygonShapeLayerBuilder PolygonShape
 		{
 			get { return new PolygonShapeLayerBuilder(); }
@@ -30,6 +25,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 		public static RectangleShapeLayerBuilder RectangleShape
 		{
 			get { return new RectangleShapeLayerBuilder(); }
+		}
+
+		public static TextLayerBuilder Text
+		{
+			get { return new TextLayerBuilder(); }
 		}
 
 		public abstract Layer ToLayer();

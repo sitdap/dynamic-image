@@ -1,0 +1,47 @@
+﻿@section PageTitle { Fluent API }
+
+<p>
+	Instead of working with the @Html.ActionLink("object model", "ObjectModel", "GettingStarted") directly, you can use the
+	fluent API. The fluent API allows you to build up an image, including layers and filters, in fewer lines of code.
+	To get started, create an instance of <code>CompositionBuilder</code>:
+</p>
+
+<pre class="prettyprint">
+CompositionBuilder builder = new CompositionBuilder();
+</pre>
+
+<p>You can set various properties on the composition:</p>
+
+<pre class="prettyprint">
+CompositionBuilder builder = new CompositionBuilder()
+	.Width(300).Height(200)
+	.ImageFormat(DynamicImageFormat.Png)
+	.FillBackgroundColor(Colors.Red);
+</pre>
+
+<p>You can add layers:</p>
+
+<pre class="prettyprint">
+CompositionBuilder builder = new CompositionBuilder()
+	.WithLayer(LayerBuilder.Image.SourceFileName("tulips.jpg").PaddingLeft(10))
+	.WithLayer(LayerBuilder.Text.Text("Hello World").Width(200));
+</pre>
+
+<p>You can add filters:</p>
+
+<pre class="prettyprint">
+CompositionBuilder builder = new CompositionBuilder()
+	.WithLayer(LayerBuilder.Image.SourceFileName("tulips.jpg").PaddingLeft(10)
+		.WithFilter(FilterBuilder.AdjustBrightness.Level(50))
+		.WithFilter(FilterBuilder.Crop.To(400, 300)))
+	.WithLayer(LayerBuilder.Text.Text("Hello World").Width(200))
+	.WithGlobalFilter(FilterBuilder.Resize.To(100, 100));
+</pre>
+
+<p>Finally, you can get the resulting image in a number of ways:</p>
+
+<pre class="prettyprint">
+string url = builder.Url; // Returns the URL to a cached image.
+BitmapSource bitmap = builder.GetImage(); // Returns a BitmapSource object.
+builder.SaveTo("image.jpg"); // Saves the image to disk.
+</pre>

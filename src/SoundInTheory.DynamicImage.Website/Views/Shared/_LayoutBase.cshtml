@@ -1,10 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>DynamicImage - a high performance image manipulation library for ASP.NET</title>
-	<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/assets/css/screen.css" rel="stylesheet" />
-</head>
+	<head>
+		<title>DynamicImage - a high performance image manipulation library for ASP.NET</title>
+		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/assets/css/screen.css" rel="stylesheet" />
+		
+		@if (!Request.IsLocal) {
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-5166698-7']);
+			_gaq.push(['_trackPageview']);
+
+			(function () {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		}
+	</head>
 
 	<body>
 		<a href="https://github.com/sitdap/dynamic-image"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:9000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>

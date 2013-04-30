@@ -96,6 +96,7 @@
     <Content Include="Assets\Images\ArrowLeftLight.png" />
     <Content Include="Assets\Images\ArrowRightDark.png" />
     <Content Include="Assets\Images\ArrowRightLight.png" />
+    <Content Include="Assets\Images\AstonMartin.gif" />
     <Content Include="Assets\Images\AutumnLeaves.jpg" />
     <Content Include="Assets\Images\bmw.jpg" />
     <Content Include="Assets\Images\BoardExample.png" />

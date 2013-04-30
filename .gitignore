@@ -39,3 +39,4 @@ httpd.parse.errors
 # *.dll
 
 App_Data
+!src/SoundInTheory.DynamicImage.Website/Assets/Models/Obj

@@ -1,8 +1,13 @@
-# DynamicImage, from [Sound in Theory Ltd](http://www.sitdap.com)
+# DynamicImage
 
 This is the source code repository for DynamicImage, an open source image manipulation library for ASP.NET.
 DynamicImage helps you simplify the way you deal with images in your ASP.NET websites.
 
+### Links
+
+* [DynamicImage Website and Documentation](http://dynamicimage.apphb.com)
+* [DynamicImage NuGet packages](http://nuget.org/packages?q=DynamicImage)
+* [DynamicImage Google Group](https://groups.google.com/forum/#!forum/dynamicimage-net)
 
 ### API
 
@@ -105,4 +110,4 @@ and run with good performance in a server environment.
 
 
 #### DynamicImage is made available to the community by Sound in Theory Ltd, a web design company based in Exeter, United Kingdom.  
-[Sound in Theory Ltd](http://www.sitdap.com)
+[Sound in Theory Ltd](http://www.soundintheory.co.uk)

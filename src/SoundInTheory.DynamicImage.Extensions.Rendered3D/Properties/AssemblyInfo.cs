@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SoundInTheory.DynamicImage.Extensions.RenderedLayer")]
+[assembly: AssemblyTitle("SoundInTheory.DynamicImage.Extensions.Rendered3D")]
 [assembly: AssemblyDescription("Extension for DynamicImage that can render 3D scenes")]
 [assembly: AssemblyCulture("")]
 

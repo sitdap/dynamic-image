@@ -57,6 +57,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\CutyCapt.exe" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

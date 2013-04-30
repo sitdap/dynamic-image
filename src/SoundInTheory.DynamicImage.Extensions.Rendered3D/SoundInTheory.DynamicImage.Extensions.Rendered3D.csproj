@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="SoundInTheory.DynamicImage.Extensions.Rendered3D.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">

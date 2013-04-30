@@ -54,6 +54,7 @@
     <EmbeddedResource Include="Resources\pthreadVSE2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="SoundInTheory.DynamicImage.Extensions.ContentAwareResizing.nuspec" />
     <None Include="Resources\GPL.txt" />
     <None Include="Resources\ReadMe.txt" />
   </ItemGroup>

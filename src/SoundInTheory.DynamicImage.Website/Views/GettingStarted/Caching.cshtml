@@ -1,2 +1,54 @@
 ﻿@section PageTitle { Caching }
 
+<p>
+	When you generate dynamic images on a website, you almost certainly want to cache the resulting images. DynamicImage
+	defaults to using the built-in <code>XmlCacheProvider</code>, but you can write your own. Using the default provider,
+	DynamicImage will store cached images in <code>~/App_Data/DynamicImage/</code>. You can customise this path in web.config:
+</p>
+
+<pre class="prettyprint">
+&lt;?xml version="1.0"?&gt;
+&lt;configuration&gt;
+	&lt;configSections&gt;
+		&lt;sectionGroup name="soundInTheory"&gt;
+			&lt;section name="dynamicImage" 
+				type="SoundInTheory.DynamicImage.Configuration.DynamicImageSection" /&gt;
+		&lt;/sectionGroup&gt;
+	&lt;/configSections&gt;
+	&lt;soundInTheory&gt;
+		&lt;dynamicImage&gt;
+			&lt;caching mode="Custom" customProvider="XmlCacheProvider" storeMissingImagesInCache="false"
+				cachePath="~/MyCustomCacheFolder"&gt;
+				&lt;providers&gt;
+					&lt;add name="XmlCacheProvider"
+						type="SoundInTheory.DynamicImage.Caching.XmlCacheProvider, SoundInTheory.DynamicImage" /&gt;
+				&lt;/providers&gt;
+			&lt;/caching&gt;
+		&lt;/dynamicImage&gt;
+	&lt;/soundInTheory&gt;
+&lt;/configuration&gt;
+</pre>
+
+<p>
+	It is safe to delete the contents of the cache folder (i.e. <code>~/App_Data/DynamicImage/</code>). DynamicImage will recreate
+	and re-cache images as needed.
+</p>
+	
+<p>To implement your own cache provider, you'll need to inherit from the following class:</p>
+
+<pre class="prettyprint">
+public abstract class DynamicImageCacheProvider : ProviderBase
+{
+	public abstract bool ExistsInCache(string cacheKey);
+	public abstract void AddToCache(string cacheKey, GeneratedImage generatedImage, 
+		Dependency[] dependencies);
+	public abstract ImageProperties GetPropertiesFromCache(string cacheKey);
+	public abstract void RemoveAllFromCache();
+	public abstract void RemoveFromCache(Dependency dependency);
+
+	public abstract DateTime GetImageLastModifiedDate(HttpContext context, 
+		string cacheKey, string fileExtension);
+	public abstract void SendImageToHttpResponse(HttpContext context, 
+		string cacheKey, string fileExtension);
+}
+</pre>

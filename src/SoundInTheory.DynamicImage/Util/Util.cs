@@ -38,7 +38,7 @@ namespace SoundInTheory.DynamicImage.Util
 			// setup parameters
 			BitmapEncoder encoder = generatedImage.Properties.GetEncoder();
 
-			//encoderParametersTemp.Add(new EncoderParameter(Encoder.ColorDepth, (long)GeneratedImage.Properties.ColourDepth));
+			//encoderParametersTemp.Add(new EncoderParameter(Encoder.ColorDepth, (long)GeneratedImage.Properties.ColorDepth));
 			// TODO: Use ColorConvertedBitmap to allow configurable colour depth in output image.
 
 			encoder.Frames.Add(BitmapFrame.Create(generatedImage.Image));

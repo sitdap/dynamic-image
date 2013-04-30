@@ -8,7 +8,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// Adjusts the brightness of the layer.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'BrightnessAdjustmentFilter']/*" />
 	public class BrightnessAdjustmentFilter : ShaderEffectFilter
 	{
 		#region Properties

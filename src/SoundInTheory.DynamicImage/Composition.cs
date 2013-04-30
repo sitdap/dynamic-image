@@ -45,10 +45,10 @@ namespace SoundInTheory.DynamicImage
 			set { this["JpegCompressionLevel"] = value; }
 		}
 
-		public int ColourDepth
+		public int ColorDepth
 		{
-			get { return (int)(this["ColourDepth"] ?? 32); }
-			set { this["ColourDepth"] = value; }
+			get { return (int)(this["ColorDepth"] ?? 32); }
+			set { this["ColorDepth"] = value; }
 		}
 
 		public Fill Fill
@@ -83,7 +83,7 @@ namespace SoundInTheory.DynamicImage
 
 			var properties = new ImageProperties
 			{
-				ColourDepth = ColourDepth,
+				ColorDepth = ColorDepth,
 				Format = ImageFormat,
 				JpegCompressionLevel = JpegCompressionLevel
 			};

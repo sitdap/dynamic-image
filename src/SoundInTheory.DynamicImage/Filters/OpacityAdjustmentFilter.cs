@@ -9,7 +9,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// Adjusts the opacity of a layer. Opacity can be from 0,
 	/// which is totally transparent, to 100, which is totally opaque.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'OpacityAdjustmentFilter']/*" />
 	public class OpacityAdjustmentFilter : ImageReplacementFilter
 	{
 		#region Properties

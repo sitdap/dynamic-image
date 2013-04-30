@@ -14,7 +14,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// adds a reflection of the image just below it.
 	/// </summary>
 	/// <see cref="http://www.jhlabs.com/java/java2d/reflections/index.html"/>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'ShinyFloorFilter']/*" />
 	public class ShinyFloorFilter : ImageReplacementFilter
 	{
 		#region Properties

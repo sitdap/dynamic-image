@@ -8,7 +8,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// Blurs the image. A Gaussian blur removes fine image detail
 	/// and noise leaving only larger scale changes.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'GaussianBlurFilter']/*" />
 	public class GaussianBlurFilter : ShaderEffectFilter
 	{
 		#region Properties

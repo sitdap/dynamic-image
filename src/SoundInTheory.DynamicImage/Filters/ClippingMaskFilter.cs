@@ -11,7 +11,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// Clips (reveals) the content of the layer based on the 
 	/// non-transparent content of the specified image.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'ClippingMaskFilter']/*" />
 	public class ClippingMaskFilter : ShaderEffectFilter
 	{
 		#region Fields

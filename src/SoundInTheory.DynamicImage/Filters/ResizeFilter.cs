@@ -14,7 +14,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <remarks>By default, images will not be enlarged if they are smaller than 
 	/// the target size. However, you can set the <see cref="ResizeFilter.EnlargeImage" /> 
 	/// property to true to allow enlargement.</remarks>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'ResizeFilter']/*" />
 	public class ResizeFilter : ImageReplacementFilter
 	{
 		#region Fields

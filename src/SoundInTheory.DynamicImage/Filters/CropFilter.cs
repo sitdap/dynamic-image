@@ -8,7 +8,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// Crops an image. The rectangular section to crop is defined by X/Y coordinates and a size.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'CropFilter']/*" />
 	public class CropFilter : ImageReplacementFilter
 	{
 		#region Properties

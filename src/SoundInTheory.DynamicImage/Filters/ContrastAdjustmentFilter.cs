@@ -8,7 +8,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// Adjusts the contrast of the layer.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'ContrastAdjustmentFilter']/*" />
 	public class ContrastAdjustmentFilter : ShaderEffectFilter
 	{
 		#region Properties

@@ -9,7 +9,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// Rotates an image based on a specified angle. The image rotates around its centre point.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'RotateFilter']/*" />
 	public class RotationFilter : ImageReplacementFilter
 	{
 		private Transform _rotateTransform;

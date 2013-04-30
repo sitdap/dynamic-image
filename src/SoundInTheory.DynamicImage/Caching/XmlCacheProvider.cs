@@ -72,7 +72,7 @@ namespace SoundInTheory.DynamicImage.Caching
 					new XAttribute("id", cacheKey),
 					new XAttribute("isImagePresent", generatedImage.Properties.IsImagePresent),
 					new XAttribute("format", generatedImage.Properties.Format),
-					new XAttribute("colourDepth", generatedImage.Properties.ColourDepth));
+					new XAttribute("colorDepth", generatedImage.Properties.ColorDepth));
 				if (generatedImage.Properties.Width != null)
 					itemElement.Add(new XAttribute("width", generatedImage.Properties.Width.Value));
 				if (generatedImage.Properties.Height != null)
@@ -128,7 +128,7 @@ namespace SoundInTheory.DynamicImage.Caching
 				imageProperties.Width = Convert.ToInt32(itemElement.Attribute("width").Value);
 			if (itemElement.Attribute("height") != null)
 				imageProperties.Height = Convert.ToInt32(itemElement.Attribute("height").Value);
-			imageProperties.ColourDepth = Convert.ToInt32(itemElement.Attribute("colourDepth").Value);
+			imageProperties.ColorDepth = Convert.ToInt32(itemElement.Attribute("colorDepth").Value);
 			if (itemElement.Attribute("jpegCompressionLevel") != null)
 				imageProperties.JpegCompressionLevel = Convert.ToInt32(itemElement.Attribute("jpegCompressionLevel").Value);
 			cacheKey = itemElement.Attribute("id").Value;

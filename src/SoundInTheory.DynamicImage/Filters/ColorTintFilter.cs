@@ -8,7 +8,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// Adjusts the colour tint of the layer.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'ColorTintFilter']/*" />
 	public class ColorTintFilter : ShaderEffectFilter
 	{
 		#region Properties

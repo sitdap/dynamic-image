@@ -12,7 +12,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// <summary>
 	/// 
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'FeatherFilter']/*" />
 	public class FeatherFilter : ShaderEffectFilter
 	{
 		#region Properties

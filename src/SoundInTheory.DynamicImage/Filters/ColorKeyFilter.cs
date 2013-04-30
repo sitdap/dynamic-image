@@ -9,7 +9,6 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// Makes a specified color transparent in the output image. Can also use the
 	/// top-left pixel in the source image as the transparent color.
 	/// </summary>
-	/// <include file="../documentation.xml" path="docs/types/type[@name = 'ColorKeyFilter']/*" />
 	public class ColorKeyFilter : ShaderEffectFilter
 	{
 		#region Properties

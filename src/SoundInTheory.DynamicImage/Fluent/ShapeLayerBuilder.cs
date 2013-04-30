@@ -38,13 +38,13 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public TLayerBuilder StrokeFill(string colorHexRef)
 		{
-			Layer.StrokeFill.BackgroundColour = Color.FromHtml(colorHexRef);
+			Layer.StrokeFill.BackgroundColor = Color.FromHtml(colorHexRef);
 			return (TLayerBuilder)this;
 		}
 
 		public TLayerBuilder StrokeFill(Color color)
 		{
-			Layer.StrokeFill.BackgroundColour = color;
+			Layer.StrokeFill.BackgroundColor = color;
 			return (TLayerBuilder)this;
 		}
 	}

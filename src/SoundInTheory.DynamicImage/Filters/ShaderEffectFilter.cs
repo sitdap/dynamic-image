@@ -16,9 +16,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// <param name="source">The source image.</param>
 		/// <param name="width">The desired width of the output image.</param>
 		/// <param name="height">The desired height of the output image.</param>
-		/// <returns><c>true</c> if the destination image should be created; otherwise <c>false</c>.
-		/// <see cref="ColourMatrixFilter" /> always returns <c>true</c> and sets the destination
-		/// dimensions to the same as the source dimensions.</returns>
+		/// <returns><c>true</c> if the destination image should be created; otherwise <c>false</c>.</returns>
 		protected override bool GetDestinationDimensions(FastBitmap source, out int width, out int height)
 		{
 			width = source.Width;
@@ -36,7 +34,7 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		protected override void CleanUpDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
 		{
-			if (drawingVisual.Effect != null && drawingVisual.Effect is IDisposable)
+			if (drawingVisual.Effect is IDisposable)
 				((IDisposable) drawingVisual.Effect).Dispose();
 			base.CleanUpDrawingVisual(source, drawingVisual);
 		}
@@ -45,8 +43,9 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// Applies the filter to the specified source.
 		/// </summary>
 		/// <param name="source">The source image.</param>
-		/// <param name="destination">The destination image.</param>
-		/// <param name="g">A <see cref="System.Drawing.Graphics" /> object, created from <paramref name="destination"/>.</param>
+		/// <param name="dc">A <see cref="System.Windows.Media.DrawingContext"/> object, created from the destination image.</param>
+		/// <param name="width"></param>
+		/// <param name="height"></param>
 		protected override void ApplyFilter(FastBitmap source, DrawingContext dc, int width, int height)
 		{
 			dc.DrawImage(source.InnerBitmap, new System.Windows.Rect(0, 0, source.Width, source.Height));

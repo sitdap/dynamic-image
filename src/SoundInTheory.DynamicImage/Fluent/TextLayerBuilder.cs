@@ -48,7 +48,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public TextLayerBuilder ForeColor(Color color)
 		{
-			Layer.ForeColour = color;
+			Layer.ForeColor = color;
 			return this;
 		}
 
@@ -66,7 +66,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public TextLayerBuilder StrokeColor(Color color)
 		{
-			Layer.StrokeColour = color;
+			Layer.StrokeColor = color;
 			return this;
 		}
 

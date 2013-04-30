@@ -11,7 +11,7 @@ namespace SoundInTheory.DynamicImage.Filters
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the border colour. Defaults to White.
+		/// Gets or sets the border color. Defaults to White.
 		/// </summary>
 		public Color BorderColor
 		{

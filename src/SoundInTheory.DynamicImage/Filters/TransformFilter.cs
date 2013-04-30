@@ -191,8 +191,8 @@ namespace SoundInTheory.DynamicImage.Filters
 						return bitmap[ImageMath.Clamp(x, 0, width - 1), ImageMath.Clamp(y, 0, height - 1)];
 					case EdgeAction.RgbClamp:
 					{
-						var edgeColour = bitmap[ImageMath.Clamp(x, 0, width - 1), ImageMath.Clamp(y, 0, height - 1)];
-						return SWMColor.FromArgb(0, edgeColour.R, edgeColour.G, edgeColour.B);
+						var edgeColor = bitmap[ImageMath.Clamp(x, 0, width - 1), ImageMath.Clamp(y, 0, height - 1)];
+						return SWMColor.FromArgb(0, edgeColor.R, edgeColor.G, edgeColor.B);
 					}
 					case EdgeAction.Zero:
 						return SWMColors.Transparent;

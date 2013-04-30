@@ -44,8 +44,8 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		public Color BackgroundColour
 		{
-			get { return (Color)(this["BackgroundColour"] ?? Colors.Transparent); }
-			set { this["BackgroundColour"] = value; }
+			get { return (Color)(this["BackgroundColor"] ?? Colors.Transparent); }
+			set { this["BackgroundColor"] = value; }
 		}
 
 		public bool LightingEnabled

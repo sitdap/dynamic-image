@@ -6,14 +6,14 @@ using SoundInTheory.DynamicImage.Util;
 namespace SoundInTheory.DynamicImage.Filters
 {
 	/// <summary>
-	/// Adjusts the colour tint of the layer.
+	/// Adjusts the color tint of the layer.
 	/// </summary>
 	public class ColorTintFilter : ShaderEffectFilter
 	{
 		#region Properties
 
 		/// <summary>
-		/// Gets or sets the colour used to tint the layer. Defaults to Red.
+		/// Gets or sets the color used to tint the layer. Defaults to Red.
 		/// </summary>
 		public Color Color
 		{

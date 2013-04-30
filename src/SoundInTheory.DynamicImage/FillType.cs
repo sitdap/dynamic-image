@@ -6,12 +6,12 @@
 	public enum FillType
 	{
 		/// <summary>
-		/// Specifies a solid colour fill type.
+		/// Specifies a solid color fill type.
 		/// </summary>
 		Solid,
 
 		/// <summary>
-		/// Specifies a gradient colour fill type.
+		/// Specifies a gradient color fill type.
 		/// </summary>
 		Gradient
 	}

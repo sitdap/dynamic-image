@@ -15,7 +15,7 @@ namespace SoundInTheory.DynamicImage
 		public DynamicImageFormat Format;
 		public int? Width;
 		public int? Height;
-		public int ColourDepth;
+		public int ColorDepth;
 		public int? JpegCompressionLevel;
 
 		public BitmapEncoder GetEncoder()

@@ -45,16 +45,16 @@ namespace SoundInTheory.DynamicImage.Layers
 			set { this["Font"] = value; }
 		}
 
-		public Color ForeColour
+		public Color ForeColor
 		{
-			get { return (Color)(this["ForeColour"] ?? Colors.Black); }
-			set { this["ForeColour"] = value; }
+			get { return (Color)(this["ForeColor"] ?? Colors.Black); }
+			set { this["ForeColor"] = value; }
 		}
 
-		public Color? StrokeColour
+		public Color? StrokeColor
 		{
-			get { return (Color?) this["StrokeColour"]; }
-			set { this["StrokeColour"] = value; }
+			get { return (Color?) this["StrokeColor"]; }
+			set { this["StrokeColor"] = value; }
 		}
 
 		public double StrokeWidth
@@ -118,14 +118,14 @@ namespace SoundInTheory.DynamicImage.Layers
 			UseFormattedText(ft =>
 			{
 				Pen pen = null;
-				if (StrokeWidth > 0 && StrokeColour != null)
-					pen = new Pen(new SolidColorBrush(StrokeColour.Value.ToWpfColor()), StrokeWidth);
+				if (StrokeWidth > 0 && StrokeColor != null)
+					pen = new Pen(new SolidColorBrush(StrokeColor.Value.ToWpfColor()), StrokeWidth);
 
 				// Calculate position to draw text at, based on vertical text alignment.
 				int x = CalculateHorizontalPosition((int) measuredSize.Width);
 				int y = CalculateVerticalPosition((int) measuredSize.Height);
 
-				dc.DrawGeometry(new SolidColorBrush(ForeColour.ToWpfColor()), pen,
+				dc.DrawGeometry(new SolidColorBrush(ForeColor.ToWpfColor()), pen,
 					ft.BuildGeometry(new Point(x, y)));
 			});
 
@@ -190,7 +190,7 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		private void UseFormattedText(RenderCallback renderCallback)
 		{
-			Brush textBrush = new SolidColorBrush(ForeColour.ToWpfColor());
+			Brush textBrush = new SolidColorBrush(ForeColor.ToWpfColor());
 			FontDescription fontDescription = Font.GetFontDescription();
 			var formattedText = new FormattedText(
 				Text, CultureInfo.CurrentCulture, FlowDirection.LeftToRight,

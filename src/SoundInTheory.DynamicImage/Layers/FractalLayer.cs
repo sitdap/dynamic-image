@@ -68,14 +68,14 @@ namespace SoundInTheory.DynamicImage.Layers
 			for (int y = 0; y < Height; y++)
 				for (int x = 0; x < Width; x++)
 				{
-					ColorHsv colourHsv = CalculateFractalColour(x, y);
-					var colour = (Color) colourHsv;
-					Bitmap[x, y] = colour.ToWpfColor();
+					ColorHsv colorHsv = CalculateFractalColor(x, y);
+					var color = (Color) colorHsv;
+					Bitmap[x, y] = color.ToWpfColor();
 				}
 
 			Bitmap.Unlock();
 		}
 
-		internal abstract ColorHsv CalculateFractalColour(int x, int y);
+		internal abstract ColorHsv CalculateFractalColor(int x, int y);
 	}
 }

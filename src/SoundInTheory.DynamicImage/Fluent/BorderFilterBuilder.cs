@@ -12,13 +12,13 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public BorderFilterBuilder Fill(string backgroundColorHexRef)
 		{
-			Filter.Fill.BackgroundColour = Color.FromHtml(backgroundColorHexRef);
+			Filter.Fill.BackgroundColor = Color.FromHtml(backgroundColorHexRef);
 			return this;
 		}
 
 		public BorderFilterBuilder Fill(Color color)
 		{
-			Filter.Fill.BackgroundColour = color;
+			Filter.Fill.BackgroundColor = color;
 			return this;
 		}
 	}

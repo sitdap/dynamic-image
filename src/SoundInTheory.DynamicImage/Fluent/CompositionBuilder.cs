@@ -54,7 +54,7 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public CompositionBuilder FillBackgroundColor(Color backgroundColor)
 		{
-			_composition.Fill.BackgroundColour = backgroundColor;
+			_composition.Fill.BackgroundColor = backgroundColor;
 			return this;
 		}
 
@@ -66,13 +66,13 @@ namespace SoundInTheory.DynamicImage.Fluent
 
 		public CompositionBuilder FillGradientColorStart(Color color)
 		{
-			_composition.Fill.GradientColourStart = color;
+			_composition.Fill.GradientColorStart = color;
 			return this;
 		}
 
 		public CompositionBuilder FillGradientColorEnd(Color color)
 		{
-			_composition.Fill.GradientColourEnd = color;
+			_composition.Fill.GradientColorEnd = color;
 			return this;
 		}
 

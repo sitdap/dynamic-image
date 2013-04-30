@@ -15,22 +15,22 @@ namespace SoundInTheory.DynamicImage
 			set { this["Type"] = value; }
 		}
 
-		public Color BackgroundColour
+		public Color BackgroundColor
 		{
-			get { return (Color)(this["BackgroundColour"] ?? Colors.White); }
-			set { this["BackgroundColour"] = value; }
+			get { return (Color)(this["BackgroundColor"] ?? Colors.White); }
+			set { this["BackgroundColor"] = value; }
 		}
 
-		public Color GradientColourStart
+		public Color GradientColorStart
 		{
-			get { return (Color)(this["GradientColourStart"] ?? Colors.White); }
-			set { this["GradientColourStart"] = value; }
+			get { return (Color)(this["GradientColorStart"] ?? Colors.White); }
+			set { this["GradientColorStart"] = value; }
 		}
 
-		public Color GradientColourEnd
+		public Color GradientColorEnd
 		{
-			get { return (Color)(this["GradientColourEnd"] ?? Colors.Black); }
-			set { this["GradientColourEnd"] = value; }
+			get { return (Color)(this["GradientColorEnd"] ?? Colors.Black); }
+			set { this["GradientColorEnd"] = value; }
 		}
 
 		public int GradientAngle
@@ -46,10 +46,10 @@ namespace SoundInTheory.DynamicImage
 			switch (Type)
 			{
 				case FillType.Solid:
-					return new SolidColorBrush(BackgroundColour.ToWpfColor());
+					return new SolidColorBrush(BackgroundColor.ToWpfColor());
 				case FillType.Gradient:
 					return new LinearGradientBrush(
-						GradientColourStart.ToWpfColor(), GradientColourEnd.ToWpfColor(),
+						GradientColorStart.ToWpfColor(), GradientColorEnd.ToWpfColor(),
 						GradientAngle);
 				default:
 					throw new NotSupportedException();

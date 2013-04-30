@@ -14,7 +14,7 @@
 			set { this["ConstantImaginary"] = value; }
 		}
 
-		internal override ColorHsv CalculateFractalColour(int x, int y)
+		internal override ColorHsv CalculateFractalColor(int x, int y)
 		{
 			// Calculate the real and imaginary part of z, based on the pixel location
 			// and zoom and position values.

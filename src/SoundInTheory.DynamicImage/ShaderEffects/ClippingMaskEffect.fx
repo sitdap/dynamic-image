@@ -5,11 +5,11 @@ float2 inputCoordsScale : register(c1);
 
 float4 main(float2 uv : TEXCOORD) : COLOR
 {
-	float4 maskColour = tex2D(mask, uv);
+	float4 maskColor = tex2D(mask, uv);
 
 	uv = (uv * inputCoordsScale) + inputCoordsOffset;
 	float4 color = tex2D(input, uv); 
 
 	// Use alpha from mask image, and RGB from source image.
-	return float4(color.r * maskColour.a, color.g * maskColour.a, color.b * maskColour.a, maskColour.a);
+	return float4(color.r * maskColor.a, color.g * maskColor.a, color.b * maskColor.a, maskColor.a);
 }

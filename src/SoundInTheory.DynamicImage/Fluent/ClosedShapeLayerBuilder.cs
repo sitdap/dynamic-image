@@ -8,13 +8,13 @@ namespace SoundInTheory.DynamicImage.Fluent
 	{
 		public TLayerBuilder Fill(string backgroundColorHexRef)
 		{
-			Layer.Fill.BackgroundColour = Color.FromHtml(backgroundColorHexRef);
+			Layer.Fill.BackgroundColor = Color.FromHtml(backgroundColorHexRef);
 			return (TLayerBuilder) this;
 		}
 
 		public TLayerBuilder Fill(Color color)
 		{
-			Layer.Fill.BackgroundColour = color;
+			Layer.Fill.BackgroundColor = color;
 			return (TLayerBuilder)this;
 		}
 	}

@@ -85,7 +85,7 @@ namespace SoundInTheory.DynamicImage
 		ColorBurn = 8,
 
 		/// <summary>
-		/// Adds the tonal values of backdrop and source colours.
+		/// Adds the tonal values of backdrop and source colors.
 		/// </summary>
 		LinearDodge = 9,
 

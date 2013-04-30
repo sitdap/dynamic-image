@@ -4,7 +4,7 @@ using SoundInTheory.DynamicImage.ShaderEffects;
 namespace SoundInTheory.DynamicImage.Filters
 {
 	/// <summary>
-	/// Inverts the colours of the image.
+	/// Inverts the colors of the image.
 	/// </summary>
 	public class InversionFilter : ShaderEffectFilter
 	{

@@ -256,9 +256,9 @@
       <Project>{fcb2559e-8cc6-40e2-882b-03c71533d859}</Project>
       <Name>SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Mvc\SoundInTheory.DynamicImage.Mvc.csproj">
-      <Project>{B7A0D43C-DF4A-4070-840F-156C92E9F54F}</Project>
-      <Name>SoundInTheory.DynamicImage.Mvc</Name>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Mvc4\SoundInTheory.DynamicImage.Mvc4.csproj">
+      <Project>{fddda270-bedd-413f-bbb9-7c836688330e}</Project>
+      <Name>SoundInTheory.DynamicImage.Mvc4</Name>
     </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
       <Project>{15F7FF82-B018-42E0-A94D-2CAAE491C248}</Project>

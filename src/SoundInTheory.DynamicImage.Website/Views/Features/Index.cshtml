@@ -1,2 +1,159 @@
 ﻿@section PageTitle { Other Features }
 
+<ul class="thumbnails thumbnails-index">
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b
+				.WithLayer(
+					LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+						        .WithFilter(FilterBuilder.Resize.ToWidth(250)))
+				.WithLayer(
+					LayerBuilder.Image.SourceFile("~/Assets/Images/Forest.jpg").BlendMode(BlendMode.Luminosity)
+						        .WithFilter(FilterBuilder.Resize.ToWidth(250)))
+				)
+			<div class="caption">
+				<h5>Blend Modes</h5>
+				<p>Change how a layer is blended with the layer beneath.</p>
+				<p>@Html.ActionLink("More details", "BlendModes", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+					.WithFilter(FilterBuilder.Resize.To(210, 158))
+			))
+			<div class="caption">
+				<h5>Bytes Source Image</h5>
+				<p>Create an image layer with a byte array.</p>
+				<p>@Html.ActionLink("More details", "BytesSourceImage", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b
+				.WithLayer(
+					LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+						.WithFilter(FilterBuilder.Resize.To(800, 800))
+						.WithFilter(FilterBuilder.Border.Width(30).Fill(Colors.NavajoWhite))
+				)
+				.WithLayer(
+					LayerBuilder.Text.Text("Happy Birthday").Anchor(AnchorStyles.BottomCenter).AnchorPadding(5)
+				)
+				.WithGlobalFilter(FilterBuilder.Resize.To(210, 158))
+			)
+			<div class="caption">
+				<h5>Global Filters</h5>
+				<p>Apply filters to a composition, not just individual layers.</p>
+				<p>@Html.ActionLink("More details", "GlobalFilters", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b
+				.Width(210).Height(158)
+				.FillType(FillType.Gradient)
+				.FillGradientColorStart(Colors.Red)
+				.FillGradientColorEnd(Colors.Green))
+			<div class="caption">
+				<h5>Gradient Fill</h5>
+				<p>Use a gradient fill as a background.</p>
+				<p>@Html.ActionLink("More details", "GradientFill", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/GrayscaleAutumnLeaves.jpg")
+					.WithFilter(FilterBuilder.Resize.To(210, 158))
+					.WithFilter(FilterBuilder.Feather.Radius(10))
+			))
+			<div class="caption">
+				<h5>Grayscale Source Image</h5>
+				<p>Use a grayscale image as the source for an image layer.</p>
+				<p>@Html.ActionLink("More details", "GrayscaleSourceImage", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/AstonMartin.gif")
+					.WithFilter(FilterBuilder.Resize.To(210, 158))
+					.WithFilter(FilterBuilder.Feather.Radius(10))
+			))
+			<div class="caption">
+				<h5>Indexed Source Image</h5>
+				<p>Use an indexed GIF as the source for an image layer.</p>
+				<p>@Html.ActionLink("More details", "IndexedSourceImage", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b.WithLayer(
+				LayerBuilder.Image.SourceFile("~/Assets/Images/Penguins.jpg")
+					.WithFilter(FilterBuilder.Resize.To(210, 158))
+					.WithFilter(FilterBuilder.Vignette)
+					.WithFilter(FilterBuilder.UnsharpMask.Amount(50).Radius(5).Threshold(0))
+					.WithFilter(FilterBuilder.AdjustCurves.UsingFile("~/Assets/Misc/CrossProcess-Curves.acv"))
+			))
+			<div class="caption">
+				<h5>Lomo</h5>
+				<p>An example of combining filters to produce interesting effects.</p>
+				<p>@Html.ActionLink("More details", "Lomo", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b
+				.WithLayer(
+					LayerBuilder.RectangleShape.X(100).Y(200).Width(500).Height(500).Fill(Colors.Red)
+						.WithFilter(FilterBuilder.AdjustOpacity.Opacity(50))
+				)
+				.WithLayer(
+					LayerBuilder.RectangleShape.X(200).Y(250).Width(200).Height(200).Fill(Colors.Blue)
+						.WithFilter(FilterBuilder.AdjustOpacity.Opacity(50))
+				)
+				.WithLayer(
+					LayerBuilder.RectangleShape.X(50).Y(0).Width(200).Height(400).Fill(Colors.Green)
+						.WithFilter(FilterBuilder.AdjustOpacity.Opacity(75))
+				)
+				.WithGlobalFilter(FilterBuilder.Resize.To(210, 158))
+			)
+			<div class="caption">
+				<h5>Opacity</h5>
+				<p>Each layer can have its opacity modified independently.</p>
+				<p>@Html.ActionLink("More details", "Opacity", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+	<li class="span3">
+		<div class="thumbnail">
+			@Html.DynamicImageTag(b => b
+				.WithLayer(
+					LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+						.WithFilter(FilterBuilder.Resize.To(300, 200))
+				)
+				.WithLayer(
+					LayerBuilder.RectangleShape.Anchor(AnchorStyles.BottomLeft).Fill(Colors.Red).PaddingLeft(150).Width(300).Height(30)
+				)
+				.WithLayer(
+					LayerBuilder.Text.Text("Hello world").ForeColor(Colors.Blue).FontBold()
+						.Height(30).Anchor(AnchorStyles.BottomRight).PaddingRight(5)
+				)
+				.WithGlobalFilter(FilterBuilder.Resize.To(210, 158))
+			)
+			<div class="caption">
+				<h5>Positioning</h5>
+				<p>Each layer can be offset in relation to the parent composition.</p>
+				<p>@Html.ActionLink("More details", "Positioning", "Features", null, new { @class = "btn btn-primary" })</p>
+			</div>
+		</div>
+	</li>
+</ul>

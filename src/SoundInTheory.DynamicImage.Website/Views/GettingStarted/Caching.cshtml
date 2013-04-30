@@ -3,7 +3,9 @@
 <p>
 	When you generate dynamic images on a website, you almost certainly want to cache the resulting images. DynamicImage
 	defaults to using the built-in <code>XmlCacheProvider</code>, but you can write your own. Using the default provider,
-	DynamicImage will store cached images in <code>~/App_Data/DynamicImage/</code>. You can customise this path in web.config:
+	DynamicImage will store cached images in <code>~/App_Data/DynamicImage/</code>. When a request comes in for the same set
+	of layers and filters, DynamicImage will server the cached image instead of generating a new one.
+	You can customise the cache path in web.config:
 </p>
 
 <pre class="prettyprint">

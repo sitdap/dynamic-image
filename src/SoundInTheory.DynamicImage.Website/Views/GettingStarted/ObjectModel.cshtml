@@ -6,8 +6,29 @@
 	the @Html.ActionLink("next one", "FluentApi", "GettingStarted") describes the fluent API.
 </p>
 
-<p>DynamicImage has a hierarchy of layers and filters that can be used to create an image.
-	The class you start with is a <code>Composition</code>:</p>
+<h2>Composition</h2>
+
+<p>
+	DynamicImage has a hierarchy of layers and filters that can be used to create an image.
+	The hierarchy looks like this:
+</p>
+
+<ul>
+	<li>
+		Composition
+		<ul>
+			<li>
+				Layers
+				<ul>
+					<li>Filters</li>
+				</ul>
+			</li>
+			<li>Filters (global filters that apply to the composition)</li>
+		</ul>
+	</li>
+</ul>
+
+<p>The class you start with is a <code>Composition</code>:</p>
 
 <pre class="prettyprint">
 Composition composition = new Composition();
@@ -43,3 +64,65 @@ string url = ImageUrlGenerator.GetImageUrl(composition);
 	<li>GradientColorEnd</li>
 	<li>GradientAngle</li>
 </ul>
+
+<h3>Layers</h3>
+
+<p>
+	Once you have a <code>Composition</code> object, you need to add an image or text. This is done with a <code>Layer</code>.
+	DynamicImage includes several @Html.ActionLink("layer types", "Index", "Layers"), and it is straightforward to write your own.
+</p>
+
+<pre class="prettyprint">
+Composition composition = new Composition();
+composition.Layers.Add(new ImageLayer { SourceFileName = "tulips.jpg" });
+composition.Layers.Add(new TextLayer { Text = "Hello World" });
+</pre>
+
+<p>The built-in layer types are:</p>
+
+<ul>
+	<li>@Html.ActionLink("Image", "Image", "Layers")</li>
+	<li>@Html.ActionLink("Julia Fractal", "JuliaFractal", "Layers")</li>
+	<li>@Html.ActionLink("Mandelbrot Fractal", "MandelbrotFractal", "Layers")</li>
+	<li>@Html.ActionLink("Polygon Shape", "PolygonShape", "Layers")</li>
+	<li>@Html.ActionLink("Rectangle Shape", "RectangleShape", "Layers")</li>
+	<li>@Html.ActionLink("Text", "Text", "Layers")</li>
+</ul>
+
+<p>More layer types are available via @Html.ActionLink("extensions", "Index", "Extensions"):</p>
+
+<ul>
+	<li>@Html.ActionLink("PDF", "Pdf", "Extensions")</li>
+	<li>@Html.ActionLink("Rendered 3D", "Rendered3D", "Extensions")</li>
+	<li>@Html.ActionLink("Website Screenshot", "WebsiteScreenshot", "Extensions")</li>
+</ul>
+
+<p>Layers have the following properties:</p>
+
+<ul>
+	<li>Visible</li>
+	<li>Anchor (anchor the layer to a side or corner of the composition)</li>
+	<li>X (offset in relation to the composition)</li>
+	<li>Y (offset in relation to the composition)</li>
+	<li>AnchorPadding</li>
+	<li>Padding</li>
+	<li>@Html.ActionLink("BlendMode", "BlendModes", "Features")</li>
+</ul>
+
+<h2>Filters</h2>
+
+<p>
+	Filters let you modify layers. @Html.ActionLink("Filters", "Index", "Filters") are quite flexible - some change 
+	the size of a layer, while others  modify the individual pixel colours. You can 
+	@Html.ActionLink("combine filters", "Lomo", "Features") to produce interesting effects. Filters can be applied both
+	to layers (they will affect just that layer) and compositions (they will be applied globally after all layers have been composited).
+</p>
+
+<pre class="prettyprint">
+Composition composition = new Composition();
+composition.Filters.Add(new DropShadowFilter());
+
+ImageLayer layer = new ImageLayer { SourceFileName = "tulips.jpg" };
+layer.Filters.Add(new ResizeFilter { Mode = ResizeMode.UseWidth, Width = 200 });
+layer.Filters.Add(new GrayscaleFilter());
+</pre>

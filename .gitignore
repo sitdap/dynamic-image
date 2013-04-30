@@ -40,3 +40,8 @@ httpd.parse.errors
 
 App_Data
 !src/SoundInTheory.DynamicImage.Website/Assets/Models/Obj
+
+!src/SoundInTheory.DynamicImage.Website/bin
+src/SoundInTheory.DynamicImage.Website/bin/*
+!src/SoundInTheory.DynamicImage.Website/bin/D3DCompiler_43.dll
+!src/SoundInTheory.DynamicImage.Website/bin/d3dx11_43.dll

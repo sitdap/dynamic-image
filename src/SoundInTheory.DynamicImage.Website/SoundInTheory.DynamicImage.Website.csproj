@@ -119,6 +119,8 @@
     <Content Include="Assets\Js\jquery.js" />
     <Content Include="Assets\Models\Obj\engine_diff_tex_small.png" />
     <Content Include="Assets\Models\Obj\turret_alt_diff_tex_small.png" />
+    <Content Include="bin\D3DCompiler_43.dll" />
+    <Content Include="bin\d3dx11_43.dll" />
     <Content Include="Content\Prettify\prettify.css" />
     <Content Include="Content\Prettify\Themes\desert.css" />
     <Content Include="Content\Prettify\Themes\doxy.css" />

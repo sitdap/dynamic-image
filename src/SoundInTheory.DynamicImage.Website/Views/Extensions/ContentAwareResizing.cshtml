@@ -38,7 +38,8 @@
 @@Html.DynamicImageTag(b => b.WithLayer(
 	LayerBuilder.Image.SourceFile("~/Assets/Images/tower.jpg")
 		.WithFilter(FilterBuilder.Resize.ToWidth(500))
-		.WithFilter(new ContentAwareResizeFilterBuilder().ToWidth(350).ConvolutionType(ContentAwareResizeFilterConvolutionType.V1))
+		.WithFilter(new ContentAwareResizeFilterBuilder().ToWidth(350)
+			.ConvolutionType(ContentAwareResizeFilterConvolutionType.V1))
 ))
 </pre>
 

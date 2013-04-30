@@ -168,7 +168,7 @@
 		</div>
 	</div>
 	
-	<div class="tab-pane active" id="cathedral">
+	<div class="tab-pane" id="cathedral">
 		<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.CornflowerBlue).WithLayer(
 	new RenderedLayerBuilder().Width(800).Height(800)
@@ -186,7 +186,7 @@
 		</p>
 	</div>
 	
-	<div class="tab-pane active" id="inline">
+	<div class="tab-pane" id="inline">
 		<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.LightBlue).WithLayer(
 	new RenderedLayerBuilder().Width(600).Height(300).Lighting(false)
@@ -202,7 +202,7 @@
 		</p>
 	</div>
 	
-	<div class="tab-pane active" id="tank">
+	<div class="tab-pane" id="tank">
 		<pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new RenderedLayerBuilder().Width(600).Height(600).ReverseWindingOrder()

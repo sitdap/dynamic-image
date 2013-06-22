@@ -1,3 +1,5 @@
+# For the latest version, head over to [tgjones/dynamic-image](https://github.com/tgjones/dynamic-image).
+
 # DynamicImage, from [Sound in Theory Ltd](http://www.sitdap.com)
 
 This is the source code repository for DynamicImage, an open source image manipulation library for ASP.NET.

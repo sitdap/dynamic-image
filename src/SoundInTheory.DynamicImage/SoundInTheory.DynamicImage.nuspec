@@ -12,7 +12,7 @@
 		<projectUrl>https://github.com/tgjones/dynamic-image</projectUrl>
 		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
 		<dependencies>
-			<dependency id="WebActivator" version="2.0.1" />
+			<dependency id="WebActivatorEx" version="2.0.2" />
 		</dependencies>
 	</metadata>
 	<files>

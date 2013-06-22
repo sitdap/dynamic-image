@@ -10,7 +10,8 @@ namespace SoundInTheory.DynamicImage.Util
 	{
 		#region Variables
 
-		private const int _bitsPerPixel = 4;
+		private const int BitsPerPixel = 4;
+
 		private readonly Stream _stream;
 		private WriteableBitmap _bitmap;
 		private int _width, _height;
@@ -56,7 +57,7 @@ namespace SoundInTheory.DynamicImage.Util
 					throw new ArgumentOutOfRangeException();
 #endif
 
-				byte* b = (byte*) _startingPosition + (y * _strideWidth) + (x * _bitsPerPixel);
+				byte* b = (byte*) _startingPosition + (y * _strideWidth) + (x * BitsPerPixel);
 				return SWMColor.FromArgb(*(b + 3), *(b + 2), *(b + 1), *b);
 			}
 
@@ -70,7 +71,7 @@ namespace SoundInTheory.DynamicImage.Util
 					throw new ArgumentOutOfRangeException();
 #endif
 
-				byte* b = (byte*) _startingPosition + (y * _strideWidth) + (x * _bitsPerPixel);
+				byte* b = (byte*) _startingPosition + (y * _strideWidth) + (x * BitsPerPixel);
 				*b = value.B;
 				*(b + 1) = value.G;
 				*(b + 2) = value.R;
@@ -89,7 +90,15 @@ namespace SoundInTheory.DynamicImage.Util
 
 		public FastBitmap(string filename, UriKind uriKind = UriKind.Absolute)
 		{
-			InnerBitmap = new WriteableBitmap(ConvertFormat(new BitmapImage(new Uri(filename, uriKind))));
+            // Use BitmapCacheOption.OnLoad to avoid file locks (thanks Mikhail-Fiadosenka).
+            // http://social.msdn.microsoft.com/forums/en-US/wpf/thread/3738345b-a6cc-421d-a98f-d907292d6e35/
+            var image = new BitmapImage();
+		    image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.UriSource = new Uri(filename, uriKind);
+            image.EndInit();
+
+			InnerBitmap = new WriteableBitmap(ConvertFormat(image));
 		}
 
 		public FastBitmap(byte[] bytes)

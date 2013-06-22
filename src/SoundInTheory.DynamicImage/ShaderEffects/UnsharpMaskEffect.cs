@@ -1,21 +1,10 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class UnsharpMaskEffect : ShaderEffect, IDisposable
+	internal class UnsharpMaskEffect : ShaderEffectBase<UnsharpMaskEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("UnsharpMaskEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(UnsharpMaskEffect), 0);
 
 		public Brush Input
@@ -50,16 +39,10 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public UnsharpMaskEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(BlurMaskProperty);
 			UpdateShaderValue(AmountProperty);
 			UpdateShaderValue(ThresholdProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

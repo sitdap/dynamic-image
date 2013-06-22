@@ -134,6 +134,7 @@
     <Compile Include="ShaderEffects\ColorKeyEffect.cs" />
     <Compile Include="ShaderEffects\ColorTintEffect.cs" />
     <Compile Include="ShaderEffects\ClippingMaskEffect.cs" />
+    <Compile Include="ShaderEffects\ShaderEffectBase.cs" />
     <Compile Include="ShaderEffects\TransferEffect.cs" />
     <Compile Include="ShaderEffects\CurvesEffect.cs" />
     <Compile Include="ShaderEffects\UnsharpMaskEffect.cs" />

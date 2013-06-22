@@ -1,21 +1,10 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class TransferEffect : ShaderEffect, IDisposable
+	internal class TransferEffect : ShaderEffectBase<TransferEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("TransferEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(TransferEffect), 0);
 
 		public Brush Input
@@ -34,14 +23,8 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public TransferEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(TransferLookupProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

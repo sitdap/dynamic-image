@@ -1,21 +1,11 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class EmbossEffect : ShaderEffect, IDisposable
+	internal class EmbossEffect : ShaderEffectBase<EmbossEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("EmbossEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(EmbossEffect), 0, SamplingMode.Bilinear);
 
 		public Brush Input
@@ -42,15 +32,9 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public EmbossEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(AmountProperty);
 			UpdateShaderValue(WidthProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

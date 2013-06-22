@@ -1,21 +1,10 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class ContrastAdjustmentEffect : ShaderEffect, IDisposable
+	internal class ContrastAdjustmentEffect : ShaderEffectBase<ContrastAdjustmentEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("ContrastAdjustmentEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(ContrastAdjustmentEffect), 0);
 
 		public Brush Input
@@ -34,14 +23,8 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public ContrastAdjustmentEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(LevelProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

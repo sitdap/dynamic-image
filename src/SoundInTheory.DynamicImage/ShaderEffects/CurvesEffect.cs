@@ -1,21 +1,10 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class CurvesEffect : ShaderEffect, IDisposable
+	internal class CurvesEffect : ShaderEffectBase<CurvesEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("CurvesEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(CurvesEffect), 0);
 
 		public Brush Input
@@ -34,14 +23,8 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public CurvesEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(CurvesLookupProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

@@ -1,21 +1,11 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class ClippingMaskEffect : ShaderEffect, IDisposable
+	internal class ClippingMaskEffect : ShaderEffectBase<ClippingMaskEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("ClippingMaskEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(ClippingMaskEffect), 0, SamplingMode.Bilinear);
 
 		public Brush Input
@@ -50,16 +40,10 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public ClippingMaskEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(MaskProperty);
 			UpdateShaderValue(InputCoordsOffsetProperty);
 			UpdateShaderValue(InputCoordsScaleProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

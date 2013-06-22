@@ -1,21 +1,10 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class BrightnessAdjustmentEffect : ShaderEffect, IDisposable
+    internal class BrightnessAdjustmentEffect : ShaderEffectBase<BrightnessAdjustmentEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("BrightnessAdjustmentEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(BrightnessAdjustmentEffect), 0);
 
 		public Brush Input
@@ -34,14 +23,8 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public BrightnessAdjustmentEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(LevelProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

@@ -1,23 +1,12 @@
-using System;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using SoundInTheory.DynamicImage.Util;
 using SWMColor = System.Windows.Media.Color;
 using SWMColors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage.ShaderEffects
 {
-	internal class ColorKeyEffect : ShaderEffect, IDisposable
+	internal class ColorKeyEffect : ShaderEffectBase<ColorKeyEffect>
 	{
-		[ThreadStatic]
-		private static PixelShader _shader;
-
-		private static PixelShader Shader
-		{
-			get { return (_shader ?? (_shader = ShaderEffectUtility.GetPixelShader("ColorKeyEffect"))); }
-		}
-
 		public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(ColorKeyEffect), 0);
 
 		public Brush Input
@@ -44,15 +33,9 @@ namespace SoundInTheory.DynamicImage.ShaderEffects
 
 		public ColorKeyEffect()
 		{
-			PixelShader = Shader;
 			UpdateShaderValue(InputProperty);
 			UpdateShaderValue(ColorToleranceProperty);
 			UpdateShaderValue(TransparentColorProperty);
-		}
-
-		void IDisposable.Dispose()
-		{
-			PixelShader = null;
 		}
 	}
 }

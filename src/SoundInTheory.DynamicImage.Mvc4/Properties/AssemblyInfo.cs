@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("Retail")]
 [assembly: AssemblyCompany("Sound in Theory Ltd")]
 [assembly: AssemblyProduct("DynamicImage: Image manipulation library for ASP.NET")]
-[assembly: AssemblyCopyright("Copyright ©2013 Sound in Theory Ltd")]
-[assembly: AssemblyTrademark("sitdap.com")]
+[assembly: AssemblyCopyright("Copyright ©2013 Tim Jones")]
+[assembly: AssemblyTrademark("timjones.tw")]
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM

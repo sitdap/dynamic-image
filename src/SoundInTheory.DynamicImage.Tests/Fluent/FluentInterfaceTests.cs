@@ -16,18 +16,6 @@ namespace SoundInTheory.DynamicImage.Tests.Fluent
 				.WithLayer(LayerBuilder.Text.Text("Hello World")
 					.WithFilter(FilterBuilder.OuterGlow)
 				).Url;
-
-			/*
-			 * <sitdap:DynamicImage runat="server" ImageFormat="Jpeg">
-				<Layers>
-					<sitdap:ImageLayer SourceFileName="~/Assets/Images/AutumnLeaves.jpg">
-						<Filters>
-							<sitdap:ResizeFilter Mode="Uniform" Height="200" />
-						</Filters>
-					</sitdap:ImageLayer>
-				</Layers>
-			</sitdap:DynamicImage>
-			 * */
 		}
 	}
 }

@@ -9,7 +9,7 @@
 		<description>$description$</description>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<tags>.net40 ASP.NET image manipulation filters resize crop MVC</tags>
-		<projectUrl>https://github.com/sitdap/dynamic-image</projectUrl>
+		<projectUrl>https://github.com/tgjones/dynamic-image</projectUrl>
 		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
 		<dependencies>
 			<dependency id="DynamicImage" version="$version$" />

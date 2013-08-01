@@ -20,6 +20,10 @@
 		<td>Bitmap</td>
 		<td><code>ImageImageSource</code></td>
 	</tr>
+	<tr>
+		<td>Remote URL</td>
+		<td><code>RemoteImageSource</code></td>
+	</tr>
 </table>
 
 <pre class="prettyprint">
@@ -31,4 +35,16 @@
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(LayerBuilder.Image.SourceFile("~/Assets/Images/Tulips.jpg").WithFilter(
 		FilterBuilder.Resize.ToWidth(500))))
+</p>
+
+<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.WithLayer(
+	LayerBuilder.Image.SourceUrl("http://www.google.com/images/srpr/logo4w.png")
+		.WithFilter(FilterBuilder.Resize.ToWidth(500))))
+</pre>
+
+<p>
+	@Html.DynamicImageTag(b => b.WithLayer(
+		LayerBuilder.Image.SourceUrl("http://www.google.com/images/srpr/logo4w.png")
+			.WithFilter(FilterBuilder.Resize.ToWidth(500))))
 </p>

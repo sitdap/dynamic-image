@@ -192,6 +192,7 @@
     <Compile Include="Filters\GaussianBlurFilter.cs" />
     <Compile Include="Filters\DropShadowFilter.cs" />
     <Compile Include="Sources\BytesImageSource.cs" />
+    <Compile Include="Sources\RemoteImageSource.cs" />
     <Compile Include="Sources\SqlDatabaseImageSource.cs" />
     <Compile Include="Sources\FileImageSource.cs" />
     <Compile Include="Sources\FileSourceHelper.cs" />

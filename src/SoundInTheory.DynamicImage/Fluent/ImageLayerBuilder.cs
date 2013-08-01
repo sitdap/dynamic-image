@@ -22,5 +22,11 @@ namespace SoundInTheory.DynamicImage.Fluent
 			Layer.Source = new BytesImageSource { Bytes = bytes };
 			return this;
 		}
+
+        public ImageLayerBuilder SourceUrl(string url)
+        {
+            Layer.Source = new RemoteImageSource { Url = url };
+            return this;
+        }
 	}
 }

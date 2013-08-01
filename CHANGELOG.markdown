@@ -1,6 +1,15 @@
 # Overview
 
-## 3.0.0 (branch: master)
+## 3.2.0 (branch: master)
+
+## 3.1.0 - 2012-08-02
+
+### New Features
+
+* Add `RemoteImageSource`, and corresponding `LayerBuilder.Image.SourceUrl(...)` fluent API method,
+  to allow use of remotely hosted images in `ImageLayer`s.
+
+## 3.0.1 - 2012-06-22
 
 ### Major Changes (Backwards Incompatible)
 

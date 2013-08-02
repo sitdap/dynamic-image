@@ -45,13 +45,14 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		protected override void ApplyFilter(FastBitmap source, DrawingContext dc, int width, int height)
 		{
-			// Draw border.
-			dc.DrawRectangle(Fill.GetBrush(), null, new Rect(0, 0, width, height));
+            // Draw image.
+            dc.PushTransform(new TranslateTransform(Width, Width));
+            dc.DrawImage(source.InnerBitmap, new Rect(0, 0, source.Width, source.Height));
+            dc.Pop();
 
-			// Draw image.
-			dc.PushTransform(new TranslateTransform(Width, Width));
-			dc.DrawImage(source.InnerBitmap, new Rect(0, 0, source.Width, source.Height));
-			dc.Pop();
+			// Draw border.
+            dc.DrawRectangle(null, new Pen(Fill.GetBrush(), Width),
+                new Rect(Width / 2.0, Width / 2.0, width - Width, height - Width));
 		}
 
 		#endregion

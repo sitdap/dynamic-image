@@ -2,6 +2,16 @@
 
 ## 3.2.0 (branch: master)
 
+## 3.1.1 - 2012-08-02
+
+### Resolved Issues
+
+* \#4 BorderFilter doesn't work properly if used with OpacityFilter
+
+* \#3 RoundCornersFilter should work without a border 
+
+* \#2 Cache key doesn't change when fill colour is changed 
+
 ## 3.1.0 - 2012-08-02
 
 ### New Features

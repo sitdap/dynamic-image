@@ -61,10 +61,15 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		protected override void ApplyFilter(FastBitmap source, DrawingContext dc, int width, int height)
 		{
+            // Clip to rounded rectangle shape.
+            dc.PushClip(new RectangleGeometry(new Rect(new Size(width, height)), Roundness, Roundness));
+
 			// Draw image.
 			dc.PushTransform(new TranslateTransform(BorderWidth, BorderWidth));
 			dc.DrawImage(source.InnerBitmap, new Rect(0, 0, source.Width, source.Height));
 			dc.Pop();
+
+            dc.Pop();
 
 			// Draw border.
 			dc.DrawRoundedRectangle(null, new Pen(new SolidColorBrush(BorderColor.ToWpfColor()), BorderWidth),

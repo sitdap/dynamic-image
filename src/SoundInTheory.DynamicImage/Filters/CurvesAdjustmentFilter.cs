@@ -3,7 +3,6 @@ using System.Linq;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
-using SoundInTheory.DynamicImage.Sources;
 using SoundInTheory.DynamicImage.Util;
 using SWMColor = System.Windows.Media.Color;
 
@@ -33,10 +32,10 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		#endregion
 
-		protected override Effect GetEffect(FastBitmap source)
+        protected override Effect GetEffect(ImageGenerationContext context, FastBitmap source)
 		{
 			// Get curves either from Curves collection or ACV file.
-			CurveCollection curves = GetCurves();
+			CurveCollection curves = GetCurves(context);
 
 			// Check that there are at least 4 curves.
 			if (curves.Count < 4)
@@ -63,10 +62,10 @@ namespace SoundInTheory.DynamicImage.Filters
 			};
 		}
 
-		private CurveCollection GetCurves()
+		private CurveCollection GetCurves(ImageGenerationContext context)
 		{
 			if (!string.IsNullOrEmpty(PhotoshopCurvesFileName))
-				return PhotoshopCurvesReader.ReadPhotoshopCurvesFile(FileSourceHelper.ResolveFileName(PhotoshopCurvesFileName));
+				return PhotoshopCurvesReader.ReadPhotoshopCurvesFile(FileSourceHelper.ResolveFileName(context, PhotoshopCurvesFileName));
 
 			return Curves;
 		}

@@ -39,7 +39,7 @@ namespace SoundInTheory.DynamicImage.Filters
 
 		#region Methods
 
-		protected override Effect GetEffect(Util.FastBitmap source)
+        protected override Effect GetEffect(ImageGenerationContext context, FastBitmap source)
 		{
 			return new ColorTintEffect
 			{

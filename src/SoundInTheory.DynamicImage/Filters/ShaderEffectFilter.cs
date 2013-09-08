@@ -24,13 +24,13 @@ namespace SoundInTheory.DynamicImage.Filters
 			return true;
 		}
 
-		protected override void ConfigureDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
+		protected override void ConfigureDrawingVisual(ImageGenerationContext context, FastBitmap source, DrawingVisual drawingVisual)
 		{
-			Effect shaderEffect = GetEffect(source);
+			Effect shaderEffect = GetEffect(context, source);
 			drawingVisual.Effect = shaderEffect;
 		}
 
-		protected abstract Effect GetEffect(FastBitmap source);
+        protected abstract Effect GetEffect(ImageGenerationContext context, FastBitmap source);
 
 		protected override void CleanUpDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
 		{

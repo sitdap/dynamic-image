@@ -34,7 +34,7 @@ namespace SoundInTheory.DynamicImage.Layers
 			get { return true; }
 		}
 
-		protected override void CreateImage()
+		protected override void CreateImage(ImageGenerationContext context)
 		{
 			string outputFileName = Path.GetTempFileName();
 
@@ -42,7 +42,7 @@ namespace SoundInTheory.DynamicImage.Layers
 			{
 				if (!new CutyCaptWrapper().SaveScreenShot(WebsiteUrl, outputFileName, Timeout, BrowserWidth))
 					return;
-				Bitmap = new Util.FastBitmap(File.ReadAllBytes(outputFileName));
+				Bitmap = new FastBitmap(File.ReadAllBytes(outputFileName));
 			}
 			finally
 			{

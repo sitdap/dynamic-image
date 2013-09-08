@@ -1,5 +1,6 @@
 ﻿using System.Windows.Media.Effects;
 using SoundInTheory.DynamicImage.ShaderEffects;
+using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Filters
 {
@@ -8,7 +9,7 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// </summary>
 	public class SepiaFilter : ShaderEffectFilter
 	{
-		protected override Effect GetEffect(Util.FastBitmap source)
+        protected override Effect GetEffect(ImageGenerationContext context, FastBitmap source)
 		{
 			return new SepiaEffect();
 		}

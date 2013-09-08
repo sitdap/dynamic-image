@@ -1,7 +1,6 @@
 using System.IO;
 using System.Linq;
 using Meshellator;
-using SoundInTheory.DynamicImage.Sources;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
@@ -19,7 +18,7 @@ namespace SoundInTheory.DynamicImage
 			Meshes = new MeshCollection();
 		}
 
-		public override Scene GetScene()
+		public override Scene GetScene(ImageGenerationContext context)
 		{
 			Scene scene = new Scene();
 
@@ -38,7 +37,7 @@ namespace SoundInTheory.DynamicImage
 				meshellatorMaterial.DiffuseColor = ConversionUtility.ToNexusColorRgbF(mesh.Material.DiffuseColor);
 				if (!string.IsNullOrEmpty(mesh.Material.TextureFileName))
 				{
-					string textureFileName = FileSourceHelper.ResolveFileName(mesh.Material.TextureFileName);
+					string textureFileName = FileSourceHelper.ResolveFileName(context, mesh.Material.TextureFileName);
 					if (!File.Exists(textureFileName))
 						throw new DynamicImageException("Could not find texture '" + mesh.Material.TextureFileName + "'.");
 					meshellatorMaterial.DiffuseTextureName = textureFileName;

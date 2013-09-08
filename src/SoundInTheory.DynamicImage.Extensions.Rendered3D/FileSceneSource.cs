@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Web.UI;
 using Meshellator;
-using SoundInTheory.DynamicImage.Sources;
+using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -15,9 +15,9 @@ namespace SoundInTheory.DynamicImage
 			set { this["FileName"] = value; }
 		}
 
-		public override Scene GetScene()
+		public override Scene GetScene(ImageGenerationContext context)
 		{
-			string resolvedFileName = FileSourceHelper.ResolveFileName(FileName);
+			string resolvedFileName = FileSourceHelper.ResolveFileName(context, FileName);
 			if (File.Exists(resolvedFileName))
 				return MeshellatorLoader.ImportFromFile(resolvedFileName);
 			return null;

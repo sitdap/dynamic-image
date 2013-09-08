@@ -195,7 +195,7 @@
     <Compile Include="Sources\RemoteImageSource.cs" />
     <Compile Include="Sources\SqlDatabaseImageSource.cs" />
     <Compile Include="Sources\FileImageSource.cs" />
-    <Compile Include="Sources\FileSourceHelper.cs" />
+    <Compile Include="Util\FileSourceHelper.cs" />
     <Compile Include="Sources\ImageImageSource.cs" />
     <Compile Include="Sources\ImageSource.cs" />
     <Compile Include="Layers\MandelbrotFractalLayer.cs" />
@@ -229,7 +229,9 @@
     <Compile Include="Util\CanonicalSplineUtility.cs" />
     <Compile Include="Util\ColorExtensionMethods.cs" />
     <Compile Include="Util\CubicSplineUtility.cs" />
+    <Compile Include="Util\DispatcherTaskScheduler.cs" />
     <Compile Include="Util\FastBitmap.cs" />
+    <Compile Include="Util\ImageGenerationContext.cs" />
     <Compile Include="Util\Int32RectUtility.cs" />
     <Compile Include="Util\Int32Size.cs" />
     <Compile Include="Util\MathUtility.cs" />

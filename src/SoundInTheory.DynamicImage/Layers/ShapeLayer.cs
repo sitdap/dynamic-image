@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Media;
+using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage.Layers
 {
@@ -55,7 +56,7 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		#endregion
 
-		protected override void CreateImage()
+        protected override void CreateImage(ImageGenerationContext context)
 		{
 			if (this.Width != null)
 				this.CalculatedWidth = this.Width.Value;

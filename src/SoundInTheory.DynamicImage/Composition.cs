@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -76,34 +78,46 @@ namespace SoundInTheory.DynamicImage
 
 		#endregion
 
-		public GeneratedImage GenerateImage()
-		{
-			// create image
-			BitmapSource image = CreateImage();
+	    public GeneratedImage GenerateImage()
+	    {
+	        return GenerateImageAsync().Result;
+	    }
 
-			var properties = new ImageProperties
-			{
-				ColorDepth = ColorDepth,
-				Format = ImageFormat,
-				JpegCompressionLevel = JpegCompressionLevel
-			};
-			if (image != null)
-			{
-				properties.Width = image.PixelWidth;
-				properties.Height = image.PixelHeight;
-			}
-			properties.IsImagePresent = (image != null);
-			return new GeneratedImage(properties, image);
-		}
+	    public Task<GeneratedImage> GenerateImageAsync()
+	    {
+            // Create image in separate thread, and wait for result.
+            var context = new ImageGenerationContext(HttpContext.Current);
 
-		private BitmapSource CreateImage()
+            return new TaskFactory(DispatcherTaskScheduler.Default)
+                .StartNew(() =>
+                {
+                    var image = CreateImage(context);
+
+                    var properties = new ImageProperties
+                    {
+                        ColorDepth = ColorDepth,
+                        Format = ImageFormat,
+                        JpegCompressionLevel = JpegCompressionLevel
+                    };
+                    if (image != null)
+                    {
+                        image.Freeze();
+                        properties.Width = image.PixelWidth;
+                        properties.Height = image.PixelHeight;
+                    }
+                    properties.IsImagePresent = (image != null);
+                    return new GeneratedImage(properties, image);
+                });
+	    }
+
+        private BitmapSource CreateImage(ImageGenerationContext context)
 		{
 			ValidateParameters();
 
 			// First, we process layers which have a specific size.
 			foreach (Layer layer in VisibleLayers)
 				if (layer.HasFixedSize)
-					layer.Process();
+					layer.Process(context);
 
 			// Second, for SizeMode = Auto, we calculate the output dimensions
 			// based on the union of all layers' (which have an explicit size) dimensions.
@@ -145,7 +159,7 @@ namespace SoundInTheory.DynamicImage
 					layer.CalculatedWidth = outputWidth;
 					layer.CalculatedHeight = outputHeight;
 
-					layer.Process();
+					layer.Process(context);
 				}
 
 			// If any of the layers are not present, we don't create the image
@@ -220,7 +234,7 @@ namespace SoundInTheory.DynamicImage
 			// Apply global filters.
 			foreach (Filter filter in Filters)
 				if (filter.Enabled)
-					filter.ApplyFilter(output);
+					filter.ApplyFilter(context, output);
 
 			// If image format doesn't support transparency, make all transparent pixels totally opaque.
 			// Otherwise WPF wants to save them as black.

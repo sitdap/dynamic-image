@@ -11,7 +11,7 @@ namespace SoundInTheory.DynamicImage.Sources
 			set { this["Image"] = value; }
 		}
 
-		public override FastBitmap GetBitmap()
+        public override FastBitmap GetBitmap(ImageGenerationContext context)
 		{
 			return new FastBitmap(Image);
 		}

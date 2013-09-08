@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.IO;
+using System.Web;
 using System.Web.UI;
 using SoundInTheory.DynamicImage.Util;
 
@@ -14,9 +15,9 @@ namespace SoundInTheory.DynamicImage.Sources
 			set { this["FileName"] = value; }
 		}
 
-		public override FastBitmap GetBitmap()
+		public override FastBitmap GetBitmap(ImageGenerationContext context)
 		{
-			string resolvedFileName = FileSourceHelper.ResolveFileName(FileName);
+            string resolvedFileName = FileSourceHelper.ResolveFileName(context, FileName);
 			if (File.Exists(resolvedFileName))
 				return new FastBitmap(resolvedFileName);
 			return null;

@@ -13,12 +13,13 @@ namespace SoundInTheory.DynamicImage.Filters
 			set { this["Enabled"] = value; }
 		}
 
-		/// <summary>
-		/// When overridden in a derived class, applies the filter algorithm to
-		/// the specified image.
-		/// </summary>
-		/// <param name="bitmap">Image to apply the 
-		/// <see cref="SoundInTheory.DynamicImage.Filters.Filter" /> to.</param>
-		public abstract void ApplyFilter(FastBitmap bitmap);
+	    /// <summary>
+	    /// When overridden in a derived class, applies the filter algorithm to
+	    /// the specified image.
+	    /// </summary>
+	    /// <param name="context"></param>
+	    /// <param name="bitmap">Image to apply the 
+	    /// <see cref="SoundInTheory.DynamicImage.Filters.Filter" /> to.</param>
+	    public abstract void ApplyFilter(ImageGenerationContext context, FastBitmap bitmap);
 	}
 }

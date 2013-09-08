@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
+using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -54,12 +55,12 @@ namespace SoundInTheory.DynamicImage
 
 		#endregion
 
-		public FontDescription GetFontDescription()
+        public FontDescription GetFontDescription(ImageGenerationContext context)
 		{
 			FontFamily fontFamily;
 			if (!string.IsNullOrEmpty(CustomFontFile))
 			{
-				string fontFileName = Sources.FileSourceHelper.ResolveFileName(CustomFontFile);
+                string fontFileName = FileSourceHelper.ResolveFileName(context, CustomFontFile);
 				fontFamily = new FontFamily(fontFileName + "#" + Name);
 			}
 			else

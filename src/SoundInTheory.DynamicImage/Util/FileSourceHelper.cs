@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Web;
 using System.IO;
 
-namespace SoundInTheory.DynamicImage.Sources
+namespace SoundInTheory.DynamicImage.Util
 {
 	public static class FileSourceHelper
 	{
-		public static string ResolveFileName(string filename)
+		public static string ResolveFileName(ImageGenerationContext context, string filename)
 		{
 			string fileName = null;
 			if (!Path.IsPathRooted(filename))
 			{
-				if (HttpContext.Current != null)
-					fileName = HttpContext.Current.Server.MapPath(filename);
+				if (context.HttpContext != null)
+					fileName = context.HttpContext.Server.MapPath(filename);
 
 				if (fileName == null)
 					throw new InvalidOperationException("Could not resolve source filename.");

@@ -75,9 +75,9 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		#endregion
 
-		protected override void CreateImage()
+		protected override void CreateImage(ImageGenerationContext context)
 		{
-			Scene scene = Source.GetScene();
+			Scene scene = Source.GetScene(context);
 			using (var renderer = new WarpSceneRenderer(scene, Width, Height))
 			{
 				renderer.Initialize();

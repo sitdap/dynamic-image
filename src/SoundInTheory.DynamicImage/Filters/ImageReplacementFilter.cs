@@ -12,17 +12,18 @@ namespace SoundInTheory.DynamicImage.Filters
 	/// </summary>
 	public abstract class ImageReplacementFilter : Filter
 	{
-		/// <summary>
-		/// Applies the filter to the specified <paramref name="bitmap"/>. This method
-		/// first calls <see cref="ImageReplacementFilter.GetDestinationDimensions(FastBitmap, out Int32, out Int32)" />
-		/// to calculate the size of the destination image. Then it calls
-		/// <see cref="ImageReplacementFilter.ApplyFilter(FastBitmap, DrawingContext, int, int)" /> 
-		/// which is where the overridden class implements its filter algorithm.
-		/// </summary>
-		/// <param name="bitmap">
-		/// Image to apply the <see cref="ImageReplacementFilter" /> to.
-		/// </param>
-		public sealed override void ApplyFilter(FastBitmap bitmap)
+	    /// <summary>
+	    /// Applies the filter to the specified <paramref name="bitmap"/>. This method
+	    /// first calls <see cref="ImageReplacementFilter.GetDestinationDimensions(FastBitmap, out Int32, out Int32)" />
+	    /// to calculate the size of the destination image. Then it calls
+	    /// <see cref="ImageReplacementFilter.ApplyFilter(FastBitmap, DrawingContext, int, int)" /> 
+	    /// which is where the overridden class implements its filter algorithm.
+	    /// </summary>
+	    /// <param name="context"></param>
+	    /// <param name="bitmap">
+	    /// Image to apply the <see cref="ImageReplacementFilter" /> to.
+	    /// </param>
+	    public sealed override void ApplyFilter(ImageGenerationContext context, FastBitmap bitmap)
 		{
 			OnBeginApplyFilter(bitmap);
 
@@ -33,7 +34,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				return;
 
 			DrawingVisual dv = new DrawingVisual();
-			ConfigureDrawingVisual(bitmap, dv);
+			ConfigureDrawingVisual(context, bitmap, dv);
 
 			DrawingContext dc = dv.RenderOpen();
 
@@ -79,13 +80,14 @@ namespace SoundInTheory.DynamicImage.Filters
 		/// return <c>false</c>.</returns>
 		protected abstract bool GetDestinationDimensions(FastBitmap source, out int width, out int height);
 
-		/// <summary>
-		/// Inherited classes can use this to configure the supplied DrawingVisual. For example,
-		/// RotationFilter sets the BitmapScalingMode render option.
-		/// </summary>
-		/// <param name="source"> </param>
-		/// <param name="drawingVisual"></param>
-		protected virtual void ConfigureDrawingVisual(FastBitmap source, DrawingVisual drawingVisual)
+	    /// <summary>
+	    /// Inherited classes can use this to configure the supplied DrawingVisual. For example,
+	    /// RotationFilter sets the BitmapScalingMode render option.
+	    /// </summary>
+	    /// <param name="context"></param>
+	    /// <param name="source"> </param>
+	    /// <param name="drawingVisual"></param>
+	    protected virtual void ConfigureDrawingVisual(ImageGenerationContext context, FastBitmap source, DrawingVisual drawingVisual)
 		{
 			
 		}

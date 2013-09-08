@@ -6,6 +6,9 @@ DynamicImage helps you simplify the way you deal with images in your ASP.NET web
 ### Links
 
 * [DynamicImage Website and Documentation](http://dynamicimage.apphb.com)
+  * [Getting Started](http://dynamicimage.apphb.com/gettingstarted/installation)
+  * [Layers](http://dynamicimage.apphb.com/layers)
+  * [Filters](http://dynamicimage.apphb.com/filters)
 * [DynamicImage NuGet packages](http://nuget.org/packages?q=DynamicImage)
 * [DynamicImage Google Group](https://groups.google.com/forum/#!forum/dynamicimage-net)
 
@@ -65,6 +68,7 @@ The image sources included with DynamicImage let you load images from:
 * Raw bytes
 * Binary database field
 * File
+* Remote URL
 * System.Windows.Media.Imaging.BitmapSource object
 
 
@@ -109,5 +113,22 @@ Most of the filters are written as WPF shader effects, which are compiled into f
 and run with good performance in a server environment.
 
 
-#### DynamicImage is made available to the community by Sound in Theory Ltd, a web design company based in Exeter, United Kingdom.  
+### More information
+
+The [DynamicImage website](http://dynamicimage.apphb.com) includes a getting started guide, as well as
+examples of every layer and filter.
+
+If you get stuck, you can try:
+
+* asking on StackOverflow, and then [tweeting](http://twitter.com/roastedamoeba) me a link to the question
+* asking a question on the [Google Group](https://groups.google.com/forum/#!forum/dynamicimage-net)
+* [tweeting](http://twitter.com/roastedamoeba) me
+* [emailing](mailto:tim@timjones.tw) me
+
+Preferably in that order, please :)
+
+
+### Acknowledgements
+
+DynamicImage was created by Sound in Theory Ltd, a web design company based in Exeter, United Kingdom.  
 [Sound in Theory Ltd](http://www.soundintheory.co.uk)

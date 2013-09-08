@@ -40,6 +40,30 @@ LayerBuilder.Text.Text("Padded fixed width text").FontSize(40).PaddingLeft(15).P
 </pre>
 
 <p>@Html.DynamicImageTag(b => b.WithLayer(
-LayerBuilder.Text.Text("Message using a custom font.").FontSize(50).StrokeColor(Colors.Blue)
-	.FontCustomFontFile("~/Assets/Fonts/ADamnMess.ttf").FontName("A Damn Mess")
+	   LayerBuilder.Text.Text("Message using a custom font.").FontSize(50).StrokeColor(Colors.Blue)
+		   .FontCustomFontFile("~/Assets/Fonts/ADamnMess.ttf").FontName("A Damn Mess")
+))</p>
+
+<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.CornflowerBlue).WithLayer(
+	LayerBuilder.Text.Text("Here is some text with\nan explicit line break").Multiline()
+		.FontSize(50).Width(650)
+))
+</pre>
+
+<p>@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.CornflowerBlue).WithLayer(
+	   LayerBuilder.Text.Text("Here is some text with\nan explicit line break").Multiline()
+		   .FontSize(50).Width(650)
+))</p>
+
+<pre class="prettyprint">
+@@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.Coral).WithLayer(
+	LayerBuilder.Text.Text("Here is some text with an implicit line break").Multiline()
+		.FontSize(50).Width(650)
+))
+</pre>
+
+<p>@Html.DynamicImageTag(b => b.FillBackgroundColor(Colors.Coral).WithLayer(
+	LayerBuilder.Text.Text("Here is some text with an implicit line break").Multiline()
+		.FontSize(50).Width(650)
 ))</p>

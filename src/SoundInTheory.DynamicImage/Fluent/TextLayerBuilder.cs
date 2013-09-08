@@ -58,6 +58,12 @@ namespace SoundInTheory.DynamicImage.Fluent
 			return this;
 		}
 
+	    public TextLayerBuilder Multiline()
+	    {
+	        Layer.Multiline = true;
+	        return this;
+	    }
+
 		public TextLayerBuilder VerticalTextAlignment(VerticalAlignment alignment)
 		{
 			Layer.VerticalTextAlignment = alignment;

@@ -1,16 +1,15 @@
 ﻿using System;
 using System.IO;
-using System.Web;
 
 namespace SoundInTheory.DynamicImage.Util
 {
 	internal static class GhostscriptUtil
 	{
-		public static void EnsureDll()
+		public static void EnsureDll(ImageGenerationContext context)
 		{
-			string folder = (HttpContext.Current == null)
+			string folder = (context.HttpContext == null)
 				? AppDomain.CurrentDomain.BaseDirectory
-				: HttpContext.Current.Server.MapPath("~/bin");
+				: context.HttpContext.Server.MapPath("~/bin");
 
 			string gsDllPath = Path.Combine(folder, "gsdll.dll");
 

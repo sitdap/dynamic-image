@@ -24,7 +24,7 @@ namespace SoundInTheory.DynamicImage.Layers
 
 		protected override void CreateImage(ImageGenerationContext context)
 		{
-			GhostscriptUtil.EnsureDll();
+			GhostscriptUtil.EnsureDll(context);
 
 			string outputFileName = Path.GetTempFileName();
 

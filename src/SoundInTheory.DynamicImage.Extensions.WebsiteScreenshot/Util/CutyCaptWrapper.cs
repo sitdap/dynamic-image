@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Web;
 
 namespace SoundInTheory.DynamicImage.Util
 {
@@ -11,33 +10,36 @@ namespace SoundInTheory.DynamicImage.Util
 	/// </summary>
 	public class CutyCaptWrapper
 	{
-		private static string GetCairFolder()
+	    private readonly string _cutyCaptPath;
+
+		private static string GetCutyCaptFolder(ImageGenerationContext context)
 		{
-			string folder = (HttpContext.Current == null)
+            string folder = (context.HttpContext == null)
 				? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CutyCapt")
-				: HttpContext.Current.Server.MapPath("~/App_Data/CutyCapt");
+                : context.HttpContext.Server.MapPath("~/App_Data/CutyCapt");
 			if (!Directory.Exists(folder))
 				Directory.CreateDirectory(folder);
 			return folder;
 		}
 
-		private static string CutyCaptPath
+        private static string GetCutyCaptPath(ImageGenerationContext context)
 		{
-			get { return Path.Combine(GetCairFolder(), "CutyCapt.exe"); }
+            return Path.Combine(GetCutyCaptFolder(context), "CutyCapt.exe");
 		}
 
 		public string CutyCaptDefaultArguments { get; set; }
 
-		public CutyCaptWrapper()
+		public CutyCaptWrapper(ImageGenerationContext context)
 		{
-			if (!File.Exists(CutyCaptPath))
+            _cutyCaptPath = GetCutyCaptPath(context);
+            if (!File.Exists(_cutyCaptPath))
 			{
 				using (var stream = typeof(CutyCaptWrapper).Assembly.GetManifestResourceStream("SoundInTheory.DynamicImage.Resources.CutyCapt.exe"))
-				using (var fileStream = File.OpenWrite(CutyCaptPath))
+                using (var fileStream = File.OpenWrite(_cutyCaptPath))
 					stream.CopyTo(fileStream);
 			}
 
-			CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on";
+            CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on --insecure";
 		}
 
 		public bool SaveScreenShot(string url, string destinationFile, int timeout, int width)
@@ -45,9 +47,9 @@ namespace SoundInTheory.DynamicImage.Util
 			if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
 				return false;
 
-			string runArguments = " --url=" + url + " --out=" + destinationFile + CutyCaptDefaultArguments + " --min-width=" + width;
+            string runArguments = " --url=" + url + " --out=" + destinationFile + CutyCaptDefaultArguments + " --min-width=" + width;
 
-			var info = new ProcessStartInfo(CutyCaptPath, runArguments)
+            var info = new ProcessStartInfo(_cutyCaptPath, runArguments)
 			{
 				UseShellExecute = false,
 				RedirectStandardInput = true,

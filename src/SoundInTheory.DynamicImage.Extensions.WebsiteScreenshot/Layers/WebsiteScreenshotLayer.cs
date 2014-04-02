@@ -40,7 +40,7 @@ namespace SoundInTheory.DynamicImage.Layers
 
 			try
 			{
-				if (!new CutyCaptWrapper().SaveScreenShot(WebsiteUrl, outputFileName, Timeout, BrowserWidth))
+                if (!new CutyCaptWrapper(context).SaveScreenShot(WebsiteUrl, outputFileName, Timeout, BrowserWidth))
 					return;
 				Bitmap = new FastBitmap(File.ReadAllBytes(outputFileName));
 			}

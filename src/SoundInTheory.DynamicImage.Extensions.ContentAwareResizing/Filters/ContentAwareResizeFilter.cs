@@ -52,7 +52,7 @@ namespace SoundInTheory.DynamicImage.Filters
 				{
 					int width = (Width == Unit.Empty) ? bitmap.Width : Unit.GetCalculatedValue(Width, bitmap.Width);
 					int height = (Height == Unit.Empty) ? bitmap.Height : Unit.GetCalculatedValue(Height, bitmap.Height);
-					new CairWrapper().ProcessImage(sourceFileName, outputFileName, int.MaxValue,
+					new CairWrapper(context).ProcessImage(sourceFileName, outputFileName, int.MaxValue,
 						width, height, ConvolutionType);
 					FastBitmap output = new FastBitmap(File.ReadAllBytes(outputFileName));
 					if (output.InnerBitmap != null)

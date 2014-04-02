@@ -39,7 +39,7 @@ namespace SoundInTheory.DynamicImage.Util
 					stream.CopyTo(fileStream);
 			}
 
-            CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on --insecure";
+            CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on";
 		}
 
 		public bool SaveScreenShot(string url, string destinationFile, int timeout, int width)

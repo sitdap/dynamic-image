@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Web;
 using SoundInTheory.DynamicImage.Filters;
 
 namespace SoundInTheory.DynamicImage.Util
@@ -11,34 +10,37 @@ namespace SoundInTheory.DynamicImage.Util
 	/// </summary>
 	internal class CairWrapper
 	{
-		private static string GetCairFolder()
+	    private static string _cairPath;
+
+		private static string GetCairFolder(ImageGenerationContext context)
 		{
-			string folder = (HttpContext.Current == null)
+			string folder = (context.HttpContext == null)
 				? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CAIR")
-				: HttpContext.Current.Server.MapPath("~/App_Data/CAIR");
+                : context.HttpContext.Server.MapPath("~/App_Data/CAIR");
 			if (!Directory.Exists(folder))
 				Directory.CreateDirectory(folder);
 			return folder;
 		}
 
-		private static string CairPath
+		private static string GetCairPath(ImageGenerationContext context)
 		{
-			get { return Path.Combine(GetCairFolder(), "CAIR.exe"); }
+			return Path.Combine(GetCairFolder(context), "CAIR.exe");
 		}
 
 		public string CairDefaultArguments { get; set; }
 
-		public CairWrapper()
+		public CairWrapper(ImageGenerationContext context)
 		{
 			// Extract CAIR.exe and pthreadVSE2.dll (stored as embedded resources in this DLL)
-			if (!File.Exists(CairPath))
+		    _cairPath = GetCairPath(context);
+			if (!File.Exists(_cairPath))
 			{
 				using (var stream = typeof(CairWrapper).Assembly.GetManifestResourceStream("SoundInTheory.DynamicImage.Resources.CAIR.exe"))
-				using (var fileStream = File.OpenWrite(CairPath))
+                using (var fileStream = File.OpenWrite(_cairPath))
 					stream.CopyTo(fileStream);
 
 				using (var stream = typeof(CairWrapper).Assembly.GetManifestResourceStream("SoundInTheory.DynamicImage.Resources.pthreadVSE2.dll"))
-				using (var fileStream = File.OpenWrite(Path.Combine(GetCairFolder(), "pthreadVSE2.dll")))
+				using (var fileStream = File.OpenWrite(Path.Combine(GetCairFolder(context), "pthreadVSE2.dll")))
 					stream.CopyTo(fileStream);
 			}
 		}
@@ -50,7 +52,7 @@ namespace SoundInTheory.DynamicImage.Util
 			runArguments += " -X " + width;
 			runArguments += " -Y " + height;
 
-			var info = new ProcessStartInfo(CairPath, runArguments)
+            var info = new ProcessStartInfo(_cairPath, runArguments)
 			{
 				UseShellExecute = false,
 				RedirectStandardInput = true,

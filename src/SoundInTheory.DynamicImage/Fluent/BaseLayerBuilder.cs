@@ -63,22 +63,15 @@ namespace SoundInTheory.DynamicImage.Fluent
 			return (TLayerBuilder)this;
 		}
 
-		public TLayerBuilder AnchorPaddingType(UnitType type)
-		{
-			Layer.AnchorPaddingType = type;
-			return (TLayerBuilder)this;
-		}
-
 		public TLayerBuilder AnchorPadding(int padding)
 		{
-			Layer.AnchorPadding = padding;
+			Layer.AnchorPadding = Unit.Pixel(padding);
 			return (TLayerBuilder)this;
 		}
 
 		public TLayerBuilder AnchorPadding(Unit unit)
 		{
-			Layer.AnchorPadding = (int)unit.Value;
-			Layer.AnchorPaddingType = unit.Type;
+			Layer.AnchorPadding = unit;
 			return (TLayerBuilder)this;
 		}
 

@@ -2,6 +2,15 @@
 
 ## 3.2.0 (branch: master)
 
+### New Features
+
+* \#14 Changed `AnchorPadding` property on `Layer` class from `int` to `Unit`, to support percentage-based
+  anchor padding (Mikhail Fiadosenka)  
+
+### Resolved Issues
+
+* \#13 Signed ContentAwareResizing, Pdf and WebsiteScreenshot extension assemblies
+
 ## 3.1.1 - 2012-08-02
 
 ### Resolved Issues

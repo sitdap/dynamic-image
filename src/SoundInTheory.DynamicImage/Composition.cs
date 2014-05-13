@@ -183,12 +183,13 @@ namespace SoundInTheory.DynamicImage
 						case AnchorStyles.BottomLeft :
 						case AnchorStyles.MiddleLeft :
 						case AnchorStyles.TopLeft :
-							layer.X = layer.AnchorPadding;
+							layer.X = layer.AnchorPaddingType == UnitType.Pixel ? layer.AnchorPadding : (int)(layer.AnchorPadding / 100.0 * (outputWidth - layer.Size.Value.Width));
 							break;
 						case AnchorStyles.BottomRight:
 						case AnchorStyles.MiddleRight:
 						case AnchorStyles.TopRight:
-							layer.X = outputWidth - layer.Size.Value.Width - layer.AnchorPadding;
+							layer.X = outputWidth - layer.Size.Value.Width -
+								(layer.AnchorPaddingType == UnitType.Pixel ? layer.AnchorPadding : (int)(layer.AnchorPadding / 100.0 * (outputWidth - layer.Size.Value.Width)));
 							break;
 					}
 
@@ -198,7 +199,8 @@ namespace SoundInTheory.DynamicImage
 						case AnchorStyles.BottomCenter:
 						case AnchorStyles.BottomLeft:
 						case AnchorStyles.BottomRight:
-							layer.Y = outputHeight - layer.Size.Value.Height - layer.AnchorPadding;
+							layer.Y = outputHeight - layer.Size.Value.Height -
+								(layer.AnchorPaddingType == UnitType.Pixel ? layer.AnchorPadding : (int)(layer.AnchorPadding / 100.0 * (outputHeight - layer.Size.Value.Height)));
 							break;
 						case AnchorStyles.MiddleCenter:
 						case AnchorStyles.MiddleLeft:
@@ -208,7 +210,7 @@ namespace SoundInTheory.DynamicImage
 						case AnchorStyles.TopCenter:
 						case AnchorStyles.TopLeft:
 						case AnchorStyles.TopRight:
-							layer.Y = layer.AnchorPadding;
+							layer.Y = layer.AnchorPaddingType == UnitType.Pixel ? layer.AnchorPadding : (int)(layer.AnchorPadding / 100.0 * (outputHeight - layer.Size.Value.Height));
 							break;
 					}
 				}

@@ -36,8 +36,37 @@ namespace SoundInTheory.DynamicImage
 
 		public int AnchorPadding
 		{
-			get { return (int)(this["AnchorPadding"] ?? 0); }
-			set { this["AnchorPadding"] = value; }
+			get 
+			{
+				if (this["AnchorPadding"] == null)
+				{
+					this["AnchorPadding"] = Unit.Pixel(0);
+				}
+				return (int)((Unit)this["AnchorPadding"]).Value;
+			}
+			set 
+			{
+				this["AnchorPadding"] = (this["AnchorPadding"] == null || ((Unit)this["AnchorPadding"]).Type == UnitType.Pixel) ?
+					Unit.Pixel(value) :
+					Unit.Percentage(value);
+			}
+		}
+
+		public UnitType AnchorPaddingType
+		{
+			get
+			{
+				if (this["AnchorPadding"] == null)
+				{
+					this["AnchorPadding"] = Unit.Pixel(0);
+				}
+				return ((Unit)this["AnchorPadding"]).Type;
+			}
+			set
+			{
+				var currentValue = AnchorPadding;
+				this["AnchorPadding"] = value == UnitType.Pixel ? Unit.Pixel(currentValue) : Unit.Percentage(currentValue);
+			}
 		}
 
 		public Padding Padding

@@ -2,18 +2,20 @@
 
 <pre class="prettyprint">
 @@Html.DynamicImageTag(b => b
-	.WithLayer(
-		LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
-			.WithFilter(FilterBuilder.Resize.To(300, 200))
-	)
-	.WithLayer(
-		LayerBuilder.RectangleShape.Anchor(AnchorStyles.BottomLeft)
-			.Fill(Colors.Red).PaddingLeft(150).Width(300).Height(30)
-	)
-	.WithLayer(
-		LayerBuilder.Text.Text("Hello world").ForeColor(Colors.Blue).FontBold()
-			.Height(30).Anchor(AnchorStyles.BottomRight).PaddingRight(5)
-	)
+    .WithLayer(
+        LayerBuilder.Image.SourceFile("~/Assets/Images/AutumnLeaves.jpg")
+            .WithFilter(FilterBuilder.Resize.To(300, 200))
+    )
+    .WithLayer(
+        LayerBuilder.RectangleShape.Anchor(AnchorStyles.BottomLeft)
+            .AnchorPadding(Unit.Percentage(10))
+            .Fill(Colors.Red).PaddingLeft(150).Width(300).Height(30)
+    )
+    .WithLayer(
+        LayerBuilder.Text.Text("Hello world").ForeColor(Colors.Blue).FontBold()
+            .Height(30).Anchor(AnchorStyles.BottomRight)
+            .AnchorPadding(Unit.Percentage(10))
+    )
 )
 </pre>
 
@@ -24,11 +26,14 @@
 				.WithFilter(FilterBuilder.Resize.To(300, 200))
 		)
 		.WithLayer(
-			LayerBuilder.RectangleShape.Anchor(AnchorStyles.BottomLeft).Fill(Colors.Red).PaddingLeft(150).Width(300).Height(30)
+			LayerBuilder.RectangleShape.Anchor(AnchorStyles.BottomLeft)
+                .AnchorPadding(Unit.Percentage(10))
+                .Fill(Colors.Red).PaddingLeft(150).Width(300).Height(30)
 		)
 		.WithLayer(
 			LayerBuilder.Text.Text("Hello world").ForeColor(Colors.Blue).FontBold()
-				.Height(30).Anchor(AnchorStyles.BottomRight).PaddingRight(5)
+				.Height(30).Anchor(AnchorStyles.BottomRight)
+                .AnchorPadding(Unit.Percentage(10))
 		)
 	)
 </p>

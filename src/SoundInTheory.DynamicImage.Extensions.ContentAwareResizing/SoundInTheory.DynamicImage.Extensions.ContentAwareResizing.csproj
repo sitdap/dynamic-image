@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SoundInTheory.OpenSource.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -57,6 +63,7 @@
     <None Include="SoundInTheory.DynamicImage.Extensions.ContentAwareResizing.nuspec" />
     <None Include="Resources\GPL.txt" />
     <None Include="Resources\ReadMe.txt" />
+    <None Include="SoundInTheory.OpenSource.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">

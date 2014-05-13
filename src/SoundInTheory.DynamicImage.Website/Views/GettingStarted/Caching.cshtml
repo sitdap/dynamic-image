@@ -19,11 +19,11 @@
 	&lt;/configSections&gt;
 	&lt;soundInTheory&gt;
 		&lt;dynamicImage&gt;
-			&lt;caching mode="Custom" customProvider="XmlCacheProvider" storeMissingImagesInCache="false"
-				cachePath="~/MyCustomCacheFolder"&gt;
+			&lt;caching mode="Custom" customProvider="XmlCacheProvider" storeMissingImagesInCache="false"&gt;
 				&lt;providers&gt;
 					&lt;add name="XmlCacheProvider"
-						type="SoundInTheory.DynamicImage.Caching.XmlCacheProvider, SoundInTheory.DynamicImage" /&gt;
+						type="SoundInTheory.DynamicImage.Caching.XmlCacheProvider, SoundInTheory.DynamicImage"
+						cachePath="~/MyCustomCacheFolder" /&gt;
 				&lt;/providers&gt;
 			&lt;/caching&gt;
 		&lt;/dynamicImage&gt;

@@ -40,6 +40,15 @@ namespace $namespace$.App_Start
 }
 </pre>
 
+<p>For DynamicImage to work correctly, all requests - not just page requests - must be processed by ASP.NET.
+For IIS Integrated Mode, make sure you have this line in your <code>web.config</code>:</p>
+
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  &lt;modules runAllManagedModulesForAllRequests="true" /&gt;
+&lt;/system.webServer&gt;
+</pre>
+
 <h2>DynamicImage.Mvc</h2>
 
 <p>The <a href="http://nuget.org/packages/DynamicImage.Mvc/">DynamicImage.Mvc</a> package adds an HtmlHelper extension method, <code>DynamicImageTag</code>. 

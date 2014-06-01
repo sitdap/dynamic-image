@@ -1,5 +1,6 @@
 # DynamicImage
 
+[![Build status](https://ci.appveyor.com/api/projects/status/ebn0c9gj1u852qnh)](https://ci.appveyor.com/project/tgjones/dynamic-image)
 
 This is the source code repository for DynamicImage, an open source image manipulation library for ASP.NET.
 DynamicImage helps you simplify the way you deal with images in your ASP.NET websites.

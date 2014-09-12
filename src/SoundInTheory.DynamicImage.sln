@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{03D5B727-F636-422F-8F0B-D08EFC32E029}"
 	ProjectSection(SolutionItems) = preProject
+		..\appveyor.yml = ..\appveyor.yml
 		..\CHANGELOG.markdown = ..\CHANGELOG.markdown
+		..\README.markdown = ..\README.markdown
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage", "SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj", "{15F7FF82-B018-42E0-A94D-2CAAE491C248}"

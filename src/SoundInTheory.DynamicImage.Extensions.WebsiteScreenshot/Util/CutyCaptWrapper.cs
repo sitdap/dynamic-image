@@ -61,9 +61,12 @@ namespace SoundInTheory.DynamicImage.Util
 			using (Process scr = Process.Start(info))
 			{
 				bool result = scr.WaitForExit(timeout);
-				if (!result)
-					scr.Kill();
-				return result;
+			    if (!result)
+			    {
+			        scr.Kill();
+                    scr.WaitForExit(timeout);
+			    }
+			    return result;
 			}
 		}
 	}

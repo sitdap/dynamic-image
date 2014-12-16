@@ -48,26 +48,45 @@ namespace SoundInTheory.DynamicImage.Util
 				return false;
 
             string runArguments = " --url=" + url + " --out=" + destinationFile + CutyCaptDefaultArguments + " --min-width=" + width;
+            
+			using (var process = new Process())
+			{
+			    //process.StartInfo.WorkingDirectory = CutyCaptWorkingDirectory;
+			    process.StartInfo.FileName = _cutyCaptPath;
+			    process.StartInfo.Arguments = runArguments;
 
-            var info = new ProcessStartInfo(_cutyCaptPath, runArguments)
-			{
-				UseShellExecute = false,
-				RedirectStandardInput = true,
-				RedirectStandardError = true,
-				RedirectStandardOutput = true,
-				CreateNoWindow = true,
-				//WorkingDirectory = CutyCaptWorkingDirectory;
-			};
-			using (Process scr = Process.Start(info))
-			{
-				bool result = scr.WaitForExit(timeout);
+			    process.StartInfo.UseShellExecute = false;
+				process.StartInfo.RedirectStandardError = true;
+				process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.CreateNoWindow = true;
+
+			    process.OutputDataReceived += OnProcessDataReceived;
+                process.ErrorDataReceived += OnProcessDataReceived;
+
+                process.EnableRaisingEvents = true;
+
+			    process.Start();
+
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+
+                bool result = process.WaitForExit(timeout);
 			    if (!result)
 			    {
-			        scr.Kill();
-                    scr.WaitForExit(timeout);
+                    process.Kill();
+                    process.WaitForExit(timeout);
 			    }
+
+                process.OutputDataReceived -= OnProcessDataReceived;
+                process.ErrorDataReceived -= OnProcessDataReceived;
+
 			    return result;
 			}
 		}
+
+	    private static void OnProcessDataReceived(object sender, DataReceivedEventArgs e)
+	    {
+	        Trace.WriteLine("CutyCapt output: " + e.Data);
+	    }
 	}
 }

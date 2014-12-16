@@ -8,7 +8,7 @@
 <pre class="prettyprint">
 @@Html.DynamicImageTag(b => b.WithLayer(
 	new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com")
-		.Timeout(3000).BrowserWidth(1024)
+		.Timeout(15000).BrowserWidth(1024)
 		.WithFilter(FilterBuilder.Resize.ToWidth(500))
 		.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.Black))
 		.WithFilter(FilterBuilder.DropShadow)
@@ -17,7 +17,8 @@
 
 <p>
 	@Html.DynamicImageTag(b => b.WithLayer(
-		new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com").Timeout(3000).BrowserWidth(1024)
+		new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com")
+            .Timeout(15000).BrowserWidth(1024)
 			.WithFilter(FilterBuilder.Resize.ToWidth(500))
 			.WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.Black))
 			.WithFilter(FilterBuilder.DropShadow)

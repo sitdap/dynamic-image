@@ -73,6 +73,7 @@ namespace SoundInTheory.DynamicImage.Util
                 bool result = process.WaitForExit(timeout);
 			    if (!result)
 			    {
+                    Trace.WriteLine("CutyCapt process timed out; exiting");
                     process.Kill();
                     process.WaitForExit(timeout);
 			    }

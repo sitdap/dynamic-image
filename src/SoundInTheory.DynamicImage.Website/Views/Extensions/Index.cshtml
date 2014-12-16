@@ -53,7 +53,7 @@
 	<li class="span3">
 		<div class="thumbnail">
 			@Html.DynamicImageTag(b => b.WithLayer(
-				new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com").Timeout(3000).BrowserWidth(1024)
+				new WebsiteScreenshotLayerBuilder().WebsiteUrl("http://www.apple.com").Timeout(15000).BrowserWidth(1024)
 				                                   .WithFilter(FilterBuilder.Resize.ToWidth(260))
 				                                   .WithFilter(FilterBuilder.Crop.To(260, 180))
 				                                   .WithFilter(FilterBuilder.Border.Width(1).Fill(Colors.LightGray))
